@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "formulatebench"
+version = "1.0.0"
+description = "A benchmark for black-box optimization of plant-based formulations"
+readme = "formulateBench/README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Anna Thomas and collaborators"}]
+dependencies = ["numpy>=1.24"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.scripts]
+formulatebench = "formulatebench.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+paper = [
+  "torch==2.13.0",
+  "botorch==0.18.1",
+  "gpytorch==1.15.2",
+  "pyro-ppl==1.9.1",
+  "numpy==2.5.1",
+  "pandas==3.0.5",
+  "matplotlib==3.11.1",
+  "scipy==1.18.0",
+  "scikit-learn==1.9.1",
+  "requests==2.32.5",
+]
+
+[tool.setuptools]
+package-dir = {"" = "formulateBench"}
+
+[tool.setuptools.packages.find]
+where = ["formulateBench"]
+include = ["formulatebench*"]
+
+[tool.setuptools.package-data]
+formulatebench = ["data/*.csv", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["formulateBench/tests", "deployment"]

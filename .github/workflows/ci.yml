@@ -1,0 +1,32 @@
+name: release checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # The pinned paper stack (numpy 2.5.1, scipy 1.18.0) needs Python >= 3.12.
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install benchmark, paper stack, and tests
+        # verify_paper_claims.py imports scipy and matplotlib (via analyze_regimes.py)
+        run: python -m pip install -e '.[paper,test]'
+      - name: Run public API and release-integrity tests
+        run: python -m pytest -q formulateBench/tests
+      - name: Verify camera-ready claims
+        run: python verify_paper_claims.py --strict
+      - name: Exercise CLI
+        run: |
+          formulatebench describe dairy/yogurt
+          formulatebench evaluate dairy/yogurt examples/yogurt_recipe.json
+          python quickstart_formulatebench.py --budget 4

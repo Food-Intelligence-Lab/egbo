@@ -1,0 +1,464 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based chicken nuggets. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"soy milk\",\"fraction\":0.18},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.15},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02}],\"target_dissimilarity\":0.27805726459317437}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll systematically explore the ingredient space to find a good plant-based chicken nugget formulation. Let me start by analyzing the first result and testing variations.\n\nThe first formulation got 0.278. Let me think about what real chicken nuggets contain: breaded coating (breadcrumbs, flour), protein (chicken \u2192 soy/pea protein, TVP, mycoprotein), fat (oil), moisture, binders, salt/flavors.\n\nLet me try several diverse formulations to understand the landscape:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_018AgwwYo5tSkSUFJ7LPQm56",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.25},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.15},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.12},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"wheat gluten\",\"fraction\":0.08},{\"ingredient\":\"flavours\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.04}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01CNfGmV7PXmD3NFMrUo64bS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.25},{\"ingredient\":\"wheat gluten\",\"fraction\":0.15},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"canola oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"soy milk\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_018AgwwYo5tSkSUFJ7LPQm56",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.34101550034199596, \"evaluations_remaining\": 18}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01CNfGmV7PXmD3NFMrUo64bS",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.2532651060966881, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Pea protein formulation is better (0.253). Let me explore further variations around this.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01QZB727zDSmcwr8ce2seZGB",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.3},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"canola oil\",\"fraction\":0.12},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.08},{\"ingredient\":\"flavours\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.03}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_017Hvc5hd3AjT7wmZ8KqwC4s",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QZB727zDSmcwr8ce2seZGB",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.22834576111094568, \"evaluations_remaining\": 16}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_017Hvc5hd3AjT7wmZ8KqwC4s",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.15809309463673976, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Big improvement with iteration 5 (0.158)! More soy milk & flavourings helps. Let me push this direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HFeUCrxDgu6RWSqTCtbMKa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.17},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"flavours\",\"fraction\":0.06},{\"ingredient\":\"yeast extract\",\"fraction\":0.06}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01Ern5eqyG3bkHb1bF2h1KyC",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.25},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat flour\",\"fraction\":0.12},{\"ingredient\":\"sunflower oil\",\"fraction\":0.12},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.1},{\"ingredient\":\"flavours\",\"fraction\":0.025},{\"ingredient\":\"yeast extract\",\"fraction\":0.025}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HFeUCrxDgu6RWSqTCtbMKa",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.2734630214335596, \"evaluations_remaining\": 14}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Ern5eqyG3bkHb1bF2h1KyC",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.24820991547064905, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Both worse than iter 5 (0.158). So iter 5 is a local optimum. Interesting - increasing soy milk/flavors further hurt, and decreasing them hurt too. Let me carefully probe nearby iter 5.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Nubnp8civDKt6TBm8fZCjV",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Iter 5 best: 0.158\\n# soy protein concentrate 0.22, wheat gluten 0.12, breadcrumbs 0.18, wheat flour 0.10,\\n# sunflower oil 0.10, methylcellulose 0.03, soy milk 0.15, flavours 0.05, yeast extract 0.05\\n# Iter 6 (worse 0.273): more soy milk (0.20) and more flavors/yeast (0.06/0.06)\\n# Iter 7 (worse 0.248): less soy milk (0.10) and less flav/yeast (0.025/0.025)\\n# Suggests current proportions are near a sweet spot. Try tweaks on other dimensions.\\nprint(\\\"ok\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Nubnp8civDKt6TBm8fZCjV",
+"content": "ok\n"
+},
+{
+"role": "assistant",
+"content": "Let me try tweaks: maybe swap sunflower oil for canola, try adding a touch of liquid smoke/garlic/onion to enhance chicken flavor, try slightly different oil amount.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01MV6uYxrZAWCSnrjk1zFsMJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"canola oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01CyhVUGDBtVLqwojt2jLKDp",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"flavours\",\"fraction\":0.06},{\"ingredient\":\"yeast extract\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MV6uYxrZAWCSnrjk1zFsMJ",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.2534659510814401, \"evaluations_remaining\": 12}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01CyhVUGDBtVLqwojt2jLKDp",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.2605576409145608, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Both worse than 0.158. There's noise, but the sunflower oil version from iter 5 seems robust. Let me try bigger changes: substitute some soy items or try adding onion/garlic with iter 5 as base.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01QXKMjntAhsat1mdqVHgB5N",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"onion\",\"fraction\":0.07}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_014StbepZr6N5xN8jP7DL5Kz",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"flavours\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.04}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QXKMjntAhsat1mdqVHgB5N",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.3262165528848753, \"evaluations_remaining\": 10}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014StbepZr6N5xN8jP7DL5Kz",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.18766457010594062, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Adding onion hurt (0.326). Iter 11 with slight tweak (more breadcrumbs, less flav/yeast) got 0.188 \u2014 not as good as iter 5's 0.158 but close. Let me try yet different tweaks keeping iter 5 structure.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HegBihMbWWnQmeDzEB2okm",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.24},{\"ingredient\":\"wheat gluten\",\"fraction\":0.14},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.04}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01F3wHuZWXBi3bLSKmsW5ceq",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"soy milk\",\"fraction\":0.16},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HegBihMbWWnQmeDzEB2okm",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.2656509885799744, \"evaluations_remaining\": 8}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01F3wHuZWXBi3bLSKmsW5ceq",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.174818269019639, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HjqmctZ4dBibRadsH3qUzD",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Summary of results\\nresults = [\\n    (0.278, \\\"iter1: SPC 0.28, soy milk 0.18, breadcrumbs 0.15, WG 0.12, sunoil 0.10, WF 0.10, MC 0.03, flav 0.02, YE 0.02\\\"),\\n    (0.341, \\\"iter2: TVP\\\"),\\n    (0.253, \\\"iter3: pea protein\\\"),\\n    (0.228, \\\"iter4: pea protein higher\\\"),\\n    (0.158, \\\"iter5: SPC 0.22, WG 0.12, bc 0.18, WF 0.10, sunoil 0.10, MC 0.03, soymilk 0.15, flav 0.05, YE 0.05\\\"),\\n    (0.273, \\\"iter6: more soymilk/flav\\\"),\\n    (0.248, \\\"iter7: less soymilk/flav\\\"),\\n    (0.253, \\\"iter8: canola instead of sunflower\\\"),\\n    (0.261, \\\"iter9: less oil, more flav\\\"),\\n    (0.326, \\\"iter10: added onion\\\"),\\n    (0.188, \\\"iter11: more bc, less flav/YE\\\"),\\n    (0.266, \\\"iter12: more SPC+WG\\\"),\\n    (0.175, \\\"iter13: less WG, more MC, more soymilk\\\"),\\n]\\nfor r in sorted(results):\\n    print(r)\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HjqmctZ4dBibRadsH3qUzD",
+"content": "(0.158, 'iter5: SPC 0.22, WG 0.12, bc 0.18, WF 0.10, sunoil 0.10, MC 0.03, soymilk 0.15, flav 0.05, YE 0.05')\n(0.175, 'iter13: less WG, more MC, more soymilk')\n(0.188, 'iter11: more bc, less flav/YE')\n(0.228, 'iter4: pea protein higher')\n(0.248, 'iter7: less soymilk/flav')\n(0.253, 'iter3: pea protein')\n(0.253, 'iter8: canola instead of sunflower')\n(0.261, 'iter9: less oil, more flav')\n(0.266, 'iter12: more SPC+WG')\n(0.273, 'iter6: more soymilk/flav')\n(0.278, 'iter1: SPC 0.28, soy milk 0.18, breadcrumbs 0.15, WG 0.12, sunoil 0.10, WF 0.10, MC 0.03, flav 0.02, YE 0.02')\n(0.326, 'iter10: added onion')\n(0.341, 'iter2: TVP')\n"
+},
+{
+"role": "assistant",
+"content": "Iter 5 is best at 0.158. Iter 13 (0.175) with slightly less WG and more MC/soymilk is second. There's noise, but iter 5's structure is solid. Let me do a small \"between iter 5 and iter 13\" interpolation, and another careful tweak. 7 evals remain.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_019kSeyC4Dgo7oAvmgtwWVe6",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.11},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.035},{\"ingredient\":\"soy milk\",\"fraction\":0.155},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01Cx9Wi3PQ2dHf2mfC5jrvXH",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_019kSeyC4Dgo7oAvmgtwWVe6",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.17343521962438546, \"evaluations_remaining\": 6}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Cx9Wi3PQ2dHf2mfC5jrvXH",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.2773811085746994, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Interesting! Reproducing iter 5 exactly gave 0.277 this time (vs 0.158 before). So there's significant noise in the evaluator! The \"0.158\" was lucky. Iter 14 and iter 13 both near 0.17, and iter 11 at 0.188 - these look reliably good.\n\nLet me think about this more carefully \u2014 the true mean of iter 5's formula might be ~0.22. I should perhaps try meaningful variations, e.g. try adding small amounts of a new ingredient like liquid smoke or garlic swap for something, or variants on breadcrumbs/wheat.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01AonsQMusahWAgbjfJdXcMv",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.11},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.035},{\"ingredient\":\"soy milk\",\"fraction\":0.14},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.045}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01GQeNXe1fji5kZjbZgVTjUc",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"soy milk\",\"fraction\":0.17},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.04}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01AonsQMusahWAgbjfJdXcMv",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.2188022941604675, \"evaluations_remaining\": 4}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01GQeNXe1fji5kZjbZgVTjUc",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.19430085577535963, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Both reasonable. Let me do another iter 5-like formula to see \u2014 with 3 evals left, let me commit to the best known structure and perhaps try one small tweak. The reliably-good ones hover 0.17\u20130.19.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HmoMK5A7Sxc1PHNUDgmHir",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.21},{\"ingredient\":\"wheat gluten\",\"fraction\":0.11},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.035},{\"ingredient\":\"soy milk\",\"fraction\":0.16},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.045}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HmoMK5A7Sxc1PHNUDgmHir",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.225610812439748, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_017CvtwhSMo24pE83NAdRSU4",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.11},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.035},{\"ingredient\":\"soy milk\",\"fraction\":0.155},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_017CvtwhSMo24pE83NAdRSU4",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.28199818646232216, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "High noise again. Let me use the final eval to retry the formula that gave the lowest score ever (iter 5) one more time \u2014 or use my best averaged estimate. Actually, given noise, let me try a slightly different one that might capture the optimum better (combining features of iter 13 and iter 17 both which scored well on different draws).",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_017uqN96qSMKU9RRikQqUNwG",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.21},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"soy milk\",\"fraction\":0.17},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.04}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_017uqN96qSMKU9RRikQqUNwG",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.1605887547247215, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "20"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2354,
+"completion_tokens": 681,
+"cost": 0.028795
+},
+{
+"prompt_tokens": 3236,
+"completion_tokens": 594,
+"cost": 0.03103
+},
+{
+"prompt_tokens": 3979,
+"completion_tokens": 613,
+"cost": 0.03522
+},
+{
+"prompt_tokens": 4741,
+"completion_tokens": 375,
+"cost": 0.03308
+},
+{
+"prompt_tokens": 5131,
+"completion_tokens": 637,
+"cost": 0.04158
+},
+{
+"prompt_tokens": 5917,
+"completion_tokens": 642,
+"cost": 0.045635
+},
+{
+"prompt_tokens": 6708,
+"completion_tokens": 663,
+"cost": 0.050115
+},
+{
+"prompt_tokens": 7519,
+"completion_tokens": 489,
+"cost": 0.04982
+},
+{
+"prompt_tokens": 8406,
+"completion_tokens": 675,
+"cost": 0.058905
+},
+{
+"prompt_tokens": 9230,
+"completion_tokens": 771,
+"cost": 0.065425
+},
+{
+"prompt_tokens": 10150,
+"completion_tokens": 369,
+"cost": 0.059975
+},
+{
+"prompt_tokens": 10572,
+"completion_tokens": 296,
+"cost": 0.06026
+},
+{
+"prompt_tokens": 10922,
+"completion_tokens": 399,
+"cost": 0.064585
+},
+{
+"prompt_tokens": 11428,
+"completion_tokens": 6,
+"cost": 0.05729
+}
+]
+}

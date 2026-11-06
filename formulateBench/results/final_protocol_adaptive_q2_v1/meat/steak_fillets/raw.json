@@ -1,0 +1,955 @@
+{
+  "config": {
+    "category": "steak fillets",
+    "domain": "meat",
+    "n_ingredients": 106,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "egg white",
+      "egg whites",
+      "fat",
+      "milk",
+      "milk proteins"
+    ],
+    "shared_initial_loss": 0.2723572657064986,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "wheat gluten",
+        "fraction": 0.32
+      },
+      {
+        "ingredient": "vegetable juice",
+        "fraction": 0.25
+      },
+      {
+        "ingredient": "soy protein isolate",
+        "fraction": 0.18
+      },
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.1
+      },
+      {
+        "ingredient": "sunflower oil",
+        "fraction": 0.05
+      },
+      {
+        "ingredient": "soy sauce",
+        "fraction": 0.04
+      },
+      {
+        "ingredient": "methylcellulose",
+        "fraction": 0.03
+      },
+      {
+        "ingredient": "yeast extract",
+        "fraction": 0.03
+      }
+    ],
+    "shared_initial_support": [
+      "wheat gluten",
+      "vegetable juice",
+      "soy protein isolate",
+      "coconut oil",
+      "sunflower oil",
+      "soy sauce",
+      "methylcellulose",
+      "yeast extract"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2322118574885155,
+          -0.22942324379786114,
+          -0.22942324379786114,
+          -0.2094483890889292,
+          -0.2094483890889292,
+          -0.2094483890889292,
+          -0.2094483890889292,
+          -0.18972856936838,
+          -0.18972856936838,
+          -0.18972856936838,
+          -0.15927058281352013,
+          -0.15927058281352013,
+          -0.15927058281352013
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.38182635258817804,
+          -0.29717238924617784,
+          -0.40642035463058584,
+          -0.44270792609583515,
+          -0.300589165659206,
+          -0.32187464692678364,
+          -0.2322118574885155,
+          -0.22942324379786114,
+          -0.23520515192231345,
+          -0.2094483890889292,
+          -0.2567477369747611,
+          -0.23369827551010033,
+          -0.30373481861985296,
+          -0.18972856936838,
+          -0.2027204739861832,
+          -0.2716427924229784,
+          -0.15927058281352013,
+          -0.1846448997622943,
+          -0.1636712071931367
+        ],
+        "final_best": -0.15927058281352013,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "textured vegetable protein"
+            ],
+            "additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot juice\",\"textured vegetable protein\"]}\n\nWait, I need to check the catalog. \"beetroot juice\" isn't listed. Let me reconsider.\n\n{\"additions\":[\"textured vegetable protein\",\"liquid smoke\"]}",
+            "parsed_additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.11823019150956761,
+          -0.11823019150956761,
+          -0.10637395092976396,
+          -0.10637395092976396,
+          -0.10637395092976396,
+          -0.10637395092976396,
+          -0.10637395092976396,
+          -0.09398458407973208,
+          -0.09398458407973208,
+          -0.09398458407973208,
+          -0.09398458407973208,
+          -0.09398458407973208,
+          -0.09398458407973208,
+          -0.09398458407973208,
+          -0.09398458407973208
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.3894282712861606,
+          -0.4051252756894301,
+          -0.31580750236209204,
+          -0.3708582568635364,
+          -0.11823019150956761,
+          -0.36291361000539807,
+          -0.10637395092976396,
+          -0.18947833687869323,
+          -0.16130270350566184,
+          -0.12964478282918912,
+          -0.14323665057418553,
+          -0.09398458407973208,
+          -0.24392626869262007,
+          -0.20484600595665522,
+          -0.10382625152162192,
+          -0.10670595641875097,
+          -0.10201678824012303,
+          -0.1232927040737888,
+          -0.13486997016005284
+        ],
+        "final_best": -0.09398458407973208,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "textured vegetable protein"
+            ],
+            "additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"methylcellulose\",\"textured vegetable protein\"]}\n\nWait, methylcellulose is already active. Let me reconsider.\n\n{\"additions\":[\"textured vegetable protein\",\"beet juice\"]}\n\nLet me check catalog carefully - \"beet juice\" not available. Best bets for steak: textured vegetable protein (fibrous texture) and something for color/binding.\n\n{\"additions\":[\"textured vegetable protein\",\"carrageenan\"]}",
+            "parsed_additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.1797839876428061,
+          -0.1797839876428061,
+          -0.1797839876428061,
+          -0.10651716428366662,
+          -0.10651716428366662,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.10436654649158617,
+          -0.09221993765150162,
+          -0.09221993765150162
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.37694513359584714,
+          -0.5125131405957217,
+          -0.1797839876428061,
+          -0.26519921203365954,
+          -0.2690673608035184,
+          -0.10651716428366662,
+          -0.23176034782360685,
+          -0.10436654649158617,
+          -0.12965354706762416,
+          -0.144279461485872,
+          -0.12361912940150507,
+          -0.10966859381297592,
+          -0.19741733277852944,
+          -0.18199292723506216,
+          -0.18001911384242775,
+          -0.21653742514527155,
+          -0.17555842959082338,
+          -0.09221993765150162,
+          -0.15383234593401052
+        ],
+        "final_best": -0.09221993765150162,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "natural vegetable color"
+            ],
+            "additions": [
+              "natural vegetable color"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot juice\",\"natural vegetable color\"]}\n\nWait, I need to check the catalog. \"beetroot juice\" isn't listed. Let me reconsider.\n\n{\"additions\":[\"natural vegetable color\",\"tomato paste\"]}",
+            "parsed_additions": [
+              "natural vegetable color"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.16440945786332567,
+          -0.1287055922754824,
+          -0.1287055922754824,
+          -0.1287055922754824,
+          -0.1287055922754824,
+          -0.1287055922754824,
+          -0.1284611258025147,
+          -0.09713850703321389,
+          -0.08078654378378283,
+          -0.08078654378378283,
+          -0.08078654378378283,
+          -0.08078654378378283,
+          -0.08078654378378283,
+          -0.08078654378378283,
+          -0.08078654378378283
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.4035880199796064,
+          -0.29244547594161346,
+          -0.3818760903684998,
+          -0.2926595818071797,
+          -0.16440945786332567,
+          -0.1287055922754824,
+          -0.3035501841505997,
+          -0.20777974165891222,
+          -0.18677883894493447,
+          -0.27134437712055326,
+          -0.1284611258025147,
+          -0.09713850703321389,
+          -0.08078654378378283,
+          -0.10391480125897892,
+          -0.10736715950525749,
+          -0.083943359909889,
+          -0.3146666674974668,
+          -0.1015829031906831,
+          -0.2507157472098695
+        ],
+        "final_best": -0.08078654378378283,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "tomato paste"
+            ],
+            "additions": [
+              "tomato paste"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot\",\"tomato paste\"]}\n\nWait, I need to check the catalog. \"beetroot\" isn't listed. Let me revise.\n\n{\"additions\":[\"tomato paste\",\"natural vegetable color\"]}",
+            "parsed_additions": [
+              "tomato paste"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.24503166411697078,
+          -0.24503166411697078,
+          -0.1843268330695968,
+          -0.1843268330695968,
+          -0.1843268330695968,
+          -0.1843268330695968,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.14261804226595362,
+          -0.13449075668846686,
+          -0.13449075668846686,
+          -0.13449075668846686,
+          -0.13449075668846686
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.24503166411697078,
+          -0.3748514954853828,
+          -0.1843268330695968,
+          -0.45028345989567986,
+          -0.29588704383630265,
+          -0.20246225597998985,
+          -0.14261804226595362,
+          -0.332607064416131,
+          -0.29333966030935094,
+          -0.1668736973278121,
+          -0.14502542343479516,
+          -0.21124495567763626,
+          -0.16658260944870265,
+          -0.1786960537346249,
+          -0.14454191453867313,
+          -0.13449075668846686,
+          -0.141995178325168,
+          -0.14303007072009993,
+          -0.14345583184542665
+        ],
+        "final_best": -0.13449075668846686,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "mycoprotein"
+            ],
+            "additions": [
+              "mycoprotein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot juice\",\"mycoprotein\"]}\n\nWait, I need to use exact catalog names. Let me reconsider.\n\n{\"additions\":[\"mycoprotein\",\"tomato paste\"]}",
+            "parsed_additions": [
+              "mycoprotein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.1919904253810656,
+          -0.1919904253810656,
+          -0.1919904253810656,
+          -0.18525303969006332,
+          -0.17460250701054875,
+          -0.17460250701054875,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.15236543044745504,
+          -0.14951244459078084
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.42510482555561085,
+          -0.27335580794250186,
+          -0.1919904253810656,
+          -0.28759208836480354,
+          -0.3795939593952112,
+          -0.18525303969006332,
+          -0.17460250701054875,
+          -0.27541585267650726,
+          -0.15236543044745504,
+          -0.24922410088982552,
+          -0.18595170640446249,
+          -0.31302057179292014,
+          -0.21297048821073317,
+          -0.2086811403449107,
+          -0.17205722819538438,
+          -0.35866451389570303,
+          -0.2006707547496149,
+          -0.18682797819525113,
+          -0.14951244459078084
+        ],
+        "final_best": -0.14951244459078084,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "tomato paste"
+            ],
+            "additions": [
+              "tomato paste"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot\",\"tomato paste\"]}\n\nWait, I need to check the catalog. \"beetroot\" is not in the list. Let me reconsider.\n\n{\"additions\":[\"tomato paste\",\"liquid smoke\"]}",
+            "parsed_additions": [
+              "tomato paste"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.2428066096015009,
+          -0.16408255069415906,
+          -0.16408255069415906,
+          -0.16408255069415906,
+          -0.16408255069415906,
+          -0.16408255069415906,
+          -0.16408255069415906,
+          -0.14927463143409497,
+          -0.14927463143409497,
+          -0.14927463143409497
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.2428066096015009,
+          -0.471396154200599,
+          -0.3057489010655462,
+          -0.43652787192733894,
+          -0.2921120347960751,
+          -0.270048869623298,
+          -0.28522768873191423,
+          -0.2700976986403405,
+          -0.2919816444242757,
+          -0.3179999175915027,
+          -0.16408255069415906,
+          -0.18159015281312557,
+          -0.16907124137224658,
+          -0.20640234693246728,
+          -0.22999089158534222,
+          -0.2732020141814852,
+          -0.14927463143409497,
+          -0.16866395954520852,
+          -0.1564480838814865
+        ],
+        "final_best": -0.14927463143409497,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "natural vegetable color"
+            ],
+            "additions": [
+              "natural vegetable color"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot\",\"natural vegetable color\"]}\n\nWait, I need to check the catalog. \"beetroot\" isn't listed. Let me reconsider.\n\n{\"additions\":[\"natural vegetable color\",\"liquid smoke\"]}",
+            "parsed_additions": [
+              "natural vegetable color"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.17978367424563907,
+          -0.17978367424563907,
+          -0.12125060031285446,
+          -0.12125060031285446,
+          -0.12125060031285446,
+          -0.12125060031285446,
+          -0.12125060031285446,
+          -0.12125060031285446,
+          -0.12125060031285446,
+          -0.09701658656320639,
+          -0.09701658656320639
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.3999295542130207,
+          -0.274382635119909,
+          -0.3004575628825086,
+          -0.3481309975950471,
+          -0.3017976290143098,
+          -1.2814576214528035,
+          -0.277603724397179,
+          -0.30827184700646754,
+          -0.17978367424563907,
+          -0.5244688684232546,
+          -0.12125060031285446,
+          -0.23412290562305027,
+          -0.17817531846734994,
+          -0.15600539052611778,
+          -0.1369956978805581,
+          -0.5161428639107221,
+          -0.21064103976728737,
+          -0.09701658656320639,
+          -0.13403848654984693
+        ],
+        "final_best": -0.09701658656320639,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "mushroom mycelium"
+            ],
+            "additions": [
+              "mushroom mycelium"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot juice\",\"mushroom mycelium\"]}\n\nWait, I need to check the catalog. \"beetroot juice\" isn't in the list. Let me reconsider.\n\n{\"additions\":[\"mushroom mycelium\",\"liquid smoke\"]}",
+            "parsed_additions": [
+              "mushroom mycelium"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.21006756517893319,
+          -0.16039266718119438,
+          -0.15997076039690272,
+          -0.15997076039690272,
+          -0.15997076039690272,
+          -0.15997076039690272,
+          -0.15408328642470231,
+          -0.15408328642470231,
+          -0.15408328642470231,
+          -0.13727592834735416
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.21006756517893319,
+          -0.3017820327869388,
+          -0.3217393790431069,
+          -0.341159307662547,
+          -0.34598046968969576,
+          -0.2947192357796167,
+          -0.3028255861043633,
+          -0.2985383778842216,
+          -0.3017976290143098,
+          -0.45906163784433657,
+          -0.16039266718119438,
+          -0.15997076039690272,
+          -0.22962685729754553,
+          -0.2206359936475273,
+          -0.25033955573224304,
+          -0.15408328642470231,
+          -0.15632236077142514,
+          -0.16414843038631693,
+          -0.13727592834735416
+        ],
+        "final_best": -0.13727592834735416,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "textured vegetable protein"
+            ],
+            "additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot juice\",\"textured vegetable protein\"]}\n\nWait, I need to only use catalog names. Let me reconsider.\n\n{\"additions\":[\"textured vegetable protein\",\"liquid smoke\"]}",
+            "parsed_additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.2723572657064986,
+          -0.15166718109061708,
+          -0.15166718109061708,
+          -0.15166718109061708,
+          -0.15166718109061708,
+          -0.15166718109061708,
+          -0.12984627285633593,
+          -0.12984627285633593,
+          -0.12984627285633593,
+          -0.12984627285633593,
+          -0.10290470765026459,
+          -0.10290470765026459,
+          -0.10290470765026459,
+          -0.10290470765026459,
+          -0.10290470765026459,
+          -0.10290470765026459
+        ],
+        "all_y": [
+          -0.2723572657064986,
+          -0.27435652090326906,
+          -0.3753429882575391,
+          -0.39187281059726287,
+          -0.3302814985392173,
+          -0.15166718109061708,
+          -0.2862368519877462,
+          -0.23686771013162775,
+          -0.1814628382280303,
+          -0.23028832321358136,
+          -0.12984627285633593,
+          -0.2569414653209064,
+          -0.16548939362663387,
+          -0.2782073070755228,
+          -0.10290470765026459,
+          -0.12594447563965455,
+          -0.1232727039518265,
+          -0.22381442555214473,
+          -0.14033705286364795,
+          -0.11166326198774992
+        ],
+        "final_best": -0.10290470765026459,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "wheat gluten",
+              "vegetable juice",
+              "soy protein isolate",
+              "coconut oil",
+              "sunflower oil",
+              "soy sauce",
+              "methylcellulose",
+              "yeast extract",
+              "textured vegetable protein"
+            ],
+            "additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"beetroot juice\",\"textured vegetable protein\"]}\n\nWait, I need to check the catalog. Beetroot juice isn't listed. Let me reconsider.\n\n{\"additions\":[\"textured vegetable protein\",\"tomato paste\"]}",
+            "parsed_additions": [
+              "textured vegetable protein"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

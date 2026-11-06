@@ -1,0 +1,631 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based barista milk. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.78},{\"ingredient\":\"oat milk\",\"fraction\":0.165},{\"ingredient\":\"glucose syrup\",\"fraction\":0.032},{\"ingredient\":\"sunflower oil\",\"fraction\":0.018},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}],\"target_dissimilarity\":0.015087076814638459}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_kTn3mZznSvMiPLeU6pB7IYZ4",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.9},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.032},{\"ingredient\":\"sunflower oil\",\"fraction\":0.018},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_kTn3mZznSvMiPLeU6pB7IYZ4",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": -0.015121856246444201, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_54f4KRrfhgyyo0Nvd0KVFTZV",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.945},{\"ingredient\":\"glucose syrup\",\"fraction\":0.032},{\"ingredient\":\"sunflower oil\",\"fraction\":0.018},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_54f4KRrfhgyyo0Nvd0KVFTZV",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.20109250388742572, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_ivUopNb2pV9HjqTVX3FBhXec",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.86},{\"ingredient\":\"oat milk\",\"fraction\":0.085},{\"ingredient\":\"glucose syrup\",\"fraction\":0.032},{\"ingredient\":\"sunflower oil\",\"fraction\":0.018},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Exploring optimal mixtures**\n\nI'm thinking about an interesting optimum mixture at 90% and wondering if I should explore this further, especially the aspects of noisy strong nonlinearity. There seems to be a lot to consider here! I'm curious how these factors play together. Should I dive deeper into this topic or focus on specific elements? It's a bit intricate, but that\u2019s where the exploration often leads to fascinating insights. Let's keep investigating!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MXlPV-19TdW1iH2g087oFwywCspsx_jslQ7bs3PDi6dji_MJPcErnWEFp6koKJMBEPELOOZsArykxWqTR2tEgE_ZBdb7wxAwdVT_iBKAkAAFOLtOUX2I5dUIe8QjN4RfNYdE3ay2M_QfhXQkeQZw0jT4tlQC8ACXWkqv1sEeX-zlylVwAkVZEqjBRdSKgtpbAEGfG3OQne4lKyQVMPkndUgIzJCFKm9vCMekpdWUn39yTVZhhqZeqxqCgbygbgG3l-0HrEZI_pVuXif3uGXg2gowAQogoGZ9Cm-G7Ay6aR0XlnbRM2u8lv_JzgrZAQSdEZ0F2q-2tskjTDefVEfMsxNxUPFzDgbGHA0TWEXyDeq2UY7wbhYcV6jvnqybr4cHUvD7YT5VwdWR7O7msUKK_DJpnh4sQzTUK-s2IW4eiaiIuBJbpXoM2xGSd9rxLhjnlIbzgxQ2st4HUYp2LKLhv1bhuKjZqgu-Lq5c4LcALR_txR1xX1f8M9-sGtt09IunoXHgmsmYIqbYPpDTyTWmUvb7Pv99ZLXRS9vtjqIaZa8hvhJp8HcuLEHDfd_BNG_4MOqLcz39AyXlpWsgIGFPUtsTT64e9GHOHwQBu7d4jC9j1JRPwtBBwv2_IsSy-vyI-0HPO3yjoH16tj5Lm9rgvnHH60rBXOaz_anbCv56usEy5-7DbnKB4NswUIX47MoHHXR-2Ik0VLlli0UceBRICMDBeoesocxjrGakjoXMbK297e7Vw8gXEXujzCcQ7sQJ-QH12_ldpP6qxAgHtEYONxjHT62WLluaO6_f6YDlWngj79tYlVcBbO-9M7sZyjnlzAND8JEQPIYKOqo0a_NLkhrYHsLa0Gcf6HlNcfWSbknjyDopeG-W6GcO_1FeesppwpX65LLok5CW1ekjx1cptHdTqzAK2W4GyIiaSHk6fPgsKfH2gSeQ2QCcNtp912Pfmhez59Dpp_w3ViZqPFuN3O_WYBhBB7MgaIc0GcZtlR_Xo-jHJodLpMzx7W52BFqRe3XrbfeZ_sa9w7V6JW9LTYf0JvCXaHiKRD_lDE45tv6-3U1D4j2D3LURY0reilmmlUGGNoxRs1BFpqenaWd7zVYeQ5jWQj-u24xyJbFgGYG75XPAOxJgwtb_UoTAq5us8yGu8dTytfgdjJOdBcwEBwXtMrHYGhSKu6f7BMqV5rJuT2dFeDG6OD_SLDMUQqO_6phq6axni1jrgP94iMlTwZ8ND3Z6gcXnoQzJyxj4uekzHFYEOpxlqbi-LWxrll4O7_7NsB12NpNbk5z6QkVZjdqBVPNOFxmanWpjk_r60gKcjLsfM4ssUM4xUVWYftdz3EBsHdDn5zHDqI5o1fM9RYojwIR7uDfoRzWMmeQ4BmA7ibKGJmGTG0MK9L7bo4FvLqeypUiGf8tvuCrscoSkYlOchBSsOO37r4jXnEGgTNtb9s4LyFZOSk0-gZMl49s5R-0avXQ2SF__VkpMmThzEdcazQseOP6L1JFqX4b_mKTubwb3U0bIkIyhjIhwBY6ewX7S4tR1FW9ZE21m_UvLv6b5hKY1H8i6lOr4FzKg6E6C8sZ_7nayubc-QUQCsMCMvjkcPXkoA4h43xpWMn6IrNLoyWezTJ_K4rSpxPROXDt1JcSqGNTlWtTiMtglLCcRx7jKA2zAv8peN7FQC3l-o89Qn-mLk6PhfEPobG2S0etpn4NK6tyB2MiBqyP03AlxCCGCBQbrnjV_WLd80H_Xyoe9k0E3INpaLiU9-8l64BWsjmeS98wk3qjtXIxAi6P4UlHfDW6kxGjosDtq86xZZfvRL7e7JN-8iD4S_B7pB-z4rk=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc5e3474087d1a04a44878f7a8eb8",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_ivUopNb2pV9HjqTVX3FBhXec",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.1409119849952744, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_sdcny3m5qEyAyOE9kOpgeKw7",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.9},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Examining noise levels**\n\nI\u2019m thinking about the noise levels, which could be around 0.1 for normal noise. I need to take some time to examine this more closely to understand if it\u2019s within acceptable range or if there\u2019s something more significant going on. It\u2019s important to be thorough in my evaluation to ensure that everything is functioning correctly. Let\u2019s dive into it and see what I find!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MYaUM-Z90FbVjacsYz6WVQ-az9E-78xekw8dV3YbY-QUupGprgUywr-VbD-DXdfXd2yZKfAY9ACNcYerR1vTA5VSJxG8mYmgDbbIRCxf0pEqEdkDA8Nan66mGToYJgOySEMzCjaUEVobNybmWh64jU6BDt4OImrF7Lw1xeDRdf6aXZH4gRCKhKpbxnD6t4JE5pIe6LhatGW2uyFx24_N1OR-Uw1Kxx6gyG5eyBPhmP6Jokptw-KifY3RyajnfLdnRtT354_muQK8XOd7sOSCaUTTZoI7-HKueTS2CMnDnsKqiACRiLh9KuW_OVPrvM12XOk9eumeaMccSBR7tRrvMaWbFeGe1cqdm0GG6-J3UQ1AhDumLqakbCfArqPrtmNODG9JVZov4aWu0BIjoNjpB58K1-7HF6SnJRPq94fDCDi0hooreqJB0k4CyqAQYREojSQAnAxzEtCD1m_i9Ey0Z3G2pWmrXWy9tijXbSfyFeWkY2pjY3OmqMsywWBjoQzOL34tUUd8A5Yy2VFaZ5b0qtUUZHhBuZC_T6eQisXDGykOYDqksmQdU11HOYuzwJK1BD1uPBW5LkWZBliu1ZEcHCMkNWsYN-UFdGzt-MNHK6BxQDBXmSNgUDcBYAFvMjkThPsk9IoJbMZKdBWshEbPWFFhpS_NIh4FIhYXKEdgf4KF27Udg5wAFUeDbWHqfBIb2chUu2EuKtTXRsGM2rxRzPyY2u9VhIQgh0LASQcYnhMAJA9MBTqSBrmNVLdMCfomlbIfYKjby1hCl8-MkGf5T3RrfBSSeoVdXkC5KNJtv6RD3n3rvEagbxc9Zr3XUvw3orvXXY_0Y0IbdfH2khKLvtrpkfSoNzDRx-7nawxOENvj2mFbZu6JL21eLfQOrMRWqNJgILIUKlyLUZuRNNQaKiP2eYs2wUP4D_2vlkS3Wcy8V0FLTTfa4utL9b_DaMRcDfFCrvbJ2DEHNII6t_nAtq1DAspiEZ8Yw1PrNfy5oIs8AzG9m7tsYhGzAtVSh3AmLUHWSjU5wO06qWjSaZp0876ltOoFWxetXIvXBuuKVT4mfE3Qw1ktVumAUOe9VQcKKYhdQv7XNq3oNb8K1NijVw2NbxE1_mXpCEtVvvLOFGh67ECcn2B82z3TdW9ZiIFr3Ct1xOefPo_5Htmq_yY4-2lgHUa3MFYcl9HV6FJZ4Ht7TrDymj-f9t7FUIA7LJAziIqaYlOHzcB8WY35b0hUJqEv18VEq4HLSCgoOLS9sezqHUXz746uPBuZAgCTgoE--HoLw-5TuIVAqTxzPrFJ9XIXaK7sk5UF5gNyUBsadm9gjG14Kp4B8x36qT3GVltBLiYUeqBFvMG4Cpxwkq6nLaz_71NPltqC28W2Z1cAaKvjEyZu7u-DEGRv_NQkfDukhp4yIJqLbzPS-JXlzCkGEqXys46yVCxLmQeoViKcaBlD0BrDCZZJo4-zrecqZjEf0cpsZwhvzv70wNG21of4rZ7uSPto6nHKS2EqQcPmoWFvSskhc8XL4GmZC1Kdq6zk2dhHxQCRRAc1542wl9dwQumxvNik-ynASsrgCm7ekie6YW9Q6J6skv2hUlkiIi1OnDu6THxBcVC0NQSkfsO7PvYAT26J7wkQph-hk7AYlt6mVol6ihsdRSyvV7rgirPmGlvQelfq1R3dBwH8SFEbeoS-u6paUa6VlMp40cdL_hkjk2OTlIUcvUYstOaRmFx29tnYfgnmjWKlBX4eZnKDzel5MflWdiFeRYQVSsDSt2PGJA=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc618eb6887d19554329181734af4",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_sdcny3m5qEyAyOE9kOpgeKw7",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": -0.11218285303670107, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_aeuoNC1cldvIm1LOjToeJsEf",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.9},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.012},{\"ingredient\":\"sunflower oil\",\"fraction\":0.038},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_aeuoNC1cldvIm1LOjToeJsEf",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.20288380155945102, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_HCSydBEu5I5fJgIhiMoOJ3m7",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.89},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.032},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_HCSydBEu5I5fJgIhiMoOJ3m7",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.011434500463387717, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_y9aTjWQUk2ChIIoVneFmvnMr",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.9},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Considering noise reduction**\n\nI'm wondering if random noise at 0.1 could be a significant factor here. There might be an opportunity to improve something by removing \"gum,\" but I'm not entirely sure what context I'm missing. It feels like there's a lot to unpack! Maybe I should explore how reducing that noise could enhance things overall, or if there are other factors to consider. I'm curious about the impact this might have.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Ma6_Rfq7luwGWBhjKWRLCNnhB_yxqxUUByUNeFOZyOUYMN0lWU4UtGbrUS6RaFnyAueAuYuQyfL6rbRnQDm8puG2YSUx7zvk69_wJwmyq9Ovu2qtPODtrARLif8m_KsFKEpHW9wE7h8saNpkjCK3bW_yxWhRrs5-3DW-hv7i5z2G7PnY9m_52GTk80p52pIs_xCYLy9BPalROnxah8Qrn6jVnG8-F7V1dRLzE9-xUi5W7Zebz2S7ATtXsttsU7SG0FBBtaCKmQcHw58-wPzjQ_tyf9QdgRXQFMHj_yulT7JIzQFuUSl87UR-oTqCCN6i4HOiW9l0MiTdWMOoDchcE0S0v7H_8F5RwftuOrNSpMHEVOV7moFhyaHjQlSZRkb0Orjk4nsZPxVC4ApBXHqRUkxiyC47TzL5JQYX3ftJQ9T49ldqaSAnqqKpUaL5dCHMQPsj256Zsa7p0ptjh8lrUy52noNinVcHt4lsU-m3gA6tqTSFT-fOJtpCPwPLENrVLetPdRqmMfunas-ZWbXl3oTDSajcqeZhaU8FsZoaOOrJprB-wNDZI4Oac62sSbuukSjjpwxMnRroaTaJEw-0hFswrF9Dd2Qrlmw4U1GkU9vPaYD-u68KDU_ZLUWLN40b3V7OjCtxflZbx7g1RcKTl4vGvtFwU_N6yBSAC6QHsfjPrADyfpW7whrT_z01nz8OGkSvoPZXs3_w3seK4nIxXWao3KN04M-0lUf1IBNKBWlKAPykb9BuILGrj2UBzq6ia1RIlI1Luu9FWoilfIz8yYz5D6lTHoLLV_g4KxGFesYb0jRZd5EFlsfTqaLDk7Yfj3vu44tRF1Wx1_bHHJbrEt53nNLjGMrkudonNyFY53hDYlgc7-RzkvGOCRlLKHozUX66jb_f7kqh33fitcQJlVw229O9LleBIZKxf_Cl9IVj-AfRVhBq3OHR-5SxBWYgzbStbZz0yZavxfUouJHGfVX2ISoOq3Fem_hj5EWVMd46QNOd4EShyuCmlcBywEnnjyoQhoHW8j3bijxfx_PJR8vJt0KabhhQ7eH12REKsZEk4mMISgQWIn-mj1cc-3kxecXK0d1PPlc2oDvlxADlJDjHNcDgmFZ7EvuQe62J-yRu1pEvBIEnw5eZBlAY8b1zqNrIT7WHa0urbWrTHOReBolbk_33BazcCW7iBacgjYFSBd0MyepA56kBLO9n9o8XSie5ch31uAa98BN0MFn10cAXhuCWvW8_5tyrN0Lx9nczNV_esB1syYk7Bwk6LYIpQmmmi9lLzHpfeiIsX6XFfM2d-mXhHpkTa0OWbfbKVBkgBId_YZyHwBqKRgqXXvLkEWLE1I3pQi9xKmdEXa4VAhnWrLFc7V-oUyVSZd5bspneeJhmhM7Sfp2r9nUQGgFb9UuAxiS2tgQ9iWlpMyTjIyc9RMnmLM9tLgIUp-ZDAw6wwjOG_ghwB9o_1MFKrWbR9LzqmfxDelq1Vht5DXOmtmYA6O-JzthfzSLVAj2-sXU-8ARSPhzzsleBI5olZyzOF3FtnMGlA9_NY2g1k6Js5hCWIqOAFwcOte1Cm82uT3pAqteD9YxwrpZnj-fjSLnppRNDFeoPZyf9baf2jRPd03wEWDpZuYvPxHMx0GeNEmiAODHULoXOMfK6y3mrYahixRtpWbIHEiKAqxZMW1icJDV06T63njg7csdXfbpGnjGPNB9TDGzQXNnoYCKjOFGS4NSDnwq2tbe_seuvNEk0t15qHQ5-fKC6thYjorkDPcSTKtpUmus3cWhZ1Plc-NiBzU8esoSyBb8Alvq0TYDG8i1dg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc6b9072487d181c839c49f748ab0",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_y9aTjWQUk2ChIIoVneFmvnMr",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.08268049387700352, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_nqSv1QfLElYV3hdcH6qXNAYl",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.88},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.027},{\"ingredient\":\"sunflower oil\",\"fraction\":0.023},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.02},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Considering exploration with nutrition**\n\nI'm noticing potential noise here, but I don't want to overfit my thoughts. I still have 12 explorations remaining, and I need to approach them intelligently. I think I can try focusing on both protein and fat in my exploration. It feels like there's room for creative thinking around how these can play out in my analysis. Let's see what interesting insights I can come up with next!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MbwlK-7Bx9KOfySEzuvHjnbvXXlvJ0fYGsyoDidgBgMV7iokBVWKzBd_bp4Kai-SkD1zMCywvj22367VgPABqyhg1sdHM4l92IVX9Ia3bhYU-MW2himYsvIRvJL8h-kmkG4ZwdcyI4GBsawBwJkuO16miWNd6gul3Lq2Gs5DBbz1sCoxg5hutBXSI2lT3vqOUTvV48QCx1w-9uIbAFzzgU62RjtpR0ki2zeiINVfb6N8JjSj28ILLOZxFJRd7wf-CUGFUD3DvRU1nFxTNFErtfcFZYupvVsnhkvW_xXGQRcc1T_AQ5v3CStT-BCEhoBR85vpskys8YlGPf2F_We_5xyGN9cYYjy-6RKhNWu0pYpydSDfEkWm7KZhz8QnVGeO70tiprQvMRuB5P_lbvsw3TazXs44GeOIzZhx9lw9aivzBaaKaRC56wZJVWJKAYP9_s0IOkwno4VjVq4htIVMPaEeBJjYMKI0hibEF5Zpo5jZAM8_HhAKodwwKMYY522pa0PcHkc5mXMxtFz8reedAyx41pngldswmQkqpHLDGfzBfzNpPZgT7tOFET6BLDOG18ZUEF1Id9Tbrc7lYV7rSwLGEC23OB9djrZQ3cMRLOngyWZ0X-yEOXDnzz5_9DfFpBAN4XkmyJoSleLWj6_cvtNUrZusXza60erilMHWnTZEDfJx9wutArA5dNhjNifOEdnWQl4t6BbvkAL_oM7-eyWPk-VJBzoBQX6vFiLgAwKz7gCZIlyGcKJrq1bpLUvehxQLJGb6bVl88ICDhiIzPLZ5dU_cP918KFVnFd_N6QT15Kvg2b_3hcVtCV7vXPcXSm84P3L_fcPJA8oLrpqkT91ygsski0W45wAmXL6yVr3vKT7hUgNQpPbfz8rR-6PPr4rzpCVKEGetMm2QOgmsXV7L3W0KEQgnvj1_x-QJ8a5pTzvM1QiVyPlSNEa3Cr7yaeYPgIW-fY_J4nhw4LviO4h1PCGyyVy-Mk10FLeW_xRI-GOyD_dCQPNgAbAWr2rDErgqANvnwCcRcvuL1ODRUINhgqCulkZtdPtn3OERBoxTc7Ql_YgD__ulV-O4Vxm2eCmZAu_fYumlS244rB_j9XSmMxfFsY8FgH9gFRVA_YEjSIG-DN1w1oUTpyD7obE6rRJyR-zQf5M4_vHGrwKWvqqqe1Tf0Om0uLZiPZQ07gyENYB9MqilIbxRphR-P_QWCr_C0picy5reHg11nsrCaCJ0RvEE6FMOX70FX14w1b4lTviYO89sgUhNySCxBKmamBS712AKQKfRi24Cl5AUDwJovapFUjYEIEXI2jv1THtVwPKFAjlt-I6WR8ljaUpzj3piVXJNU2oe9UijeN8CKua4-uUAgoypk-8RCWUmlXZk7YKFIJyu1NSwGv-yAQR5vDrdISlo3GCmXMdVvq0I7rf_YnlFS-A-w50YjxAs1YNVIDqIu2NcJD1r_Wjx3qCTuejhrOEibHIX8dvX2Tx5c-HreVxAdSDHPnkvNjQA2C3Vy3WucEv-82UqJG567kHOx9pZ4E85pOtwHgfjLZX3OxQhh5tFs4v8oLr0i5xCYkL5Cw3q2g2gwb9-WGPfl8wcXPzyTnUDXLsPDxrwHUvUzNyeEhg9usU_xaKsBq78qk6uPxKpg28R7H_K4ZQ6qR8br2sq9uXpxyRq9joK7G0JpQCjWYi8b4dBJoiyksC3c9heHK8Na9qvWbErdLUQVaDD8zLCvQl0rV-DMYZKuKfbIL3yNAlsrFCdLMqdS0OyPZkd0cT-yoyA_fP1kebn2PNUiWOQbnkev-Ruol6jmnu9aDeY_fXzNJcwwItQNfQtIdZnzZmV8hPpKF2KdazUgJm58UQmIbbYRa6KjfMaQF11R-AT-CUV5bjS-hw-fE2XGXbpkiDzO4AHaHMh7enGwH-IrhD.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc6ee6e7887d19259e82a0e6fca42",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_nqSv1QfLElYV3hdcH6qXNAYl",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.10620695272241468, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_F9iXpBi81Yr0J4xQKKpZWjQE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.88},{\"ingredient\":\"oat milk\",\"fraction\":0.065},{\"ingredient\":\"glucose syrup\",\"fraction\":0.027},{\"ingredient\":\"canola oil\",\"fraction\":0.023},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_F9iXpBi81Yr0J4xQKKpZWjQE",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.2628147533618657, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_8uWWIFcg2yhP19lkac8eIQqO",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.78},{\"ingredient\":\"oat milk\",\"fraction\":0.165},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MdaF4a53rDAVwPyN2hq4ilCIqu7XnBXDQNwtwpWIoA8D-1oHfsPZrjrFbHViR3cqPk-mxCg782FyAufleFsJEaTiTzxaOAmObQRbIh9nhYDKhV9klTe0bGpb-R3tRub08v8I5hZkNoxCzsNbqEF6elro93_tVlslQxLAh1Kijjf4KYlML2TC7mGN9LKL4g9sT1nD24zfSZtnx3ct8oMn6QjjxpP54RKS5zwwMKy_n4P0NRclA3tu5TOWZPqLS-NgoftvzoVv3IinVVobCMXU4OYo4zhmE2S2JLVU4MEKzBq_CkK0wUX-RTB1olKZ62WzC5PXEcOu8gr5HK8-yNaCd6k48y2x2mmikedFzza6ZULabAqu0vGoqncRpXUXcOIk8MnwL2v3pfqG6Xo4DXd97yfrbwrVSHAlaIXMSGTx-6hfyIZ_pIs96K2zpbsDe9D70frd5nQSB9VWk7oaTPvjQONzwKCGfQLDs6RutA9QulFoJ9Cek_64da8CReLzk0H36W2xuGridxLDjkATGZkhQzyzVUg0YI6VNOjEMV8EOXjesSGRh9RNHam7F5TdRwt3GlOMpnzJu-fH7E2hUfoq3zmYcDdlnVwf1Od-Y7xEh6Hu-0Q7Og90wV3EXQU0H5v6xki4eHaA2q50MYhL0k2-oLrubHlq7Bgb8DPXMfXAyAh7_Px3WsvP11uMrfFVBc6ujq7Y8rw1_pXXVLul-EN935l4e0ljvE-7buXaOdIpg8ePZ45oykZsvf_DyjJRDTnXAgLXFisb4WlMMPI2dRDpBysmZEygrm7KZEoUM8ICX1fIBRLm-lkD80NhEmwyechZnlMKtJ3oKR7SzbF730_CnQvrRBZFQZlYIgiD7F6KIHd7i4lrNc3NlIJZuJi67Tmbg2c7ctCTC3tKZocCj_Eop63maFAeHmWHXoiOgepk3w20cDeABeZPaUlB6AckNpvMuysQbNE4aeJpQLGg95tHZiR6-reJD68OC62J-CIqNWYbOJ8KzSn2f7lSr6JFHI73ltNmLpoXLOlXZVAW9dTem26qEikOf8mGri7mYm2LX-ABbSjdarHQKckOOVr869icbbvJaz8Ow8U7bVmMCqJjsawXe0Li3snpXULSbXZHSN9596BnFmCmt_i_HC7k1utIGnq8RCcntTEqXcp16J9Y_rzoNLHDUb-l49K-GbiSuUPBL3Sa-3CVqRZCQHMg7IrCOJKc-zwFBMCP_wrbfwQzx_Q-aIiSB4npBnS_T7ArRECA00Ow_6PLsTyldXn2T5th47OQ9ZV4W6GM7Qv7PIc6EVAjazv19ffkex1X6uXLM_JhjV0mGBPaTpgQNUEP5E9-dp2LnldZyY1_47DjLW8ZGycrLArSW2bMb7klE8d4JihwjztiBOOG4j5oXHHisFNKQ9YsxY5YwezdmyikqMdbDqj4SbV8yPkrO4SPtULsBZTh8UUq_PtiK8O3LfO23pkMoD4Y_KiF4daf8vE_XWDG8fuu24QIM7_VYZVZp_pibXKpDA3dTd1k_kMwrSdR6Ei1cQiNyz9wyVpcdKQ00nDC_j58D41B5ZYnTywhJIFiSOTrGhoPZlkMH2ncNizA4owDtpYofXIBzt2NyNsNQBFUwYfqeZlV4t8ao47spq1G2r2Vym15C9OHn6OtCejkBmYow5WM836Cw9rx7EsfWQoLSqgF2Og8axz6NaKKrO_qYzBWspq_rmViTrUAQ13pYU2wQir_-x49YHIbD3mtW01R3mYfNHstzzTb6dYc0Yb9tnnkXvP_tHFDzjLVC5nD_XXHBONnBArRmQ8_bLdpZJZPlaFAaF-ifA6LHcxRoXs-rf83luk_Ev_vsmESyktCJnHvjvxgf0HGzURRVvE2ad6TqEJJsaA_A7kyGX_tLujkkv5XQP6ULOqxRsuDbxaKIVpEQB4k9ETGTM469eZrj_Ux-5M4ofMt3fz_9MQk8xsbxHIpkU=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc759b47887d18fffec003ff56d17",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_8uWWIFcg2yhP19lkac8eIQqO",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": -0.04931976369038413, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_ezitrw3tSRw1blxfWTDg7u7d",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.65},{\"ingredient\":\"oat milk\",\"fraction\":0.295},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_ezitrw3tSRw1blxfWTDg7u7d",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.024431718442535555, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_q7Dz5h4BkSRlYfASx8g7J0xW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.78},{\"ingredient\":\"oat milk\",\"fraction\":0.135},{\"ingredient\":\"coconut cream\",\"fraction\":0.04},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.018},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Considering optimal ingredients**\n\nI'm thinking about an original recipe that isn't very sensitive to variations. One idea I have is to add coconut cream, which could help diversify the fats in the dish. It seems like a tasty way to enhance the flavor and texture while keeping the base stable. I wonder how the richness of coconut cream might blend with the other ingredients. Let's explore this idea further!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MfFdU3WU3u6EhIA4XFlmVn9sGQCAEkCV07Vsh5JVipqMaB6Et1LNMqUsnfLjj02mMU8O16V6-t02ep8WnoQvpB8Fl-J7hhxTc6eSVh_pDsW9JhKE9CaLrPPUQUJnVqO-tHS_MG-CZ3dPF3t9sg0xo4bOqvVB7hqVeKn_OFky2-Pg5A0xncsO_17omzjfsGlZ5ewqjQhMdHtt8jmxTUf3RxMyjhF0q_YRLwlsGrVlPpC30bVLf5qq8upzcsyAejqsOXwEFw3ay05pQdQYL1hoQfFpBVUXQ0HkM6oDIYuQiNVkHage9IXFK0d-YlKTxEHzezIMpfpdGQPLHvQdCD6blr6vS_IHCBQ8NJ2JxRQTKpyU5ppuqXgA911sxryO7gMeBvq63slMwzyNS50pvonrAkz91wGgatmMWvx7ysNYpR1MCW_MJrCJFCjHmcN-jDokXGII6h39joaPkg1W7kEmk30iF3sg2mUlGTGKg1ogUBrN8eRFyicUqQQYA_oVYRvo1d8AI-MG8kOBWZ1HAyPuxXtyQq1WUBVehBMb6U04Zn4ZKP9CdMOycIkI2Di1f5504X7D-O4otKc48qkekaZpcDlKpKVxIVoTj5lKui2PgERoMHrN50vP-iKAwJ5bp7_EiQHMOinGPvkUHQqb8-NdgYCxz4zB1FYRc-5BU5R1J1sTCeq4iYADCQyzr044ARp3w2cBm3c-GSF3jwLtCO91jugeyqjQeU7Y_b9QofOsM_-9MARLkvg9aGht5HzJnziAlafLg4g_EwSgb_abKZelpC8WayZ3r5wIRjLQ-bvG2Y5GmQMaYFZAvT8vlOMefk8ORQK68W_HcJDuqTx6hTG79l7BnLk6YN6Wl-L8R6t7tE4jaRqERUECO5QwAxGSwPYy6kOxs2C4h9WlJ5bw-VGlf1m2PB4kYMse-m4Iafk0cBfjj0iMtTRhIA5eSpQ37YjBaT1mx9l2Ka-BH17BNTtlc1iZPFnJ6RTy-fyk7xM8TG8AptsQdypwsgYwIPB2fAzaDqC-1Z6mxDL0sPMdFV3JlhE35j5q0_KrUtFUIpH_ZiMhkGREYaGb9vN_vm0qXiLFbNpeaIDKfvwZ0JXuWPeTFndvXWIYOWTGcy3ptVNNxaWDpg9a8uSGuXMkpTFnMkHEYq2sY8GXPztwPwrjeYtPu1BeszXPFvgZUUY-u68i-MlqwBQZIATLFof3kXt9Xjg57lf-XSx0CVVT2u0PtIto0L8Fukel-vFhkdzKbgLLZAQtUUcscR0j56ukaYKuf-OhWYMvUvpC2OwNuSD2paalwijWr4knL2Vot4hgYOSeTQyGtxxsbIJ7Z85SZ5RJVDYSH_Zx27ORmSqBE9iKdX8MQ0Efc7WGCV7v4cRca6MU7brGYN97b0klE4YJFtANDO-9jh7WfjVHis0DlFKB8zR7VouG2ukWnGrSCfh4C4nD_jcv668f_nfy13eVHtOQ8eZMARNQeLr-QIIs8qmVr3LU7GD4JJ-1l9CIqcye2Begix6gDvw8wNszx5qx6PpkOa-CdHLMJXVn_IwSc8qQooz_nF8JQ_VJdPk_HKg_Q9_1qgqk3ms_W4gptej1YAAhfHXKL82JqtAOUFOFYIl9Alh3jNU5w5L4-Q5DKVaGlsu0pgKhgkZNuHr_FAKoJywB9u6O9xK9BGF7mqHmfzC9MqXqKyGgX3ho4wqszzoTyxMB0nfVQ9IjA67ZjCWUFmiBD0Vlwupb_gogH1CZ580j5ciSd1d36vGholKmzt_GWtWthHRYHmxWkntJL6mI9eUUPDmRGH5ZK6DDlETMS_auKy1hPq7mXlp5LstYcCEZI3apKu3aUI=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc7c3a38087d1b93c5d3b32b97f3d",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_q7Dz5h4BkSRlYfASx8g7J0xW",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": -0.03832578338404982, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_VFrW0Z39CmJ93EgUkY5kDv87",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.8},{\"ingredient\":\"oat milk\",\"fraction\":0.165},{\"ingredient\":\"glucose syrup\",\"fraction\":0.002},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Evaluating sugar alternatives**\n\nI'm thinking that I need to find ways to lower sugar while avoiding extra fat. Maybe there are optimizations for sweeteners that maintain taste without added calories. If I can keep the chatter to a minimum, that could be more efficient too! I wonder if there are specific products or ingredients that can help here\u2014stuff that tastes good and fits this idea of reducing sugar. There must be options out there!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Mf6mWsPRErBug1KGF91VcrVvu9vsbE5FLOT6ymFuLFQGRhJv1GPuexvvi6YHDe6GNdZ3yplrY9NDJ9EilvOECneLt7xl91OKPpe71YHxFgHYaPIK3mSaRDujAa-7FfVHxomLLpFAOPTCMsDavMph6PkNBNEaKJNdX1lKlW_2OxajsqD3in9NQZy1-k9SiPoXazs5jwF2jXy4EyY3FQFjTb_V8adhvs7ZB8m49kKALywnb4-fuKNC0_7ljPHbpeXRSL7CrdXYGgFee3epcj7u4BCD44Op05kKJsdKZybMgNxGozjUaQRnE95dMZRXDUxkymOm1DN7QzLx0PMQbAFLZNJDcT8Wi8KiXebZIMz1-q9mFnCxSYHf0XWbQvj0hCKQg-FdF1DDsP4gP22ygZs1AnK8NN6A1_oUNp9ej43Mg982WOSEgEpH4-NBx3NHnIMkvftGQzLJR_jNVkoVnyiy2P9zJgPea3xsQOHli7TcGjZ6x32OTWg-4InYLmDiTgDuEtvJY74f_9lv9Z9OPSlpUVS4JodlFXwxuobO9WGZGxANmmunKpo9gyLcrsCKsdE35OhTRpS7X2MkyuReUg_05SO1mGyEC06jozyPCR0ErDpshA8SuvGLoj3MhlAFKgPlZgyQPTSn7uIucZVO-ft6e2Drn5DK2IPUsvhh8ENdOFGhFJf6-9w9tY1OVI5PrSRyzl5oa65j3KfBuRKufxEUA-DxujUQ47ludx1YeMnMr3okR0Rjdk6NeaLSxs8Y4I7Xnjct4G9cg0jC7bxq1JbJiKQJReaN49DoMtKrALAFHtwSKlVVysXQ8X9VWlIwlXEcIGvTak7j0jja1vrRcWUmaP25PC6aSWClp62Baf8M8gOmkuGv9M4eBe8tHyNs4G6kJtH_ADCudLtDqCiUGbMnsRItip42UuUAsWKjD242PGjT9-X_s3tVMNWAALcud5ka9yGEBPRgfbrxTTzw8vI-4fIahTrPIcdeZLY2y6yZ1J3mZGMQ5RJxl6_GyqF7Sdb-4ffwHuSA_QNeWcrFZpjDiswOmpwkeRWsmj2QeTXvzpleRI830w_Lw2fKMcXKv7U0g1kqnvxaTRIWqbsFnb2sh_Au2lenKk6_346f5X5y-JdE2mhU-aY4LYAZqBBJMBoUf6wSyJl0sXJyWhd3APQ-Lzji-XCojH72J8o0Tx5F_4hIhObM6HGGCDYH5l8bRDsTr7axtlaoKnWa5Fe2uItHV25f7dGCJ4DFa6sv_jbJDX8Do6nQUZwW1FnQYq0iEz5gBl97fAbMhU1iV-0Y_V4ZaPI33ScesKpUj_BuTrx6tGL35n7ahT-qPCWvcS52PJ0uh4HcJikzl-S1GQV1rGjLLQ40ud3SWkNY0LajG6enDKlEiQStqmS9HAuznl2euoV8ZdjvzUiDtofh5F_prqFCdwxClUCUeR_OzPiua_XznjmCfo19WXcpd_4tYQ_duBsYOY1BIOiYxnQ0VfGVZ70EH19dXi3EH_qEmW6lX7lhwIjRNYxwk9DF7MVHcECkSPmm_Gm8NBWNWtgK29W7HnlCR13u41uZ3mFA0qfJouB8tq52f-b8RL44UaD2Zl594GUvmTa2tosiHTU51akgKuCJwgddPZB_euVqRrmVTL9bHLkAawMsogueuxNdmZ7288lUSsPVFdlPYI2EIt3SxQtVmjzA3gFzOxEJ8dA4nq1vp3FnYqMDqD48FGKZRQNd6bdZI0wy8sCabcw9H8WvkQY86WKCy8cq7zpXNXDzFnEm8xLszGOiNrK-HD9Hm8vK5f6icZJTa8PYwf6qGXIbt_aulMbRA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc7f91ba887d18edc50a6f5b8c97e",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_VFrW0Z39CmJ93EgUkY5kDv87",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": -0.07568608186133641, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_be7bfda9a56b4e65a259450b55cfc805",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.8},{\"ingredient\":\"oat milk\",\"fraction\":0.167},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_be7bfda9a56b4e65a259450b55cfc805",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.12441207171374252, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_KkQrprNEfKwc1Xw1Wga5PWUl",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"oat milk\",\"fraction\":0.115},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Evaluating options for syrup and noise**\n\nI'm considering whether syrup is necessary or if it's just noise in the equation. I feel like I need a quantitative look, but maybe it\u2019s not essential. Just because -0.112 is the best doesn't mean it\u2019s the true best. I want to find the final best observed standard. Also, should I look into trying a higher protein option like lc gum with the five left? It's interesting to weigh these choices!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MhnCqKvWtvtGCsReayNtGBWAoAkn1pq2Gk-2cwCRgUPyblrVhYruceQOmpxTA0YaS2I1BOpz_qnpttCHG8xqeuKP_IRdRKzZoRezQXaui0UPS4H7GdzWUMvR4kYCOTUcIAupsdnShkIUStk6xl1a0-d3x4s4GVhhyP_14lgfy6994fP918u-kdevS3i9zH-Y31acMuvJQEad8xjf22qZBYTJWuu1SEzuNlvAVjqlPT-j8z0TMGzzuxywCh1V6Yr9eb46bCUW8F7OR45friLLSU-QTF3lD09LCqnhVvOp5IFvxqmG6hYOEWM7_hV1j0O_pHNKsWfT1adCWW0Up1DsTD0-AN1OUbZ1IVoIrxc9hazzzR71vWIiU4GxTcixZP1on6i1UecOGBxeoXTTDRsoNvTbYKc-C-5lh7Qatj8EjZeId2wEntd02VpDN60CpkHgrZOcSTIMgqpbA1GSlQtczgm8-LhTTROTN-x4OfcyKKs2k1defT5tO5EYQ_PA6dir4PQ19_8VYiJBSB2bjB1SOjlnokefcoUdoMmpGw3lQ1Tx79Ic5rUReBRlOy5UHGe0nQu9nhrIyKjt9bkiJf5_X0xR6lk4tbb6fvPp6aOq6Ew0Ir9OnSqfxrP2qnqy5_QirPWKbQG5WEmcnzDBJl3jOkyMe3JSUBRqhNNfOq-JbAtJuOiKp6-c_FLCuGbsXelR3r7npMZCgBIlobWM70aj8IYSzBumORqyGO9ly5HuUs3g5W0xdLvqj_nPsRWngdrfwgiN31S90j1-d_h9TeDY9T4l9yeKMMQZXC8s15TccHZo8ixlGNMmdjVbzX35iNc4XIAFiHTi-YCiEH5IBl0ty5330p5rf-ky1alYvkWRRbuGgc7MpDh4FTbHNk9cgvmD3jOYD-NRb51eDo2LdMlkcRjZOHYh5fWMGc-KPkLzS4Ee3DnK03QSzZq1XvWN89UsuGDUJRKDkAoRsCgPytP0DyFeW2jeWPN2njWdzufLq2FmJanRTUanZYvuKXAl52HxNMLFdYPkHKaahentmgCC3kSUk6eli4DWWVhmCYFAlnUB1qAbLSoRVWCuwguc7-wLbFU0PfKR4XxXhNiZpoOnXGOKPUyww4YwoF93lv01xcpzdo0Yeu7nF5DdJp1awdxDN5JAZAhJeN5HpqAiCFJaRYILLDRy5A1GkmQnVShnOPjlJp5ohMvnASoHuiqpVVUu6DCfRMhprQ1lnGfTf-4fqAezVoNogmVSKW9ZA0lcImC1u-xRBr4xmdw9HgBp-TEjWK7AZoMOwcikrIQlMcwn6z07b3RS396WsNI7ovbI7tL8ibV77K-xUorsasVtA0ptQ57uTk2HY2u2bws-GwyQFS04jIjul7rgHa3zVuMltXi_oazsKFLg-GhijAUOTedrMpOMGVioCNvSuCgk2WJ66CML48b0QebvQA8LyPIVU3aASW_I78xWuRsCenQ6CO38qlZQKU5wkZcphpyP2vw1k4mwsoM7pC1bXCTkfvXLvqe79iFMa15dMx7l_pYBSnVoArR06JLBG6TV9tCSxsv-1Hse4e21kH6xnNnHUztnhgLSedYqCXvSSYMjOHZWeeUoEp5MPtkcWwduOyoHLOEcUjJVf1G2p_XregRV6h6lqVWBA1eaCjS7xv1PyXy7_z8Y7wz_w0kl73eGFlbXYbZTepLELkIzSey2sR9N_CEP6hB6GYpGq4lWu7V1fy0Lufugu6LgmNoQh3ofwCOfvzjpb81INOZYK3goSf9WhMdlvaP8Do8iz5NnXiuIytjXrtN3NE3Faocv4xGXta5CxvzkWngjDmIKTW7DiClnFV0WDenmzYVFrrXKTaCCRg8JUoqBQdVrBu5SjfpbJTHgvNktBQDPVrXCUqI0-8CIUsU5et7En0fno5NmLA_G0aAR5mTjiiCoSyxFEWWvZp_VLmdz10YvPCm6iw1FcsMH_2AcAhKel4MY3Bcz7C8cIqprUVR7qiEM5ddUvqOnJ56L_sCJR0yeDFzIo5clkCkhTAQyikzt-0D87OKsH24GZFDAIj5V83B4vREZtG8aJUBTDsukx_56fC8i5UdRwb5mcYhRRfwxdQp0QXcgPKUlFZF5SeesR9X.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc864437887d1ab4ff4a89228fac1",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_KkQrprNEfKwc1Xw1Wga5PWUl",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.03304474472269136, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_voE4uBqzW2WEhDMJ7t7UVEfc",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.8},{\"ingredient\":\"oat milk\",\"fraction\":0.145},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0035},{\"ingredient\":\"potassium citrate\",\"fraction\":0.001},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.0003},{\"ingredient\":\"gellan gum\",\"fraction\":0.0002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_voE4uBqzW2WEhDMJ7t7UVEfc",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.04253862524020632, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_d6yGy6k37oYSXG6pBFHcpqV5",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.79},{\"ingredient\":\"oat milk\",\"fraction\":0.165},{\"ingredient\":\"glucose syrup\",\"fraction\":0.012},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Reducing uncertainty**\n\nI need to figure out how to use the remaining repetitions effectively to lessen uncertainty. It's about finding the best approach to get the final score I'm aiming for. I guess the idea is to maximize the potential outcomes based on what I have left. Let's see how I can make the most of this situation to reach a solid conclusion. It\u2019s all about reducing that uncertainty!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MjQ5YZm_pzGbpZndkaxnqelGOomkeRAevThLd4kOF7jg52wNpn263y3EQODQy7aGx9hNeLHbvvfdJr6k41RqaaT9gmn_EfbFLvKAO3tWHmJsXiNI-VnlZcN4q2LoEfNZvW0FxhFcvvjwTz6sQlwOjFkv0mPHh_MwxP6i7g6ugwNcHha9dHLbedcAJkYoRt9a-p7E6BuECHIwc_UgaCfCHuuy58pYiewf4uOcAQcLWf1hP26DpzmLMH8LO5XHLfIitUCbXzIJz7UBadKq2fn59KopnofsibYaYOZSC59LvZWt--Y8C8oLWJDfPVTnA9A1CSE-nqsMG9OIeSQSSJr4UDjS-N6NRmDD0QONNvByIryssRLYC4ZGQlzte9emFHEx8Yg95WyyU6ofQdCqec2GsflqPhiVMBJ09bvMATfuOOnKLaU-y6_B6dSo0GvdygE94WyPc3YfrTbGB71hckycjZk0Q2bXbJnp50uQVRjWPbvBrwHEFafD_d4ZNMj0KF6uH0L7pu8hFecoNXvriT2AHpv27ea4R1mssUG1aG0LMMpEu7FYBJFFXipSvI_tbBd_WMzVyA0J1bTSLdLjbchfmz7e4a9867OH4OwtjPyiFzSuGqQfaW7rpFozYlM5OkoS0qNKTw5LaA0wDuvMgAG-ex7m1yaJPFadtdBfrn3gB_eDblqsJgr9q9mygk1vJKxPDQcjA3eZ6M6Tm2SRG_UR0N8Xtqrca5_9mWAN185yI60A0BztaaNmnUNmvqtJ6gm0ifvk0TK1jrkXAkzDtPvTzHDR8H2tVTDFAxDpn5Ez-bDMHWSgvsDBwZjGWC17oXEsLsTOEigJd0CQgseZAmiOOosOAL6TPpY4APwR_PUYXrDN8XE_EsRTtxGsBj82MSM3DRFoRLD5WSiRgNef7dKtqBhPtxswSYKTZ_BZ9Ve5L267TZnWr4mpD-DZ2Cdg94AL9zJthqBxc-wbaYNFrMxPUzAQ00kxEuq3HFVLyaW6XxFLtW44FvEKDDu7Zyps6bIbcxzZsHmByIb6f_ueq5_jpNKtQp_pbh2pdYb4ge2V6DtQ_ZY3leTKzr0NFXYTWpnMD5OchIJQnETMEFlRT3UTqIHPP4pBjSbXLTkdhg9VjK4kt6fxQQvjriqv1QNa6AyFIKcyIbxn4hf1z-v0BOpZrjfz7cR0tQthNH8B2RSTE31ZfuCuqxkXXyXeDOqeqPqYNLD9eozUUkDE9o6euhGtMiIrfLEXvavgE2xTunrV800NfYTuWVP8kNtYvnOdrcM8I9q4hgjpIvOWIQ3coyrnsFXnHVEuXVBIuic4J2oWqgpwkf-9e5iik4SUSWNRb5d8g8uFR5awvo6sd1S_uqRkE3q2ZBbuz32mczzze-fxsyz4knAql8dkJ2t2M_8jPaIsPtzfJtGaj9Dm_ZBcCS2urd82Ps4laW4Vo7bgzaLzhB4qDDzyeYm0plGWTNRIPTW74V0sbhI9sE234t9VycKUTR16VeXVroPjNbEnIp6nDHtJf4a3MK_eusTO9Zzxj8pq_NsOGjYxXi5yYaMc7VJHHvxktt97PciXUELYTws4yKbG4ZgmdzcHdasZJrdKYdbP0zIRixjKcM3VqUcpUt7HTEvvCr6f9d6mVej6-2uXibOX17HGVRdYNwXN-Tu_qhbGr3r-haVbTwcVHPo6CPGKefHAE-VHbZ-dgzacA3avmzvOYR7GSj68sdSWRd7Cx8AUnRdvwPwkdVkD9vS12qb1jei7VdAKjpnL7txA9wqYPB5-Ji3uuVDiACabN9KbDHIUIyqFJtsPB10UwXcpRWiEWD-nwSqdhvyJkArXeaDBiW-tUzBoQJp_Wkx5uLXIRLG_irL.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0d2a1d3078b10f5d016aecc8cf1a9487d181ad547d7e99a6a4",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_d6yGy6k37oYSXG6pBFHcpqV5",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.059637028475443124, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_cOd7osOV3O8tkXQQtz6C3dSu",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.78},{\"ingredient\":\"oat milk\",\"fraction\":0.165},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_cOd7osOV3O8tkXQQtz6C3dSu",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.1589508678919689, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_Eo9L5BibnoUxPXZTknmCNjeW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.9},{\"ingredient\":\"oat milk\",\"fraction\":0.045},{\"ingredient\":\"glucose syrup\",\"fraction\":0.022},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0022},{\"ingredient\":\"potassium citrate\",\"fraction\":0.0015},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.001},{\"ingredient\":\"gellan gum\",\"fraction\":0.0003}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_Eo9L5BibnoUxPXZTknmCNjeW",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": -0.043697558823969904, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 885,
+"completion_tokens": 118,
+"cost": 0.00295
+},
+{
+"prompt_tokens": 1043,
+"completion_tokens": 106,
+"cost": 0.003666
+},
+{
+"prompt_tokens": 1189,
+"completion_tokens": 139,
+"cost": 0.001865
+},
+{
+"prompt_tokens": 1368,
+"completion_tokens": 138,
+"cost": 0.0019521
+},
+{
+"prompt_tokens": 1546,
+"completion_tokens": 118,
+"cost": 0.0017675
+},
+{
+"prompt_tokens": 1704,
+"completion_tokens": 118,
+"cost": 0.0017353
+},
+{
+"prompt_tokens": 1862,
+"completion_tokens": 139,
+"cost": 0.0019611
+},
+{
+"prompt_tokens": 2041,
+"completion_tokens": 160,
+"cost": 0.0022394
+},
+{
+"prompt_tokens": 2241,
+"completion_tokens": 118,
+"cost": 0.0018898
+},
+{
+"prompt_tokens": 2399,
+"completion_tokens": 148,
+"cost": 0.0021048
+},
+{
+"prompt_tokens": 2587,
+"completion_tokens": 118,
+"cost": 0.0018956
+},
+{
+"prompt_tokens": 2745,
+"completion_tokens": 150,
+"cost": 0.0021594
+},
+{
+"prompt_tokens": 2935,
+"completion_tokens": 139,
+"cost": 0.0021452
+},
+{
+"prompt_tokens": 3114,
+"completion_tokens": 106,
+"cost": 0.0018067
+},
+{
+"prompt_tokens": 3260,
+"completion_tokens": 163,
+"cost": 0.0023121
+},
+{
+"prompt_tokens": 3463,
+"completion_tokens": 118,
+"cost": 0.0020192
+},
+{
+"prompt_tokens": 3621,
+"completion_tokens": 139,
+"cost": 0.002137
+},
+{
+"prompt_tokens": 3800,
+"completion_tokens": 118,
+"cost": 0.0019953
+},
+{
+"prompt_tokens": 3958,
+"completion_tokens": 118,
+"cost": 0.0019607
+},
+{
+"prompt_tokens": 4146,
+"completion_tokens": 5,
+"cost": 0.0010583
+}
+]
+}

@@ -1,0 +1,439 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based mozzarella. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.42},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.08},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.005}],\"target_dissimilarity\":0.3500407121461552}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll analyze the first formulation and strategically explore the space to find a good mozzarella analog. Mozzarella key properties: mild flavor, creamy/milky, stretchy, melts well, slightly salty/tangy, white, ~45-55% water, ~20-25% fat, ~20-25% protein in dry form (but in whole form, high moisture).\n\nLet me think strategically. The baseline got 0.35. Common commercial vegan mozzarella bases: water/milk + coconut oil + starches (tapioca for stretch) + protein + acids + gums. Let me try variants.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_012gL52P9CtGAo4uoEWHebp9",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.16},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01LF5xpGtGgoRX5fXhUcpaSW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"almond milk\",\"fraction\":0.45},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.15},{\"ingredient\":\"cashew cream\",\"fraction\":0.08},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"kappa carrageenan placeholder\",\"fraction\":0}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012gL52P9CtGAo4uoEWHebp9",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.2736396102146225, \"evaluations_remaining\": 18}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LF5xpGtGgoRX5fXhUcpaSW",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.5750112283738293, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Oops, the second one had an invalid ingredient and scored badly. But the first variant (coconut milk base) improved to 0.274. Let me build on that.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Wvm7CCn65CLEN5DzoV3HnX",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.55},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.14},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.04},{\"ingredient\":\"modified food starch\",\"fraction\":0.02},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01Gk6TLkpThwTuwSV1vzuhhU",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.45},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.03},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Wvm7CCn65CLEN5DzoV3HnX",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.4851187086115988, \"evaluations_remaining\": 16}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Gk6TLkpThwTuwSV1vzuhhU",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.19387725779996157, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Interesting! Iteration 5 scored 0.194 - significantly better. Increasing coconut oil, tapioca starch, and carrageenan helped. Iteration 4 (more coconut milk, less fat/starch) was worse. So the trend is: MORE fat, starch, and gelling agents.\n\nLet me push this direction more carefully.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01LxJY6dWZjXgLd5iBsWa11V",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"tapioca starch\",\"fraction\":0.2},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.07},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.03},{\"ingredient\":\"soy lecithin\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_013Br6StGBR2zpRxK4fTaYzW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.42},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.2},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.03},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.035},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LxJY6dWZjXgLd5iBsWa11V",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.5251568964970603, \"evaluations_remaining\": 14}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013Br6StGBR2zpRxK4fTaYzW",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.3069483852109186, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Hmm, iteration 6 (less coconut milk, more oil/starch) got worse (0.525). Iteration 7 (slightly more carrageenan, more starch) was 0.307 - worse than iter 5. So iter 5's recipe is near a local optimum. There seems to be noise too.\n\nLet me analyze the pattern more carefully:\n- iter 5 (0.194): 45% coconut milk, 22% coconut oil, 18% tapioca, 6% SPI, 3% MFS, 2% lemon, 2.5% carrageenan, 0.5% lecithin, 1% Ca citrate\n- iter 2 (0.274): 50% coconut milk, 18% oil, 16% tapioca, 6% SPI, 4% MFS, 2% lemon, 2% carr, 1% lec, 1% Ca\n- iter 7 (0.307): 42% coconut milk, 22% oil, 20% tapioca, 6% SPI, 3% MFS, 2% lemon, 3.5% carr, 0.5% lec, 1% Ca\n\nIter 5 is best. Noise might be substantial. Let me try small perturbations around iter 5 and also test replicating it to gauge noise.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Grexs5NzXoiXshvmmRkMcn",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.45},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.03},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01AVKCdXYb8ADnCkEinUYvSw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.46},{\"ingredient\":\"coconut oil\",\"fraction\":0.21},{\"ingredient\":\"tapioca starch\",\"fraction\":0.17},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.07},{\"ingredient\":\"modified food starch\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.018},{\"ingredient\":\"carrageenan\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.007},{\"ingredient\":\"calcium citrate\",\"fraction\":0.008}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Grexs5NzXoiXshvmmRkMcn",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.3983251796793795, \"evaluations_remaining\": 12}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01AVKCdXYb8ADnCkEinUYvSw",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.368577247191359, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Replication of iter 5 got 0.398 vs 0.194 originally! That shows HIGH noise. We can't trust single measurements too much. Iter 9 was similarly ~0.37.\n\nLet me reconsider. The noise seems to be ~0.1-0.2. Averages suggest the region around iter 5/8/9 is ~0.3. Maybe we should explore more structurally different formulations. Mozzarella might benefit from:\n- Fermented tofu for the dairy character\n- Gellan or locust bean gum for stretch\n- Potentially less coconut milk and more targeted protein\n\nLet me try some different structural variants:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_014VW4qfB2GpQjFYhNfivYtf",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"cashew milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"locust bean gum\",\"fraction\":0.05},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01RaZfx5grtXeKwfgVV55dnd",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"fermented tofu\",\"fraction\":0.08},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014VW4qfB2GpQjFYhNfivYtf",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.6516834369999754, \"evaluations_remaining\": 10}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RaZfx5grtXeKwfgVV55dnd",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.21141790817571363, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Iter 11 scored 0.211 - very good! That's with fermented tofu and locust bean gum added. Iter 10 (cashew milk + LBG) was worse at 0.65.\n\nSo coconut milk > cashew milk, and adding fermented tofu (for that cheesy flavor) + LBG seems to help. Let me continue exploring this direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01MLkNSMyGBUsP4bgYygvE3h",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nfor d in data:\\n    print(d['iteration'], d['target_dissimilarity'])\\n    for r in d['recipe']:\\n        print(' ', r['ingredient'], r['fraction'])\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MLkNSMyGBUsP4bgYygvE3h",
+"content": "1 0.3500407121461552\n  cashew milk 0.42\n  coconut oil 0.22\n  tapioca starch 0.18\n  soy protein isolate 0.08\n  modified food starch 0.04\n  lemon juice 0.02\n  soy lecithin 0.02\n  carrageenan 0.015\n  calcium citrate 0.005\n2 0.2736396102146225\n  coconut milk 0.5\n  coconut oil 0.18\n  tapioca starch 0.16\n  soy protein isolate 0.06\n  modified food starch 0.04\n  lemon juice 0.02\n  carrageenan 0.02\n  soy lecithin 0.01\n  calcium citrate 0.01\n3 0.5750112283738293\n  almond milk 0.4639175257731959\n  coconut oil 0.2061855670103093\n  tapioca starch 0.15463917525773196\n  cashew cream 0.08247422680412371\n  pea protein 0.051546391752577324\n  lemon juice 0.020618556701030927\n  carrageenan 0.020618556701030927\n4 0.4851187086115988\n  coconut milk 0.55\n  coconut oil 0.2\n  tapioca starch 0.14\n  soy protein isolate 0.04\n  modified food starch 0.02\n  lemon juice 0.02\n  carrageenan 0.02\n  calcium citrate 0.01\n5 0.19387725779996157\n  coconut milk 0.45\n  coconut oil 0.22\n  tapioca starch 0.18\n  soy protein isolate 0.06\n  modified food starch 0.03\n  carrageenan 0.025\n  lemon juice 0.02\n  calcium citrate 0.01\n  soy lecithin 0.005\n6 0.5251568964970603\n  coconut milk 0.38\n  coconut oil 0.24\n  tapioca starch 0.2\n  soy protein isolate 0.07\n  modified food starch 0.04\n  carrageenan 0.03\n  lemon juice 0.02\n  soy lecithin 0.01\n  calcium citrate 0.01\n7 0.3069483852109186\n  coconut milk 0.42\n  coconut oil 0.22\n  tapioca starch 0.2\n  soy protein isolate 0.06\n  carrageenan 0.035\n  modified food starch 0.03\n  lemon juice 0.02\n  calcium citrate 0.01\n  soy lecithin 0.005\n8 0.3983251796793795\n  coconut milk 0.45\n  coconut oil 0.22\n  tapioca starch 0.18\n  soy protein isolate 0.06\n  modified food starch 0.03\n  carrageenan 0.025\n  lemon juice 0.02\n  calcium citrate 0.01\n  soy lecithin 0.005\n9 0.368577247191359\n  coconut milk 0.46\n  coconut oil 0.21\n  tapioca starch 0.17\n  soy protein isolate 0.07\n  modified food starch 0.035\n  carrageenan 0.022\n  lemon juice 0.018\n  calcium citrate 0.008\n  soy lecithin 0.007\n10 0.6516834369999754\n  cashew milk 0.4\n  coconut oil 0.22\n  tapioca starch 0.18\n  soy protein isolate 0.06\n  locust bean gum 0.05\n  modified food starch 0.04\n  lemon juice 0.02\n  carrageenan 0.02\n  calcium citrate 0.01\n11 0.21141790817571363\n  coconut milk 0.4\n  coconut oil 0.2\n  tapioca starch 0.18\n  fermented tofu 0.08\n  soy protein isolate 0.05\n  carrageenan 0.025\n  locust bean gum 0.025\n  lemon juice 0.02\n  calcium citrate 0.02\n"
+},
+{
+"role": "assistant",
+"content": "Given noise, iter 5 (0.194) and iter 11 (0.211) are both great. Both have ~40-45% coconut milk, ~20-22% coconut oil, 18% tapioca starch. Iter 11's distinctive features: fermented tofu (8%), LBG (2.5%), more Ca citrate (2%).\n\nLet me try a formulation combining their best features and vary a bit:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KTtLvfhffFA9VRmea6MkR6",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.42},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"fermented tofu\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.015},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01CXHKDLA2775og9VwmsgKDD",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.19},{\"ingredient\":\"fermented tofu\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.025},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KTtLvfhffFA9VRmea6MkR6",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.3116888098675147, \"evaluations_remaining\": 8}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01CXHKDLA2775og9VwmsgKDD",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.21882018334344025, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Iter 13 scored 0.219 \u2014 reaffirms the direction (more fermented tofu, LBG). Iter 12 was 0.312. \n\nGiven noise ~0.1-0.2, true best is likely around 0.20-0.25 for these good recipes. Let me try pushing further with more fermented tofu and see if there's more improvement, and also try adjusting sub-ingredients.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_0198oZPezDFQwfR2qBtLZrbn",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.35},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.2},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.025},{\"ingredient\":\"lemon juice\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_013KJPUyhm4NdZTmo6snY7go",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"fermented tofu\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.015},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0198oZPezDFQwfR2qBtLZrbn",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.2189103241627391, \"evaluations_remaining\": 6}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013KJPUyhm4NdZTmo6snY7go",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.40968349406126064, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Iter 14 (0.219) matches iter 13. Iter 15 (0.410) got worse \u2014 GDL in place of lemon juice hurt.\n\nSo lemon juice is important. The best region seems to be: 35-45% coconut milk, 20% coconut oil, 18-20% tapioca starch, 8-15% fermented tofu, 3-5% SPI, 2.5% carrageenan, 1.5-2.5% LBG, 1.5-2% lemon juice, 1-1.5% Ca citrate.\n\nLet me try a few more variations. Maybe test higher tapioca/starch and see if adding something like calcium citrate higher or some nutritional/flavor ingredient helps.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KkGKKQgUmi5mUKTRYSJzNT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.2},{\"ingredient\":\"fermented tofu\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.02},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.005}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01Rmdn1yQRXDr6KgNYVMiWeE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"fermented tofu\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.015},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.005}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KkGKKQgUmi5mUKTRYSJzNT",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.3086303883709025, \"evaluations_remaining\": 4}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Rmdn1yQRXDr6KgNYVMiWeE",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.32186143513681154, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Hmm, both around 0.31. Given noise, these are consistent with ~0.25 true value. Let me think \u2014 the best measured values are iter 5 (0.194) and iter 11 (0.211), and iter 13/14 (0.219). \n\nWith 3 evals left, let me try:\n1. A near-replicate of iter 11 to lock in a good result\n2. A slight exploration (maybe a bit more fermented tofu and remove SPI to free up a slot)\n3. Hybrid of iter 5 and iter 11",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Jpy2AQ8eJkPj1VCsBYbjGL",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"fermented tofu\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.025},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Jpy2AQ8eJkPj1VCsBYbjGL",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.3335299071048089, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Replicating iter 11 gave 0.334 instead of 0.211 \u2014 confirming large noise (~0.12 difference). The true mean around this recipe is probably ~0.27.\n\nFor the last 2, let me try bolder moves to see if I can push lower:\n1. Try increasing lemon juice (iter 5 had 0.02, and iter 5 was the best)\n2. Try adding a bit of soy lecithin and slightly more coconut oil like iter 5",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Ws4BqZBjSk4NZqZSLN7RBe",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"fermented tofu\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"locust bean gum\",\"fraction\":0.015},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Ws4BqZBjSk4NZqZSLN7RBe",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.4364758508682721, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Noisy again. For the final eval, let me replicate iter 5's exact recipe since it had the lowest single score (0.194). Even if noisy, it's our best shot given its proven potential:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01NK1wuDxm1hk6DZVsip5M3a",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.45},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.03},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01NK1wuDxm1hk6DZVsip5M3a",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.26573107896672044, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2250,
+"completion_tokens": 690,
+"cost": 0.0285
+},
+{
+"prompt_tokens": 3138,
+"completion_tokens": 598,
+"cost": 0.03064
+},
+{
+"prompt_tokens": 3885,
+"completion_tokens": 686,
+"cost": 0.036575
+},
+{
+"prompt_tokens": 4720,
+"completion_tokens": 976,
+"cost": 0.048
+},
+{
+"prompt_tokens": 5844,
+"completion_tokens": 781,
+"cost": 0.048745
+},
+{
+"prompt_tokens": 6774,
+"completion_tokens": 268,
+"cost": 0.04057
+},
+{
+"prompt_tokens": 8314,
+"completion_tokens": 706,
+"cost": 0.05922
+},
+{
+"prompt_tokens": 9169,
+"completion_tokens": 707,
+"cost": 0.06352
+},
+{
+"prompt_tokens": 10025,
+"completion_tokens": 803,
+"cost": 0.0702
+},
+{
+"prompt_tokens": 10977,
+"completion_tokens": 466,
+"cost": 0.066535
+},
+{
+"prompt_tokens": 11497,
+"completion_tokens": 447,
+"cost": 0.06866
+},
+{
+"prompt_tokens": 11998,
+"completion_tokens": 358,
+"cost": 0.06894
+},
+{
+"prompt_tokens": 12463,
+"completion_tokens": 6,
+"cost": 0.062465
+}
+]
+}

@@ -1,0 +1,552 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based breaded chicken fillets. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}],\"target_dissimilarity\":0.3170740727472368}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations."
+},
+{
+"role": "assistant",
+"content": "I'll systematically optimize this formulation. Let me start by analyzing the first recipe and testing some variations to understand what matters.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01C6Tk5ueP7YAR2vkp5ehJp2",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    evals = json.load(f)\\nfor e in evals:\\n    print(e['target_dissimilarity'], e['recipe'])\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01C6Tk5ueP7YAR2vkp5ehJp2",
+"content": "0.3170740727472368 [{'ingredient': 'soy protein concentrate', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.12}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'potato starch', 'fraction': 0.04}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n"
+},
+{
+"role": "assistant",
+"content": "Breaded chicken fillets are typically: chicken (protein+water+fat), breading (breadcrumbs, flour, starch), oil, seasoning. Let me try a recipe closer to typical breaded chicken composition - more protein, more breadcrumbs, less \"flavours\".",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01445XZZmoJ1tfpkco6UnV8H",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"pea protein\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01445XZZmoJ1tfpkco6UnV8H",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.3692373416482458, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"content": "That got worse. So \"flavours\" at 12% was actually helpful, or removing something hurt. Let me go back closer to the original but try different protein mixes.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_016uJxv4H4uwcy18RSQ2SXmx",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.25},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"flavours\",\"fraction\":0.15},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"potato starch\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_016uJxv4H4uwcy18RSQ2SXmx",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.3760607418293179, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Also worse! The iteration 1 recipe was already quite good. Let me try smaller perturbations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01RJx7RQJqhwvkuRtxdWFF4q",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.1},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"canola oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"potato starch\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RJx7RQJqhwvkuRtxdWFF4q",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.3768157340432548, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"content": "Worse \u2014 sunflower oil was preferred over canola. Let me try replacing soy protein concentrate with soy protein isolate or textured vegetable protein \u2014 these could be closer to chicken.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01VkUsEuUWJzUuT3qknAuSpT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01VkUsEuUWJzUuT3qknAuSpT",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.23498702115125347, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Excellent! TVP instead of soy protein concentrate dropped dissimilarity from 0.317 to 0.235. Let me try pushing this direction further.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01VwNvhuT4ipH5sssyYTS838",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.35},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.08},{\"ingredient\":\"pea protein\",\"fraction\":0.07},{\"ingredient\":\"wheat flour\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01VwNvhuT4ipH5sssyYTS838",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.4618429764110011, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"content": "Too much TVP was bad. The 0.28 level seems optimal. Let me try increasing flavours a bit and see other variations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01K91bzPa8bBzcKy8GnujN5c",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.25},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"flavours\",\"fraction\":0.15},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01K91bzPa8bBzcKy8GnujN5c",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.251097684276945, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Slightly worse than iter 5 (0.235). So the iter 5 proportions are better. Let me try tiny tweaks around iter 5.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01FYjWaPAf9BePscFiFUQqJp",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.3},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"flavours\",\"fraction\":0.1},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01FYjWaPAf9BePscFiFUQqJp",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.3592389385863066, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Worse. So TVP=0.28 is sweet spot. Let me try adding soy protein isolate or swap some components.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JkUYNSUDABg1x4JWxq5UnW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JkUYNSUDABg1x4JWxq5UnW",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.3767794565523874, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Pea protein is better than soy protein isolate. Let me keep pea protein and try other variations \u2014 maybe replacing wheat flour with something.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KJPHBnnfURTEJ7kp7cBEyD",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KJPHBnnfURTEJ7kp7cBEyD",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.4119199029433419, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Dropping potato starch and adding breadcrumbs was bad. Let me preserve ingredient list and tweak proportions more carefully.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JRW7HzaRNy2yzBCxSv7bZV",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    evals = json.load(f)\\nfor e in sorted(evals, key=lambda x: x['target_dissimilarity']):\\n    print(f\\\"{e['target_dissimilarity']:.4f}\\\", e['recipe'])\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JRW7HzaRNy2yzBCxSv7bZV",
+"content": "0.2350 [{'ingredient': 'textured vegetable protein', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.12}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'potato starch', 'fraction': 0.04}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n0.2511 [{'ingredient': 'textured vegetable protein', 'fraction': 0.25}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'flavours', 'fraction': 0.15}, {'ingredient': 'wheat gluten', 'fraction': 0.1}, {'ingredient': 'pea protein', 'fraction': 0.1}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.07}, {'ingredient': 'potato starch', 'fraction': 0.04}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n0.3171 [{'ingredient': 'soy protein concentrate', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.12}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'potato starch', 'fraction': 0.04}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n0.3592 [{'ingredient': 'textured vegetable protein', 'fraction': 0.3}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'wheat gluten', 'fraction': 0.13}, {'ingredient': 'flavours', 'fraction': 0.1}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'potato starch', 'fraction': 0.03}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n0.3692 [{'ingredient': 'soy protein concentrate', 'fraction': 0.35}, {'ingredient': 'breadcrumbs', 'fraction': 0.22}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'wheat flour', 'fraction': 0.1}, {'ingredient': 'sunflower oil', 'fraction': 0.08}, {'ingredient': 'pea protein', 'fraction': 0.06}, {'ingredient': 'methylcellulose', 'fraction': 0.03}, {'ingredient': 'potato starch', 'fraction': 0.03}, {'ingredient': 'flavours', 'fraction': 0.01}]\n0.3761 [{'ingredient': 'soy protein concentrate', 'fraction': 0.25}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'flavours', 'fraction': 0.15}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'pea protein', 'fraction': 0.1}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'methylcellulose', 'fraction': 0.03}, {'ingredient': 'potato starch', 'fraction': 0.03}]\n0.3768 [{'ingredient': 'textured vegetable protein', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.2}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.12}, {'ingredient': 'soy protein isolate', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.05}, {'ingredient': 'potato starch', 'fraction': 0.03}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n0.3768 [{'ingredient': 'soy protein concentrate', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.2}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.1}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'canola oil', 'fraction': 0.06}, {'ingredient': 'methylcellulose', 'fraction': 0.04}, {'ingredient': 'potato starch', 'fraction': 0.03}]\n0.4119 [{'ingredient': 'textured vegetable protein', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.22}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.12}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n0.4618 [{'ingredient': 'textured vegetable protein', 'fraction': 0.35}, {'ingredient': 'breadcrumbs', 'fraction': 0.2}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.08}, {'ingredient': 'pea protein', 'fraction': 0.07}, {'ingredient': 'wheat flour', 'fraction': 0.07}, {'ingredient': 'sunflower oil', 'fraction': 0.05}, {'ingredient': 'potato starch', 'fraction': 0.03}, {'ingredient': 'methylcellulose', 'fraction': 0.03}]\n"
+},
+{
+"role": "assistant",
+"content": "Best is iter 5 at 0.235. The evaluator seems quite sensitive \u2014 small changes make things much worse. Let me try truly small perturbations around iter 5. Try swapping methylcellulose or potato starch with different ingredients, or micro-adjust.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01TULeSoD9mJfyf8Cp1FUqwU",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TULeSoD9mJfyf8Cp1FUqwU",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.27533075159881054, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Worse. Let me try replacing wheat gluten with soy protein concentrate, keeping the rest.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JypbFrFwRVymAq5Nm3ZEnC",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JypbFrFwRVymAq5Nm3ZEnC",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.3736233202360111, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Worse. Wheat gluten is necessary. Let me try swapping wheat flour with something \u2014 maybe corn starch or rice flour.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01RZDKNMZkzdFtSPHA1PgQh2",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"corn starch\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RZDKNMZkzdFtSPHA1PgQh2",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.2571570672457192, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Close to 0.235 but still worse. Wheat flour was better. Let me try tweaking oil fraction up slightly, or swap sunflower with another oil, or try adding yeast extract.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_018ShwoNSbJuydve1mx8SaEK",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_018ShwoNSbJuydve1mx8SaEK",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.2536033706625109, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "Slightly worse. The iter 5 is still best. Let me try swapping potato starch for tapioca starch.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01H6QMayrRxqk9N8ZFYTxnLr",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"tapioca starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01H6QMayrRxqk9N8ZFYTxnLr",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.3646753025112234, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Worse. Potato starch is better. Let me try swapping flavours for plant flavors.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JYyWYm52orV87ugUPQ1tRG",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"plant flavors\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JYyWYm52orV87ugUPQ1tRG",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.32578432325059686, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"content": "Worse. \"flavours\" is the winner. Let me try adding soy sauce or yeast extract by replacing something small.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XKDs953NgYu2QNp1aHQc1A",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XKDs953NgYu2QNp1aHQc1A",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.30781846048550127, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Worse. Let me try very tiny perturbation \u2014 pea protein up, TVP slightly up, breadcrumbs slightly down.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_011gWc25wNaShWzGnaQTgR4G",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.29},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.17},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_011gWc25wNaShWzGnaQTgR4G",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.34078489632271497, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5 recipe appears to be at a strong local optimum. Let me check: is there a slight variant with different oil? Try soybean oil.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KNJzobV6Xe4WxTwjnDMhfQ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"soybean oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KNJzobV6Xe4WxTwjnDMhfQ",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.4111126924146596, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Much worse. Sunflower oil is the correct choice. One evaluation left. Best recipe is iter 5 at 0.235. Let me re-submit it to confirm/lock in the best.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01FJ1P3uWQ51Subf2DuULnNG",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01FJ1P3uWQ51Subf2DuULnNG",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.27061294762301313, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2320,
+"completion_tokens": 161,
+"cost": 0.015625
+},
+{
+"prompt_tokens": 2751,
+"completion_tokens": 388,
+"cost": 0.023455
+},
+{
+"prompt_tokens": 3193,
+"completion_tokens": 345,
+"cost": 0.02459
+},
+{
+"prompt_tokens": 3592,
+"completion_tokens": 327,
+"cost": 0.026135
+},
+{
+"prompt_tokens": 3973,
+"completion_tokens": 357,
+"cost": 0.02879
+},
+{
+"prompt_tokens": 4384,
+"completion_tokens": 348,
+"cost": 0.03062
+},
+{
+"prompt_tokens": 4786,
+"completion_tokens": 338,
+"cost": 0.03238
+},
+{
+"prompt_tokens": 5177,
+"completion_tokens": 343,
+"cost": 0.03446
+},
+{
+"prompt_tokens": 5574,
+"completion_tokens": 338,
+"cost": 0.03632
+},
+{
+"prompt_tokens": 5966,
+"completion_tokens": 317,
+"cost": 0.037755
+},
+{
+"prompt_tokens": 6337,
+"completion_tokens": 196,
+"cost": 0.036585
+},
+{
+"prompt_tokens": 9060,
+"completion_tokens": 381,
+"cost": 0.054825
+},
+{
+"prompt_tokens": 9495,
+"completion_tokens": 332,
+"cost": 0.055775
+},
+{
+"prompt_tokens": 9881,
+"completion_tokens": 339,
+"cost": 0.05788
+},
+{
+"prompt_tokens": 10274,
+"completion_tokens": 358,
+"cost": 0.06032
+},
+{
+"prompt_tokens": 10686,
+"completion_tokens": 334,
+"cost": 0.06178
+},
+{
+"prompt_tokens": 11074,
+"completion_tokens": 327,
+"cost": 0.063545
+},
+{
+"prompt_tokens": 11455,
+"completion_tokens": 334,
+"cost": 0.065625
+},
+{
+"prompt_tokens": 11843,
+"completion_tokens": 339,
+"cost": 0.06769
+},
+{
+"prompt_tokens": 12236,
+"completion_tokens": 346,
+"cost": 0.06983
+},
+{
+"prompt_tokens": 12636,
+"completion_tokens": 358,
+"cost": 0.07213
+},
+{
+"prompt_tokens": 13101,
+"completion_tokens": 6,
+"cost": 0.065655
+}
+]
+}

@@ -1,0 +1,974 @@
+{
+  "config": {
+    "category": "coffee creamer",
+    "domain": "dairy",
+    "n_ingredients": 90,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "mozzarella"
+    ],
+    "shared_initial_loss": 0.8651802397578123,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "coconut cream",
+        "fraction": 0.6043956043956045
+      },
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.13186813186813187
+      },
+      {
+        "ingredient": "corn syrup solids",
+        "fraction": 0.13186813186813187
+      },
+      {
+        "ingredient": "pea protein",
+        "fraction": 0.06593406593406594
+      },
+      {
+        "ingredient": "tapioca starch",
+        "fraction": 0.03296703296703297
+      },
+      {
+        "ingredient": "potassium phosphate",
+        "fraction": 0.010989010989010988
+      },
+      {
+        "ingredient": "vanilla extract",
+        "fraction": 0.010989010989010988
+      },
+      {
+        "ingredient": "soy lecithin",
+        "fraction": 0.005494505494505494
+      },
+      {
+        "ingredient": "carrageenan",
+        "fraction": 0.005494505494505494
+      }
+    ],
+    "shared_initial_support": [
+      "coconut cream",
+      "coconut oil",
+      "corn syrup solids",
+      "pea protein",
+      "tapioca starch",
+      "potassium phosphate",
+      "vanilla extract",
+      "soy lecithin",
+      "carrageenan"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8259680387585109,
+          -0.8259680387585109,
+          -0.8259680387585109,
+          -0.6362221227870235,
+          -0.5885897725729932,
+          -0.43275246820185476,
+          -0.3712337488078491,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616,
+          -0.34105426376893616
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.867974791574683,
+          -0.8259680387585109,
+          -0.906590461130423,
+          -0.82810863230723,
+          -0.6362221227870235,
+          -0.5885897725729932,
+          -0.43275246820185476,
+          -0.3712337488078491,
+          -0.34105426376893616,
+          -0.3601665340727626,
+          -0.3452016547863983,
+          -0.3566195491493657,
+          -0.36483485619799677,
+          -0.3558376012953091,
+          -0.38595479834343266,
+          -0.3661036872304181,
+          -0.36961678473803405,
+          -0.3766149303226975,
+          -0.371765478887556
+        ],
+        "final_best": -0.34105426376893616,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ],
+            "additions": []
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sodium caseinate\",\"dipotassium phosphate\"]}\n\nWait, I need to pick from the catalog. Let me reconsider.\n\n{\"additions\":[\"corn maltodextrin\",\"sunflower lecithin\"]}",
+            "parsed_additions": []
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8619633997154604,
+          -0.809929177324173,
+          -0.49459832792426267,
+          -0.40594851791890985,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34991563750551646,
+          -0.34312889338681046,
+          -0.33606150982673105,
+          -0.33606150982673105
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.9697793741681442,
+          -0.9369175637177486,
+          -0.8619633997154604,
+          -0.809929177324173,
+          -0.49459832792426267,
+          -0.40594851791890985,
+          -0.34991563750551646,
+          -0.3987253960888195,
+          -0.3536835608386226,
+          -0.38149180810958316,
+          -0.3906274252516046,
+          -0.4037939295916521,
+          -0.36079807749780723,
+          -0.5899877022442961,
+          -0.3582380629176323,
+          -0.3637793783680459,
+          -0.34312889338681046,
+          -0.33606150982673105,
+          -0.3443272368976809
+        ],
+        "final_best": -0.33606150982673105,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, let me reconsider - must use exact catalog names.\n\n{\"additions\":[\"sunflower lecithin\",\"corn maltodextrin\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8571099878903671,
+          -0.727965761867347,
+          -0.727965761867347,
+          -0.727965761867347,
+          -0.4272641362111851,
+          -0.3426225160089184,
+          -0.3426225160089184,
+          -0.34148344829617977,
+          -0.34148344829617977,
+          -0.34148344829617977,
+          -0.34148344829617977,
+          -0.3315443412367316,
+          -0.3305772559964735,
+          -0.29620649791820486,
+          -0.22547329558139861,
+          -0.22547329558139861,
+          -0.2061716799784104,
+          -0.2061716799784104,
+          -0.2061716799784104
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.8571099878903671,
+          -0.727965761867347,
+          -0.855146799001805,
+          -0.7747925487387071,
+          -0.4272641362111851,
+          -0.3426225160089184,
+          -0.36164998484203253,
+          -0.34148344829617977,
+          -0.372840457821628,
+          -0.36699911821966497,
+          -0.3713431239040856,
+          -0.3315443412367316,
+          -0.3305772559964735,
+          -0.29620649791820486,
+          -0.22547329558139861,
+          -0.5088058056427747,
+          -0.2061716799784104,
+          -0.21593176813353812,
+          -0.22785200777507122
+        ],
+        "final_best": -0.2061716799784104,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't in the list. Let me reconsider.\n\n{\"additions\":[\"sunflower lecithin\",\"gellan gum\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.7781184873521039,
+          -0.7781184873521039,
+          -0.7781184873521039,
+          -0.5205497934331441,
+          -0.4273112696645846,
+          -0.4273112696645846,
+          -0.4273112696645846,
+          -0.4273112696645846,
+          -0.4273112696645846,
+          -0.4273112696645846,
+          -0.3930513243540939,
+          -0.3689687192368076,
+          -0.3689687192368076,
+          -0.3689687192368076,
+          -0.3689687192368076,
+          -0.3689687192368076,
+          -0.3689687192368076,
+          -0.3689687192368076
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.9665586458962725,
+          -0.7781184873521039,
+          -0.9447873677284704,
+          -0.83632439349669,
+          -0.5205497934331441,
+          -0.4273112696645846,
+          -0.4277112455405539,
+          -0.4587020379139448,
+          -0.4433210669922051,
+          -0.48173270376745964,
+          -0.44103715558577067,
+          -0.3930513243540939,
+          -0.3689687192368076,
+          -0.38056084744332774,
+          -0.3961125405894107,
+          -0.38045079136706206,
+          -0.38498607938166257,
+          -0.41195626146424424,
+          -0.3869236800572928
+        ],
+        "final_best": -0.3689687192368076,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower oil"
+            ],
+            "additions": [
+              "sunflower oil"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower oil\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. Let me reconsider - looking for ingredients that would help match coffee creamer better. The best scores came with high corn syrup solids and pea protein, lower coconut. Adding sodium caseinate equivalent isn't available. MCT oil / mlct oil for coffee creamer mouthfeel, and sunflower lecithin or maltodextrin.\n\n{\"additions\":[\"corn maltodextrin\",\"mlct oil\"]}",
+            "parsed_additions": [
+              "sunflower oil"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8048787141465991,
+          -0.8048787141465991,
+          -0.8048787141465991,
+          -0.25415752159597566,
+          -0.25412787216825966,
+          -0.2540654780001216,
+          -0.2535410540930156,
+          -0.2535410540930156,
+          -0.2535410540930156,
+          -0.2535410540930156,
+          -0.2535410540930156,
+          -0.2535410540930156,
+          -0.25176406194175704,
+          -0.25176406194175704,
+          -0.25176406194175704,
+          -0.2500198514896276,
+          -0.2500198514896276,
+          -0.2500198514896276
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.8887872188162024,
+          -0.8048787141465991,
+          -0.9174911766038967,
+          -0.9206131802465166,
+          -0.25415752159597566,
+          -0.25412787216825966,
+          -0.2540654780001216,
+          -0.2535410540930156,
+          -0.2540076140026223,
+          -0.25406741148342504,
+          -0.25406879610604594,
+          -0.2540680942307064,
+          -0.2538500251296993,
+          -0.25176406194175704,
+          -0.2539574379756139,
+          -0.2539062764961088,
+          -0.2500198514896276,
+          -0.25137389538498867,
+          -0.2539569554008205
+        ],
+        "final_best": -0.2500198514896276,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, let me reconsider - I need to use exact catalog names.\n\n{\"additions\":[\"sunflower lecithin\",\"gellan gum\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8040549289227962,
+          -0.8040549289227962,
+          -0.8040549289227962,
+          -0.8040549289227962,
+          -0.503852237396162,
+          -0.4362970989706531,
+          -0.4362970989706531,
+          -0.38950205097183477,
+          -0.35203156974897687,
+          -0.3246682943753295,
+          -0.2849830005526409,
+          -0.2849830005526409,
+          -0.2849830005526409,
+          -0.2849830005526409,
+          -0.2849830005526409,
+          -0.2849830005526409,
+          -0.26462789835900197,
+          -0.26462789835900197,
+          -0.2602107938868675
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.8040549289227962,
+          -0.8513348969424979,
+          -0.8582020641889231,
+          -0.8333056185337208,
+          -0.503852237396162,
+          -0.4362970989706531,
+          -0.47775849857389585,
+          -0.38950205097183477,
+          -0.35203156974897687,
+          -0.3246682943753295,
+          -0.2849830005526409,
+          -0.4228790968436394,
+          -0.2888620534602131,
+          -0.42340981975007486,
+          -0.3081788492731449,
+          -0.33646105000992266,
+          -0.26462789835900197,
+          -0.28814283842082344,
+          -0.2602107938868675
+        ],
+        "final_best": -0.2602107938868675,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, let me reconsider - must use exact catalog names.\n\n{\"additions\":[\"sunflower lecithin\",\"gellan gum\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.864886423231951,
+          -0.864886423231951,
+          -0.8580746463400117,
+          -0.8580746463400117,
+          -0.7640946444157075,
+          -0.6437902443334047,
+          -0.5585831671597759,
+          -0.5179829000913551,
+          -0.38352595231198083,
+          -0.38352595231198083,
+          -0.38352595231198083,
+          -0.38352595231198083,
+          -0.3741650113459152,
+          -0.3741650113459152,
+          -0.3741650113459152,
+          -0.3741650113459152,
+          -0.3741650113459152,
+          -0.21873912281182678,
+          -0.18797609307093463
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.864886423231951,
+          -0.9075089992266313,
+          -0.8580746463400117,
+          -0.9017753900097462,
+          -0.7640946444157075,
+          -0.6437902443334047,
+          -0.5585831671597759,
+          -0.5179829000913551,
+          -0.38352595231198083,
+          -0.3881393588746316,
+          -0.38668256687878827,
+          -0.39174654281475996,
+          -0.3741650113459152,
+          -0.38522042288242325,
+          -0.39647605433163086,
+          -0.38127757217911756,
+          -0.39639776134018867,
+          -0.21873912281182678,
+          -0.18797609307093463
+        ],
+        "final_best": -0.18797609307093463,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin",
+              "gellan gum"
+            ],
+            "additions": [
+              "sunflower lecithin",
+              "gellan gum"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"gellan gum\"]}",
+            "parsed_additions": [
+              "sunflower lecithin",
+              "gellan gum"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8234523915014044,
+          -0.8234523915014044,
+          -0.6124559056566659,
+          -0.40690634842470513,
+          -0.40690634842470513,
+          -0.33693438767565287,
+          -0.33693438767565287,
+          -0.3279268126350313,
+          -0.3279268126350313,
+          -0.3279268126350313,
+          -0.3279268126350313,
+          -0.32768778301138407,
+          -0.32768778301138407,
+          -0.32768778301138407,
+          -0.32768778301138407,
+          -0.3242165576417166,
+          -0.31989321235055107
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.9463214199648118,
+          -0.9010441468075122,
+          -0.8234523915014044,
+          -0.8314311955134953,
+          -0.6124559056566659,
+          -0.40690634842470513,
+          -0.4273408057801131,
+          -0.33693438767565287,
+          -0.7313519582271519,
+          -0.3279268126350313,
+          -0.35287692974099666,
+          -0.3399399032666687,
+          -0.3291881091826144,
+          -0.32768778301138407,
+          -0.33373682673321886,
+          -0.3283436930464388,
+          -0.3313284253028136,
+          -0.3242165576417166,
+          -0.31989321235055107
+        ],
+        "final_best": -0.31989321235055107,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, dipotassium phosphate isn't in the catalog. Let me reconsider.\n\nLooking at trends: lower dissimilarity came with higher corn syrup solids, vanilla, and moderate coconut oil. The best (eval 9: 0.337) had high corn syrup solids + vanilla. Coffee creamer typically contains emulsifiers, stabilizers, and sometimes maltodextrin/sugars.\n\n{\"additions\":[\"corn maltodextrin\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.8260645737691874,
+          -0.8260645737691874,
+          -0.6000383454157666,
+          -0.4154917688452474,
+          -0.37086993076945035,
+          -0.37086993076945035,
+          -0.37086993076945035,
+          -0.37086993076945035,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261,
+          -0.3485131850746261
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.9343717561730093,
+          -0.8857074323060556,
+          -0.8260645737691874,
+          -0.9190814418089097,
+          -0.6000383454157666,
+          -0.4154917688452474,
+          -0.37086993076945035,
+          -0.4316165175228574,
+          -0.41444479061394507,
+          -0.42881068618305523,
+          -0.3485131850746261,
+          -0.6016369465139028,
+          -0.36957881103400253,
+          -0.3594163479198128,
+          -0.360481809634471,
+          -0.3900928342522147,
+          -0.3527365577439317,
+          -0.41332095037487315,
+          -0.3753797794414231
+        ],
+        "final_best": -0.3485131850746261,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, let me reconsider - must use exact catalog names.\n\n{\"additions\":[\"sunflower lecithin\",\"calcium citrate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.8651802397578123,
+          -0.8651802397578123,
+          -0.7524934409644062,
+          -0.7524934409644062,
+          -0.7524934409644062,
+          -0.5391472236292859,
+          -0.4447196410463962,
+          -0.38844735499931965,
+          -0.38844735499931965,
+          -0.37015265158867267,
+          -0.37015265158867267,
+          -0.37015265158867267,
+          -0.341101710923905,
+          -0.341101710923905,
+          -0.341101710923905,
+          -0.341101710923905,
+          -0.335190268178532,
+          -0.335190268178532,
+          -0.335190268178532,
+          -0.3267593493826035
+        ],
+        "all_y": [
+          -0.8651802397578123,
+          -0.9010793568135433,
+          -0.7524934409644062,
+          -0.8443414165326495,
+          -0.9113869313264877,
+          -0.5391472236292859,
+          -0.4447196410463962,
+          -0.38844735499931965,
+          -0.5466407027657161,
+          -0.37015265158867267,
+          -0.46010985531797516,
+          -0.44497864260783304,
+          -0.341101710923905,
+          -0.3540648011273162,
+          -0.3513097416254379,
+          -0.3672249763371116,
+          -0.335190268178532,
+          -0.34936246101238927,
+          -0.34633136500118356,
+          -0.3267593493826035
+        ],
+        "final_best": -0.3267593493826035,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut cream",
+              "coconut oil",
+              "corn syrup solids",
+              "pea protein",
+              "tapioca starch",
+              "potassium phosphate",
+              "vanilla extract",
+              "soy lecithin",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, let me reconsider - must use exact catalog names.\n\n{\"additions\":[\"corn maltodextrin\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

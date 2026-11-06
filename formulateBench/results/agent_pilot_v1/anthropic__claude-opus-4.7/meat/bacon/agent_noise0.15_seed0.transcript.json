@@ -1,0 +1,464 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based bacon. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}],\"target_dissimilarity\":0.41836534475497056}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations."
+},
+{
+"role": "assistant",
+"content": "I'll optimize a plant-based bacon formulation. Let me think about bacon's key characteristics:\n- Fat (streaky, ~40-50%): coconut oil is common\n- Protein structure (lean part): soy/wheat gluten\n- Smoke/umami flavor: liquid smoke, soy sauce\n- Color: caramel, natural color, beet/radish for red\n- Binding: methylcellulose\n- Chewy texture: methylcellulose, starch\n\nThe baseline got 0.418. Let me try variants to explore the space.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Ly4BxUdPB1PBCTCgRKXBAA",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.32},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.05},{\"ingredient\":\"tapioca starch\",\"fraction\":0.07},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"radish juice\",\"fraction\":0.07}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01XQ9nz5z6PmNmVzftJdzifp",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.4},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.08},{\"ingredient\":\"soy sauce\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.05},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Ly4BxUdPB1PBCTCgRKXBAA",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.4166523392126967, \"evaluations_remaining\": 18}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XQ9nz5z6PmNmVzftJdzifp",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.9187461539100726, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Interesting! Iteration 2 (0.4167) marginally improved on baseline. Iteration 3 was much worse - TVP + higher coconut oil + yeast extract hurt a lot. Let me explore more carefully.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01M3285bXDx3r6Mpbx4Cs6Jx",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.28},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.05},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01LNsUn4P8HVY2mtGbzbRcWa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01M3285bXDx3r6Mpbx4Cs6Jx",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.6328748814177407, \"evaluations_remaining\": 16}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LNsUn4P8HVY2mtGbzbRcWa",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.11678433097875918, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Huge improvement! Swapping soy protein concentrate \u2192 soy protein isolate dropped dissimilarity to 0.117. Also note iteration 4 (less natural vegetable color) was worse. So natural vegetable color at 0.08 is important, and soy protein isolate is much better than concentrate.\n\nLet me try perturbing around this new best.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01R7kLXVHjLXnENQ35px37Pn",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.28},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.25},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.05},{\"ingredient\":\"plain caramel\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01G1pYErT51bpQsjsjxGTryW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.1},{\"ingredient\":\"soy sauce\",\"fraction\":0.09},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.1},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.07},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01R7kLXVHjLXnENQ35px37Pn",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.6589555820471744, \"evaluations_remaining\": 14}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01G1pYErT51bpQsjsjxGTryW",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.32719950357700867, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Both worse. So the specific ratios from iteration 5 matter a lot. Interesting - iteration 6 (more oil+SPI, less caramel/smoke) got much worse. Iteration 7 (less oil+SPI, more color) also worse. The 0.117 best is quite sensitive.\n\nLet me try small perturbations in different directions.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HfbW63TcerADaNgNAFwG7c",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nfor d in data:\\n    print(d['iteration'], d['target_dissimilarity'])\\n    for r in d['recipe']:\\n        print(' ', r['ingredient'], r['fraction'])\\n    print()\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HfbW63TcerADaNgNAFwG7c",
+"content": "1 0.41836534475497056\n  coconut oil 0.25\n  soy protein concentrate 0.22\n  wheat gluten 0.13\n  tapioca starch 0.09\n  soy sauce 0.08\n  natural vegetable color 0.08\n  liquid smoke 0.06\n  plain caramel 0.06\n  methylcellulose 0.03\n\n2 0.4166523392126967\n  coconut oil 0.32\n  soy protein concentrate 0.18\n  wheat gluten 0.1\n  soy sauce 0.08\n  tapioca starch 0.07\n  liquid smoke 0.07\n  radish juice 0.07\n  plain caramel 0.06\n  methylcellulose 0.05\n\n3 0.9187461539100726\n  coconut oil 0.4\n  textured vegetable protein 0.2\n  wheat gluten 0.1\n  liquid smoke 0.08\n  soy sauce 0.06\n  plain caramel 0.05\n  methylcellulose 0.04\n  natural vegetable color 0.04\n  yeast extract 0.03\n\n4 0.6328748814177407\n  coconut oil 0.28\n  soy protein concentrate 0.22\n  wheat gluten 0.13\n  tapioca starch 0.09\n  soy sauce 0.08\n  liquid smoke 0.06\n  plain caramel 0.06\n  natural vegetable color 0.05\n  methylcellulose 0.03\n\n5 0.11678433097875918\n  coconut oil 0.25\n  soy protein isolate 0.22\n  wheat gluten 0.13\n  tapioca starch 0.09\n  soy sauce 0.08\n  natural vegetable color 0.08\n  liquid smoke 0.06\n  plain caramel 0.06\n  methylcellulose 0.03\n\n6 0.6589555820471744\n  coconut oil 0.28\n  soy protein isolate 0.25\n  wheat gluten 0.13\n  tapioca starch 0.08\n  natural vegetable color 0.08\n  soy sauce 0.07\n  liquid smoke 0.05\n  plain caramel 0.03\n  methylcellulose 0.03\n\n7 0.32719950357700867\n  coconut oil 0.22\n  soy protein isolate 0.2\n  wheat gluten 0.12\n  tapioca starch 0.1\n  natural vegetable color 0.1\n  soy sauce 0.09\n  liquid smoke 0.07\n  plain caramel 0.07\n  methylcellulose 0.03\n\n"
+},
+{
+"role": "assistant",
+"content": "The surface is very bumpy. Best at 0.117 (iter 5). Both perturbations (iter 6 moved towards more oil/SPI & less others; iter 7 less oil/SPI more others) got worse. Interesting that iter 7 (0.327) was better than iter 6 (0.659). Suggests we may want to stay close to iter 5. Let me try tiny perturbations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_019T6bYmZpYDeyNbPCxLs8Kf",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_019T6bYmZpYDeyNbPCxLs8Kf",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.44880766601741856, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Wait - identical input to iteration 5 (0.117) returned 0.449! The evaluator is **stochastic**. This changes my strategy - I need to account for noise. Let me re-evaluate iter 5 formula again to get more samples, and try close perturbations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01PW35Dm9FQD4yjjgvp22rwM",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01QBJ7LCEzA4ji8P6uMtZwke",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01PW35Dm9FQD4yjjgvp22rwM",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.43264028044145464, \"evaluations_remaining\": 11}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QBJ7LCEzA4ji8P6uMtZwke",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.7495548993457107, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Very noisy! Same formula: 0.117, 0.449, 0.433, 0.750. Mean ~0.44, with high variance. The 0.117 was likely a lucky draw. This is tough - I need to think about this as mean-minimization under noise.\n\nMean of iter 5 formula (4 runs): ~0.437. That's the baseline. Iter 2 (coconut oil higher, no color, radish juice) got 0.417 which is similar. So the mean is around 0.4.\n\nGiven limited budget (10 remaining), let me try more diverse strategies - maybe bacon needs beet/radish red color, more fat ratio, different protein mix.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01UyfSNzWKWR1nZcX1utfsct",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.35},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.07},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.06}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01BR996reh9bDJJSLgmymdh7",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.3},{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.07}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01UyfSNzWKWR1nZcX1utfsct",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.3659513334888703, \"evaluations_remaining\": 9}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01BR996reh9bDJJSLgmymdh7",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.5772769728194571, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Iter 11 (0.366) with higher coconut oil ratio did well on this draw. Pea protein (iter 12) worse. Let me also check if higher-oil direction is robust and try beet-based.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XsT4prJKyMZxen1oah5BgH",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.4},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.15},{\"ingredient\":\"wheat gluten\",\"fraction\":0.09},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.06},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.06}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01AF9pXC8kBkhRM113v6aNMc",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.35},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.07},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XsT4prJKyMZxen1oah5BgH",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.4839001576042044, \"evaluations_remaining\": 7}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01AF9pXC8kBkhRM113v6aNMc",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.33422492822478067, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "Iter 14 is a repeat of iter 11's recipe, got 0.334. So iter 11 recipe shows: 0.366, 0.334 (mean ~0.35). Better than iter 5's mean (~0.44). The 0.35 coconut/0.18 SPI mix is promising. Iter 13 (0.40 oil, 0.15 SPI) got 0.484 (slightly worse).\n\nLet me try one more variation, then start averaging the best.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KkpzbHpZJEK4HKGAndrTer",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.33},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.07},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.06},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.07}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01XUZJMKAZiBqTwR2QnbJKUY",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.35},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.07},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KkpzbHpZJEK4HKGAndrTer",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.6317132813684794, \"evaluations_remaining\": 5}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XUZJMKAZiBqTwR2QnbJKUY",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.5024400557698477, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"content": "Iter 16 is the same formula as 11 and 14: samples now 0.366, 0.334, 0.502 \u2192 mean ~0.40. Iter 15 (slightly different: 0.33/0.20) got 0.632. \n\nWith 4 evaluations left and significant noise, let me look across all data to find the best-mean recipe.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01TcE7TNYMzvB7YYjAeXXG98",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\n\\n# Group by recipe signature\\nfrom collections import defaultdict\\ngroups = defaultdict(list)\\nfor d in data:\\n    key = tuple(sorted((r['ingredient'], round(r['fraction'],4)) for r in d['recipe']))\\n    groups[key].append(d['target_dissimilarity'])\\n\\nfor k, v in groups.items():\\n    print(f\\\"n={len(v)} mean={sum(v)/len(v):.3f} vals={[round(x,3) for x in v]}\\\")\\n    print(\\\" \\\", dict(k))\\n    print()\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TcE7TNYMzvB7YYjAeXXG98",
+"content": "n=1 mean=0.418 vals=[0.418]\n  {'coconut oil': 0.25, 'liquid smoke': 0.06, 'methylcellulose': 0.03, 'natural vegetable color': 0.08, 'plain caramel': 0.06, 'soy protein concentrate': 0.22, 'soy sauce': 0.08, 'tapioca starch': 0.09, 'wheat gluten': 0.13}\n\nn=1 mean=0.417 vals=[0.417]\n  {'coconut oil': 0.32, 'liquid smoke': 0.07, 'methylcellulose': 0.05, 'plain caramel': 0.06, 'radish juice': 0.07, 'soy protein concentrate': 0.18, 'soy sauce': 0.08, 'tapioca starch': 0.07, 'wheat gluten': 0.1}\n\nn=1 mean=0.919 vals=[0.919]\n  {'coconut oil': 0.4, 'liquid smoke': 0.08, 'methylcellulose': 0.04, 'natural vegetable color': 0.04, 'plain caramel': 0.05, 'soy sauce': 0.06, 'textured vegetable protein': 0.2, 'wheat gluten': 0.1, 'yeast extract': 0.03}\n\nn=1 mean=0.633 vals=[0.633]\n  {'coconut oil': 0.28, 'liquid smoke': 0.06, 'methylcellulose': 0.03, 'natural vegetable color': 0.05, 'plain caramel': 0.06, 'soy protein concentrate': 0.22, 'soy sauce': 0.08, 'tapioca starch': 0.09, 'wheat gluten': 0.13}\n\nn=4 mean=0.437 vals=[0.117, 0.449, 0.433, 0.75]\n  {'coconut oil': 0.25, 'liquid smoke': 0.06, 'methylcellulose': 0.03, 'natural vegetable color': 0.08, 'plain caramel': 0.06, 'soy protein isolate': 0.22, 'soy sauce': 0.08, 'tapioca starch': 0.09, 'wheat gluten': 0.13}\n\nn=1 mean=0.659 vals=[0.659]\n  {'coconut oil': 0.28, 'liquid smoke': 0.05, 'methylcellulose': 0.03, 'natural vegetable color': 0.08, 'plain caramel': 0.03, 'soy protein isolate': 0.25, 'soy sauce': 0.07, 'tapioca starch': 0.08, 'wheat gluten': 0.13}\n\nn=1 mean=0.327 vals=[0.327]\n  {'coconut oil': 0.22, 'liquid smoke': 0.07, 'methylcellulose': 0.03, 'natural vegetable color': 0.1, 'plain caramel': 0.07, 'soy protein isolate': 0.2, 'soy sauce': 0.09, 'tapioca starch': 0.1, 'wheat gluten': 0.12}\n\nn=3 mean=0.401 vals=[0.366, 0.334, 0.502]\n  {'coconut oil': 0.35, 'liquid smoke': 0.07, 'methylcellulose': 0.04, 'natural vegetable color': 0.06, 'plain caramel': 0.06, 'soy protein isolate': 0.18, 'soy sauce': 0.07, 'tapioca starch': 0.07, 'wheat gluten': 0.1}\n\nn=1 mean=0.577 vals=[0.577]\n  {'coconut oil': 0.3, 'liquid smoke': 0.06, 'methylcellulose': 0.04, 'natural vegetable color': 0.07, 'pea protein': 0.2, 'plain caramel': 0.06, 'soy sauce': 0.07, 'tapioca starch': 0.08, 'wheat gluten': 0.12}\n\nn=1 mean=0.484 vals=[0.484]\n  {'coconut oil': 0.4, 'liquid smoke': 0.07, 'methylcellulose': 0.04, 'natural vegetable color': 0.06, 'plain caramel': 0.06, 'soy protein isolate': 0.15, 'soy sauce': 0.07, 'tapioca starch': 0.06, 'wheat gluten': 0.09}\n\nn=1 mean=0.632 vals=[0.632]\n  {'coconut oil': 0.33, 'liquid smoke': 0.06, 'methylcellulose': 0.04, 'natural vegetable color': 0.07, 'plain caramel': 0.06, 'soy protein isolate': 0.2, 'soy sauce': 0.07, 'tapioca starch': 0.07, 'wheat gluten': 0.1}\n\n"
+},
+{
+"role": "assistant",
+"content": "Current best means:\n- Iter 11/14/16 recipe (0.35 coconut/0.18 SPI): mean 0.401 (n=3)\n- Iter 5 recipe (0.25 coconut/0.22 SPI): mean 0.437 (n=4)\n- Iter 7 recipe (0.22 coconut/0.20 SPI, more color/seasoning): 0.327 (n=1) \u2014 best single, unknown mean\n- Iter 2 recipe (SPC + radish juice): 0.417 (n=1)\n- Iter 1 recipe (SPC): 0.418 (n=1)\n\nIter 7 is suspicious - could be a lucky draw or could be genuinely better (less oil, more color/seasonings). With 4 evals left, I should:\n1. Re-sample iter 7 to validate\n2. Try a hybrid between iter 7 and iter 11\n3. Submit best candidate(s)",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01N5YGMmgqi6o18hEK9R9GLe",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.1},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.1},{\"ingredient\":\"soy sauce\",\"fraction\":0.09},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.07},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_013gmpbrdAfmL1JgZEuQK8EE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.28},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.11},{\"ingredient\":\"tapioca starch\",\"fraction\":0.09},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.08},{\"ingredient\":\"soy sauce\",\"fraction\":0.08},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01N5YGMmgqi6o18hEK9R9GLe",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.41233821220814176, \"evaluations_remaining\": 3}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013gmpbrdAfmL1JgZEuQK8EE",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.46071698656308563, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Iter 17 (iter 7 recipe repeated): 0.327, 0.412 \u2192 mean ~0.370. Iter 18 (hybrid between 5 and 7): 0.461. \n\nCurrent best mean estimates:\n- Iter 7 recipe: mean ~0.370 (n=2) \u2014 current best\n- Iter 11 recipe: mean 0.401 (n=3)\n- Iter 5 recipe: mean 0.437 (n=4)\n\nWith 2 evaluations left, let me try one more sample of the iter 7 recipe to confirm it's the best, and then one final evaluation to maximize chance of a good score.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_019kegd65VUxcmAsbb52gFeV",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.1},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.1},{\"ingredient\":\"soy sauce\",\"fraction\":0.09},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.07},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_019kegd65VUxcmAsbb52gFeV",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.6103044887537045, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Iter 7 recipe now: 0.327, 0.412, 0.610 \u2192 mean 0.450. So its true mean isn't clearly below iter 11's. Let me use my last evaluation on iter 11's recipe since it had the lowest mean so far (0.401 n=3).",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01UUUto8SeoUGL7ZaJF6RXdd",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut oil\",\"fraction\":0.35},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.07},{\"ingredient\":\"soy sauce\",\"fraction\":0.07},{\"ingredient\":\"liquid smoke\",\"fraction\":0.07},{\"ingredient\":\"plain caramel\",\"fraction\":0.06},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01UUUto8SeoUGL7ZaJF6RXdd",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.365666791788672, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "11"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2319,
+"completion_tokens": 702,
+"cost": 0.029145
+},
+{
+"prompt_tokens": 3222,
+"completion_tokens": 655,
+"cost": 0.032485
+},
+{
+"prompt_tokens": 4026,
+"completion_tokens": 693,
+"cost": 0.037455
+},
+{
+"prompt_tokens": 4868,
+"completion_tokens": 268,
+"cost": 0.03104
+},
+{
+"prompt_tokens": 5974,
+"completion_tokens": 427,
+"cost": 0.040545
+},
+{
+"prompt_tokens": 6455,
+"completion_tokens": 666,
+"cost": 0.048925
+},
+{
+"prompt_tokens": 7270,
+"completion_tokens": 790,
+"cost": 0.0561
+},
+{
+"prompt_tokens": 8209,
+"completion_tokens": 646,
+"cost": 0.057195
+},
+{
+"prompt_tokens": 9004,
+"completion_tokens": 731,
+"cost": 0.063295
+},
+{
+"prompt_tokens": 9884,
+"completion_tokens": 371,
+"cost": 0.058695
+},
+{
+"prompt_tokens": 11906,
+"completion_tokens": 884,
+"cost": 0.08163
+},
+{
+"prompt_tokens": 12939,
+"completion_tokens": 505,
+"cost": 0.07732
+},
+{
+"prompt_tokens": 13498,
+"completion_tokens": 391,
+"cost": 0.077265
+},
+{
+"prompt_tokens": 13995,
+"completion_tokens": 6,
+"cost": 0.070125
+}
+]
+}

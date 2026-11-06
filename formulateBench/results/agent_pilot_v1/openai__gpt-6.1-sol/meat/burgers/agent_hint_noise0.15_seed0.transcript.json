@@ -1,0 +1,616 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based burgers. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.6},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.075},{\"ingredient\":\"canola oil\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}],\"target_dissimilarity\":0.2386248831869474}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_9AIpqtduxOPyQU0ELCiNGid2",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"canola oil\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_9AIpqtduxOPyQU0ELCiNGid2",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.1920102788347406, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_E9DsFvEim0bCdpP8KVzSYKao",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.38},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.35},{\"ingredient\":\"coconut oil\",\"fraction\":0.1},{\"ingredient\":\"canola oil\",\"fraction\":0.07},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_E9DsFvEim0bCdpP8KVzSYKao",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.4286232478828611, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_RRc4aKD9MXdNlPzaXRijlYVu",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.53},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.24},{\"ingredient\":\"coconut oil\",\"fraction\":0.075},{\"ingredient\":\"canola oil\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.045},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Optimizing recipe evaluations**\n\nI need to optimize the local evaluations, focusing on 17 different ones. I have a feeling there might be a hidden feature related to the recipe that I should target! It\u2019s also important for me to consider alternative ingredients to make the recipe even better. I'm curious how this all might come together, and I really want to get the best outcome possible by assessing these options thoroughly!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MFVMn6SXtpNFVvdtY2F01GOWJwGOnvRgAponpCCGX0iuZ4mEQMDSc0JO_VQD7UdVmJgapbYVf5CPYrcu_oUWfsAE5w_YIc_SzWOvPKhOReeAM0Uhpr9SyNmmdR0hl8x66xQ3dlFwx6Uzs0r2ASN7H_DFXxpzKrIWQ-bxDd_f3jxw3jmO9CKuqJ9AVb5YsjJYGP88R14J6rn4vLzXcTpcXbJzDaRR8pRVthbAYsmUXJE4U3DvF_9WiCOmdyLq1d5ZJeiCYNzZ3hsQu8LpcLVQpLuu5ipma4mOGxdnQUayZ-fmuMzsm44tyRm9UQpa0nHHNY7nvQZAk1jONlO9-mVqR4PufTDbkvDoRsYjk6sCtPIXEaoqnMkl2_QkdM0KV4dxIa8KYaHakSUzzgvQXFKtRTeXksqThrxyK5xQ6QQW-yvUYChf3WNORLKIeMIJCCD00S9Cy-GiGnDAXduwpXPK4YgyPnPFol2ZBp5Uj0VoRvuL-BT0BA6YLTfhr5QIdc5PyJstn4BQp5G9TodC4fYkWeP8hgPvkL9LRJgIFjlmK1YTbSVelNnzcNPv4-lgGFXjIgeCpEfV0CI-c1p--gRLpVa_9ZTETYmjntrE9ojmrApmLubJ4aGDT7l-XCCYTKdihrkuM7xTJ6MGt1HL3wtkoyldUzFhrfX-ZQ2jAkDxnw_7k6c10EyvSWfgoovYKYspFgj_-_-v7WKB_EdDirl1wECI_6kMckZyGEuR24ZmwYNio1qH5Rv8frTYlEck1TjObYOkZ7b7Ao84D6DMK1xiXr5-_fGn3PWjKderjbpsk_tIqYIEHgR-Z09tNBFc3fsZ9W4i_BWG16EHpxyiq68MNYzM9moKP3mLiysNd8kfSikgVesAigMKuUNtB3PCiLJNXoIAmIDWg0kSumzqbtC7l_9jXGP8MkZCctIcl6ehnLGgR5MGkYkqvfQIj-3AnyN5UaYhGr4tW4fgKBiGSAYkLfjrKmnFD8iahXq3j5STgu3RA3coKtEMk6lyAnMKGbgo-SWFPHy0O-p5ZHHFAAGpft48vf6XArC7JZdJpJHwIN5fR6Q7gk5FzsbcTq4cmuy_HLf0AdtIvdP7YQq1oNupnDuq3sHXm-ux1LzeR9vYJnkDfr5uXJHs7kvw2qmkCbZjqNWmWpj4NYRH57ePF9HbMOT_kPFsAIoWeE_SchUwy4XmhFH2So8JMZRy_bGaDhNPuUgADzQuuZCy3e85CEUDvDDV6ePZPlZ-x0j428MxZFDzrZOe_3OuzTKSKo-lWiwn3r2TqiXSUMRxZJ_pq3j18FBCXuO6UnbI0uYkMPrrUp_WL5c_Oo2FSqZk3F-1Z-F5CYCk-IxcaWKFC6DsD9rrKCxIQGGKL4---LLBrJ_6KXg6kkPjUF5_mwaMPPXAY5kDi2LG4NEDbPimVd3tYvIyzu-LKYdEQWnxJ25d1A5SidiFLaNiziWeoE2zTGTX6ap6dl4EAwuFskypybwsUUyqd3ewkEOdyfviOr_bbg4MjVNyvfFcjPmIhbgxIWq2m0e_ekBAVkshfxUwkdDxS-pp7ykbIj72N68soUQLZNdP8mX0yqfbCEyV0uzJ-qb6-IZBKH5QYnFf9kIKFL_RNY46eUHRhwO-JPDMqUYkXp4YXpYDlXRVghSHuo7D--bYUcvsV7R0Q1KzxZGsncRAxYee98ka4QTeRQ4UopaaJ16y2Nwja75qPRWuZKPZbSz95FYpkyQCComRpaUgCtNRFwIidYuV2Aggybn-hxaeY2GvY0fXOy6XlYARVY6ClUM5SJ3CQCPsXhnH2bkgYf-E9fwZacigM3Cu8cvAVrNBbApTIx3I9GlRe-um-u4Pjtl16h_i2oa0m6oB6aoOT4Bx9XR-T74_L97WVq-p7gFo0kx4DVxQRk_npi8PnPv05S79TOOhhrI.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc153cb5887d19539f1b0229bee7b",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_RRc4aKD9MXdNlPzaXRijlYVu",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.3472988986008579, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_EW3WxEWn0vuPj6usB8bjSudY",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"pea protein\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MGJEV1QpEy93z4STqqC2MEoIl4d51EVSJtlaJzJksMISyE3JlD6Qx9oc43XZKmtE5LpHQcRz7xIMjqjkud0gxx4kTgJ6LViAfX3Em7LsaYzyGorJEpUwzbECM5zNHxK__JM-fX4xRHn0HcPfJeWjO6VivcbuJUP7iErh-GmU-aXv6_MhmAoZ8pYvrrGfguBzdkB94sEUb6c-Udm8zwxDNAN_Aic6uTh9GBhx7ZrYd0ZxhzlVJpaSXCM6neqQSP1x3pPHJJERESVg-sh4uQdNnAMSgiZnITy1FhCu9QG7WO6l4kNI0VI1Kqk3MPGeJ_0I79yH7ADWhE-MWVlJMq4avysBGhkjqYdGVCyq4X3GDTyR6j5w4U-wLUwhEoIwNhmidWjwT5ZGLsBtVZ30KyGXBTlZrPKb1OpRIyf5gdZBHOOUTkuFNKjBHZBVjobXTyexdOTVDWHj07QU8b6TTzAAYbf_Ccj0m7RWihuYDGw1fHgzVA0e4YYP94JkYPX-aH-2rXTqtXuYUw9oq1N-HCyyijd3aVuUTqYWRtQSsVTzh1UxDNZz7zkQTpUVkqD_iid2cIPCxWTDRJ0DCKJYDozCCJ6sofDKqL8tZ4lFlepYM1y6kaHzFbtBwv8E3OrmTdrf4J-TJLEKzWuA8f1iPmLjSWoVHOd5w5xhWWQZ-HyN_KI6r6iUxRuJ775ILOMM0_3htifk2IzWz0z7NSx7fmq2aeBdT2aQNVrOUxayJJiUe0AYrKKxXTiGK4TcbvV33kZX8M-UtH-MvS6hxckzSd1JNNaGdGkVmcIlm54fm5Zq1Zx9WPed6SPr1Cq4UCpA7f9UFCaMmaGLMMfIUMaYYGncXmvjeQHjzmwFy18PhQL5Vi1dQPK7mdjwhKB7ydr9IeS8chikSwrxbRMJ03EnJbQotIVED5CEz81cJG2fdzIzNcfMCIfJk0ATPCi3WETlaEfbM3Ky9SNxwD73tPAg9vgQQPFTQgmNeSxwxZwskgUKGZUDZcUtUl4PHMhaEqjaeqPSEs3vyPBByXsFitkUYBiyirgxba9Zu_dcuRshAC95uhk882J724xYMMGu5LLr-qSmFCF5bhGpfj8k0ByRlaVbdN3KH76ZK8GOkD0tnziP4OoUhvKln7xG9_Qi_GeHgvCVmAfvZqdd5TJi5bQZvpY0ablNAb_Jv5YSRBHKqTyfrXu8gxfpzokoNwNlbQyHaYARs-LOs4FbzOJC3lV5snAcH5wq0SHyfsI3c71GqF7kJU4P-NKUpxfgLRACwdMjMhpUF4Bm4P36_oHk1LoEIKQHsUr_C36WuYb2jAYx8PVpM51_rf7IFfzdsCH8cmJWGNYrZFFh-FS7ZM1rGDGrzubMka0bdEg5wBfK9DzQI-GHADzU0JO9jdMTln-xBV1mmKqxEFFXM1GZ88A0ms6-kKDYYB2Xgwm-1qhKwy4x2jhYDOrDT7oTH3Z5MwCD8eVkHfgxNxUeGnApc1TuuJZbbDtf3m0Nrt4u9fBz-W3MnQeTsmGhMlfT2MzYeek3lj5hLOsEU4lJdj0StZRouZ7Ey8fXqTJgPGsggo2HVJkYGCSsnL7L2p8IPEwwLW8SLo0HQu_hUxMSXwi8bRVCtew6EuecJqa_SI9JzJSDDoV6iZcWD9oEAbnkvkZGO9MPwRloUevcoGeu5yV97uCVs2TfjMfazWW4UjgQXR-lFqq-ngD7WbUZD1IPchiIwlPBeiqjJn2uPwj.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc18918d887d187c9fc38219c7ef5",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_EW3WxEWn0vuPj6usB8bjSudY",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.13887453762190743, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_zkdVyBUHKIbPoFBRjbJbXlaj",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"pea protein\",\"fraction\":0.035},{\"ingredient\":\"plant flavors\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_zkdVyBUHKIbPoFBRjbJbXlaj",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.4257707060671909, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_soOoywKT2lo1aRLrXYS01BkD",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"pea protein\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_soOoywKT2lo1aRLrXYS01BkD",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.24020272185015534, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_oAiik4LZH9iL0HRB8xlhRRLx",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.48},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.23},{\"ingredient\":\"coconut oil\",\"fraction\":0.105},{\"ingredient\":\"sunflower oil\",\"fraction\":0.075},{\"ingredient\":\"pea protein\",\"fraction\":0.045},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Exploring alternatives for soy milk**\n\nI'm considering options for reducing soy milk or possibly replacing it with hydrous mushroom. It seems like it could be a good alternative, but I want to explore which would be best and sufficient for my needs. I guess it might come down to figuring out the right ratios that would fit well! Let's check out the different choices and see how they measure up in terms of taste and other factors.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MIqRF1VKTEsuUBBshy0ndkJN_iLm94NQBlc0XD0Cf4sn2UfPQqbT5cgoOgBZNmv3N7OI93Hzs2TRqPPqkFPDBQzzmPsBwp-fQbleSjiAYlMC_EZWD6T1vQ6_Vc0vQqxCmOSJMgMfHxdzalU4ihLXjftcaCUTNkPsTP849bIKzW55WJbardBgl0YoW1NCukstxryjmOF62rjW1ZsMWgClebYbL-ZMvEUkfNscqqRWnVNOcA2_P6HDT_1UQ_-C6CxcSujZEVZ5QIn2mmCB7BIWpgHEo_qAAzrZT9k8h27Hmf8Zr8HgfCOVTxPcvtrmibnpoxl6qR8Ip49DW3_LdbAiwoWaVZqleouPjYStLbju3Kcm7RDP6Mw8E-LFUMhTo98BGNziLdh5vC95nBXIKxy8JgsR6LKeAsmTsN8VgGEkOij3NqT_x6fq5SmynYmGUUmwJhxqHyYMXqeQ_FJi9-eUUfk9CT7QqbMTT8VNrRh_nmnAYUXKXxavNPH8MNwsCajTIpzSuZRtjnrOxhCrOgyDNDE5kx2eCaz1v7z9pFompCL42ea1VQLJ2175Bn4NWc1Vr6Le-Eq9cU_yv8jatgb3hdksvB8tWz-MSfpQbuZDLzcKa4vKRzJRjHNqS4Xb7u6MdUwL3cIXGuGcW6dbqL1_DSNzGvSf5JlWSo1Ip6-p_iv4m48e5NHAMiaTDYveAI6aqzdPJGSIjcrblVazbCiibMcUXk1KecLppzmQTawb5y6IzzhoT9igU4amSDolHl-yqpTRxU-DXt23sKGpM1CGbNV0HWgr9wO8XJxzaEsJVXbDn3Pvcmhdb6xbbPu7-5xED_TaMpnaYjyIBYQaXXyjIBwuyfdLrS-SkmVGOOYuRM4cLqI6r8g4pOeVfHC-4aX8QgIwHZUt5-_BrMjXibAn97QGmU43AFT2gwKKKIasfqr0NZvRqUG1oHYsXUbn5le4oDo5cqLm7rfzsId5NlHaSpaYTTKjLFx9AWHYvm1DDZ5eqTRsbg_DUd_Tn9OokR8deiHAxGNIm2V620Ls7gb00I5jt7i0o-VKzYj7HOSZDsvgJgHYB3MiNtHXp6zd_reQYyMuKi19tu2LGi-A1SPx6guiZgn1ZVix2dMHWiFANiPMn_oe9cXDXxh4ftalX2YDtM7pEw6sAy5DbInZnETduqVvYajQ_-zms-9BEYuY6r8fNP4rv0G-Ka6XcE3U5u6Lv3gBWNaa9ArEEcIoOnyxRHrRaciJL6cQtNuOc1gxQeIgilf2gdDS5aCtrKeJXojN5IWXCT28hv9M94y0t4KYyMAIMwqduRRWdbxrJHNTNcyC9nanDNRDKpLq6dHKCrhwJRBOO6r40s3Z1dejPkpmzsf7u17kcYT9CtxnbqPeUHTWVcELD3b2GusLjUILgg_EqD4eSKKKS2jAGnqzPdSCoXdwQmhRtZO2MlPBtvTfyIL4eEF1FqE2T4stvtCgy95Pw9H1chFcCh1fKHCtejlT1NOjzjN-znpwD83MavefQlfX5NhdKXe43X0oOUT_pBynTQiD1df6C-m6EvpeFKChH9EY5tX22W8si0GZaHPETkvkVN9CJXy7NM3m4YEM9vORHU3-hbmHy1QWIkQPEZlyUb5UzQ6NJTzMED9MdOUMNaiej7o0PSZrKQ9nECSlKIYndPC_36Lo2KgWyEre7izGBFYCX-9Ea7saGO1GCeae8hX8B65pwSaclGN4iHP44guhM4o9iucnFpoR9H1ZF-xutJPJoJFTepcgrkIHaBoafcRDFYz_tVLdPgwSNv5Ot1kdiaLhMYFadyddHVi5DHZrnXDzKHOjiuj2ZQNoeuBlFoNDUSCtMx9s7upIlZKWbqjbmWGl_IN2e9crL8e5pIE_kn2got2HJSp_WupycEFX9HP3XzMkhhHr2tqo7ml-p4zCSCenEKfzFDuicj_1rtHwK-HakWqstrfWL2pYK5UP-pwXZ6f10J2nOnV2AApiNubTdbd.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc228eeb887d185ea79bcd2a82ff8",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_oAiik4LZH9iL0HRB8xlhRRLx",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.28770962467454747, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_kDHa3Z3V7kFK3wnuFwgSjVCT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.55},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower oil\",\"fraction\":0.035},{\"ingredient\":\"pea protein\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_kDHa3Z3V7kFK3wnuFwgSjVCT",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.3536982852335919, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_EAFKGXYg6bLspNRqISW0j821",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"canola oil\",\"fraction\":0.055},{\"ingredient\":\"pea protein\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Optimizing with noise**\n\nI\u2019m considering how to optimize something using noise and a hidden general recipe, which might help score the noise deterministically. I think about repeating a difference of .1 to see if that improves my outcome. Also, I need to test the TVP swap with pea, etc. There's quite a bit to consider, and I want to ensure I'm doing this right! Testing will help me clarify what\u2019s working and what isn\u2019t.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MKVo9d26ziL9cvYl1HM0htS0tSCPL96UwMuLmVR2vh-uOtjS9g93wvQx69RY4g0h_IFNUpOeCDy08FWi1qe31vFXrgXbhbvebboTIZE1YSqLbzi6okATom7xz6aStfJv98Yy_Mupnf3AORkdxZwTHLTSbx5HvAEaAW2HlgKoVI424-rez_bNK5r5kDY68fwiV8UADiZRwoR-1XHARHIIvNmJiYc2klmFL5updssCUhJDfsOuyKhHuhDIJB5JXQChlR-mfPNb4gvOHrXxjH59tgCruc0JtRNq8t46xN0IaaKclQ0naQh53HeAWfujc8vxYleN0T_fZH2D1rgrZvAm-EutlNVN5bX9w4v7zPBiEl2WaOBg31TeCi_BxylCgn7C2HGWgZlXk2PAfOHDceov2U4mxdllEsb6bm-uxXlBiKH-9jSy4WUSjm5Zz0BPKOj7uwadLFmRe2-T2KhvSDjj0W2FdqzagD9EX5UOvRDep7yWX2AKP8HvkhtxfNGhJnPJ-l9BGbXCKUJs7dgeH5EWNsngg6JwzjXMLR08ds-NLvAOTSYWbhru0QEyNcn8rC-fhw1Y2J8whDUVViCDXRSWQjM12Wk5pdDRuPUWI7la_XMeCMrVyAlWsReiozGHoSzVMWBlwf7j2HzRg9iEJJo310n2DCBNzG_jer8m0fsyy_WBzi3PdZPU_N7Xmnal1uBQOmx4RqKvBzY85gTLUmvDztz1LPkwRrziARO-JUvl3dZXSTauWTeLIor2LGTsGtCkloi1GR6cDzwMw8oCgpVPNqp9fXyB4qjEKKGICXOBzSDfwC1mJxx1fPPLJmeiUnY_lqbG1Pu-zsj-Q3KNu-PL4bZgz4-fZVfQnH4HfZ66U0bbP4LYtabcCvjhYt-yabgoAw4Hhb9nqQQanNFwNizYC0ZZmXvakLzjYid_Atuiwm4AEoo2Q-nRZyeck2taBkflDPeIDdcCKnducBj7bvOVpYPQt7XSP8HoZnXbjVK1FHkYJjSCVdYOgIDHh7MS4tq0yGxpnd80x8fOnVRdwNjehmaiGeC0TrRsBNRHrNLtxBzBI8MBDaeBZomUCf5UeAjcSOYToUPoDZxdLlf2eLNG-DcoX0Cv_peJwzFSEc96tPpaXDormuGmfr5SUZV7fHLSz_5HBW9SY0Pd-M6KrGAxb2HVwPKEId4e3HaCH2vISkj0QNlSDwFC5Ym1Ec3eNrBi1a-IqR2sDpUKTfbB6nKLthC7Lclyt9EV_3ORXhPVcHSgo6Y2xpPfXri3x5Vnb7HDQkPOcTDgoWS59WsUHFwcf9dNyLypnrL3o4nm_LNwoFEOeQO8UkGcUcNR64yJNZgH9Kvw846QljWALYA_yx3iAo8Cpbqi0Pf_1wunCkq09FVw0hxIhVbOLy3T5cpWFj7O3D4d4jTvReH-rSDzDY3HZb8FKLuyai3ZOvymaIhSSaFzXdtc8QAQVG5Q4cJeXGXX3P4GAJaxGrSJwkLHgYKYAQlTH-bceXRJ6dEsBWWtkeI5JtfVnDQffWPwUSMv8HjGCueMrkwAFW4E5PpFC4ugZjBMmCNHDOvpkRnqN8iVA1t3_q-dLpv7LW821WHSIYDOAriIyxMV4e1daVBig04OVA8mlHDNiYeNdZaWRApNEk6pzCq0zv94nDyGiONJEb-zL0plF8RmJo4KHOlU0-sbIiZpqKKVsiSJZVLNS5jv0u_G1d3zszO1abxt9S3ku7BsRpOF1Zt15tiM4S3GomGJh3zc958VrJHDl2hQWlwtDFXPTVGjPIuF_uIx7W06syWEOOL45-nj5UfgcapAte1NFNqmIBWyxTXktTD4G4pNxWfNHbLgGQ5VrsGtfo4LhlZQ1TcgeRWxNtHrvnqXF-YSo6CKU6fItt-AkskQQB7xNwffCVFdVr6_BSsstQpTv4VwvPhb8FqU2Y60IQyoBvkJJ7lorGYNLj1kHCGvQQeKmCYMj5NYHM_q4giBdJVIkdY0cEa.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc293d76c87d1aca5452b811cb73b",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_EAFKGXYg6bLspNRqISW0j821",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.47906889909858286, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_pJ2RCjIy1OeboWOu2N7ade83",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MLKdL3Wr8tgUNeJZYFKtQO_RkqaGOByIRF5jk6ffFoufB743q5BRbXiLIsapcwTgcuEv6mZizvg6iiyPvQt5Q8O4o6lsuNc7hvJFXU3ecvaODZ-rPyFhkRKvEh73BmfMSHx9fYnfEp8LfT09xN8aAN7ublOeUGj0BI2Gijt6TpQ4vo0mTNAXFaR1uH0iEs1HNX8fDdd8ooMIleTsjfUYlRx_nKy2hZCawMvY7cMnBbcCxebMHLZFAzlMhLGiIEU9FbgNGe5U3RgZUwaSX7G_KxLnY8Z9UCiqgsTAP28uzGCUP4_LKs0Khlc892iPFSGYrJ6wC4tSDVUxFhyi8GSRudG1tzD2ToGG9F7axOIlHeKHpr9VD6yUOz8K0LaicAPrP5Kr05nMmXj_eVDYkz80xnfuYi79A0Afdds18TySk1TlKmCdTC3nmv57157W6iSKOtqyZF-vlS53ddOwATn-zLoFVTBIl9riIgs39uyek14gFDhRhX8lh0OXfTdu_KB4k0sl-54EwZoK6uzOUidE0qiDlghZfh7aRzFiK0wsxZ0axrsZ7bTWdXPXP7lDzxF1TAOlwdccXspgDJnRbxlW61qG_fss9zqDzWXI33xWHYDPRXcwUrcLVLHN4s0lPP0GmcqYDIa6mi0sx_UJG1gmaH-1niciq60Tl95s0IZKJbHigYmXblN-GkcPj5L6vIvO-5VSifpT5fmpczVEWO5MitHsMbJywfEzmF35mxsyu9uu2kYL6tMY_rhArJsB-9OwxxGgRuZE8v34nVXCjoormA7FBgL2mGi-ln2RgP_worY26sTDzfzGcZnrFuaVGOVSdxrLIEpoF-hsTV2dXkQyDFv1cm4EIc6vMb4YateA51sUVg1xB6C4aGbKBVU1ZpX_47i7fQhZNxfgoM5yU1OA3wF2ysZ7WbDWoJbZlDw-yDSCXbnZC2LrF5-c3gX6xTAa_k9qHLtwgkz6luIawU3MLRBLUBu3nT6C8VSZS9kE59NoYRsDLzi5PgmQstYqfg1ZD2aLDcBpQ3Xm2j3iOTDWYGr5j2vH7GIeBPkx2ObMOukDvFkj8eDptjoJNMWVpUsp728RnT55TFW6_jHYuroXruiRBoks5tmEFMbAPH190KvS_HKlphwpmTsCz3D27JrHkMvvDjsqnVUeE4bMr87uvIUYK8ioUGEkV0CKak4SaB6XtCjQ0mbS6_Z5C39mPr7QCZ3kRo5u3xcVlIC6o3I3Maqk6Bnr9v_OUA1dz3nsqAylm8bYjDP2jszY-KvCSeVZXAvrjpyAkplFpnjsKVyBz5bzcAUnC0u5p5mJR39OPmkcPcbEsqXfqBlm2w0-zMQZjy-hPR-XHaEotah1ZU9sq9is04Z2_QDbGGTRkQuP2XID9O3yXMfC1BIvJ03591dIkJaoQDUptjqICZAjiBLF6BAtERErzQYL-j79m3Y1-ZI4iXcZQFtCwHDsba9mcdn072QMBgq_447YC3oREQvCeX7-bhBmMgHKMyP2I_QDZEWWyO_t9HyGbmKiWsuRYMFqeHkr4rzJY1Bpfz38StqmZmjAAcKvEVqexG0ugINWpFfmGZt6GygP6Zlj553oYCIo7u38Gk12f2uyYuqLjAMw-ZJ858RZD2dGuek54PNIET9D1JKwXRxbRf5svwzS7cgxxrwGrdzPFFGjCKq1SUY82mjd-aRXUkXld1cgCZbK6_X2A7h2f_7e6B123HpdwzTb5SUdkhjaGZybErKtqMqREu39PZiZ4RZARPLsrPAE7XhQ0Q=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc2c91bc487d1b11763041110d17c",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_pJ2RCjIy1OeboWOu2N7ade83",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.17425157293093338, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_s0uKPeiSD5nemPzk50e4Zxga",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.48},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower oil\",\"fraction\":0.075},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.055},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_s0uKPeiSD5nemPzk50e4Zxga",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.2463051609523307, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_pRUjpgPpSW6NBtkE9w5fK16C",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.035},{\"ingredient\":\"methylcellulose\",\"fraction\":0.016},{\"ingredient\":\"yeast extract\",\"fraction\":0.012},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MM1hiBxGGyzyN7H7gYLJ5-B-9HaiChoP3IfVzfnvSp5ZYD9rBNTMXP4KZs3CrZJc4OlvJQ7d9py15e8tVUDQpnG6BgaD7ARCb6n1cyXX78ZkzuBIZMw6D4McvFwcOgVcNCt0CAOOsrmpNI2tehMJgb5qKqd1xyxKzkEFHwz6XyUT61hCQPAUg_IcxZPM-4nNS398aWiI40hGKa0o6lV42pz_M2VHVmTzEke7vmUzTCR73nu9_1ZWlYyjGY8VSTXE3Od6GsgoXog7r44dsS1pn4cmmXR4SFzzbqynpHjlFyGXXemak0tgHvorNNMionDHByCKTBzZmf25fQAcfwVDQo03n5IK_TlWcpI0lsffAbCu40sRoKko0W3kHyUF5ey2ab92UT30xdTkCcBX4MoMFG_Z5GJI1fwpUxTc-FkteZFsTPtydvO4UNy1UdlPildY-aWxI0lk96q1UJBbOFcj6ngJY08XF0hSEkcxJrhGEggRXnxB_6dDnQaYN2HZWAFHf9CkHzMmESGhrJ9keT1CPkITXSOhsLkxkUFoh000yXmmNNKY60V4W6yofjKNDrPPNnlZbejUeSS92Y3fTanuV57Lu52kzfxhi7MrJEvLgJlXNqPLrtyVL0qncLoNnO9D7c3agfidmQLtA9F3GAE6TwSxxQJTpZBQKEYP2s28-v6Eq5vviLrVIO8Osz1Es_LCcZ0fbKoTyh_2n7B9wyLGiSGuloSk5A3BZFuFFmJEXhKJrQBp40z5FC2CbY2hAhLTTm4JRUpMI3O-pt38rpgf7apxWAjKCWys1sgNGd6o5i3IpwDWTW74Y6V9CleewZdmbl2CWhUOqbRIDgVvTiN_BLnahB9RpQLXMeO_ENjqOFYAXt4wOwdpZAODwLZ2x33rr1avoYuScGa2XD8thNw_zwQgMaippgXJZR6kUz5Cn6TIbec4nKsoeZjvJXD-NCP2mqnYiAu8gPA7FFdd9oreAYwvPV6TvV46Yh-cWWHkzqPAISNJxezgKj82XElBbE58XGJdslW98HXJn8L-KGeZ1_72dFqrPPf60sps7_CU95q631w36FnhCDsXs9XkIKydMjcpFVSJ-owdKilsDb5Fvd4zwmP0rzvszKKHCCQ9c0CeG3ilHLtCYeUW2nEDX2pmVyw2ZcZrA8Ds0-WY7kQuU6PVJawZViMIcZ6J1FHcaAj1B7n3Gg0HrSEOfxzYPhPFN-rRQzLU1dPdEQzdvPwqR0H69A1v3hMyk5vmvREVehqx6suxEF05P2Cm3Q0X7hCOvmuNRqVmqGxWNB6S3UrO7TwY9dkTWqflDyqLWiRHeOlItzUvzTPpH51jYV0AgCCjphnH0VKQvJ5b25OB5MPR2-KJ_0GNFpo-3tlHW5K7GoeZdO4BDmiDdHWYL4JRqwvvN23khG5uSBlDJpbfGawuhEbyA30IRuEvGuhoAqp3YapZfruzPbqUF_KfQHeNZ-tAvthuVspW6syS_mdOJA9xTRYlPBraj_7ipS2RGpZaoIJoEF7qszR3s-QN__tCotKMV3nkPXh3F8hTurzOs7NiU6MFaMRB2uloQz5S1E25WGkYL6C9vVhD7555Quq8OcfiHZTsRsnx1It1A7sigFNBGcZUZnWfCa8WvFtBs1OG3-w0ji7qBtkwkqu6O5moOYIdtP04pFr28xNlmkjrBjbVDp4-ZcOFKSKcd-kqCFAC2rohD9RdSBbh0bITFzqj_3aWLIA05YbHPUHivdmR3gsHkQ9XgdUErlE_AaFgYKdAfwAb4E=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc333d5f887d1bdc3610d854ea5a3",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_pRUjpgPpSW6NBtkE9w5fK16C",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.17613176598515592, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_IFaWgGns0NHYjSNZl6PXebkA",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.49},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"coconut oil\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.035},{\"ingredient\":\"methylcellulose\",\"fraction\":0.016},{\"ingredient\":\"yeast extract\",\"fraction\":0.012},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_IFaWgGns0NHYjSNZl6PXebkA",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.17187692607536928, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_b2VpIGDIYtOF6jKEt9sIGw2T",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.49},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"coconut oil\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"pea protein\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.035},{\"ingredient\":\"methylcellulose\",\"fraction\":0.016},{\"ingredient\":\"yeast extract\",\"fraction\":0.012},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MOf11G0TQGfS3Pg6TX4seVEScm6RL6Z2x9FAr6ZPQXFA4cV4pw1X_KRC5eVPfVD6qBS9NwXoCjOlE8CPrh1WBBH9TGidZ8k8NnBq-8-_zRNRHXagQcXxJzJbqv0wnqKKXdq52ti9-dPcsVr8W1-GrItO_-8q4Wpp5fS-eMtvhD0HL_e14HJlp3VotQNeeXPtKsXd9tHHGVzYVVuRwLqfq4J8olUucEK8J3lhME50VaxHAySNATP7ObhxGN881kILupE-IDIQnfUJFc1crOI9t9q6XhYdf_5sEiyC8uwff6HWoc4PHd1katD-egCbWN3RxZ9YjyJxo7uWAirqI-Fa-3JUnMvGwekD1ohQ2dbSSAPk9mBFPsilPaboiFpCngGJuwoxXxJzckLLXMWMsbH5H1_7Ayhde1-iVFUZM6LvCM8VAewqeWMbBu6zy6RHHiFj_xmDEQoktYYm_Dc1WmG6Bv6wKI4KiTpHafs2geHio_nA8x6mtLKqH12l8DSP4efOINjU884hCiEVPvlHfe9Vq8QN9CW3jZniBc9yxJaZdsTB5cv7OpmlbIU5KfkcDwBdJWy1vSSFYdlx-9NH2mHUUnCag8NFNX7EOTH6qDskuShuL-Q-9AY9pljqIKQ7XTb0AmZNj6J4ATJ6IBN_7RaHYm4YeyZ0E-pkkJzKnk6c4PWdYCilZQfUdCopOKQuZ4wdlPVnmtu-UbkmvYM6lIaZPjFiX4LEBK35dlitTPzD5CUhgE4BGDiWcuMBtPUokWjfbHPWIoHEKKo8vH4nNOC5BfTtom0HOgAh6Qb27I_-m54_CHBKapHtKngwEd8TvH1LCyGg0B2mcxaRrBTJ1eaeSNxSo9tS6YKcR_mPEVu_tSost0g1g2wlgx0hv_VkBB2jc4pXq9KepbyIN0Q7ppfGDAugpC3iXZhakbXXDI1jhi3DyyFBCaesJtOZLTa6HeRyEmXgToQufZqUWXATmFtL5qMAu2XFXhqiDhROxiPVEuo7dwEnoKAg3wi2rX8PeV8Ohta4qCeTJOS6-iQQH5SglvKpHovVGbL-V6c23_yHV32UnxvR2DKruomy2DtVSF0Lh715Z77vi2TmZfGarxEuadZvOb92_78sRo1eRBiKM6E0pHtgCvXwLJLj5TMsV8p3Ft52IR06w7-Gb_hWFiQ-caY4JudbBbKMuRfRPUUdTnXOCpUeQGG4dALMjLbyKpLmuVEcNekv_sQwa5GTcbttsrqm14ucYqew0b7qKa9cv449v_KJunwj2BPeFMjxMAhhZF5DVT9hqolI5EofZMAImokmKgr1i40V-v-80GO05JAuyVNMIS766F6CdGsfQYOfcRNCewfKM5WZxXE45cq2kBI_r_Y5FNAwuqGx5p422jv6NGZZp1eFnHc9eAp0VwHJeq_nILGTh0w1BjvhVT4uKVv6SyD9aLtK3HGa6weL-plP95D_IDTQd6GBGM40EqlwyOIdcQ0RRWDjH1fOifz1CGuQM8CxLIsvV1Bx8p7RdiPX3VbO9BdVZYXQuznuwaBHqfmgvUAUQduTrFjzWpSUzAjgriIvn8uu5rVjadsZAfwPi6ypZ7kI3voK5Q-Pfzn3f2a2sRffKiP5w3rT-kvPaCqXfsTzMc3C1DjpK_nryuY_aLuWGguuguoQlMjux3T63IdVV9sWUdumfuhdtCU6xShoJ0K4kvpH7Lf_zMtY99J6C5gc3w0BZ2qrdQfi4Sq4WJdS7Ff5vfV_QZ9_cBk0zgEtXgr0XGkO6DTl04boKMT0lZ9AwWWAlie3D0NseD--JZA.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc39edb1087d1986d302400e67edb",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_b2VpIGDIYtOF6jKEt9sIGw2T",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.3726916349505023, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_gZeOYIXcsWlXTNnhgdjsphJt",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.49},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.28},{\"ingredient\":\"coconut oil\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.035},{\"ingredient\":\"methylcellulose\",\"fraction\":0.016},{\"ingredient\":\"yeast extract\",\"fraction\":0.012},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_gZeOYIXcsWlXTNnhgdjsphJt",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.26218702706863944, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_Ybl4aL69VMcV8nqri1doNMuD",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.495},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.255},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.045},{\"ingredient\":\"methylcellulose\",\"fraction\":0.016},{\"ingredient\":\"yeast extract\",\"fraction\":0.012},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Exploring iterations for flavor**\n\nI\u2019m thinking about how the noise is high, and I need to determine whether to go with iteration 11 or 13. I feel like exploring higher flavors could lead to something interesting. There\u2019s a lot to consider here, and I want to make sure I\u2019m choosing the best option for what I\u2019m trying to achieve. It might help to look into what each iteration brings to the table before making a final decision.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MQLF19vlMTHiW-Q6twZhoJIgUgBqWEXcmrM27WcJXZ7M_JaIUdbCXrawuuxw4r20tdIczy74U1u9QAuGmheQ_5T-Yz8x0I4Fjj6u_ZQOM6CJ7ha9KqO5FQpn5uGB7Bh7UTSkIVWALYGCC9gfFtHbI5uecvXfYfOlaaVL40QTX_ju2RAUP7Tz65YwysJ4omwz2TuCiIAFHlHtjuS_2R9fz5UuA2c0ReJaUBnLaboTLx7HqU09f96iUGFHGdOioB3RixGKN0TI2FmxGQLsN-ji0tZVhudpWyyphrNZo_XIK0Sx09-IGXSEFqi3K7CxkTbsLf9C9DzEoXw23NakC3ZdRFP2kpYUnVZ6alwEdhtqp3TaMDIqhBF-xM7-7_zMwii8MCX_-mnqOKK64BlbxDL94ZkYwqYpnvPCOddbq6xRAGX_U-K2XtBvWDki4rxZRvkbsZKDwV_96edOdT4VyJK2yLPs_Lv2JFkQaj28urSnSqEW2BrXpEGdO-bf8dmCy4TFGd-XqcpzBSxPxGZ4-hJZ4OvGZtohfbQvK4P4gokF87rueMauXhmOXoyfStFwwjb8M5hZzr8AUju9wqGHyskztv9xjRMC6yp16VkLZT23jnTK-DIBWuAFpI0EH9SIIlikQ9z9NIrnauLkN9Aucug46mnbAbMXju1UbmpxJ1e-7BCSySdCuvLEqkESBuuwRZaWB33ywx7qq6ve4YerWsPGHxt5BcXfEN0aOUraXvJUa6WVc6oueu-IjV3AlmijLV6IQb6ymnAYzGEeNsfYS7DWG44lIVNNQRmAFNoSfdKqNY-hduxYvYZCoLOm2DtXgWDUhwmfOO1rkVjEdkmsPvjy1LbiLJ8GFXLzhTMCsFl3W5wNbVFYoKffiwvyCyfUQAVymK6Y4_cAWAx-I0B8IAJGPWFmzV34A7V7ey0MyEbf2icVpmS6eh7dTw-tCoonkxJ46KLT7dMAHjadKg19wlHWrSju7G_wODCFReHtJXZqRL0y3VwW9fFjnARxlHWSj9E_7sbMsmOXN176fHXyXt-UcUPcq-4OPMEufmXhAkVPiRr6Pgyprqy1s4JTcIc0150s448Cbq6qZ3QSc7k7aUTGQ-EST_s50Syrq6MB7SZk4TVakfuNQnmASYX3Wxv3Wko3bs3yY3DUPJnzomj6FZWmUtYuCnsm7rDTU4-m2FT8VlUIJpvHzp0JOaF3VDcZOFQlyb_4rINA-oJo4e3kyOjOaic645rg8ix2kC3z9k5FuNYCA06efuhIWj0k5AHTCJveb4rvjtVpJAKLLi2SpHjOwPsVgmK18t34azdaS7scnm_QPP0cT7RWIDLTsyaPfIRJ9_juyJIB-Lx4LFjY0wrK1-tbNRr-pXuyipzf4cDwLg_G9-Ne2f6jf7ANxjLQG4tB7UGdgJhv4ZK7LCyd7asQBu3tmdFTC4GioXa1i22B3Cf0LRHFq-0uolZZMUcgBT254swLNWm-fVaIbfXNVsbqZww-trYM4IRK3BmE7qPVvwxSNgjoSVkc7xBnD2cTfalJbUVSgeNJc4bPws0zM9DT0NFNQ4qC9Ln6S4T-PiPSnEOqj7I0aKfRpR-o-7QRy3TXOPi5ZVLyhlCmgS9w-AGKLqe3JTQOeMzsry2SwGXbs5pw08RCxPDTitpM4Z_KSzoL9JzadOq_oi3G70j6ntm5cj8f5NQJVeshBGAK1I_Mej7-VyjiFg3N8JLAfFqcBGBBka_VDW1E0SzIMeBbj9m8VCnJ-vtKEtE2XBwj1TL2RJuQBVzyLXZRXCsjQSAikWbZpRy.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc4097f6487d1a2a435f10c458c88",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_Ybl4aL69VMcV8nqri1doNMuD",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.25761576023081423, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_opHL6ksr2wogrW8NVWlhjhOT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_opHL6ksr2wogrW8NVWlhjhOT",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.2807186978435099, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_igM3jqT9cIlsw29WiGMce0Mu",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.51},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.25},{\"ingredient\":\"coconut oil\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.018},{\"ingredient\":\"yeast extract\",\"fraction\":0.015},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MR1x5BMuBGU-gSTIQraP6u3-rjLtZ1JL0tK-VU_ImeDrwAz3oMAh1b5pMSbutTP2GrTApiQmafBzozJXa3JiQ7-a5_H1cyPPHzldD-R_9MqELlQ8LbXglbgzXRV0reXloM2Jbqv9QDVZC4iAcLlwgBMLuhtlTj6rsdKqW1s9E3oM9p4nXLtb0CllgFxZ7pz8vIorZ5bRqbs6lGuLIRdtcJP_PavnyrKnFpcREZFVnMD8Ulrd7DCqAbX9a10LgxTW8wHDu2XqXKIgexYw2jk6huWAiSMKk6_Y5_PhNewxMkO2B2GmQAJzfKAWHE7F8FUndMWsevpqq3JYw6q7CxbxiaAaz2bSXyDPEkR1Ogrd6wZ2DdYJrzPOyrehq_6xx7O7yVgCBhZy7YqvCKBMqbwicMoFHyMeAICykPjla4e4M4YZIrR_H9c0zedMsUBM4VV0zY49UZpL4mMbNjAI-GTpvq9OnuJK34hGtdIhU5n_3EgBfjtMHbm8c_vardmiHZPotxH5PfEfUASjRcMIZHHrUSS6_0WCOjsSLyLWXMeJwHXz2RF2uuwGGkv1ZpYewGntgsyr1QcXKGEykzQTHuu4lhq2zJ7k8oCkjfQvtl47icMMiwnV7FyM8QnWDI_JE-qNBJeXNTciwbjgyQJYP07My8EELPBA8zKrv-HXFw6LVaNG3972vK84X4NQ9g2mpdLZK8YtH0_8EMAKMxzFB6qJ9Yp1Fg9s2WyxujOvRYEw6zONeBckWc67LbvxjDnphGBd2OePNU5T3ypKoZZdBClP1pnDXN_mDtT6valGsP-MoVnC9aEXPoly5uhkOuhZ8cW73vPGCHBAPgAdrfygW2RFyx365zM_i6FbMQN-ok7ws6mKrFpJZOMJ0AwUXhmoOfj8rGs4c9uD0PP85U1kd5JyFLtxiSmjOGyestwqrelGsmMzC9IPplpUj_3zct5t6kqCuLAAvKywf1QaxoHb8hJd0_hn1Fn00itoXVhpkDjSQIN4wyLPNnT8RmPkPcdgKlEzKZIucLBajQ3YE9bJegEK21ycyCYxcshLqt7Xw3wem2zjtGuf5Px4M72yqHxJ14z8XBcf8d4zg5C1_dp85rzF_WKhe8xWSGfLqqPMCTWCBQi65-Hx7sCm73d8AMbGmD-CLwyt4XGarFaPIvfMb4Du5xFtSR2vaUMOcEA-djsXi3dktGCIYjmP0a7RRC10gthI13szkyr5brRcaYz13RSdHKutMI8iUT2MapqEicmhlz_haSTMPKjPKx44Fsdy7bpdYSC4tXIpZV3EC351ZoK0IvU1GsL0tjTGejLAnE2n7fAJP74t-GFSF2SpNHTZ7lEJwWfpmQ83v_xXX19SME436O4l0OmLADU_5iTiNzo5zreimwBSJcEtpmY7HuOkKXIrYybgZ6x4oXm04JHKlaTxticvepb5CxGCurOvS5gyL3JLecJCkdhM9Z4vrmbiPBpOtUKiVOg0jV-EvHVvOmdl04Dkxmh1D3gbI9s9PyckOYGZHTToQ68Zwqy-ZYV4C6_EJh5zEi1vonx_FAKzUHcyFfKslbV-Nj8rXTxacoyLw0clTFwAeGfW0wKa7pVgWliBzTwrRipC9Q4KuVAUHaSptVMlzPfxBBci3z9FSXMf4FtFR6mXJg3Hbodh4HsjwasB5RLwgKVKNI_JFjH21IiwUVBrhSUFIeO99sc7YSzGN22oiB_TZD0trqb6hoUzIru0uwMkhp9LGF6avdYPAXjm8R70g==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc474b05087d19d1f71d2e40d1246",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_igM3jqT9cIlsw29WiGMce0Mu",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.3631980393680302, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_rOu4vTifnCTj986vu55alnll",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soy milk\",\"fraction\":0.5},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.26},{\"ingredient\":\"coconut oil\",\"fraction\":0.085},{\"ingredient\":\"sunflower oil\",\"fraction\":0.055},{\"ingredient\":\"pea protein\",\"fraction\":0.035},{\"ingredient\":\"flavours\",\"fraction\":0.023},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"natural vegetable color\",\"fraction\":0.002}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_rOu4vTifnCTj986vu55alnll",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.20152251505817304, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5",
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MTfHQPKuWgfBUFG2ZHGywSbEBe86TfiuxBMGFuFfZWIzYIummJ88Bnj2gm048ztKPYfgKYFNl7-fLfA6eCqF8g5VhczKlyiFLajJmmFRWv0bWPHDPJbrivQcOm161GcJuK0YBfhHGBh12dgL8B53vRRswry94w4zkbeSrC7hcq1zZy9bO0nCa5Zg5wS74CI5KI5HxiMCs0A_7_qkUkPECs5ntnPW84HTY-WgSMWuRpo_gVMnghpoDi_pBY6n9x_0JFna0GkubipGAZlUeJ0RX8wedqoVe0WYpxIZatrROu5f9Cd1aV7MUPn4leocIXjIz0mJI0aUe67njDChBrUMCva8tpeWxwSRoTy_1zg8s8OL_w73xIkswg_OMYfMqIuRVOOW7kHDiGU-4jHZ9xDMOcvONfQK5RsXZuJnIhhGeyfoMWFwj1ComkdcnigdK1aNM-NaqMTC3d5S8XnNRci8m0caGgzCasHlOcyzdpfPUcBxZ8eBor-NYd8xysFRaI7wsLqd3F1QQ0SjOhfERAq0dYZRPRTVNag1g_BjAC01qOsFR2z5XdiQO582qJrH1T7Jf3Vt08RfLimZNp-u7xDwCun5rWCBYe9x8xB8hZAq8CdFCPo-nBvHZHcvBpur2d_PVjArPDMEGKKUtedSFSrcYsfM0sORjucxk3tBtTnO_BXGM5ULRt0esUoEIoQJ3iJY4oNs-PW7mtm9Fqiye0DaQoPoOs2WAJs2fiNxbUOmwdAOWt1tjIOCn14un4qdqwWVtPm7dDUqvS2vPcqOm7GjdkZHU-GUTtqFto8068G4LdCe3xrUZY4a0sjDriN84LQXCxgg7kgPBfs7MU7_60zYuVABnLWH141_a-K5a8yDvExZXjaNXV-mk-fmwjBIMlUva6wkKK9BnvfQhuC1kD8kIYh_8Q0fRStXQq-NiZW68SL35AzjWvKJHGuIWVVIS37iSkq83lpsdK-aTMWUTtooEN97WQRMQ-O6DETP-NQkJsBaodt6woRj1DG0Gl46_MHhMCz_OurqBaAHHQ-OZPxORUpyL2IopuBp9pGOXzcrJiCt1D60v8DkfPWBqixOdU35BtaEzTTVFkJFXsMWRd-bjd3a5ASLqu3dr2YObu8Uppw9esEyK6gXzkS9Sc9GIJI2EM8M-a_DcnH531v6r4H_Zm6YSXW_yLFloE9xb2nunmXkEAviWF5tBTQPznMoSoa6hGM9d9mAIeM7vIqbM-MEm_uM_vixOkrhaIsz_gUSIANRbun_4iic3FaL_TFWlTjw0qAZvDxo_jWXxhI0o3nrSqcq43OVdFd9oNjfh9e-r0rb_kKD9CTem3YovpfVtwoWfTWiJ1t7Hr2TZ5qliFgU2g6Q-oevaKTDWQVVo_pumxwR1-HDc89SyVzWTonvf4YFnvC_1jaTMuSfa3HNh8Ki-iSMd9tQfgsifz_oG1CFdpWwZbJSrFIHXncKXLsgVyffHQzrj14Do8P5pFuIKEBbty9f5kozoZpAPnZnbY4tEkdJDOcEYwNMGCxWsRmuKdylSlGpLObZg_-HSHM0tFdE2a8hPNiAtVvxMMuLu44iMIDUw3xIeV9-sa8N58dPLWC3PfhDqbrjAHKZZ_1RQ_8P3FcZVJ5GE4gn2fzZYYoxc1eg87hm7PBIz9rAn534SNxURchyZAoWSGGO1X3OP6W6g_Cbhe8JE8ilKNsnuPj0m1SxUjrfTa7B4F-MooCfcRQG4I0osq7JJVDWVx8k4O9a9Aax3S8lfsQIL4xSSHJHW96Ftnx1wpZROlw_NbxKY9OHsEc.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_03ecba6c6830d27f016aecc4df34b087d19206e2c45a88ffa0",
+"index": 0
+}
+]
+}
+],
+"calls": [
+{
+"prompt_tokens": 936,
+"completion_tokens": 125,
+"cost": 0.003122
+},
+{
+"prompt_tokens": 1101,
+"completion_tokens": 125,
+"cost": 0.004001
+},
+{
+"prompt_tokens": 1266,
+"completion_tokens": 151,
+"cost": 0.0020383
+},
+{
+"prompt_tokens": 1457,
+"completion_tokens": 138,
+"cost": 0.0019898
+},
+{
+"prompt_tokens": 1635,
+"completion_tokens": 124,
+"cost": 0.0018364
+},
+{
+"prompt_tokens": 1799,
+"completion_tokens": 124,
+"cost": 0.0018192
+},
+{
+"prompt_tokens": 1963,
+"completion_tokens": 159,
+"cost": 0.0021856
+},
+{
+"prompt_tokens": 2162,
+"completion_tokens": 124,
+"cost": 0.0019395
+},
+{
+"prompt_tokens": 2326,
+"completion_tokens": 156,
+"cost": 0.0021919
+},
+{
+"prompt_tokens": 2522,
+"completion_tokens": 143,
+"cost": 0.0021583
+},
+{
+"prompt_tokens": 2705,
+"completion_tokens": 125,
+"cost": 0.0019654
+},
+{
+"prompt_tokens": 2870,
+"completion_tokens": 141,
+"cost": 0.0020987
+},
+{
+"prompt_tokens": 3051,
+"completion_tokens": 125,
+"cost": 0.0019952
+},
+{
+"prompt_tokens": 3216,
+"completion_tokens": 144,
+"cost": 0.0021633
+},
+{
+"prompt_tokens": 3400,
+"completion_tokens": 125,
+"cost": 0.0020373
+},
+{
+"prompt_tokens": 3565,
+"completion_tokens": 145,
+"cost": 0.0022082
+},
+{
+"prompt_tokens": 3750,
+"completion_tokens": 125,
+"cost": 0.0020747
+},
+{
+"prompt_tokens": 3915,
+"completion_tokens": 139,
+"cost": 0.0021832
+},
+{
+"prompt_tokens": 4094,
+"completion_tokens": 124,
+"cost": 0.0020847
+},
+{
+"prompt_tokens": 4288,
+"completion_tokens": 27,
+"cost": 0.0013069
+}
+]
+}

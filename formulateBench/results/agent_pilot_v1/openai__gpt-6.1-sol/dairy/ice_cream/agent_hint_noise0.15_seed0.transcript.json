@@ -1,0 +1,637 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based ice cream. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"cassava root syrup\",\"fraction\":0.18},{\"ingredient\":\"cashew cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}],\"target_dissimilarity\":0.3759009500678496}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_jRcEfuUTmbKz3vdLmBhMkTUS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"oat milk\",\"fraction\":0.583},{\"ingredient\":\"cassava root syrup\",\"fraction\":0.18},{\"ingredient\":\"cashew cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_jRcEfuUTmbKz3vdLmBhMkTUS",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.4292939021742541, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_UDCvUlLIAMxplxWnnfRSXr3s",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.18},{\"ingredient\":\"cashew cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_UDCvUlLIAMxplxWnnfRSXr3s",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.2113917064693395, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_yU6mwoUwEl0GVUhcK9fVMIA0",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.18},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_yU6mwoUwEl0GVUhcK9fVMIA0",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.14083362457186116, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_kK0PGqRwkkZOwpusZGolxDYI",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Optimizing ingredients and amounts**\n\nI'm thinking about how to optimize the hidden target ingredients and their quantities. It seems like the right proportions matter a lot for achieving the desired results. I want to explore which specific ingredients I should focus on and what amounts might work best. There\u2019s probably a balance to find between flavor and functionality, so I'm going to dive into that aspect to make sure everything aligns well for the best outcome.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MohQeuWP4rQtcf1eplVgTMz2eqkgWXgG6_bxsNvggRUf67zTvOsWXqzMU4pjPgO16jqtPO141RN6Yrp3Jsr6MoeJzx8qr8A4Xz6bnqqCp3eu_l_aZ72QldZ3Zgnhkxox8_BSZnl2aoiIP3P9bKeQw8nj_kNMDxG4Q0nbaXucfU2ndDOHs7YPLYgp4oPy0Pf-LwvqJNdUY_slDf4yXEZ-y9PGis2slM3bx0Sl8DUD-EWBSgd19MMO3iovlfSyhtZ81Uvgkw9lWpCyg06zpAqDsX-pmBGmxEZm_TujUjFvd8QnYiKvEFrfRWjGM95NHCkuBmRJB6R4JgOuiExSNPe_9Nh1IaxVRKwWsFSai935M-RcbhLaz6TkGPPQnqGcKGHdus1XmQkb7pqhaXQaS85IJRMrS7TKlWZKBPYGQmAJY6mSBhkrIqQMb1HIRDjXs_wd3eyrSS1L9TON3TsFFQ3c9E2vHbPsQrT-3xp2xIoU97UhXBcdQkAVJugeSgoTdbFSFJZSj3E4jUjt_GVfOCJ1o6jI9aDX2Ait6vekLTLui7h1pp7iYnr_ud2d_DAp3k6qTaZJUbZTJZxxCgAs7zxgq2VyxrzzORcbpxRoAX5aE0xzV-DdyPov5MZxz5yfXoTG5bJk7GBalHFNoAAnQQNtB741Q8VSTeey5hiLJ3yfSy7_9k9IZEu2CJCAi318SsqvXoIkLkQNWdxoMSSMGyRYH_gTNJtpa1W9BKHyi7gd6Wwxyt8JiLOXf8MJx0qpi8ZPnWHc2NT3rp60cidALUBlcZ3ZQRdf5QBd6XA5ao0au8Dh8QtoNQtp9tBoRkJ50YSY6Jt5tlDlkDYag-WVzbaWBwaKZlNG1c8S67ZPjprnBEMiBles6imIB29u8rAU4PyTRJj3BqoXWeLPQ9c_vBtYCj2Zk08_8lFaPbHd3a-sQNRLPrNPXIQKmMOeSac5JAttkvX9rjUcHDO0QmohFXVV4Fm8NdjArg7KoGIL3calrOrI-U3XpId4rSiE7vQo3n0Md0hlv4QZLyjGcrDhozbao4X8Wy_J3qWm5_PNK1NHQnbDDvLMIfuzvg_419G2I4OXCtdaHDr9zVjt0ZyWyoVqohTE2xKzPegDj1HOTO9rlTsvg2tJMzIxoeynzOT0IzJFYxXvU_mNWs9h2JffsYPeiDFDdmzevZRPs2yCbp5HkVhVPGHS2kFuzp1mLx-wUzgx0za06a6HAAUaxLH0BhuDRQ3qNUKtdsR92WjtEOTMZIIBSkpemnyOIwMzmNGWQ4__DoM5eF2f1txmSWYjHXGP-mximLr8jYwSABp3sS5Kf5Ka4aBzz5Tw7EBFlPzflETIh12XmkT6K0D8xfqunAvD9vAxGUsCkQK41cQvFDOpMBbPNWpsFgko2GXqd5ALWa6R0gAZHAAtIPpVHo2teLt1mzNTqjwEF0XdVrBSeR--Wbd_TwJd6Dw1stJ8H7lsr8uKd-OyMnLjXi5f11gY-CQiLWfkjyNCWh9CAmyusNwD-AB8YspVta-QHyTmUJcPMsoOXbF1oiF2eptvEXj5hhky_iuryjxL4_lLhOqpE4n-z4sIo2N4uoVK469vEU5unKpr-TZZY1dcGkr68LiYM78xdCEl8zY5ArPgkjLmPDR312se8KbOPH_wEjCxdWaoIc4Uoi9ay7ENHaiX-DImkZg6vH2LcE-PIn_QiyTwXCDvapagFsIXCQUGXnYIGXToZQ-IExDGvknJvgHg3sYoNCZSAL-sZoDAfq-bHFOWsC-Jvl9Ans=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aecca202f1c87d1ba9a5bebb48306d7",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_kK0PGqRwkkZOwpusZGolxDYI",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.016402518439111086, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_1KgKGL8BbU9QAmJSMgSN73hI",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"soy lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MpWtFRamhIba7rNTPrhL2V3y__-rhF9yVkInzuBTixms_N_j1qjnSCmLg24cb3t2rseht7ADxBQUwakENde_ggWGVH9bvEy4LCUB4gYYqyFPk1mtn1FOioHK_GpsBJgNu3633y-wFNRfsiGF7PWrpAs0-CleT33uT8ole-gfinxo47Y6X-rFicqzlZ-7WN8fQFwEG6xURwAPYQQmIbnEqmVj2H7ngy1LwlgpXEjSCbqnyGmAcXMSyc-1vAK0nZSHnZLBQzFVP1HmSOo46Unp4nKqTYMbthFHD8o08QAukO65kDFqEc75efuxr6BBXxyNWHy4xqCB9eC74MUSjcSSmMiFYF6fdLMGLNfg6YlUnFWvafXD3wlm4v0zFKzmK4suqMDlVB3UrEO7_pLrQo1RrIfzkq_LKM7BfFqzeFZfveYDKAC-iNWLYMPauWGnUkyj-LhcljVbkyKF9TrObACXfZfT_28yWr5M8va9zwU_0MKS3ivTQYnW90JuQngqb_x2JkbHkfE69d3rr0W7KtERLqBqah6une_xsjKdRwd718S12zSeH_Xm8vLu0obMW5veKXT88CUKPHOpdPJPYSQcZ0-INBh_sWBsk2kvqZmlhzVh9VZbbX3pvuyYw1FihXp1g5JBPUfdt6OH1Mz0XzogPTl5MC8EKF2MijXS-OrGD02U8DO1QRgEEOBQedYVeg3F6nz58z_CnEbiqXwEdW8dDKBvtGw_CUkmWfO1WpK-P4U2vh8UjRBOxGJQzJr8EWyQmGdoftEFL5-6VTGIeZmfF6XshnBZWZTD8n5DqplKi575nHRVbhxyMX40wO3gnaxFaSblYfM03kvpP9h5E4-VrZqZ0hlxvRJnj4vXwcsZCm0Acn0i7BIDYVKQI-GoGrBk8uDQJZmL_ge4HAO9PKAgvjrXI72NmeUIALcd8aBYNfnrN2hiH4Wia2hOIpRa9ZkEunX9_o1a5sllvHrvbudL0rRuyB1RwIGzG8voSVFlYylWQHqkD9rDLMJU0m7LpfL_C7elnJzyrxCM8jQogQaV2JGqARI3XrXYSiAp1o1cRLDAT0EOIeLWeb5zAI91zB_B7FmpBoMqXQexPQNRnCSYEugQGUxksgLPLjtYzYchJPzGDKwlGA7vZHGgH9kHuWdJa-jz3dS65kToAVumKSuVstSsVbzaAbMaBW4Rh0X4UQeXe39Wc96owuE5wi-ma5DMrMt_tu9ba0Ppp73rmIpKEYtJ-XZnysGlNOiYtRQJWRDkComXNXuciEsVEfsGtIGvOSmcXIlwJPnU5atOSqgEdZH2Mwr-Ntlf_mLBlJBW54g66a8_k-xiRYodfGp7jt_48hqjGZ79gn730xaL74kto0SekvcD12tz5vfa-cPn9uIABaq7qE0teT0uTMmxyi_2oVw1Y752oUkUB2_S_svgpGcGhAyYW1D-0jybkCTRZAzM8431aYW2n54VSpj7DI15lloOL0HxQJj7iIaZMrTeNI2k7zA9-7aXAaB4jg-kKAHZ18pMM_JzjlLR87LJ0ipIasb5NCdYhFvCZ0EX2u-SUAoL38dWsHcFgkfUpKWrmMxQoMtaeF8FMweFfO5cKdstP9UeSFzJ9eryLpTGibxXp8zvmYiJ1S0wOXCNsD9wDR9So-oQdE5ySt4sg9_P5zG1yroufqyLt1VxvOVThvBXvHXaEIslxKGVe3nTAreREln9gkog1SwMVHEMIMCYN5N7M0txQy8ACOJFTdkJz_JVhDx5A==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aecca556cbc87d1b55a4c0128ffa7a4",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_1KgKGL8BbU9QAmJSMgSN73hI",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.23870065110422706, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_KQZpnLzEptxjDIVqf2farBps",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.18},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Optimizing key ratios**\n\nI\u2019m thinking about the sunflower key and whether I need to test and replicate it five times. There seems to be some noise around 0.005, which might affect things. But 0.016 looks incredible and is likely a target for the sunflower. I need to optimize the ratios effectively to ensure everything aligns just right. It's all about fine-tuning these details to get the best results!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MqNfaiXM1kUcChMvcWwHdrVBPdpQOFT-TjK5YAFmsVAVxFtOT4MUz1jiTeIhjh5Zb3rDRXlAXkxkxLAv_NMEPfsrsr-9YWayjaVj2s6x7jVYGycpdLpMC-__FI1bul61pgCA2g_oIMFOLq7tI8hqnsTqSqU9_wMbtQnMMzlauDg6d-JhBEV30bbTohz4EYnMm-iOadQqbD81N7KwqtDly3u03vx4k_TPddyANCrIbApwA-DO3qyhjgfob8qe90ueooaW1TlGraDkPwccENFsSoYt2jqvJjCyld-0JL4haZSZgQkGfwdHWarWboJQEruYte7b6HIMEMTOUk1mYi8z0AY5LXR92kWSxH3SfCu5qILjBsKk3VCMw9qmmuXrGZJIkQ1j-GYlJrJW0sj-yko-KZaCtqRdAK3OYpDyLmXht_xYDFYeI4uRUeqwj4JfKsrbvfmK7PI_teBtfhWbMmQZb_onFj0jy-6-qcYO_gAhvC78coGG9tqyb2yk686RxKhUZ0O_VtrlogxKk8myZo3jZHwOzLkzuin4kTze53qIUzIqEi_NCu33gPcrtBLK3MjJ8ELzImsmNskxe1-CWUPv02OD1CSM-sNENSKM3MrgZ5jGEsECDk8CJ_OM5T8LaeuORJxG-Qpcj-uy8P5W36-lYHpB-9A_vD-Z3sStFFFjXg5xQfnBSMpA8a9_58DgUwjqdpl8r0iplb18DRBhuYj0y9ilmxQQj6tPX8-azPAI7qLDgXSO4xSIz0UsnvsDui9xW9cOt-_QXZaVqs-l8raM2PUPELoxrAzd2RAAiHVeMbHkJy3E15yEFXBWcz_Jzc5Hm6gEZ0e7F4r0NNRvEN853Dxwi04N9QHRfga4yjNeRJ_svzDByZvtd5WCT1MM4qohhOEZfhjepEc8enambtvszJz7GfvdRztQixnwQJc5j5dcO7DowBVtx1Vta_c20eiRW7tDsbG8Ywv1UNk27jvWQ7o5XDX8KKHnZNND9_ZWxJThPaZqawNE68QBySHqbPqemoopdR_zvD-cVTe1zURH53Bd_gzqa0J7x8Gex_cmJ2seYTAR8gAp9Her3rTJ2_yz3PV1T5DQyKXKeCs6px0XeDyAukH063-xDmv9GDaufl6t6NXClxkUmapI0BnNKtNg24uUe6vpocPmazvwwKsWXDv1EL7RGK0e57rHUSctQbUydbo2xVBP539uQEATJnoY0GHj5tzXXb7D96ec0l0TwzpgH5heUcYrO-GvvSw8wlE5utSPLFdzaCJq_o74HZyKwXdWQmC2H9S3dggG5JKG4fF18tdid919PUKu_slsmJloSpWK_cahVe5isqYi6LqCsqkmsD7p1eOpVgizdU0LL1k0eww4nUMM8ZSJb3REPzjuyekXpdYTvpV-uTFJDvixzmBN0KrroA_qyIlqAMzq4r3jEzsXvcHBnppn7OArMgIe3Z6mi5Mz-VPC-_yyNdN61YZZcvLJvbf-jbooAjvWc9bp1MvsvxXV7ZyIMD7nZ_J8sBbkHB_XDaggVDLro4i0LoXHK-PPXn_BiuQZfzGhN1kZcqJevfqZLG300Sgq1A1rQFNH1pWFzJfo3schpX31xInPHkLyc7IFDGJUB4pJI5Hf2yY_nk7wuwAsT8Za_47lWgm4Cls9HESberRVg_QQ--ZXrUtHJddq4PCQr8UJ3EC_KifcMr3bvVscx5pG-elR-uAAP5VmDmCCnJ4UyE_oVMa6NSSKHbYZ9Qgrygk5nwHgb-3qUNyCWeQT99geV2RC9qv7LdFYpfD4acoCZwiFVt4kOO3mj_WNQUZiHqFMRbIvXw9P34Lu8RQtTz3_FDqBGqvPVJhildrClJXreN9dU-pVwJ6BrCthDwdr2ZYDjX5fj2QqVXKz2FivdbcFlLtv9yO_Kp8uNFJTgO_6H1SpKpnxA3MgsyRuwCROnpHBAUJMQPwkZl9FKa9F9fiYJP131c=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aecca8aac6c87d1bc61f3d4442cd62a",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_KQZpnLzEptxjDIVqf2farBps",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.04678695498177407, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_Wiqb13vuqXk2iM3ENE84Y1rJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.623},{\"ingredient\":\"corn syrup\",\"fraction\":0.185},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Evaluating soybean varieties**\n\nI'm looking at some data on soybean varieties, specifically on the performance of \"soy allu\" and \"soy noallu.\" There's a noticeable difference in measurements, with \"soy noallu\" performing worse against sunflower. I should consider if interactions or noise are affecting the results. There's definitely a need to optimize the conditions\u2014I\u2019m thinking about how I can refine this to get clearer insights. Let\u2019s see how I can gather more precise data!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MrCFASG6-VUsThtGY6w7bzWLrApfI_YOVTeWD-Qayn8qY6d9gDmpyuLgA-wdql1mxWagizcrXI7ziDFUgAkY-RqoRSH_Q5Xy0uOz0wFEgNxe7tSXiCRsmWIpss52xRtX83rpZ0dQS72vzET6v5H1dGHLHqsbX5y1V0Jyz6VvKGRObWhPvIXw3Cd7Wtg7QibOFmySex4dNNIKJPolezqU8KSMoWh3iopoaLH2D_hYl0NJtwSyVbsrg79wACEvRr9M7RzO35vfXYTbuEaNVMPv4mNmqA07KzSoLRFi4ZyuHVW-3cvYiLXHgdE_ZcD0bIuqABzz7SHIvdFme28Qq_6GKjgeejxfR0WV4NfIrDmIRsihY0NPnUf8u3RMZDaudIzIHB3CO8jNXNO8baN_Y6-Xp7f-zW6AVvskzF9cqfkhUs8lX4V-bCYW_rirB5BOLcc77ANnmU16LRhbHZGURzUO4Vy1ho_gw3-2UG1gQMz3VztMkUMzMrrhnVneYmL6D2UOqAfiPxkqvFhVz2ehpws584lhPlU3OjOY2hUYAyvjt1nvhjJflS9z96A2-YWgtv1H_a4UxmeM3sbd5ipQ1SAv-U3Ei2x1d9TOlImzyHwOr-ckyLdYsqiclisLLSLEFQzdOKCOk6Y3cxr2IZbJiMabMSpFvDeDUOo0CGCvqNQHjh-kTO7m1KF1EVLRYDJxq9eIALDcL-YZygodS1YqVOkFqzIm-QFcjhQzk0NwPiP2nz3KtFtfn-ea-d6oXVB9cyxHsTxa8k9T2uztCG0ezwOdNXZUPK-jMPY6hEQX069tO3ZEjqSZ3PalJ8Y11rYQCWR_XiblcusnO8loIiHYAg1OGFRqQ6pidcbAiPLpGnUq3ZPQPrfFwX187g26RHLor7lmn5BmXMJNS4OgQMYRK1TppSyqqcHYD80VmeGc437_BWpg9VGYru5fQEJVHhFVMGM_os6VtkqN_6byPSvtb0oiku15w4AOFhqUHv9xS0pX3uBnBK1gMMSF1-3sgYH6DXJwuFzFJm-4HAkCFHYQBo0B9s8tSWZ7vLYMC6nOt_vMDIb8EAMuxoVWuZU71NCnKjn9GYElHWHjkU4vvdk3tuFScYcxS9CToI1n4m76iMtY5UNKK-ll7-52a_s3m-pDwkv6Zd44lPHISmUN9JNkiPT1QfhOsTFNod3c04aKk01QB-zA301B4HSc9XYFrf52uJxIN053NNNKvaajIFFa2kef2IpB5as60i_xL8AiKUL6SBGYpq-XG-Gx-JNTpKLQeLbfDq1FDAhbWZG8gG--YoQgmdkdNLKsv8K_VyEz5TanKCUpUUk3rKJt-imN2NUtGRz3viCrvUi8b_gIOnToX7xBf9L_13rqquwjRYHKZTrVxfxju384yF4OxCpUC7BxQjRJErnC6OSyGruacIALmGBqZqKDUrzHCiES0SP8XznuZvL2PWOnaUthISiA447oSpJcRSXfY2iOYCmM1IJIf4589QQfgOQes3ECNpWwyxh9fHOxSaqNKolalsyUEVlDVj_r05aaAUoLE8RtnUL0OdXmkHRYRk_FBgF3semKTIWF-IEJ0KYoTMdDRCiUd9IHx9RsY2RmvYzbl88gwEjWatcSpcpUR59wcNOVOyUgqS2LN-GEKIATnRvEQwK5R5mdwUyTAoxbe_qPMRR8M9GEWXGcZEpBT6QbH5iMlGT5qCDVxXndA9vcd8VDgm9jJIZNlxFgo_s57rfErv6dJYXuWZ66jNut2gmjG266M9ordWm-NQ7hoWAwEDPBnXLud_TPrLUw8oT-pHWgxa-yaWm53X9j234gkLBenYDfaOpH7T7gwjM0E05YNs18HNHMpJerAY8NBvpnRKF_KA5tg08HyRb---rzJxLpRqqAJ0IM_h6ZtzL8Pa-46b1zFD2VYAg44PXytf6vGoiVtdGBwJr5xNxThJ6nTy2nq-J496-Bs4VdQ1rP-x-t4f27g8r3ceM97w-hLjWNeCXJ4t-6XjLFywS_25odQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccac0126087d1b54f82c390e3b43b",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_Wiqb13vuqXk2iM3ENE84Y1rJ",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.09409458993240719, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_wFkZhm6WLi9K7QeQ4CXfQ97H",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.543},{\"ingredient\":\"corn syrup\",\"fraction\":0.265},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_wFkZhm6WLi9K7QeQ4CXfQ97H",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.21245809643434385, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_rj1uZMiakuO61mz0rXm3WSOE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.593},{\"ingredient\":\"corn syrup\",\"fraction\":0.215},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Msr8RiJI8uVxGMVn3LgTz_TQjvzALA3FEQJ4BJdPqEKaoxk6HIdLXmPrdqEHQerMU6xddON9q5KFZLwJ5z7vp0_0PH_LmEeysGSMVNe4K-PiwwGwD08FrvxMx4TZbUcXommK9qMcgvHEsHYijk3zTIOB5lXGy6rJDR3w9gBl95VhGZr0CnTepL_T5VZBJtPXulZ4kDTeafOUSSI_aePALIMXRYUr09eGNgClVs5_aws4dJnptGcsU6pb4gfvGBU6ZcEd7uzW6fkdB_A6xCE0dF1HHEa_yBc6geO5kxIkoP4P1Rf-ErmZZQnQMIwJGF5_7a9R9HWch0-xVO1wn4A6ZX8u72GS1eRKar_NVBs5WwphXuMEvDcgWE7bJZsP1d216MYgXkYiTehtDHdOOM8Smb9Efp5vF2rFah0J6n9ydkzlwgMktk4yOLCly5srpVA_2sT3oEz9PDuaqMRa-KZ1BDyfzTE-FCZ94hwr35fApc9AJ7sYWcNJuq42xvOoJqjaGg2RQUQw6_UCe4_urwF_DUNzUo3nt7oOhFvH09h6hExagY2h3w2eUZ53mnD7vY2jcd3zTsdS5e8w9G1qsVrL0cXYuFGBvVps6ZJZb1cdQzBq8GRE-chqc4hosZWtfpCihoVfEPMC32jBxUCPxJOUPmr8taW2AkDQPxiIwcemoATt45TIEMTOOS3emcIEZ86vD0YlQ5GRHbVhm5EGI9sTICeB4xQPUX9alJUAOUAlmkfV9lLSoeD2duj9VI25NT4k0WoYl5Ow2gkPckVpE4xUb7KEcRjEGBlDSPBQwMnnOc6LZZ9GjtU40HSyo000tcvjPeG-RDGIZBSEKB9dPi2mWuUpF6azUgIn-XW9YgtkhHk0bRQysDN5WgciSS7p2aRJPy1mBZGBua0v8C1Ns_uxtcF0x6-r3BPkW4mHe66kpU3q5XmgzVCeuLCVIl_AxGcyQU7Q5EkI-2GUD8Awc1lAVMQ4T5THqXDUsgrhBHHG6G1O1nddijI8vZGUw1lu4HyU25YjvfgZeWxenz033aks4vLHCg_UAppdQvE1VKbPudsurPiPy4nXnVwTfULX8EoXTMl9T7ujDljavX2cHzy9_Fr-RqKAC1u7FxzhWwBqi29lFep-4qr6pkk7qi-PFq98fpKyjGwTkj0ux4Pc7inOOuv0XAIcR0JDdJEvoSa_p8H00aSA_6DXbRHGUvLeuXE_Ha41JHXUMLWLMDLN1x3SzPnsxDNv8YIBfRROmouQ-EIAsQ7o2r8l0xaTXhujj0-fKtB06yzTuZL2BvPw7gAkfn1jN8xny5UEBD4ATF0YkZnpjfR7AUOAhw1NailPYmCHADiiy2Zl3ZyTEWnyad5QEVwu-HLuv8of51je9j82cjthSL-7fsP0XvhFOY6rZIH66OjSx3SU3ooUCBZ8TWO8y6mLuZ1BqsmHgXjcOvrx9c1R5wyChv92rumEJ_whxIWabdcfCzs_h2E8SSULbXY0e2UHQPZkjto6pBvJdweH2lAVFpeZ-xW9IkmWhRX4bkuKE_Gqw3sWSQeGJFifB6o1oLAOyNxI2sUsx-smDBfA_-aoYacpUZhiehwfdsgWZETHQiGC5tbukm0pWSGQM-dTa1DcX_8LAkFunHW7X91uwDviINke-RE6Ajlo1iKKIBAJBlLawxl9n2SazVsv0u6CEUhWP9MfzIG1KQwtqDhiD0NzzGlat30WBl8BzrW9lIWzDOsRkGHHoUQzVlYCQudHdwtOw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccb2aa1b887d189eae77f07068d8b",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_rj1uZMiakuO61mz0rXm3WSOE",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.26221594009106786, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_uBdHjx6f0CvzxDyBrLBqN5mt",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Evaluating noise levels**\n\nI'm trying to figure out the significant noise levels I'm seeing \u2014 a .262 compared to .016 at adjacent locations indicates a sort of discontinuity in what feels like a stochastic process. It definitely raises some questions! I\u2019m thinking I'll need to replicate this five times to see if the results are consistent. It's important to confirm the findings before drawing any conclusions, as this could have real implications.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Mtin6mk78vJYO5nNvAOJRF_H7ONofM7wuP7B5P34mrOxElIBL7LB6h239XAId7YXGHvoHnD-TBiUiLs52xt4flbBkxsVZ1FExYB_wJEI7-b4rib_vbUp1p5MUVztqq9Jhh51-Nl9PK2-VU7zw2X5fffGXg2MtoGFp3TRNx_PW6JShh5CZ9V3nukJA56kp5G1gt0HKQGEXult4eMYhvS5oVOFcq7OPiQETNgIzqURO8hopqFtnP4xxJ7_QJ2aNUQx7-D3DBv-5ntYHpIbpze8TxhCJKIQPNDQ_0pJpwT4cfw8NkRa_aLyF_kRO-V4vtd2vUDttvN978Ynb0JpsF_1nWad_fqOEYjG4Xi7XI55uwdXtiIN_hyqOHsjKhp2TeRaaZP_ZBAQhUYqJPYMiWMPWOUoQ9TZHATWZSY3CUNKMThGb7Lv976XsV2bLIQI78wBFdgFz1tbFeLkRa7wjXu_RUdfrpRUlNYpEsLFqEMUhLwQ0ArHuPsWTlPqsTSzdkErEEDs6Y8vu2lCmEroTk5onET-sdYO7D_Ga2F_ZKxKc1-NZKr9CGuo4OiGxzj_i8VHb8iRFO56zveXrsUYV5h1jLNHHWg6esL6BrEtWAAhjb7e2AHYYNFv5IFOa63wLUXw0kdDpAywoKRxQvue2tZbeiYgT0FsgwwNk9bWdEAAQOcnZl7053eakx8HlV7SxAS-Ks5AqYQIIRpgSbyuExOBehArSjHdMDhthfM9encxPDMLsnVEFwRUwVLc6Jek1EfqEfGsyQLwxZAeVIzzN11qrzq6zs8MGbSwIBeJrsA7sd8P2tiUzIAqJDUjfvuryKyJNQehJVJbIye6BdrxgesJ4539deDTVJm2ixqa2S6xBLGHC2Veec6YsmXL7pIyoDZEKTjQQQXOO6AB0bsgKfRnHJ18eEszioItmSibCjqCSG2hk61r4UDYOzP6TTDtqygqmdw38npXQ2ulgPh0WJ67Vi1LVJtHpBzhe67uEHTpQ11lHUrMT8vHyne7SQkwRQ_yjnbvzOOibiB_Ls9Tpx_hn2Z8j5jFYj5dcK-dfT2uKi1rpppeeUx0H0eMsSup0fR-G8Gvszm83uQ06qiqs5u3L5gTq1N6hutjUqMZVWG-W7TSAe-k9igSahlKxgY6gcnD5RcDdTZFYUId4eDBIhFq4AHBdaoQHGwE7-a_8nl-NoFfdJg3n32MEjfdUpw9DIoOE5-2pg78oWA-mze2ZnEha2Ys-TsvOjdng3KJDlyU1UN0sVXCXfqh_HTmB00BIRsWYbisLceDbOgKGz-6qjS9mfwDYkNaCoxFCjV_A35r8__F4WsrtZL6Mj3cvDVQCmBvqwL4BF24obK_WAZE-HuJ-u-NnemmkleBA7E4N16rXjhHmk8GGjJQgrjRp1we4o2Agn8-DYz9C-QFpawGWPbm8kJyc5aAt-kzpAGU8iH1A_5_AqXOyQAVjohEXdHEDZfQ6ZE6quRcAveBohLAeWwRP7aHB6ip3NnWGgXt2toStD54Qo4V5opBlPujEcWTchbGhEO18WDsVdzHNZraVrWh1JELIrkD5BA6pKz32uvIuWJNRNvX3Tp17lle0xDwclIm9667mXCQMPdwqrXonF89DhClUybQMyBpuMo5DtSur4-gtuCIxCo6f2UAhPa6F4qlCxq3USl_G5TBhmGIYsSCvl9zK6_DFH_7glZeXqv8PykaWNeA7xliTqovWPO0QMj0e5yESLVQRTYHIpAV9rY9xRLy7PLnoPdv_bBpx_g5VZLvDQa4TZeMQ1z8BfRpINN7iHBOKw48TwVh9PaQ_uVpSs-4DoU6UKrcy4gM-cYycSqZ2GsDqMy8QoU4tE44i7TYtLi9ayUPwrGF7-DnIqHSIa_LwW-jI_H8GaJ44HeCtPYUkU=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccb60707887d18b28f26565b9149d",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_uBdHjx6f0CvzxDyBrLBqN5mt",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.06476195291627553, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_KRqZHSEqzCWWK1PcrYoQYKj8",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.15},{\"ingredient\":\"coconut oil\",\"fraction\":0.035},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MuWzMPq9722r8HSSidvyQmnPLBEbpM-I3YTEG0uSpUXhiGBY3ZGq_y7aAoi_y3wBv-MEXoBRD2xfjFu61OsbpTCxLPcv5kDMIDZFgIyKb18IiGxEFeB31KQ_hI-XPxlMGa05BMChZdZjIWaaHA9hQaZrtHcEoUUDG2hC1xXq_lhOjEBb_hlKqKCpiADmYwij4Phr3HF9Oqb-BeuPa07dJbTEmmh5bduprBeUpy7n5BY5pZJ3thu0yG9W0S22yD2IKNLc3t4cHAVxWYDdjNNNBe85RdQ4O7Y7EZquK840PTUQd49VFfZBbGylB51bzfzJh0oc2j48zxAlOU3ZwKK9MmsnJLclhWY9ABiO8OVW8I9TEc92djeWn52S8D1kHgZYmfT0XHTM9xS4aWK3eN_JvhUDwMWj6JntIkhQ5PLNamva-GuvChbkt9X0i2Hw94bTgZ1IM86gRneDthZ6zHygDo2w3Kx6UhP9xYV41gPjIFpGVyA5QgWU4FYN2hEGZARc199dK1v_LwNzdt0xXnFuBq054m04BdWCnzUpSCktPADCHxaQpI0b40h59ik_s-xzN1gvDBBEdJKVQOAOIrcsw1dvuxjI8sezTAuPrTgirZHK8cwToGoaeq6p8rYFTxr7KO1Lmpm__k6l-GKb_hOkjkGg0XTOchWZ7XgOvuwdi8dPyjR6eEbENJQRlZZJjHev-ArASr0N6NweMPRXdz2zoAKP9sz0B8ubt9FHfBQlL_wf3jvm2SevoiMvItaZz2SfNY98k5AoWsF9lWvmg3BbREeuKHqxoojPZa_-N1Jyi99vgtQkUBrptqybE2DkAL9KS9r0OGrNPkJCbggiYPLT3p0blIcqUqCuT-uooYyBgTdei2ABgXV6KyULcBJPHxnZQ9omZzypZSs3jRfSVFdQCzKEm3ZWHycgb84oIcEUUw2a_pZw93JJxIhwAYjZficiMWEIR7VL7sl4YfPEi2AQ9f4lUjWs7EDTUHp1IeixTmVZziBZ7Od0r4K-gf6Dvhhr9vOFmh3usdH9_JgIw_njchR2MAhkohiAIa13IzpN8JbzSnlBQ8xdFoazJAvBiYr2ufhrxMh3_Q4TIc711yrpaovIoAOduZx47MiU3tntnWnhPDiyCDfwVFhTIUG0pdEmSX8Ta0GlPC9BdSaxr_XpxRyoAA_EtIIIEJozpo2ah_20Jsbgafd3KQH1jL1kift3CNmCLdMEc1DIM8oT0DuNkk1lGtbZkvyK7-ntfxA2FGC4s0pC0CvaOYCnMX1f02jAe-OGqo7X0ibhu1cpGwlvOZa3jIEHWSvd9kfJGNJm3Q9YKi_G0EUDat9OH-h9jNFi4VcmC22zrvCIGO765eH1fnihaDIAZPC8YGKMxfTYy_Qj0ELGyZmIVtcOonrZqXL3aN3LjA8gw_CYa8msKixJEgZYK2D64lW65oa50P7Ct8OSm3BcdgBpmtI8ArM1ZwZHXzH7YvQRTYygvpzOFr1Oemq0a3oG13eGvZkdSTYViskNwi7RBw4bMBiuQY_UF80ysRE7JDKd5DzCoesSWUxOPNts_ldMsZDKQNPxX5aWYSUoxlZ5QYT3d3hCNvPe0ew6CLdaJFVLRcIBC1uqKTEb1-IIsrDaAHRqMU04lgCt6SIK4m2bjzqz86Up4RC8Y2HzpDfCQJM8k0GAykS_lBbMUJtuVU2wsFDugd1MewAyyMpYbQ=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccb95b4a087d183a714bde4c2a043",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_KRqZHSEqzCWWK1PcrYoQYKj8",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.1641387593102527, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_zAsuW8hWLwhEYUCo2ArHaiMH",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.09},{\"ingredient\":\"coconut oil\",\"fraction\":0.095},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_zAsuW8hWLwhEYUCo2ArHaiMH",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.04478691723987617, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_aVm3wN12UBWbj7vohVSWLWoa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.578},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"locust bean gum\",\"fraction\":0.003},{\"ingredient\":\"vanilla extract\",\"fraction\":0.003},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_aVm3wN12UBWbj7vohVSWLWoa",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.0514814526931868, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_dQp9qKavbqhfVta0QC6U2VXX",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"corn syrup\",\"fraction\":0.22},{\"ingredient\":\"coconut cream\",\"fraction\":0.1},{\"ingredient\":\"coconut oil\",\"fraction\":0.072},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.003},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Considering ingredient tweaks**\n\nI'm thinking about whether to use a broader base like soy instead of pea to enhance something, but it might be that 0.016 is already enough. It feels like I should focus on refining or tweaking it further, but I'm not entirely sure where to go next. It's tricky to nail down the best approach, but I'll keep exploring the options and see how I can improve it!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Mw3OGfB2x4g7CxF-sXC8TPIPTRhog087Ql-AHw1N-e8gHiIQiBSFYuAcagOVbh-3u22MU_cYwe6ymSp-bPha1dEcjsfSDf5DvlaA2aKTFL-ri5zcA7S86JJRMakQvKKXD6QCWgk5h0T8cYNvpTZOv2K_3qV7x_x1dC_Xa34wzhvl0bFFVi7dE3aSrWza-uFHcVxFb_etgjvNsG4tBRpRgkH56kxRvyH2g67raEMW1Nyxid1uwi3hy0bq7JR3AcWIN0mkfYaRn9u7mRBD5dklDSyrsDjiIPirojFldKhblIAXHsLMbiUolMmcFQDhUM74Lvim710D-DJNbtbxNpp3xZB_B0agfTnT0eS1T3j6lfZKYliU_vg0LmQ3XRrRAFvO3F89vds-myQsnFDhg1GLfvWza1NsGTrRjmq72MJrk22BrkMH6v-hNj_KBMa9gdxuSRgVula2otZcwbMTpJwWrMzCdii_V01fDQ3U0c-1v_O5-QuEQvs8BHtrQ7ynz3OE99DcbJ0ELQPTbDPHElwhtDr3_rA-5vW0Gr73Tu2i-c0fbMgUk9WFb8Ge6ugMSM-QCw5MncBB1dWznnBZCrhJ9RTI5kkMDI9Ei-21S8BDA2XpmKDttMDPtVPOSb_yWTr5KCnwFdhRgEKoOvZqJOxPIFy-7o2t7TSuAJI9sU1-5Pho8xfqyrnP2OJbQjc1JfsUcKaXlrJ_i87dOruusYliw3rpUbdRkKyx2NvmFMMa03lR9ltsrl6kPfqp2YzmPO6pkraBJTVF_xxHecz1pTAQPX_XKFk8CDs5DsWs7Zl9zqNuPgyFnG0YzGhkV5g7sTeZVisEGglfHmW5Yfcxv73rASi-du0vj3QLWk0dHytNDrpXtaTtP8aANIoYpL8Gmfy28LbT4aKmx4LaeQKXaDmojf8uN4V_vhKCViR4JjGU8aWFIk3z6LloekVr0-njwDke6x4bqMZ3vZ9JlUBpL_4hLV0JNO1S14KWyUL2a7BWcDa4NOC_coUAZoWwPSxJ34NOqJUfLue7sAaRbCD0s5Hu1RG195cFExvD1IBcPDw-8NzaVJpFfqnA-_CR9R5PtRjZMkZMnJMdEgnKP8bLFOO0PJ-3NE2CPazOmBr-qOU4ujMx4DZ_g46sZO9-SfRHK_gK_lRqtYNlrf47YUxD9m5vQnzKelyeMHbUQqyiZw4ciIaY14Th_AouXRpusiraboUncRTKBynCNCsIsNYP8xgqFZEGIRRuZz3zT5WZJ-gy5EvpyjQCyB20ujxgsrdd3QCqBZyEf_nKgHLfm9gKZI8T3aUXrQHGkKvzhSxA2i5-RS0uXVeBihOwnbcrnjxzuSEckHVgtHvxOJCExJMBEJoIz0ki9xuKRy_letTGo6jfk8iyRDRTrhLnCX_UY1uOZ-fSQ-fVMoe8WSolAxBI9sr6fd4clzjmy9q5_j2DcTsAQrSNbE9uARpWQLfa1O-M3bDxD0_pgvHNgjcjcrnGSaOriV__hqlrYEaWjULE0EItuzya_FbCIDRrNLQ00eF5E20qjHyoQwxwQb3jfAXuzlfEn95e3prH49H3GnrJx2FJ5Kc_zMll5Fq9CirO11qojQQCo-A6KQawRoUbXHJ7SFZMIlsIAC_veJGy9Ox-2lzorVRet8SvGukor8k3xazhbe6sD6I1iKmtlddKxwg2fW3prm7-vdFyIsFs0A5cD2zqw4dLAaaBOq3vy_pk5irRD7vMfwCwQKJe24aD32o0qywqMkb3mH-ww07REeuUKQLpSQvReyfxn-BVOSO8L3ZpESGIZM9EDraS5wYECjufZptISJc9z38MEZvHjuPx7lG2HVAQaHDU-rhrUfiAGqMLLBMEJ5Mxbom9RNcW6Kcc7ZGVM_iaw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccc35d19087d19fa3fd3acf64371e",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_dQp9qKavbqhfVta0QC6U2VXX",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.16321190135643132, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_02D2Sxk8GNj9yiTotbtuzuZ9",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.003},{\"ingredient\":\"locust bean gum\",\"fraction\":0.001},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Mxr2aPikgowGvaD8VIGCQujA7nKOH5tmkxVUwRzyUbaKoGX7zgGBEIZLBLeZ2pisQMSOSnhmqifSVjt1GuAesq5f5K85Y6dcYZqkbyez0oi5keYYv7h_UNHkH_F-188rjHeKPbwfjB8cmitsyYd37-nxeu4n89zCojRh2XAgSXgS19bQM8q-MKHanYIn4fxdwUFB2UG89rwZmHT3HzKJzLBy0EKvFNYtSB1aXScwV12sMgJQ89nEgz76fhQuXnuVH3xShCSqqGBBoiQSIE68NSJNNSf9cIDKedyGiQ3MwOvVK7wQK9rvBswpw0VDJrngtljWdUjjZasO5HoiGa5EVvLpTX-BqB7XLbVi4xEbsUDN__AALKqJmhgwByhITaxtrU3uMZR_BqJsSNy2XgtG16rfznevGtxcbDK8_VmaIx8IrVoISRTfEZEm3DM9reFnFONgeswQH-z7rXl6WKBdondIR-msXrky8J1UVTpqasPg0pMxhtzvF50BocUxqsHR2h2amdFppgyrf_WaMRDTmSh8hh5luhjwWMGhYhHb-3sl6h_kmd8JS4b7RAQ_wcurxipTahZW-3wPCNK5SAIr3fZfoYogHXuWCXRbdsMb8shc6113ioK4Q_A8OE6TJ8lpIjRIJ3zP4tziGwrT2H04cuAD7OfZU23IFGpIIUkqL3re_Dey1Pc6iaxUkkxUBOvjXwLl31mxEmy9vB6eiPf9vIZm4MsvutJAhDATTuvDdpK6Hn4rkL5yllURIKyDFHghCHryST8M1cU6xpXL_ddtFrXp18E52pL9sfpUCMy1BccZKixkq0bMXUXkwrxh-4U8UgsppyFeTPchzKQOu9E7Pe8JX6oxzy4qWuj4ZP387WFTQE4ivNhawc7978vxzP2vSEG7EQ_-qh-95VHEbGY9atHIcFATW23G7nPvGTDbttd6r0F_40KhTiG3cWlXj-jFEkTQPzgsruaKQ0xczN3weuyZPiS8OzMlUmzMbx9o1mPg83RAfDuXX2vi0WHsU6SC2WfoiSmHt7G099mygQvQO91z01Q2-YDcSop5oXM6Sztyo7ZhKtYTUBpnMPf4IGzy2b74SRULbj3_46NVbJMCSeAS5ZbCDYHoB8pqGCRrGT_vc04JCVOpt3MEex7Z59RDq2QtTFIv96yugCwE3LVJoWAliZ80N1TZ58588hX-goDLdZsLSXbRUo6Fy77wUgcdnjoYUACLS0FTv_RQlOJD02o-rZJQl1kG43FjIXU7QLb-lnKT283CaOyCTRRsxWdcCZjC4-HnCcEPIGP7ZO6oMNCzjULWQoxcb9Ru1eXk7ckYraK19NlvkZKMRWBh_iH0sUcSJf3wPQMlpY0QOkjXJh23v_DBXT3TKSVE7QBuBuyu-wLQjSik2t5tacPa0UUNRjbIU9jTA0nOgcf_GAWJYU3Ri2zz19BEE98mCLgBm2Yn-wqglyMIVts9B4DCsgx-IKdCXLuNKlzeBDZlqueQ98m5eEuWk8sldLHTn_UkgduS4aTZYURh0JlgJl39GB23cjnm_r_HMg1wsTZVl0Owo1Fo3QxQUePW7fliz-O5fdWODso4FnFWRw9akNgsj5CM64UTAW4j2kXGR8NqFNsV8kYOwz4tS4MkYXWRwX3nNreKZerSrC2-3hFt0aSLdBFwXZhwRijnTT1SXEWRQUFezj16_aRQX7x3oc1rWt1LGvQTpdwX15-Ycc2djBenojtBZ4u.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccc6af6b087d187b3398fc10e7f3e",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_02D2Sxk8GNj9yiTotbtuzuZ9",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.12112206723217657, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_KmlBIwuWF8KK6mBumTCqlMm4",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_KmlBIwuWF8KK6mBumTCqlMm4",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.12962758311837647, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_C16Qq8kwgkgMo3VJvZbLR71l",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.09},{\"ingredient\":\"coconut oil\",\"fraction\":0.095},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MzWCwBClz3f6-rxbouOFCpsQn8svH7YKPE_KoslO2NK6cvFffUSmDVtg2iEnkJ5UluW1VHkI5jlh4wXr8svtleTvATvptLn5i_mqijxsTphnhg_jMk7a2YaCfVerRPA52kmT1icYS3g0UNADceggd2QxVJAuRX4DbMiogdjCkzMbiOGM3mV7VgdD-4bpogKNga-7QDt_RsKYVj12YTkKuRDTeIGAQYnRsQ1vb6H8DbYtXZBfUuCvpUt9VMglErOE52e4IbAxrrVsZw86zsiE7f9BNkfTeC6uafy8UpHM9NsixZF-G5oy-wIPOQ_Oo782X4usVpa3nfwGqwkropBslkLnTn8qCaJMpTKcgfqiM58aOO31iMzgDKGzlf32m84Jqd37Hi8WJdHYuEdHFOUDhOZzxSPYQggya2MmbYdtnrOkJN0RCrNk2bbEdj47JvXzH8Tx_avqwvXiGi88DcxAsonsMF4JM_-kI3rmEkzJhmCDuYFeOrmdjfXve8QhIYKkIPm2lnm4_MB-cr4FoedOQ-b8t9AEu2_8vmktv4uSlFI8ivVzJOTFd-5s5JJIGkxI6nOsIK4m4HX9I6CBqXv9uE-XOf60fR3iyrWdS-HUhODH265WG7AG95PNDXXc917qnjQ0dFLQnh3r1th4nFKfbuHVWsx9P5JAinVrnr926mTha1HXkKY-PgitaJMUVav5k2MZhtbE1c5HD_gSKBrMIgTgDFme2ifqSnh13CUrPbT-ZqdATQ8gAACGy-ie8FRCWLABRbyFvACQ9pkmCH-_24_nQ9lwCJrAaGtxIL-iVMrw2UqA2EkD4TWl3oNwNftm0OTAHtIhNV2ftApMtnlNrGlA__Z47z5Rr9miRnvjUsqFgqELiWS36Hi4XuIqhV5FS0pPC_mS-mAKqY3YZ_FX5-Xfh45sTdLUcFwD6SBWU3loEOKsO-scs034e-GB23WtOaPh2wuG5CCsFG6qIWJIVe7ETern2NvAwPfKEC4Iw4gSUNKF0ektXZJOIjoE28ANYwedht_k51Ua2fD0d7H4L5bL7hzJU5I_UyXb1lSJR4yg6uJlxw_4YebUGB0u-nRd5E6TVa8eKZC8dn8QQUeyX5FRpTJQ1hYFYZb5L79EAAb_tST1wEhYlPw-DLf2RHNKz6R9qVb-dX_82YI81VvZz5i3WX2PA6AGxsfJpOUEtZrPvOTLcVUx9SUpcEWSB0NbivI5M43rGeYbO3ZJfeGRkW2GUcBuug_olKM6ACG10jwr9a7_qnc8ZLUB5S5XBqPwoqx1el1S7qnlpr1u30L85Mf2mkbe6Va0lzzOWrzaLFzOmzbTJLleGDfqustSFLGwdFiPXuHx7UiI0lvts1E79CMk_q4gQg4s06xetgJZ9aGHYPKkWw5FHUFO_HbBoxuu1UvtYfiHNnAMD-R5WK9JXyYkfjxedR01CNbZrSjDSiRIdIxbh5WUOApVvHkbwFC6bzbi5Lo1QbmTA1n94GrnSXP0FH1dAJR2BK-37s0WOU0_gdrjB_B1VPHa1qZ7wtmHtnyRmMBKlsJtmjmLLGCeY_jWy7ESGDm7nQNx-gagqkJaTnfdoJA5081-VG2cVtiY_9hjnaJPU47t2Qa49n-R0I13NRYVJsoVZB2pH0VjUHh-cE63zAn2__W1AhA5oFjcIcpv0tHDUkwgeLAhO-rrUn8YKRRh3m1DBcnK53b5HOCDuv29zmc9ofX_Fzftztlv3ORXqIHn5T6aPqldkN0Vpa-bg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aecccd5fd3087d1af001aa0934fcc27",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_C16Qq8kwgkgMo3VJvZbLR71l",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.12566362357874925, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_9mKn16z70foFba9BxgYjeHsl",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.583},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.105},{\"ingredient\":\"coconut oil\",\"fraction\":0.08},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.002},{\"ingredient\":\"locust bean gum\",\"fraction\":0.002},{\"ingredient\":\"vanilla extract\",\"fraction\":0.002},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_9mKn16z70foFba9BxgYjeHsl",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.19704925755247543, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_vf3pvwH2aPLwRQd02X0vBqWW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.578},{\"ingredient\":\"corn syrup\",\"fraction\":0.225},{\"ingredient\":\"coconut cream\",\"fraction\":0.12},{\"ingredient\":\"coconut oil\",\"fraction\":0.065},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"locust bean gum\",\"fraction\":0.003},{\"ingredient\":\"vanilla extract\",\"fraction\":0.003},{\"ingredient\":\"guar gum\",\"fraction\":0.001}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_vf3pvwH2aPLwRQd02X0vBqWW",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.06448003562179358, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5",
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Selecting the best values**\n\nI need to choose the best observed values here: I have 5 observations versus a noise level of 14, where the mean is .058. However, for the 5 observations, the mean is .070. Typically, the user seems to expect the lowest values, so that's what I should pick. Alright, I\u2019m going to select the 5 observations since they seem to perform better despite the noise. Let's do this!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7M1uMNDMAqzV96F8JJH55fXN67whGbp5lnKRUp7Hb8TYZjn7YUsrstxsS2g0YqODOkurpVKpwrIh-dUe3Kmr167JwnU_j_IVZdjM1Fv4oLFB5MX9DmSViJT-9yD6J0V68wmraHn0ImwmBV5a1AGYQ-jtA2HEny_pC12TdCq23372PENAPchwKUDvbkb0uQhovU-BCC8DKLKtx6gFFxRf8_8I7vUmbTm4HK1iXuLASyprhSbeZBgxNuCLYTYu4CbS98zsHcb7YljSPIU6A7vpz_3p9PBVz_kRsUTTynCMElnVFL8EwWoV7vm7AcZktKU5sDGjD4XmQCQOHPaKqZCHTtVRVihdvsgc8tZZlLXyRimsYLFbhKKH8i4kgN011p3jcD33QkslFPwtJfl8KRX7IoTDaktjKPEOKsobtIY9x875gu3283w7wC9ZhqFN8K7N4SREBZIgFLn5ao3nixyH6OPxkyt06NR_PzTpCuadbyR8XRKS5ac2pQMrPJlTdYZEqblRdKYRixl5t53ahDwiUXb1W4ElfnvYlzDYjRvHQ2JRI-eNrPvf77VT_UkCW4qsO3KBlFpMHonMx8E-KRT0_DsvT1YC6E4X1lvXQUfgeEMGTcq_p6-crSAjos5bF5AyMP7zGtsvAUCkaaQH35qX6pA1QDGT1xYOw3oQ88dnAsF1vv5HYWwoiNOA2k6O7R7J6ClZbgS28Y33VDMfm32-rqRvbQhhqPE6s-QMqKRrnx_SwDQOxyDYyN9TF1_0wkcJJjnsTD07LPhgJOu4vV1ha1aKhWvbpjjYiBCYDr2-muTFxiZO3ITSpyaXdxs2WcYGqtAvdU9iJ3_7Hk3QxOcErFZCU8HI_eThsjARmOyGAWiXjau3nxH1LLPUYXsMf_TKBlml67hUYgGKOhJhG_3V-6COMGe8KjeyzIU8rXyVFSoDCIpZR_qBRb2swCFeMUzuEuxySfkOJvrqmwjtilAxhoPOdl98R0wOgLfRXRvnrjlY-NGo7roEjRp1PF_RSIaQW0hPEEtp45cxV9NaeRrjVoJGCXj3z2XNQrT-i22tSkpQ6vMYOkcjU_d1HhWmNi879zuLMFR2rjbblLUoPkpL1pMCZPAhHlYnaEPdYWMGDbirYrrGGKkoALjkuDwehxL81xQkIU7pD9S0yEKN7vPcEOHdc67BUkhC9bKQkzArcwixDA8DousoQ7sslmTsDuiOdgkMTWcSmr1BaCNFRMJNyZrb3ZlHWCTC0byVKZc1cyb5b_ooKiQH_058UTy052quTZ12Fi-lI7qs7d1xB3x16Nk7OOO4ZDZDBo4nELwjLHRrQXPXVH5T3GIlpzr9P4kCett1xTjpN1U2jSMENsBU-uNaD_QrZZj1P6Wmv81l9QxqxjfoTBb8Kqim6hwEPKp_7yuaDaMJb8HfNB8y9R0YJUX0VkQ_FtRazqXUj1QjPfmYQ2Nml4OB-01YrV_2DJaZVq2hLug6tY2PjVmwrQFPKKDr_-J7qMJRBdRQxQawAPHQm3bnfuXYhmO5jvuaybCLQBA98NApWJOJEnq9UtL_lTY0NrXm-GiV0m0OgFpO_YJqGh8MlzNNUfaePpFwSv-dMBAVWbqzVwnVd6Ib8BxJFCbbNBYtNtUWFaUkPPcwPMav8e3fKbvsTuIOu1wljR2KPRkSPt3rcAVxuiiyaHQZGxR7J5EjylcKK-ZlS38GazSb0Sht_iWuYod3FdZwtHOCB8E5aDU8Hjt3LXOL2SnnmyXz5sGuxtnE7oRCvR05c1lPZbgAiH8VMGJu6kBFPHh-p4Zq126BGvNbRT7_ZplxJIzGaZJ-XUDreuI45jx1CTZm_L_lYbfO59UFHLwBQclLJXtv7ParHZpUP0zprcRDHcXSf4yoZn9zHaEmjAtZ25z2OrvTF8hxfan1oZRhuF7Mqx2G.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_05b6bc91aa973814016aeccd6c21f487d1a7a92f4746ed4e14",
+"index": 1
+}
+]
+}
+],
+"calls": [
+{
+"prompt_tokens": 893,
+"completion_tokens": 127,
+"cost": 0.003056
+},
+{
+"prompt_tokens": 1060,
+"completion_tokens": 125,
+"cost": 0.0038985
+},
+{
+"prompt_tokens": 1225,
+"completion_tokens": 125,
+"cost": 0.0017742
+},
+{
+"prompt_tokens": 1390,
+"completion_tokens": 130,
+"cost": 0.0018407
+},
+{
+"prompt_tokens": 1560,
+"completion_tokens": 130,
+"cost": 0.0018697
+},
+{
+"prompt_tokens": 1730,
+"completion_tokens": 160,
+"cost": 0.0021867
+},
+{
+"prompt_tokens": 1930,
+"completion_tokens": 156,
+"cost": 0.0022387
+},
+{
+"prompt_tokens": 2126,
+"completion_tokens": 115,
+"cost": 0.0018387
+},
+{
+"prompt_tokens": 2281,
+"completion_tokens": 132,
+"cost": 0.0019258
+},
+{
+"prompt_tokens": 2453,
+"completion_tokens": 143,
+"cost": 0.0020938
+},
+{
+"prompt_tokens": 2636,
+"completion_tokens": 131,
+"cost": 0.0020185
+},
+{
+"prompt_tokens": 2807,
+"completion_tokens": 115,
+"cost": 0.0018468
+},
+{
+"prompt_tokens": 2962,
+"completion_tokens": 115,
+"cost": 0.0018239
+},
+{
+"prompt_tokens": 3117,
+"completion_tokens": 142,
+"cost": 0.0021094
+},
+{
+"prompt_tokens": 3299,
+"completion_tokens": 128,
+"cost": 0.0020524
+},
+{
+"prompt_tokens": 3467,
+"completion_tokens": 115,
+"cost": 0.0019056
+},
+{
+"prompt_tokens": 3622,
+"completion_tokens": 134,
+"cost": 0.0020799
+},
+{
+"prompt_tokens": 3796,
+"completion_tokens": 115,
+"cost": 0.0019529
+},
+{
+"prompt_tokens": 3951,
+"completion_tokens": 115,
+"cost": 0.0019228
+},
+{
+"prompt_tokens": 4136,
+"completion_tokens": 39,
+"cost": 0.0013901
+}
+]
+}

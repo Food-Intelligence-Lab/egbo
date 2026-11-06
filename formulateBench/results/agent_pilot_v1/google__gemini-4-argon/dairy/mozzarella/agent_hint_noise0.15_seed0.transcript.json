@@ -1,0 +1,681 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based mozzarella. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.51},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.13},{\"ingredient\":\"potato starch\",\"fraction\":0.06},{\"ingredient\":\"fava bean protein\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}],\"target_dissimilarity\":0.4395982224188277}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_3798901256318100811",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.5,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"modified food starch\",\"fraction\":0.15},{\"fraction\":0.06,\"ingredient\":\"soy protein isolate\"},{\"fraction\":0.03,\"ingredient\":\"tapioca starch\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"fraction\":0.01,\"ingredient\":\"potassium citrate\"},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a19IOlLv49AeO4873NVYSaPQsFrzZbYIFON18tTA766MxBTBuWVzSy81X68QdwH/qDcNWsSgOJqmVbomDIux/UUYfwEtFNteYL1pH3s9RVkzR4Oe8Vrs9o9gnnxu",
+"format": "google-gemini-v1",
+"id": "call_3798901256318100811",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_3798901256318100811",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.27905845902901655, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_12191025421200539729",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"pea milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"modified food starch\",\"fraction\":0.15},{\"ingredient\":\"potato protein\",\"fraction\":0.06},{\"ingredient\":\"tapioca starch\",\"fraction\":0.03},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1+V/TmC7QkxgdvlhhTZMJZLl5ckijGupFRx70Wt55vrGdxHZjnE7nDPtQC4D2VtaTFeJdxojCd0sjLUQ9pmx6c+Bq/Tw6nrx6W3W8qWT8IGm1V+Hta09yKrYED9",
+"format": "google-gemini-v1",
+"id": "call_12191025421200539729",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_12191025421200539729",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.6786359100633776, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_1810338853772844974",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.5,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"fraction\":0.06,\"ingredient\":\"palm oil\"},{\"ingredient\":\"modified food starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.08},{\"fraction\":0.03,\"ingredient\":\"tapioca starch\"},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a18YmRC9d6ju5Rub/OnRgPZF/THw6R5hKMMAW2UY/4ORJR7opn3chLJMFvv297brInJaJ4dfHXhbL/Xwi68fhHaSTK2AAtAUAzPieTFS53bvhGOqOxBydYeQvtpS",
+"format": "google-gemini-v1",
+"id": "call_1810338853772844974",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_1810338853772844974",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.42823638245866646, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_1231890705840254548",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"fraction\":0.2,\"ingredient\":\"coconut oil\"},{\"fraction\":0.18,\"ingredient\":\"modified food starch\"},{\"fraction\":0.03,\"ingredient\":\"soy protein isolate\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1/j7qIf8OtiZhXGVncIPlmF5ove3FVCi+P0Ypq/YhFTlJ3cuP37RpbEtUY+4XcNTTrnPI/zYu/73BUFbCAZCj8yJ7zacUdTqXXMOKfQ9rFax8A+pMzOCm/lC6I=",
+"format": "google-gemini-v1",
+"id": "call_1231890705840254548",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_1231890705840254548",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.22895991514441388, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_2944223418640487187",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"fraction\":0.18,\"ingredient\":\"food starches\"},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"fraction\":0.01,\"ingredient\":\"potassium citrate\"},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a19M4xziiqkx8ax+BVWn4Wf1txoZjsC/EC56CfxVf7B88CpZFbaUzmbRwA5x02P+42iDbmbT/7BRyegiVDKS+ZIW2N0mT1VLNa1ttlIwZUeprto6Ysa7+Ym5fls=",
+"format": "google-gemini-v1",
+"id": "call_2944223418640487187",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_2944223418640487187",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.5605844584974067, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_14889426720598061333",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"almond milk\",\"fraction\":0.55},{\"fraction\":0.2,\"ingredient\":\"coconut oil\"},{\"fraction\":0.18,\"ingredient\":\"modified food starch\"},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a18l1CzBIJffS0CQ/fSvlJJKGaCWSF8kG3GHVetZc3B4WN5zv2tBqxFswnJkkRd6bONugw6smwODoVkSN26tPq6NofhXjnfZiTWRhGUXGBI4ZlsIJ11O8JgXgY4=",
+"format": "google-gemini-v1",
+"id": "call_14889426720598061333",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_14889426720598061333",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.33879990945267047, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_10886509311621133026",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.57,\"ingredient\":\"soymilk\"},{\"fraction\":0.18,\"ingredient\":\"coconut oil\"},{\"ingredient\":\"modified food starch\",\"fraction\":0.21},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1+ALmNSXSsgCbQTwPrCquz9E2TIH4fZ1wMpPme0xd1LFEfeDG4sxiCUIAVfBgzAaFma8wFXDbyDFiMKewNwteq12Fd9QV6uQq/YcFf37+DcLj6Ihd+UhhRDWTEW",
+"format": "google-gemini-v1",
+"id": "call_10886509311621133026",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_10886509311621133026",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.47696186793200884, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_10832898633645768229",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.53},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"modified food starch\",\"fraction\":0.17},{\"fraction\":0.04,\"ingredient\":\"soy protein isolate\"},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"fraction\":0.01,\"ingredient\":\"potassium citrate\"},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1+Be1LQjEnjASOw1Xr2X8kQgbPBmBgxs6e8/YI+qSq32bTHij8D9CIqnvBbpNMrdO5SG4rw6yKeDVCjK9iNSTwZVVifIKuVfOEJUYIayNzVff3F4JaxvQCfdAyX",
+"format": "google-gemini-v1",
+"id": "call_10832898633645768229",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_10832898633645768229",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.41532118046466426, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_12378615300576663623",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"modified food starch\",\"fraction\":0.18},{\"fraction\":0.03,\"ingredient\":\"fava bean protein\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1//eLQqVpXW/DCP/Fu3goNLLNXUmdqmdPW34Z8C8NrK2ewjOfY8i/OQ64HFc0ZA8RxaIVuA9BYL2EUZJaPoMO1ZiFWBVv9iGkxSKJ/G0mzADWYFsinApkGr1UPU",
+"format": "google-gemini-v1",
+"id": "call_12378615300576663623",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_12378615300576663623",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.6657173458882228, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_15802377952329323439",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.19},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"fraction\":0.02,\"ingredient\":\"carrageenan\"},{\"fraction\":0.015,\"ingredient\":\"calcium citrate\"},{\"fraction\":0.01,\"ingredient\":\"potassium citrate\"},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a19NUKM5uAJSgia34+GMZKSUSSXc1xfSs3IAhGR2ZbrQZw51timLjDRLs+rbxqeDWYLnvSmg/lKNojIMiNhtGUWsxc+Mg6VAylL2hs3X2aNVNLuLytUKfK3wgU0=",
+"format": "google-gemini-v1",
+"id": "call_15802377952329323439",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_15802377952329323439",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.2995834115221312, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_4636892671950506426",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"fraction\":0.175,\"ingredient\":\"modified food starch\"},{\"fraction\":0.03,\"ingredient\":\"soy protein isolate\"},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"fraction\":0.005,\"ingredient\":\"enzyme\"},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1+JUyIu2roc1LUnYcS8mFvs+JFjsvMhXdnXoO/mdTZjdLI2jIiFWKQnAvbNXm2HeWmnOT+cDSZydG/XxRqawj3o7ZV7d7y7tjl1TBCA+ln38CYUcC5oBjHVWWU=",
+"format": "google-gemini-v1",
+"id": "call_4636892671950506426",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_4636892671950506426",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.38557650315363357, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_5968014981388382824",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"modified food starch\",\"fraction\":0.175},{\"fraction\":0.03,\"ingredient\":\"soy protein isolate\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"fraction\":0.005,\"ingredient\":\"xanthan gum\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1+SlFKjkyj+okS4C5pfOk/JItg7QA5E2X8pVfV11H/q5X8YXdZpC4xYXe+G1vH1oT95tr4ibA5wl+CVpUQoo1vY7pJh5hvYwd6zjp9SAdBLPD050xM6JuzPASmr",
+"format": "google-gemini-v1",
+"id": "call_5968014981388382824",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_5968014981388382824",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.2984405149621906, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_11262150765163113425",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"modified food starch\",\"fraction\":0.175},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"fraction\":0.005,\"ingredient\":\"soy lecithin\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"fraction\":0.01,\"ingredient\":\"potassium citrate\"},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1/qd+ModcVE60k53Z3AkXhcmTwmL3xanRkQhB/kQgxaHCpZmjtQE7vrzerTeilpHPds2chJZh/znl8LtnG9sdnhy181pFgb9ZAbUhEnsbNmcc2yoXH6U5BLNuEF",
+"format": "google-gemini-v1",
+"id": "call_11262150765163113425",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_11262150765163113425",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.28187187529706237, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_15286008808253689044",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"fraction\":0.2,\"ingredient\":\"coconut oil\"},{\"ingredient\":\"modified food starch\",\"fraction\":0.18},{\"fraction\":0.03,\"ingredient\":\"soy protein isolate\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a182dep3Vi+gGnzDJ4y+phslbZGf/EFGIMAGHRLTlfjkFE0t0Hpmcg3Q9nSFjV89QxM+Ts+2OK7bBJRMbWTSVhfZKyN3qsyTDvd5UN0q8jFO80q6RjFwiO3J0uVr",
+"format": "google-gemini-v1",
+"id": "call_15286008808253689044",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_15286008808253689044",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.49052780962851544, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_5738941044176444025",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"fraction\":0.18,\"ingredient\":\"modified food starch\"},{\"fraction\":0.03,\"ingredient\":\"soy protein concentrate\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"fraction\":0.01,\"ingredient\":\"potassium citrate\"},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a19w/W7isY8uLr8sP73XzulWg08EvP/1RUpSmAGEGiG6A0Nmdpa+Bf+OsN5llZGCOh/EEvTdHAtcVrlTGWoHi3TWrRGZlxLcmZv5aR8nUrMRSaECyufHz8X2IxrT",
+"format": "google-gemini-v1",
+"id": "call_5738941044176444025",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_5738941044176444025",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.40137629139946435, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_13263627080247321153",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"modified food starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"fraction\":0.01,\"ingredient\":\"potassium phosphate\"},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a19vsFSiL+ShfjKV+k0RcnV2VegeCBYKbWNXrYYlHiHlOpfp6BuPK6WKney5RYKkSDT4tHJTajCAHphwut6mc6825H4rfxCsguYj0gXqqLnKLi2+kEa5hxKYtdGM",
+"format": "google-gemini-v1",
+"id": "call_13263627080247321153",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_13263627080247321153",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.39760315616296077, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_6523465876133941518",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.55,\"ingredient\":\"soymilk\"},{\"fraction\":0.18,\"ingredient\":\"coconut oil\"},{\"fraction\":0.03,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"modified food starch\",\"fraction\":0.17},{\"fraction\":0.03,\"ingredient\":\"soy protein isolate\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a18pp62AZh9ZROTrGD7cKWryB9HFDRQxsNMAxrLNAAFdjjfSqpAG0pXPD9WFbGpFX/2vlYIJzREMzby0jMJjpyCpa5OwyZ+REHWeFnOQ0uQ4YYTb9byYFmLFGs8=",
+"format": "google-gemini-v1",
+"id": "call_6523465876133941518",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_6523465876133941518",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.4197129562517475, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_4320869850304887740",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.52},{\"fraction\":0.21,\"ingredient\":\"coconut oil\"},{\"fraction\":0.17,\"ingredient\":\"modified food starch\"},{\"fraction\":0.045,\"ingredient\":\"soy protein isolate\"},{\"ingredient\":\"tapioca starch\",\"fraction\":0.015},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.005}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a18iGm8k6zXJBDqDQMVyFWbMjsfFadB73PL2MgxtQ3wYB8/TXm8JgIdT9b3llsyUh47/hL/eSh7gZwUp/tvEBfTIHrNBNspHG91ORwOihBJbfE5YI0sAs6nyRlMZ",
+"format": "google-gemini-v1",
+"id": "call_4320869850304887740",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_4320869850304887740",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.49682173270931207, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_7668759785828504680",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut oil\",\"fraction\":0.19},{\"fraction\":0.18,\"ingredient\":\"modified food starch\"},{\"fraction\":0.03,\"ingredient\":\"soy protein isolate\"},{\"fraction\":0.015,\"ingredient\":\"carrageenan\"},{\"ingredient\":\"soy lecithin\",\"fraction\":0.01},{\"fraction\":0.01,\"ingredient\":\"calcium citrate\"},{\"ingredient\":\"potassium citrate\",\"fraction\":0.01},{\"fraction\":0.005,\"ingredient\":\"glucono-delta-lactone\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a19mK8QsR5hr5N8htBFygLxTY/xkGpfbswyRwyGkwIKEtV4clvJywcu2Rmw6GjHz2hpMVz8Z80dE4B+udSRHuhLpxkqYfWK7m5ECa2PsvTKJ1HX9Ll//jFWbeNQ=",
+"format": "google-gemini-v1",
+"id": "call_7668759785828504680",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_7668759785828504680",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.29887059228425317, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5",
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "AY89a1/ppwMWntrvFAQzIg/qqFXYqMyIqhVocy7Db76SU9foYJu6tIZJwCeHq8HNFIswWa+vpAGPE3HwrSjCWWcy9x9DXM+WBBud5EAUsqTrjl8fVpzi6rStGoYObBhd",
+"format": "google-gemini-v1",
+"index": 0
+}
+]
+}
+],
+"calls": [
+{
+"prompt_tokens": 987,
+"completion_tokens": 156,
+"cost": 0.003534
+},
+{
+"prompt_tokens": 1188,
+"completion_tokens": 154,
+"cost": 0.003916
+},
+{
+"prompt_tokens": 1387,
+"completion_tokens": 155,
+"cost": 0.004324
+},
+{
+"prompt_tokens": 1587,
+"completion_tokens": 140,
+"cost": 0.004574
+},
+{
+"prompt_tokens": 1772,
+"completion_tokens": 139,
+"cost": 0.004934
+},
+{
+"prompt_tokens": 1956,
+"completion_tokens": 140,
+"cost": 0.005312
+},
+{
+"prompt_tokens": 2140,
+"completion_tokens": 126,
+"cost": 0.00554
+},
+{
+"prompt_tokens": 2311,
+"completion_tokens": 141,
+"cost": 0.006032
+},
+{
+"prompt_tokens": 2497,
+"completion_tokens": 141,
+"cost": 0.006404
+},
+{
+"prompt_tokens": 2684,
+"completion_tokens": 141,
+"cost": 0.006778
+},
+{
+"prompt_tokens": 2870,
+"completion_tokens": 155,
+"cost": 0.00729
+},
+{
+"prompt_tokens": 3070,
+"completion_tokens": 158,
+"cost": 0.0061601
+},
+{
+"prompt_tokens": 3273,
+"completion_tokens": 156,
+"cost": 0.0068995
+},
+{
+"prompt_tokens": 3474,
+"completion_tokens": 140,
+"cost": 0.0060224
+},
+{
+"prompt_tokens": 3659,
+"completion_tokens": 140,
+"cost": 0.0060105
+},
+{
+"prompt_tokens": 3844,
+"completion_tokens": 140,
+"cost": 0.006029
+},
+{
+"prompt_tokens": 4029,
+"completion_tokens": 156,
+"cost": 0.0062075
+},
+{
+"prompt_tokens": 4230,
+"completion_tokens": 159,
+"cost": 0.006288
+},
+{
+"prompt_tokens": 4434,
+"completion_tokens": 155,
+"cost": 0.0062741
+},
+{
+"prompt_tokens": 4490,
+"completion_tokens": 5,
+"cost": 0.00903
+}
+]
+}

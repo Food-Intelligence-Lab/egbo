@@ -1,0 +1,652 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based breaded chicken fillets. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}],\"target_dissimilarity\":0.3170740727472368}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll optimize systematically. Let me start by analyzing the baseline and testing variations to understand which ingredients matter most for breaded chicken fillets.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01NH3samXckSnPqUwXuDdn8r",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nprint(data)\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01NH3samXckSnPqUwXuDdn8r",
+"content": "[{'iteration': 1, 'recipe': [{'ingredient': 'soy protein concentrate', 'fraction': 0.28}, {'ingredient': 'breadcrumbs', 'fraction': 0.18}, {'ingredient': 'wheat gluten', 'fraction': 0.12}, {'ingredient': 'flavours', 'fraction': 0.12}, {'ingredient': 'pea protein', 'fraction': 0.09}, {'ingredient': 'wheat flour', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'potato starch', 'fraction': 0.04}, {'ingredient': 'methylcellulose', 'fraction': 0.03}], 'target_dissimilarity': 0.3170740727472368}]\n"
+},
+{
+"role": "assistant",
+"content": "The baseline (0.317) is reasonable. Breaded chicken fillets typically have: protein core (soy/pea), breading (breadcrumbs + flour), binders (methylcellulose), oil, moisture/water. Let me think strategically.\n\nKey insights for breaded chicken:\n- Chicken is mostly water (~70%) and protein. Plant mimics often have high moisture + TVP/soy\n- Breading is a smaller fraction (~20-25%) of total weight\n- Need fat for mouthfeel\n\nLet me try a recipe with textured vegetable protein as the \"meat\" bulk (more chicken-like texture), reduce flavours (12% seems high), and keep breadcrumbs.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01MSNZKJCrqqTfujmzRSpw6c",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.3},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.18},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MSNZKJCrqqTfujmzRSpw6c",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.4683716165770513, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"content": "TVP made it worse. The flavours reduction and TVP addition hurt. Let me revert closer to baseline but try other adjustments.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01VEDUnCpwvTw9SoanscKSbP",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.3},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"wheat flour\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"potato starch\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01VEDUnCpwvTw9SoanscKSbP",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.4209914077357245, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Worse. The exact baseline composition is better. Let me try variations around it, since iter 1 had 0.317. Maybe try different protein sources or add new types of ingredients.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_014PWfAZVe3t645maoXsEBcS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"canola oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014PWfAZVe3t645maoXsEBcS",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.38168301726891385, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"content": "Canola oil swap worsened it slightly. Sunflower oil is better. Let me try swapping out ingredients one at a time \u2014 pea protein \u2192 soy protein isolate.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Txu7eUdqDDFrTv5HSCGTKc",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Txu7eUdqDDFrTv5HSCGTKc",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.31295241728651063, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Small improvement! Let me try more variations. Perhaps bumping SPI and reducing flavours a touch.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01PXeQH7xoKogsMQ9Df5u6Kq",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.26},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.12},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01PXeQH7xoKogsMQ9Df5u6Kq",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.48189941089526955, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"content": "That got worse. The baseline-like composition is better. Let me try ingredient additions \u2014 perhaps yeast extract or garlic/onion for flavor, or water-mimicking ingredients.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01D43rmh5fRaoCm9J9vpTG8E",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Current best: iter 5 with 0.31295\\n# iter 1: 0.3171 (pea protein instead of SPI)\\n# iter 5 swapped pea protein -> SPI: improved slightly\\n# Let me try keeping structure but adding slight tweaks\\n\\n# Variations to try:\\n# - swap wheat flour for something else\\n# - try adding yeast extract\\n# - try slight reduction of flavours\\n# Let me try reducing flavours modestly (12% is very high)\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01D43rmh5fRaoCm9J9vpTG8E",
+"content": ""
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_011aaScCpZxhT346jr32UPgE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.05}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_011aaScCpZxhT346jr32UPgE",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.3700696184547506, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Worse. Let me keep iter 5 structure precisely and try additions that are new (not seen yet). Perhaps add yeast extract.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01PNvSyjB6HtkbWD47LhC689",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.05}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01PNvSyjB6HtkbWD47LhC689",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.432329240922037, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Worse. Removing methylcellulose or adding new ingredients tends to hurt. The iter 5 recipe is a local optimum. Let me try small perturbations with the exact same 9 ingredients.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XBuR7syq37gm5EqMiskUXS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.3},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XBuR7syq37gm5EqMiskUXS",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.44206906520222516, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Worse. There seems to be measurement noise too \u2014 many perturbations are worse. Let me try substituting wheat flour for something more neutral like rice flour.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01D9YaA3NYg4ydRXz1HZy3p3",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"rice flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01D9YaA3NYg4ydRXz1HZy3p3",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.49502647823692486, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Rice flour worse. Wheat flour is better. Let me try corn starch instead of potato starch.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01TV6jCc3iVd93Shkyb7ND8E",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"corn starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TV6jCc3iVd93Shkyb7ND8E",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.3372257496915331, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Close to best but slightly worse than iter 5 (0.313). Let me try tweaking SPI fraction - since swapping pea\u2192SPI helped, maybe a bit more SPI helps.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_0187Uk5PS44F6koLYSzsbtCw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.26},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.11},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0187Uk5PS44F6koLYSzsbtCw",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.3863715203257562, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Worse. iter 5 (SPC 0.28, SPI 0.09) is the sweet spot. Let me try reproducing it to assess noise.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01CEcxYZ4hHarE7UYN1QkBGt",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.09},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01CEcxYZ4hHarE7UYN1QkBGt",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.34948333736643045, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01A8iQ4wRX8euyyCquhDuKqF",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# So iter 5 was 0.313, iter 13 same recipe 0.349 - significant noise ~0.04\\n# The best recipes cluster around 0.313-0.35 when they're \\\"good\\\"\\n# Anything deviating from baseline structure is 0.38+\\n# \\n# Given noise, iter 1 (0.317 with pea protein) and iter 5 (0.313 with SPI) are \\n# statistically similar. \\n# \\n# Let me try a mix: pea protein + SPI together might capture more signal.\\n# Also iter 11 was 0.337 with corn starch - also plausibly good.\\n# \\n# Strategy: try a small blend tweak: half pea protein + half SPI at the 9% spot? \\n# No - we have 9 ingredient slots. \\n# Or: slight increase in breadcrumbs (chicken breading is often significant)\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01A8iQ4wRX8euyyCquhDuKqF",
+"content": ""
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01W6dMTG1WhxQ9cSPuBdkbcz",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.06}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01W6dMTG1WhxQ9cSPuBdkbcz",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.2855037569087964, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "Excellent! 0.286 \u2014 new best! Having both pea protein and SPI, plus increased methylcellulose (0.06) and removed potato starch helped. Let me explore around this.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_0133tBrx6ewUhvFpQYHx6byH",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.26},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.07}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0133tBrx6ewUhvFpQYHx6byH",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.3813209347093524, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Hmm worse. Could be noise or the tweak was bad. Let me revert and try a different direction \u2014 more methylcellulose was good; maybe more is better? Or try dropping potato starch definitively while keeping other balances.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01VjWNU4NAegbvEPjFLd1g2R",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01VjWNU4NAegbvEPjFLd1g2R",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.33686025953358756, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01BpfHknddAFqKiLmpr491ZS",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Same exact recipe as iter 14 got 0.337 \u2014 confirms high noise\\n# Best observed: 0.286 (iter 14)\\n# Several good results clustering around 0.29-0.35\\n# With 4 evals left and high noise, best strategy: \\n# 1) Try a modest variant of iter 14 \\n# 2) Possibly try increasing methylcellulose more since it helped\\n# 3) Or one more replicate of iter 14 itself to confirm\\n\\n# Actually let me think about what changed in iter 14 vs iter 5:\\n# iter 5: SPC=0.28, breadcrumbs=0.18, WG=0.12, flavours=0.12, SPI=0.09, WF=0.08, sunoil=0.06, potstarch=0.04, MC=0.03 \u2192 0.313\\n# iter 14: SPC=0.27, breadcrumbs=0.19, WG=0.12, flavours=0.12, SPI=0.05, PP=0.05, WF=0.08, sunoil=0.06, MC=0.06 \u2192 0.286\\n# Differences: breadcrumbs +0.01, SPC -0.01, SPI 0.09\u21920.05, +PP 0.05, -potato starch 0.04, +MC 0.03\\n# Net: dropped potato starch, added 0.05 pea protein, +0.03 MC\\n\\n# Try: slightly more MC, slightly less breadcrumbs maybe\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01BpfHknddAFqKiLmpr491ZS",
+"content": ""
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01ExuZvTBZudcbnN7ZggEZSm",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.18},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"pea protein\",\"fraction\":0.06},{\"ingredient\":\"wheat flour\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.06}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01ExuZvTBZudcbnN7ZggEZSm",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.3531709882299935, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Within noise. The iter 14 recipe is our best known. With 3 evals left, let me try a modest tweak that could plausibly improve, then replicate iter 14.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_014sUrWk7ZcDYbUizAcmV691",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat gluten\",\"fraction\":0.13},{\"ingredient\":\"flavours\",\"fraction\":0.11},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014sUrWk7ZcDYbUizAcmV691",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.3639353059860509, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JhCaoCtCmNqQ9fS12aiCZz",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Best is still iter 14: 0.286. All variants around 0.33-0.36. \\n# With 2 evals left: \\n# Option A: Replicate iter 14 exactly to confirm/improve best record\\n# Option B: Try a bolder change\\n# \\n# Given noise is ~0.04-0.07, replicating iter 14 might score 0.28-0.40\\n# Probably best to try two different promising variants to hedge:\\n# 1) Replicate iter 14 (might hit 0.28 or lower)\\n# 2) A variant with slightly different parameters\\n\\n# Let me try replicating iter 14 for one, and for the last one try increasing MC more\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JhCaoCtCmNqQ9fS12aiCZz",
+"content": ""
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013v9P582pgavgohezi1eE2T",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.06}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013v9P582pgavgohezi1eE2T",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.4035319151768511, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01NJvSYgGPEBmG2m3qqaeTqc",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Same iter 14 recipe again, this time scored 0.404. So the three evaluations of\\n# essentially this recipe (iter 14, 16, 19) scored: 0.286, 0.337, 0.404\\n# Mean ~0.34, std ~0.06. The 0.286 was likely a lucky noise draw.\\n#\\n# For my last evaluation, I should pick what I believe is actually best in expectation.\\n# Looking across all data, recipes close to this neighborhood consistently produce \\n# good values. Let me try something that averages the best aspects.\\n#\\n# All strong recipes have: SPC ~0.27-0.28, breadcrumbs ~0.18-0.19, WG 0.12, flavours 0.12,\\n# protein mix ~0.09-0.10 total, wheat flour 0.08, sunflower oil 0.06, binder+starch ~0.07-0.09\\n#\\n# Let me try the iter 14 recipe with a small adjustment adding back some potato starch\\n# which was in iter 5 (also good). Actually iter 5 was good too (0.313).\\n# \\n# Final attempt: try blending iter 5 and iter 14 structures\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01NJvSYgGPEBmG2m3qqaeTqc",
+"content": ""
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01X2MNPkQSMuksuiYbBy2P3G",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.27},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.19},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"flavours\",\"fraction\":0.11},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"pea protein\",\"fraction\":0.05},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.06}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01X2MNPkQSMuksuiYbBy2P3G",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.3046686591401827, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "14"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2355,
+"completion_tokens": 144,
+"cost": 0.015375
+},
+{
+"prompt_tokens": 2798,
+"completion_tokens": 530,
+"cost": 0.02724
+},
+{
+"prompt_tokens": 3382,
+"completion_tokens": 340,
+"cost": 0.02541
+},
+{
+"prompt_tokens": 3776,
+"completion_tokens": 349,
+"cost": 0.027605
+},
+{
+"prompt_tokens": 4180,
+"completion_tokens": 354,
+"cost": 0.02975
+},
+{
+"prompt_tokens": 4588,
+"completion_tokens": 335,
+"cost": 0.031315
+},
+{
+"prompt_tokens": 4977,
+"completion_tokens": 276,
+"cost": 0.031785
+},
+{
+"prompt_tokens": 5266,
+"completion_tokens": 298,
+"cost": 0.03378
+},
+{
+"prompt_tokens": 5618,
+"completion_tokens": 343,
+"cost": 0.036665
+},
+{
+"prompt_tokens": 6014,
+"completion_tokens": 365,
+"cost": 0.039195
+},
+{
+"prompt_tokens": 6433,
+"completion_tokens": 347,
+"cost": 0.04084
+},
+{
+"prompt_tokens": 6834,
+"completion_tokens": 332,
+"cost": 0.04247
+},
+{
+"prompt_tokens": 7220,
+"completion_tokens": 361,
+"cost": 0.045125
+},
+{
+"prompt_tokens": 7635,
+"completion_tokens": 348,
+"cost": 0.046875
+},
+{
+"prompt_tokens": 8037,
+"completion_tokens": 338,
+"cost": 0.048635
+},
+{
+"prompt_tokens": 8388,
+"completion_tokens": 298,
+"cost": 0.04939
+},
+{
+"prompt_tokens": 8740,
+"completion_tokens": 358,
+"cost": 0.05265
+},
+{
+"prompt_tokens": 9152,
+"completion_tokens": 370,
+"cost": 0.05501
+},
+{
+"prompt_tokens": 9576,
+"completion_tokens": 528,
+"cost": 0.06108
+},
+{
+"prompt_tokens": 10117,
+"completion_tokens": 298,
+"cost": 0.058035
+},
+{
+"prompt_tokens": 10469,
+"completion_tokens": 353,
+"cost": 0.06117
+},
+{
+"prompt_tokens": 10876,
+"completion_tokens": 271,
+"cost": 0.061155
+},
+{
+"prompt_tokens": 11160,
+"completion_tokens": 298,
+"cost": 0.06325
+},
+{
+"prompt_tokens": 11512,
+"completion_tokens": 439,
+"cost": 0.068535
+},
+{
+"prompt_tokens": 11964,
+"completion_tokens": 298,
+"cost": 0.06727
+},
+{
+"prompt_tokens": 12369,
+"completion_tokens": 6,
+"cost": 0.061995
+}
+]
+}

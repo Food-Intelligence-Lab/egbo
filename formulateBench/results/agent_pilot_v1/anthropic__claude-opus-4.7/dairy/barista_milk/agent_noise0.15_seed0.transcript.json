@@ -1,0 +1,428 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based barista milk. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"oat milk\",\"fraction\":0.55},{\"ingredient\":\"coconut cream\",\"fraction\":0.36},{\"ingredient\":\"canola oil\",\"fraction\":0.032},{\"ingredient\":\"pea protein\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.021},{\"ingredient\":\"soy lecithin\",\"fraction\":0.003},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.002}],\"target_dissimilarity\":0.26369250986092285}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations."
+},
+{
+"role": "assistant",
+"content": "I'll strategically explore the formulation space to minimize dissimilarity to barista milk. Let me start by analyzing what barista milk needs: protein for foaming, fat for mouthfeel, stabilizers, and some sugar.\n\nMy first iteration was decent (0.264). Let me try variations that adjust key parameters: protein type/amount, fat level, and emulsifiers.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_019KrZ5hq8qqWeMfM52HNzWW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut cream\",\"fraction\":0.25},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"pea protein\",\"fraction\":0.035},{\"ingredient\":\"allulose\",\"fraction\":0.035},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01TwsVjHrAH9pdt5jtpSX3pA",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"oat milk\",\"fraction\":0.7},{\"ingredient\":\"coconut cream\",\"fraction\":0.18},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.04},{\"ingredient\":\"allulose\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.002},{\"ingredient\":\"calcium citrate\",\"fraction\":0.001}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_019KrZ5hq8qqWeMfM52HNzWW",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.2186005583602768, \"evaluations_remaining\": 18}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TwsVjHrAH9pdt5jtpSX3pA",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.31949462232437986, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Soymilk-based is much better (0.219) than oat-milk-based (0.319). Let me push in that direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_014adZD8QTKAMzCDd4K89VZB",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.7},{\"ingredient\":\"coconut cream\",\"fraction\":0.18},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"pea protein\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.03},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.002},{\"ingredient\":\"calcium citrate\",\"fraction\":0.001}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01EppfQaoST2obTtW1HsPT2o",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut cream\",\"fraction\":0.3},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.025},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014adZD8QTKAMzCDd4K89VZB",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.30268392565984936, \"evaluations_remaining\": 16}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01EppfQaoST2obTtW1HsPT2o",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.17833196139069857, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Interesting! More coconut cream + soy protein isolate = 0.178. Higher fat is important. Let me push further on fat and explore protein.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WBSraZwjKMdAfBM5Ufb1xE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.45},{\"ingredient\":\"coconut cream\",\"fraction\":0.4},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"allulose\",\"fraction\":0.025},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_012o2CwM9LMMo7uKajDKXScz",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.5},{\"ingredient\":\"coconut cream\",\"fraction\":0.35},{\"ingredient\":\"canola oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"allulose\",\"fraction\":0.02},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WBSraZwjKMdAfBM5Ufb1xE",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.5710629029732037, \"evaluations_remaining\": 14}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012o2CwM9LMMo7uKajDKXScz",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.31580372705928816, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Too much coconut cream is bad (0.571), and canola oil hurt it. Iteration 5 recipe is still best. Let me refine around it - sunflower oil is better than canola, and 0.3 coconut cream is near-optimal. Let me try tweaking proteins and stabilizers.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_011k1djAWVCSgzhV11TNhbgn",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.58},{\"ingredient\":\"coconut cream\",\"fraction\":0.28},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01NAJtQMDwzRBqeQi4KfXn9D",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut cream\",\"fraction\":0.3},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.04},{\"ingredient\":\"allulose\",\"fraction\":0.015},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"carrageenan\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_011k1djAWVCSgzhV11TNhbgn",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.3458169982181897, \"evaluations_remaining\": 12}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01NAJtQMDwzRBqeQi4KfXn9D",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.3583564811443185, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Both got worse. Iteration 5 (0.178) remains best. There's a sensitive sweet spot. Let me look more carefully.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HjcJ5oo7zuaaqGf5fYhtGX",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nfor d in data:\\n    print(f\\\"it={d['iteration']}, score={d['target_dissimilarity']:.4f}\\\")\\n    for r in d['recipe']:\\n        print(f\\\"  {r['ingredient']}: {r['fraction']}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HjcJ5oo7zuaaqGf5fYhtGX",
+"content": "it=1, score=0.2637\n  oat milk: 0.55\n  coconut cream: 0.36\n  canola oil: 0.032\n  pea protein: 0.03\n  allulose: 0.021\n  soy lecithin: 0.003\n  gellan gum: 0.002\n  potassium citrate: 0.002\nit=2, score=0.2186\n  soymilk: 0.6030150753768844\n  coconut cream: 0.25125628140703515\n  sunflower oil: 0.06030150753768844\n  pea protein: 0.03517587939698493\n  allulose: 0.03517587939698493\n  soy lecithin: 0.008040201005025126\n  potassium citrate: 0.003015075376884422\n  gellan gum: 0.0020100502512562816\n  calcium citrate: 0.0020100502512562816\nit=3, score=0.3195\n  oat milk: 0.7\n  coconut cream: 0.18\n  sunflower oil: 0.05\n  pea protein: 0.04\n  allulose: 0.02\n  soy lecithin: 0.005\n  gellan gum: 0.002\n  potassium citrate: 0.002\n  calcium citrate: 0.001\nit=4, score=0.3027\n  soymilk: 0.7\n  coconut cream: 0.18\n  sunflower oil: 0.05\n  pea protein: 0.03\n  allulose: 0.03\n  soy lecithin: 0.005\n  gellan gum: 0.002\n  potassium citrate: 0.002\n  calcium citrate: 0.001\nit=5, score=0.1783\n  soymilk: 0.55\n  coconut cream: 0.3\n  sunflower oil: 0.08\n  soy protein isolate: 0.03\n  allulose: 0.025\n  soy lecithin: 0.008\n  potassium citrate: 0.003\n  gellan gum: 0.002\n  calcium citrate: 0.002\nit=6, score=0.5711\n  soymilk: 0.4477611940298507\n  coconut cream: 0.3980099502487562\n  sunflower oil: 0.07960199004975124\n  soy protein isolate: 0.03482587064676617\n  allulose: 0.02487562189054726\n  soy lecithin: 0.007960199004975124\n  potassium citrate: 0.0029850746268656712\n  gellan gum: 0.001990049751243781\n  calcium citrate: 0.001990049751243781\nit=7, score=0.3158\n  soymilk: 0.5\n  coconut cream: 0.35\n  canola oil: 0.08\n  soy protein isolate: 0.035\n  allulose: 0.02\n  sunflower lecithin: 0.008\n  potassium citrate: 0.003\n  gellan gum: 0.002\n  calcium citrate: 0.002\nit=8, score=0.3458\n  soymilk: 0.5788423153692615\n  coconut cream: 0.27944111776447106\n  sunflower oil: 0.06986027944111776\n  soy protein isolate: 0.03493013972055888\n  allulose: 0.021956087824351295\n  soy lecithin: 0.007984031936127744\n  potassium citrate: 0.0029940119760479044\n  gellan gum: 0.001996007984031936\n  calcium citrate: 0.001996007984031936\nit=9, score=0.3584\n  soymilk: 0.55\n  coconut cream: 0.3\n  sunflower oil: 0.08\n  soy protein isolate: 0.04\n  allulose: 0.015\n  soy lecithin: 0.005\n  potassium citrate: 0.005\n  calcium citrate: 0.003\n  carrageenan: 0.002\n"
+},
+{
+"role": "assistant",
+"content": "Interesting - very small changes from iter5 cause big score shifts. This evaluator is noisy or has sharp sensitivity. Iter5 got 0.178. Iter8 was nearly identical with small perturbations but got 0.346. This suggests noise. Let me re-evaluate the best formula to confirm and try nearby variants.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_016Sss7AF9QRc3MX8FBgTmBw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut cream\",\"fraction\":0.3},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.025},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_018YtYjCLkVgs3TJuj8hwiv8",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.5},{\"ingredient\":\"coconut cream\",\"fraction\":0.32},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.03},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.005}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_016Sss7AF9QRc3MX8FBgTmBw",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.5497028193037858, \"evaluations_remaining\": 10}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_018YtYjCLkVgs3TJuj8hwiv8",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.2902504331031982, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Iter10 is literally identical to iter5 but got 0.550 vs 0.178! This evaluator is VERY noisy. Strategy needs to change - I should average multiple evaluations and be robust. Given high noise, maybe pick good formula and repeat it many times to find the true winner.\n\nActually, let me think differently. Given 9 evaluations left and very noisy evaluations, let me try diverse formulations to find truly robust winners, picking from best intuitions.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01GgMMk27jbKoEUGqexqVYkc",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.55},{\"ingredient\":\"coconut cream\",\"fraction\":0.3},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.025},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_014hk2EnV9J5rQydxwfNj1RX",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut milk\",\"fraction\":0.25},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01GgMMk27jbKoEUGqexqVYkc",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.3253952705276575, \"evaluations_remaining\": 8}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014hk2EnV9J5rQydxwfNj1RX",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.029221471691150427, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "\ud83c\udfaf Iteration 13 scored 0.029 - a huge improvement! Coconut milk (not cream) was the key change. Let me exploit this and probe nearby.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01QCEwTqiYFwKMVw3niC9NdP",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut milk\",\"fraction\":0.25},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_013A61sCLcQhRQjztNrtVzgJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.62},{\"ingredient\":\"coconut milk\",\"fraction\":0.27},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QCEwTqiYFwKMVw3niC9NdP",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.00902864147696561, \"evaluations_remaining\": 6}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013A61sCLcQhRQjztNrtVzgJ",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.15939419580494688, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Even better! Iter14 = 0.009 (same formula as 13 but result is better - confirms some noise but very low scores here). Iter15 went down (less oil hurt). So keep high fat. Let me fine-tune.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Wec4pyyxC4vrJjxjkNAYS6",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.58},{\"ingredient\":\"coconut milk\",\"fraction\":0.27},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01MKyXzEfsqMiv4Y4GUoNDqF",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut milk\",\"fraction\":0.25},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Wec4pyyxC4vrJjxjkNAYS6",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.10681180697576867, \"evaluations_remaining\": 4}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MKyXzEfsqMiv4Y4GUoNDqF",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.11973366760378806, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Iter17 is exactly same as 13/14 but scored 0.120 vs 0.009/0.029. Confirms noise is real. The exact formula from iter14 is still the best on average. Let me try one more nearby variation and then repeat the best.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01MRenuwgVZTZifioYii1BRB",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut milk\",\"fraction\":0.26},{\"ingredient\":\"sunflower oil\",\"fraction\":0.075},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.003},{\"ingredient\":\"calcium citrate\",\"fraction\":0.002}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01ATTvHYmJCRUitHA1HhQtAB",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut milk\",\"fraction\":0.25},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MRenuwgVZTZifioYii1BRB",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.13456332351929576, \"evaluations_remaining\": 2}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01ATTvHYmJCRUitHA1HhQtAB",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.23591939057178582, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Iter19 (same as 13/14/17) gave 0.236. So the mean of that formula's 4 evals is (0.029+0.009+0.120+0.236)/4 = 0.098. Iter18 scored 0.134, which is a single read. Given noise, let me use the final evaluation on the best-known formula.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_012B4KxURZiK5zecqT5ST8vc",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.6},{\"ingredient\":\"coconut milk\",\"fraction\":0.25},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.022},{\"ingredient\":\"soy lecithin\",\"fraction\":0.008},{\"ingredient\":\"gellan gum\",\"fraction\":0.002},{\"ingredient\":\"potassium citrate\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.003}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012B4KxURZiK5zecqT5ST8vc",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.027481762449774794, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "14"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2184,
+"completion_tokens": 635,
+"cost": 0.026795
+},
+{
+"prompt_tokens": 3020,
+"completion_tokens": 604,
+"cost": 0.0302
+},
+{
+"prompt_tokens": 3773,
+"completion_tokens": 617,
+"cost": 0.03429
+},
+{
+"prompt_tokens": 4539,
+"completion_tokens": 666,
+"cost": 0.039345
+},
+{
+"prompt_tokens": 5354,
+"completion_tokens": 212,
+"cost": 0.03207
+},
+{
+"prompt_tokens": 6788,
+"completion_tokens": 679,
+"cost": 0.050915
+},
+{
+"prompt_tokens": 7616,
+"completion_tokens": 722,
+"cost": 0.05613
+},
+{
+"prompt_tokens": 8487,
+"completion_tokens": 626,
+"cost": 0.058085
+},
+{
+"prompt_tokens": 9262,
+"completion_tokens": 642,
+"cost": 0.06236
+},
+{
+"prompt_tokens": 10053,
+"completion_tokens": 650,
+"cost": 0.066515
+},
+{
+"prompt_tokens": 10852,
+"completion_tokens": 398,
+"cost": 0.06421
+},
+{
+"prompt_tokens": 11357,
+"completion_tokens": 6,
+"cost": 0.056935
+}
+]
+}

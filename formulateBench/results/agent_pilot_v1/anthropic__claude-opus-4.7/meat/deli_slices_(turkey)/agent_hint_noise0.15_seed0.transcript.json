@@ -1,0 +1,527 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based deli slices (turkey). The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soy protein isolate\",\"fraction\":0.3},{\"ingredient\":\"wheat gluten\",\"fraction\":0.22},{\"ingredient\":\"flavours\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"canola oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"potato starch\",\"fraction\":0.02}],\"target_dissimilarity\":0.5354609415074557}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll approach this systematically. Let me start by exploring the space with diverse formulations to understand what matters for turkey deli slices, then refine.\n\nTurkey deli slices are characterized by: high protein (~18-20%), moderate moisture, low fat (~3-5%), firm sliceable texture, mild savory flavor, light color. Key functional needs:\n- Protein base (soy/wheat gluten for texture)\n- Binders (methylcellulose, carrageenan, starch)\n- Mild flavoring (not overpowering like iteration 1's 20% flavours)\n- Small amount of oil\n- Color/flavor adjustments\n\nThe first formulation had 20% flavours which is likely too high. Let me try a more realistic turkey deli composition.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JmTkXE1wAvUpEnkFZn3dPe",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"potato starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"canola oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JmTkXE1wAvUpEnkFZn3dPe",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.4500678382694635, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"content": "Good, improvement from 0.535 to 0.450. The shift from 30/22/10/6/4/3/3/2 to 28/18/12/8/5/4/2.5/2.5/20 helped. Let me try different directions to find what matters most.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_011MgKHdqB3FDwGzpNy9JHmm",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.35},{\"ingredient\":\"wheat gluten\",\"fraction\":0.15},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"potato starch\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.05},{\"ingredient\":\"carrageenan\",\"fraction\":0.03},{\"ingredient\":\"canola oil\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.15}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_011MgKHdqB3FDwGzpNy9JHmm",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.6509158333653439, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "That got worse. More soy protein isolate and less flavours hurt. Let me try the other direction \u2014 maybe flavours should be even higher, or try different protein mix.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01APGZXpC1jSaqDDWPdbVr7y",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"potato starch\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"canola oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.275}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01APGZXpC1jSaqDDWPdbVr7y",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.4923254314628541, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"content": "Worse than iter 2. So iter 2 composition seems near a local optimum. Let me explore ingredient substitutions: maybe replace some ingredients with alternatives.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01AU7VCAbJkUAGxHXTqckoWw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01AU7VCAbJkUAGxHXTqckoWw",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.38970684848706705, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Nice improvement to 0.390. Tapioca starch and sunflower oil are better. Let me continue exploring substitutions.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01AH9byBNKVEKK1CfLBSzcE3",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"agar agar\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01AH9byBNKVEKK1CfLBSzcE3",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.6185817955573716, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"content": "Carrageenan is much better than agar agar. Keep carrageenan. Let me try varying other ingredients.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01RmpWDgFVXmae4BWDjryFTd",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"fava bean protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RmpWDgFVXmae4BWDjryFTd",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.43724725287351435, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Pea protein is better than fava bean protein. Keep pea protein. Let me try swapping yeast extract for something more turkey-savory, or try different fat.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01SiHDtuGYWpmhg17HvGy6H1",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"coconut oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01SiHDtuGYWpmhg17HvGy6H1",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.5424889164780354, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Worse. Sunflower oil better than coconut. Let me try adjusting fractions around iter 5 best (0.390). Try more protein, less filler perhaps.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01UZj5QFifg8ujWCyrPB3dnJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.3},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.035},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.19}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01UZj5QFifg8ujWCyrPB3dnJ",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.5629915987699371, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5's composition was better. Let me try lowering proteins instead.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_018idnPApFiy7tW7wLAFQ2nA",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.25},{\"ingredient\":\"wheat gluten\",\"fraction\":0.16},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"tapioca starch\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.05},{\"ingredient\":\"carrageenan\",\"fraction\":0.03},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.22}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_018idnPApFiy7tW7wLAFQ2nA",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.5916398149380883, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Hmm, also worse. Iter 5 is still best at 0.390. Let me check: iter 2 (0.450) = 28/18/12/8/4/2.5/5/2.5/20 with canola+potato starch; iter 5 (0.390) = same but sunflower+tapioca. So swap helped a lot. Let me try other oil/starch swaps.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01L9a9NFY1N9JUN3Z3eioboV",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"olive oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01L9a9NFY1N9JUN3Z3eioboV",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.43781420402873694, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Olive oil worse than sunflower. Let me try avocado oil or soybean oil.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01DYb2x2CW6djJPWMM7Q2zwE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"soy sauce\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01DYb2x2CW6djJPWMM7Q2zwE",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.48297505089909026, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Worse. Yeast extract is better than soy sauce. Let me try corn starch instead of tapioca, or try modifying flavours level slightly.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Djht1fWuuytZzUceoGwUat",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"corn starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Djht1fWuuytZzUceoGwUat",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.4450036999685001, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Worse. Tapioca starch is best. Let me try a small composition tweak around iter 5.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01M2vaLEgaD7hdT2WxbktPPM",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.27},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.13},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.045},{\"ingredient\":\"carrageenan\",\"fraction\":0.03},{\"ingredient\":\"sunflower oil\",\"fraction\":0.045},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.19}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01M2vaLEgaD7hdT2WxbktPPM",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.41441380701395947, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "Slightly worse than 0.390. Iter 5 still best. Let me analyze what I know with Python.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JJGyMwHHPboqLrgKQgiWYQ",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nfor d in data:\\n    frac_str = \\\", \\\".join(f\\\"{r['ingredient']}:{r['fraction']:.3f}\\\" for r in d['recipe'])\\n    print(f\\\"it{d['iteration']}: {d['target_dissimilarity']:.4f} | {frac_str}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JJGyMwHHPboqLrgKQgiWYQ",
+"content": "it1: 0.5355 | soy protein isolate:0.300, wheat gluten:0.220, flavours:0.200, pea protein:0.100, canola oil:0.060, methylcellulose:0.040, carrageenan:0.030, yeast extract:0.030, potato starch:0.020\nit2: 0.4501 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, potato starch:0.080, canola oil:0.050, methylcellulose:0.040, carrageenan:0.025, yeast extract:0.025\nit3: 0.6509 | soy protein isolate:0.350, wheat gluten:0.150, flavours:0.150, pea protein:0.100, potato starch:0.100, methylcellulose:0.050, canola oil:0.040, carrageenan:0.030, yeast extract:0.030\nit4: 0.4923 | flavours:0.275, soy protein isolate:0.220, wheat gluten:0.200, pea protein:0.100, potato starch:0.060, canola oil:0.050, methylcellulose:0.040, yeast extract:0.030, carrageenan:0.025\nit5: 0.3897 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, tapioca starch:0.080, sunflower oil:0.050, methylcellulose:0.040, carrageenan:0.025, yeast extract:0.025\nit6: 0.6186 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, tapioca starch:0.080, sunflower oil:0.050, methylcellulose:0.040, agar agar:0.025, yeast extract:0.025\nit7: 0.4372 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, fava bean protein:0.120, tapioca starch:0.080, sunflower oil:0.050, methylcellulose:0.040, carrageenan:0.025, yeast extract:0.025\nit8: 0.5425 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, tapioca starch:0.080, coconut oil:0.050, methylcellulose:0.040, carrageenan:0.025, yeast extract:0.025\nit9: 0.5630 | soy protein isolate:0.300, wheat gluten:0.200, flavours:0.190, pea protein:0.120, tapioca starch:0.060, sunflower oil:0.050, methylcellulose:0.035, yeast extract:0.025, carrageenan:0.020\nit10: 0.5916 | soy protein isolate:0.250, flavours:0.220, wheat gluten:0.160, pea protein:0.100, tapioca starch:0.100, sunflower oil:0.060, methylcellulose:0.050, carrageenan:0.030, yeast extract:0.030\nit11: 0.4378 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, tapioca starch:0.080, olive oil:0.050, methylcellulose:0.040, carrageenan:0.025, yeast extract:0.025\nit12: 0.4830 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, tapioca starch:0.080, sunflower oil:0.050, methylcellulose:0.040, carrageenan:0.025, soy sauce:0.025\nit13: 0.4450 | soy protein isolate:0.280, flavours:0.200, wheat gluten:0.180, pea protein:0.120, corn starch:0.080, sunflower oil:0.050, methylcellulose:0.040, carrageenan:0.025, yeast extract:0.025\nit14: 0.4144 | soy protein isolate:0.270, flavours:0.190, wheat gluten:0.180, pea protein:0.130, tapioca starch:0.080, methylcellulose:0.045, sunflower oil:0.045, carrageenan:0.030, yeast extract:0.030\n"
+},
+{
+"role": "assistant",
+"content": "Iter 5 is clearly best (0.390). All moves around it have been worse. Let me think about what to try with 6 remaining:\n1. Maybe swap in soy protein concentrate instead of isolate\n2. Try different oil (soybean, avocado)\n3. Try soya protein isolate (different naming)\n4. Add a mild color/texture ingredient\n\nLet me try 2 targeted swaps and then revisit the best.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_019zzuQyJrhcdpjk17oqz47U",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"avocado oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_019zzuQyJrhcdpjk17oqz47U",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.5593683900768789, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Worse. Sunflower oil remains best. Let me try soy protein concentrate swap.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_012q44AhqhynTKrL35StebME",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012q44AhqhynTKrL35StebME",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.4273563911720737, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"content": "Worse than iter 5. Soy protein isolate is better. Let me try soya protein isolate (different catalog entry, might behave differently).",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01CP7pBbdkTc8RHmcnmamXGq",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soya protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01CP7pBbdkTc8RHmcnmamXGq",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.500910076002735, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Worse. soy protein isolate remains the best. 3 evaluations remain. Let me think strategically.\n\nIter 5 (0.390) has been the best despite many perturbations. Noise is clearly present (iter 14 only slightly worse with similar comp). Let me try two more targeted tweaks:\n1. Try smaller sunflower oil, more protein: oils are consistently a harm in other variants\n2. Replicate iter 5 exactly to check noise level\n\nActually, let me try a composition that averages iter 5 and iter 14 insights: iter 14 had slightly more pea protein and methylcellulose. Let me try one more carefully \u2014 add a small amount of something subtle like plain caramel for color (deli slice color).",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Bpt8CZtDV8ngjD7kqLSW98",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.03},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.195}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Bpt8CZtDV8ngjD7kqLSW98",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.5176624666414867, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Worse. Even tiny tweaks are harmful; this suggests noise. Let me replicate iter 5 to check noise floor.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Fe9UsjEuG9wQpoBCRXYCuL",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Fe9UsjEuG9wQpoBCRXYCuL",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.5812911417186015, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Replication gave 0.581 vs original 0.390 \u2014 huge noise! So the \"best\" evaluation at iter 5 may have been lucky noise. Given significant noise, for the final evaluation I should submit the composition most likely to be good based on the pattern. Iter 5 recipe averaged across replicas = (0.390+0.581)/2 = 0.485. Iter 2 had 0.450 with canola+potato starch. Maybe canola+potato starch is similar to sunflower+tapioca.\n\nGiven high noise, let me just resubmit iter 5's composition one more time as it's still our best single result.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_016siEkrAh8yZbffqYs7pbFx",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.28},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"ingredient\":\"tapioca starch\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.2}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_016siEkrAh8yZbffqYs7pbFx",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.4370872046449426, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2349,
+"completion_tokens": 535,
+"cost": 0.02512
+},
+{
+"prompt_tokens": 2938,
+"completion_tokens": 371,
+"cost": 0.023965
+},
+{
+"prompt_tokens": 3363,
+"completion_tokens": 342,
+"cost": 0.025365
+},
+{
+"prompt_tokens": 3759,
+"completion_tokens": 351,
+"cost": 0.02757
+},
+{
+"prompt_tokens": 4164,
+"completion_tokens": 336,
+"cost": 0.02922
+},
+{
+"prompt_tokens": 4554,
+"completion_tokens": 333,
+"cost": 0.031095
+},
+{
+"prompt_tokens": 4941,
+"completion_tokens": 345,
+"cost": 0.03333
+},
+{
+"prompt_tokens": 5340,
+"completion_tokens": 349,
+"cost": 0.035425
+},
+{
+"prompt_tokens": 5743,
+"completion_tokens": 323,
+"cost": 0.03679
+},
+{
+"prompt_tokens": 6120,
+"completion_tokens": 411,
+"cost": 0.040875
+},
+{
+"prompt_tokens": 6585,
+"completion_tokens": 324,
+"cost": 0.041025
+},
+{
+"prompt_tokens": 6963,
+"completion_tokens": 341,
+"cost": 0.04334
+},
+{
+"prompt_tokens": 7358,
+"completion_tokens": 326,
+"cost": 0.04494
+},
+{
+"prompt_tokens": 7738,
+"completion_tokens": 218,
+"cost": 0.04414
+},
+{
+"prompt_tokens": 9390,
+"completion_tokens": 432,
+"cost": 0.05775
+},
+{
+"prompt_tokens": 9876,
+"completion_tokens": 326,
+"cost": 0.05753
+},
+{
+"prompt_tokens": 10256,
+"completion_tokens": 340,
+"cost": 0.05978
+},
+{
+"prompt_tokens": 10649,
+"completion_tokens": 530,
+"cost": 0.066495
+},
+{
+"prompt_tokens": 11233,
+"completion_tokens": 338,
+"cost": 0.064615
+},
+{
+"prompt_tokens": 11625,
+"completion_tokens": 491,
+"cost": 0.0704
+},
+{
+"prompt_tokens": 12223,
+"completion_tokens": 6,
+"cost": 0.061265
+}
+]
+}
