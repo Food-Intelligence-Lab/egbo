@@ -1,0 +1,453 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based milk. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.82},{\"ingredient\":\"gellan gum\",\"fraction\":0.061},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"sunflower oil\",\"fraction\":0.032},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.02},{\"ingredient\":\"coconut oil\",\"fraction\":0.013},{\"ingredient\":\"calcium citrate\",\"fraction\":0.004},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.003},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.002}],\"target_dissimilarity\":0.10813285228021832}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll approach this systematically. The first formulation achieved 0.108 dissimilarity - quite good already. Let me think about milk's composition:\n\n- Water: ~87%\n- Fat: ~3.5% (saturated + unsaturated)\n- Protein: ~3.3% (casein/whey)\n- Lactose/sugar: ~4.8%\n- Minerals: ~0.7% (Ca, K, P)\n\nThe baseline used soymilk heavily. Let me explore variations to understand which components matter most.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01VyzdTxQntknognnkMhETqa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.85},{\"ingredient\":\"sunflower oil\",\"fraction\":0.035},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.025},{\"ingredient\":\"coconut oil\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.008},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.004},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.003},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_0176YKezKvnjWHF9wLsdCURX",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"oat milk\",\"fraction\":0.8},{\"ingredient\":\"pea protein\",\"fraction\":0.03},{\"ingredient\":\"sunflower oil\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.015},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"calcium citrate\",\"fraction\":0.008},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.004},{\"ingredient\":\"gellan gum\",\"fraction\":0.02},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.003}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01VyzdTxQntknognnkMhETqa",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.031037109398943233, \"evaluations_remaining\": 18}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0176YKezKvnjWHF9wLsdCURX",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.23760050416494383, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Excellent! Formulation 2 (soymilk-based with reduced gellan gum) got 0.031 - a big improvement. Oat milk did much worse. The key insight: gellan gum was way too high in the original (6.1%), and 1.5% is much better. Let me continue exploring soymilk-based variations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01RrvCHWC2gD8RoZnn8in1gj",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.87},{\"ingredient\":\"sunflower oil\",\"fraction\":0.035},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.015},{\"ingredient\":\"coconut oil\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.008},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.004},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.003},{\"ingredient\":\"gellan gum\",\"fraction\":0.005}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_014w1h1Tfwk49jcAfdzipkod",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RrvCHWC2gD8RoZnn8in1gj",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.17385332657962954, \"evaluations_remaining\": 16}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014w1h1Tfwk49jcAfdzipkod",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": -0.04268436159899727, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Iteration 5 got **-0.042** (negative, so better than zero)! Key changes that helped:\n- More soy protein isolate (3.5% vs 2.5%)\n- More coconut oil (2.5% vs 1.5%)  \n- More calcium citrate (1% vs 0.8%)\n- Lower sunflower oil (2.5% vs 3.5%)\n- Slightly more allulose (5% vs 4.5%)\n\nIteration 4 (less protein, less gellan) got much worse (0.174). So protein and gellan matter. Let me push further in the winning direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01E1LN943ZJsqGmR4oaadxmk",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.81},{\"ingredient\":\"sunflower oil\",\"fraction\":0.02},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.045},{\"ingredient\":\"coconut oil\",\"fraction\":0.035},{\"ingredient\":\"calcium citrate\",\"fraction\":0.012},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.006},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.007},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01GUuxhx4gTzpkRt64rjBaPq",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01E1LN943ZJsqGmR4oaadxmk",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.2929796978720014, \"evaluations_remaining\": 14}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01GUuxhx4gTzpkRt64rjBaPq",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.06808522415456067, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Important findings:\n- Iteration 6 (pushing further) got much worse (0.293) - so iteration 5 was near a sweet spot, not just a trend\n- Iteration 7 is a replicate of iteration 5, but got 0.068 instead of -0.043. **Big noise** - std around 0.05+\n\nSo noise is substantial. Let me stay close to iteration 5's composition and make small perturbations to understand gradients properly.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01EZN2znBv14NRQXSY5u6wLM",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    evals = json.load(f)\\nfor e in evals:\\n    print(f\\\"iter {e['iteration']}: {e['target_dissimilarity']:.4f}\\\")\\n    for ing in e['recipe']:\\n        print(f\\\"   {ing['ingredient']}: {ing['fraction']}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01EZN2znBv14NRQXSY5u6wLM",
+"content": "iter 1: 0.1081\n   soymilk: 0.82\n   gellan gum: 0.061\n   allulose: 0.045\n   sunflower oil: 0.032\n   soy protein isolate: 0.02\n   coconut oil: 0.013\n   calcium citrate: 0.004\n   sunflower lecithin: 0.003\n   potassium phosphate: 0.002\niter 2: 0.0310\n   soymilk: 0.85\n   allulose: 0.045\n   sunflower oil: 0.035\n   soy protein isolate: 0.025\n   coconut oil: 0.015\n   gellan gum: 0.015\n   calcium citrate: 0.008\n   sunflower lecithin: 0.004\n   potassium phosphate: 0.003\niter 3: 0.2376\n   oat milk: 0.8333333333333333\n   allulose: 0.04687499999999999\n   sunflower oil: 0.036458333333333336\n   pea protein: 0.031249999999999997\n   gellan gum: 0.020833333333333332\n   coconut oil: 0.015624999999999998\n   calcium citrate: 0.008333333333333333\n   sunflower lecithin: 0.004166666666666667\n   potassium phosphate: 0.0031249999999999997\niter 4: 0.1739\n   soymilk: 0.87\n   allulose: 0.045\n   sunflower oil: 0.035\n   soy protein isolate: 0.015\n   coconut oil: 0.015\n   calcium citrate: 0.008\n   gellan gum: 0.005\n   sunflower lecithin: 0.004\n   potassium phosphate: 0.003\niter 5: -0.0427\n   soymilk: 0.83\n   allulose: 0.05\n   soy protein isolate: 0.035\n   sunflower oil: 0.025\n   coconut oil: 0.025\n   gellan gum: 0.015\n   calcium citrate: 0.01\n   sunflower lecithin: 0.005\n   potassium phosphate: 0.005\niter 6: 0.2930\n   soymilk: 0.81\n   allulose: 0.05\n   soy protein isolate: 0.045\n   coconut oil: 0.035\n   sunflower oil: 0.02\n   gellan gum: 0.015\n   calcium citrate: 0.012\n   potassium phosphate: 0.007\n   sunflower lecithin: 0.006\niter 7: 0.0681\n   soymilk: 0.83\n   allulose: 0.05\n   soy protein isolate: 0.035\n   sunflower oil: 0.025\n   coconut oil: 0.025\n   gellan gum: 0.015\n   calcium citrate: 0.01\n   sunflower lecithin: 0.005\n   potassium phosphate: 0.005\n"
+},
+{
+"role": "assistant",
+"content": "Iter 5 and iter 7 are identical formulations with results of -0.043 and 0.068. True value likely ~0.01-0.03. Still, this is the best area. Let me try smaller tweaks around this point and also probe one different hypothesis.\n\nKey observations:\n- Iter 2\u21925: increased protein (2.5\u21923.5%), coconut oil (1.5\u21922.5%), decreased sunflower oil (3.5\u21922.5%), increased minerals and allulose slightly. Improvement in true mean.\n- Iter 5\u21926: further push caused regression\n\nLet me try: (a) slight additional refinement around iter 5, (b) try adding small amount of cashew cream or coconut cream for creaminess/mouthfeel.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_0112SVdfRCjMs2PgQESWzRAm",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.82},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.04},{\"ingredient\":\"coconut oil\",\"fraction\":0.03},{\"ingredient\":\"calcium citrate\",\"fraction\":0.011},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.006},{\"ingredient\":\"gellan gum\",\"fraction\":0.013}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01XYLbXetvr73QTLaASR8LwJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.81},{\"ingredient\":\"sunflower oil\",\"fraction\":0.02},{\"ingredient\":\"allulose\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"cashew cream\",\"fraction\":0.035}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0112SVdfRCjMs2PgQESWzRAm",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.16188715951940877, \"evaluations_remaining\": 12}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XYLbXetvr73QTLaASR8LwJ",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.1447292826014402, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Both worse than iter 5/7. Iter 8 (slight push toward iter 6 direction) got 0.162. Iter 9 (swapping gellan for cashew cream) got 0.145 - interesting, worse but not terrible. The gellan gum seems important for the texture match.\n\nLet me think about iter 5's noise. It gave -0.043 and 0.068 \u2192 mean ~0.013. Iter 2 gave 0.031. Hard to say which is truly better. Let me do a careful mid-value experiment and try minor perturbations in a different direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01N6cZMe7F8oeTh1GuJ4jjiJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.84},{\"ingredient\":\"sunflower oil\",\"fraction\":0.028},{\"ingredient\":\"allulose\",\"fraction\":0.048},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.03},{\"ingredient\":\"coconut oil\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.009},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.0045},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.0045},{\"ingredient\":\"gellan gum\",\"fraction\":0.016}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_012KfTf8yZN7bySLxRmm7SYi",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"sunflower oil\",\"fraction\":0.03},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01N6cZMe7F8oeTh1GuJ4jjiJ",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.3210984930367189, \"evaluations_remaining\": 10}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012KfTf8yZN7bySLxRmm7SYi",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.025074891790129283, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Interesting! Iter 10 (midway between iter 2 and iter 5) went HIGH (0.32) - perhaps noisy jitter. Iter 11 (very close to iter 5 but with 3.0% sunflower oil instead of 2.5%, and 2.0% coconut oil instead of 2.5%) got 0.025 - also good.\n\nLet me summarize:\n- Best true-mean candidates: iter 5/7/11 all in the low region (~0.01-0.03)\n- Noise is huge (iter 10 was 0.32 despite being near good formulations)\n\nGiven the enormous noise, I should probably commit to the iter 5 formulation and do small careful tests, or consider whether there's a direction I haven't explored. Let me try replacing some soymilk with something else, and also try a totally different oil.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01PyMoJ8E2fS9JqUJuZiPkbZ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.78},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"pea milk\",\"fraction\":0.065}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_0168sxunSb8VaS9MBo9mj9S8",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"canola oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01PyMoJ8E2fS9JqUJuZiPkbZ",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.1290874605014131, \"evaluations_remaining\": 8}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0168sxunSb8VaS9MBo9mj9S8",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.027350516920814097, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Iter 13 with canola oil instead of sunflower oil got 0.027 - essentially same as iter 5/7/11. Oil type isn't highly discriminating. Iter 12 adding pea milk is worse.\n\nAll my low values (iter 5: -0.043, iter 7: 0.068, iter 11: 0.025, iter 13: 0.027) are around the same formulation. Let me try one more radical variation to see if I'm in a local minimum, then do a final replicate for confirmation.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01QZVGvTs1iHzt12kCXpeFWw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.84},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.009},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.004},{\"ingredient\":\"gellan gum\",\"fraction\":0.012}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01LGUrf3xoSQuoXcBdcGD1ZW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QZVGvTs1iHzt12kCXpeFWw",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.00041627953147690966, \"evaluations_remaining\": 6}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LGUrf3xoSQuoXcBdcGD1ZW",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.21106435951515218, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Iter 14 got **0.0004** - excellent! That's a slight modification: soymilk 0.84, slightly less allulose (4.5%), slightly less gellan (1.2%), slightly less calcium citrate and K phosphate. \n\nIter 15 (soy lecithin instead of sunflower lecithin) worse at 0.211 - so sunflower lecithin is clearly better.\n\nGiven noise, iter 14's 0.0004 could be the true optimum, or just lucky. Let me replicate iter 14 and also try a tiny perturbation.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WL8NHhSyyTSGppqHmQ6siv",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.84},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.009},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.004},{\"ingredient\":\"gellan gum\",\"fraction\":0.012}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_014c7uqNwedG4trRtpPWfKnS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.845},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.033},{\"ingredient\":\"coconut oil\",\"fraction\":0.023},{\"ingredient\":\"calcium citrate\",\"fraction\":0.009},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.004},{\"ingredient\":\"gellan gum\",\"fraction\":0.011}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WL8NHhSyyTSGppqHmQ6siv",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.09914115605598636, \"evaluations_remaining\": 4}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014c7uqNwedG4trRtpPWfKnS",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.10618860695191887, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Replicate of iter 14 got 0.099 (not 0.0004) - confirms huge noise. True value for iter 14 formulation is maybe ~0.05. Iter 17 similar at 0.106.\n\nLet me check what formulations have the lowest values on average:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_012TisHKsmhhCbBqAkqmAQEm",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    evals = json.load(f)\\n\\n# Group similar formulations\\nfor e in evals:\\n    recipe = sorted(e['recipe'], key=lambda x: x['ingredient'])\\n    key = tuple((r['ingredient'], round(r['fraction'], 4)) for r in recipe)\\n    print(f\\\"iter {e['iteration']}: {e['target_dissimilarity']:.4f}\\\")\\n\\n# all results\\nresults = [(e['iteration'], e['target_dissimilarity']) for e in evals]\\nprint(\\\"\\\\nSorted:\\\")\\nfor i, r in sorted(results, key=lambda x: x[1]):\\n    print(f\\\" iter {i}: {r:.4f}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012TisHKsmhhCbBqAkqmAQEm",
+"content": "iter 1: 0.1081\niter 2: 0.0310\niter 3: 0.2376\niter 4: 0.1739\niter 5: -0.0427\niter 6: 0.2930\niter 7: 0.0681\niter 8: 0.1619\niter 9: 0.1447\niter 10: 0.3211\niter 11: 0.0251\niter 12: 0.1291\niter 13: 0.0274\niter 14: 0.0004\niter 15: 0.2111\niter 16: 0.0991\niter 17: 0.1062\n\nSorted:\n iter 5: -0.0427\n iter 14: 0.0004\n iter 11: 0.0251\n iter 13: 0.0274\n iter 2: 0.0310\n iter 7: 0.0681\n iter 16: 0.0991\n iter 17: 0.1062\n iter 1: 0.1081\n iter 12: 0.1291\n iter 9: 0.1447\n iter 8: 0.1619\n iter 4: 0.1739\n iter 15: 0.2111\n iter 3: 0.2376\n iter 6: 0.2930\n iter 10: 0.3211\n"
+},
+{
+"role": "assistant",
+"content": "I have 3 evals remaining. The low cluster includes iter 5, 11, 13, 14 (all variants of the same formulation). Iter 2 slightly different. Let me use my remaining budget wisely: \n- 1 more replicate of iter 5 formulation (since it had the lowest single value and is well-studied)\n- 1 slight perturbation that could be better\n- 1 final confirmation\n\nActually with only 3 left and massive noise, let me try two slight variations and one replicate of the most-promising.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_011xA2LiRtM6U7E7FcxbNiAa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.83},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.05},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.005},{\"ingredient\":\"gellan gum\",\"fraction\":0.015}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01NSmGdcf7Gpog2WDewwh4Bf",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.835},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.048},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.0095},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.0045},{\"ingredient\":\"gellan gum\",\"fraction\":0.013}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_011xA2LiRtM6U7E7FcxbNiAa",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.14235528389344368, \"evaluations_remaining\": 2}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01NSmGdcf7Gpog2WDewwh4Bf",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.23063695909845525, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Replicates are giving higher values now (0.14 and 0.23)! So my earlier low values were lucky. This suggests the true mean is more like 0.08-0.12. \n\nWith only 1 eval left, let me make one final attempt with a slightly different formulation - the iter 14 formulation, which had slightly less allulose/gellan.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01VgKVvuLzAQKPqALZ88ST1r",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soymilk\",\"fraction\":0.84},{\"ingredient\":\"sunflower oil\",\"fraction\":0.025},{\"ingredient\":\"allulose\",\"fraction\":0.045},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"coconut oil\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.009},{\"ingredient\":\"sunflower lecithin\",\"fraction\":0.005},{\"ingredient\":\"potassium phosphate\",\"fraction\":0.004},{\"ingredient\":\"gellan gum\",\"fraction\":0.012}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01VgKVvuLzAQKPqALZ88ST1r",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.018869400504286094, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "14"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2248,
+"completion_tokens": 687,
+"cost": 0.028415
+},
+{
+"prompt_tokens": 3136,
+"completion_tokens": 678,
+"cost": 0.03263
+},
+{
+"prompt_tokens": 3963,
+"completion_tokens": 768,
+"cost": 0.039015
+},
+{
+"prompt_tokens": 4880,
+"completion_tokens": 314,
+"cost": 0.03225
+},
+{
+"prompt_tokens": 6124,
+"completion_tokens": 815,
+"cost": 0.050995
+},
+{
+"prompt_tokens": 7088,
+"completion_tokens": 759,
+"cost": 0.054415
+},
+{
+"prompt_tokens": 7996,
+"completion_tokens": 838,
+"cost": 0.06093
+},
+{
+"prompt_tokens": 8983,
+"completion_tokens": 735,
+"cost": 0.06329
+},
+{
+"prompt_tokens": 9868,
+"completion_tokens": 759,
+"cost": 0.068315
+},
+{
+"prompt_tokens": 10776,
+"completion_tokens": 383,
+"cost": 0.063455
+},
+{
+"prompt_tokens": 11568,
+"completion_tokens": 743,
+"cost": 0.076415
+},
+{
+"prompt_tokens": 12460,
+"completion_tokens": 406,
+"cost": 0.07245
+},
+{
+"prompt_tokens": 12973,
+"completion_tokens": 6,
+"cost": 0.065015
+}
+]
+}

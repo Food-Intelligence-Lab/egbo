@@ -1,0 +1,951 @@
+{
+  "config": {
+    "category": "barista milk",
+    "domain": "dairy",
+    "n_ingredients": 90,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "mozzarella"
+    ],
+    "shared_initial_loss": 0.32013886099743255,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "oat milk",
+        "fraction": 0.55
+      },
+      {
+        "ingredient": "coconut cream",
+        "fraction": 0.36
+      },
+      {
+        "ingredient": "canola oil",
+        "fraction": 0.032
+      },
+      {
+        "ingredient": "pea protein",
+        "fraction": 0.03
+      },
+      {
+        "ingredient": "allulose",
+        "fraction": 0.021
+      },
+      {
+        "ingredient": "soy lecithin",
+        "fraction": 0.003
+      },
+      {
+        "ingredient": "gellan gum",
+        "fraction": 0.002
+      },
+      {
+        "ingredient": "potassium citrate",
+        "fraction": 0.002
+      }
+    ],
+    "shared_initial_support": [
+      "oat milk",
+      "coconut cream",
+      "canola oil",
+      "pea protein",
+      "allulose",
+      "soy lecithin",
+      "gellan gum",
+      "potassium citrate"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.24679077622589232,
+          -0.24679077622589232,
+          -0.20716343304630266,
+          -0.1606856181548314,
+          -0.10221089362907523,
+          -0.09930821073818835,
+          -0.09930821073818835,
+          -0.09930821073818835,
+          -0.09930821073818835,
+          -0.09930821073818835,
+          -0.09930821073818835,
+          -0.08303778602397312,
+          -0.08303778602397312,
+          -0.07886705456689647,
+          -0.07886705456689647,
+          -0.07886705456689647,
+          -0.0746182138374679,
+          -0.0746182138374679,
+          -0.07185122403280828
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.24679077622589232,
+          -0.3573992148185521,
+          -0.20716343304630266,
+          -0.1606856181548314,
+          -0.10221089362907523,
+          -0.09930821073818835,
+          -0.12402805785265242,
+          -0.1514841423485196,
+          -0.13861827229940052,
+          -0.11635256577547852,
+          -0.11749204268422703,
+          -0.08303778602397312,
+          -0.10176740374172687,
+          -0.07886705456689647,
+          -0.08635233276855538,
+          -0.08171088853143595,
+          -0.0746182138374679,
+          -0.08477547919988893,
+          -0.07185122403280828
+        ],
+        "final_best": -0.07185122403280828,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" is not listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.18724060785162833,
+          -0.18724060785162833,
+          -0.18724060785162833,
+          -0.18724060785162833,
+          -0.0924308130170513,
+          -0.08443733019470158,
+          -0.08443733019470158,
+          -0.08443733019470158,
+          -0.08283656110590862,
+          -0.08283656110590862,
+          -0.06977777768270152,
+          -0.06977777768270152,
+          -0.06977777768270152,
+          -0.06827597507750473,
+          -0.06827597507750473,
+          -0.06563299760023705,
+          -0.06563299760023705,
+          -0.06563299760023705,
+          -0.06563299760023705
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.18724060785162833,
+          -0.2947349151927236,
+          -0.281723577392897,
+          -0.2208580103138036,
+          -0.0924308130170513,
+          -0.08443733019470158,
+          -0.08724338966504391,
+          -0.12433154596586855,
+          -0.08283656110590862,
+          -0.09311028212862098,
+          -0.06977777768270152,
+          -0.07283057487882195,
+          -0.08022157758788868,
+          -0.06827597507750473,
+          -0.07657729395730706,
+          -0.06563299760023705,
+          -0.1305949145026473,
+          -0.07210502736917383,
+          -0.07196421453700179
+        ],
+        "final_best": -0.06563299760023705,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.32013886099743255,
+          -0.32013886099743255,
+          -0.32013886099743255,
+          -0.31971379688672363,
+          -0.31971379688672363,
+          -0.10332532250683975,
+          -0.10332532250683975,
+          -0.08914366997826191,
+          -0.08914366997826191,
+          -0.08914366997826191,
+          -0.08914366997826191,
+          -0.08914366997826191,
+          -0.08779609966841319,
+          -0.07570658735389559,
+          -0.07570658735389559,
+          -0.07570658735389559,
+          -0.06848290890756535,
+          -0.06848290890756535,
+          -0.06528393532571689
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.3355059003059675,
+          -0.352343881107353,
+          -0.390169260982812,
+          -0.31971379688672363,
+          -0.9394733102343549,
+          -0.10332532250683975,
+          -0.10687321319421213,
+          -0.08914366997826191,
+          -0.10655806225472504,
+          -0.11483179757426346,
+          -0.09098551589149513,
+          -0.08948361643384357,
+          -0.08779609966841319,
+          -0.07570658735389559,
+          -0.07841288112088333,
+          -0.08379736853983455,
+          -0.06848290890756535,
+          -0.07666875011541673,
+          -0.06528393532571689
+        ],
+        "final_best": -0.06528393532571689,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"sunflower oil\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.2288880354734501,
+          -0.2288880354734501,
+          -0.2288880354734501,
+          -0.2288880354734501,
+          -0.12599824120180725,
+          -0.12599824120180725,
+          -0.11542341610904207,
+          -0.08865916080530858,
+          -0.08865916080530858,
+          -0.08265164347126853,
+          -0.08265164347126853,
+          -0.08265164347126853,
+          -0.08265164347126853,
+          -0.08265164347126853,
+          -0.08265164347126853,
+          -0.08265164347126853,
+          -0.08204335951040025,
+          -0.08204335951040025,
+          -0.08204335951040025
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.2288880354734501,
+          -0.29731260641930407,
+          -0.2804189452909139,
+          -0.353635750997376,
+          -0.12599824120180725,
+          -0.15460947053909183,
+          -0.11542341610904207,
+          -0.08865916080530858,
+          -0.16809644003523588,
+          -0.08265164347126853,
+          -0.08526803542794498,
+          -0.11066410287332083,
+          -0.09256501107957382,
+          -0.09054508458577358,
+          -0.08268750757616777,
+          -0.15077331339089567,
+          -0.08204335951040025,
+          -0.08296160081357222,
+          -0.08702866163613333
+        ],
+        "final_best": -0.08204335951040025,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. Let me reconsider.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.32013886099743255,
+          -0.243237306746821,
+          -0.243237306746821,
+          -0.243237306746821,
+          -0.14132538558358065,
+          -0.14132538558358065,
+          -0.14132538558358065,
+          -0.12216378686391977,
+          -0.12216378686391977,
+          -0.12216378686391977,
+          -0.12216378686391977,
+          -0.1160729364164864,
+          -0.11495406659770291,
+          -0.11495406659770291,
+          -0.10598321033434266,
+          -0.09395860387987572,
+          -0.08972874847033357,
+          -0.0809556503449232,
+          -0.07618798423752388
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.3410743116444695,
+          -0.243237306746821,
+          -0.46234417329916816,
+          -0.24335472606986255,
+          -0.14132538558358065,
+          -0.3896335142223942,
+          -0.18107795565835022,
+          -0.12216378686391977,
+          -0.12529279662150947,
+          -0.12527421703343405,
+          -0.12627259199483962,
+          -0.1160729364164864,
+          -0.11495406659770291,
+          -0.24838931081996551,
+          -0.10598321033434266,
+          -0.09395860387987572,
+          -0.08972874847033357,
+          -0.0809556503449232,
+          -0.07618798423752388
+        ],
+        "final_best": -0.07618798423752388,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.29959485228165184,
+          -0.28070953351868133,
+          -0.28070953351868133,
+          -0.28070953351868133,
+          -0.18074866986286933,
+          -0.1764165403281647,
+          -0.12638004961901725,
+          -0.12638004961901725,
+          -0.117895669850612,
+          -0.08963503106405632,
+          -0.08963503106405632,
+          -0.08553549665776139,
+          -0.08553549665776139,
+          -0.08553549665776139,
+          -0.08422526246031836,
+          -0.08422526246031836,
+          -0.08252256101760119,
+          -0.08252256101760119,
+          -0.08252256101760119
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.29959485228165184,
+          -0.28070953351868133,
+          -0.34933352621175023,
+          -0.2935811834208945,
+          -0.18074866986286933,
+          -0.1764165403281647,
+          -0.12638004961901725,
+          -0.21025253017460785,
+          -0.117895669850612,
+          -0.08963503106405632,
+          -0.0963197969498008,
+          -0.08553549665776139,
+          -0.12380294636394154,
+          -0.08800739552301598,
+          -0.08422526246031836,
+          -0.1648942815715216,
+          -0.08252256101760119,
+          -0.08330884017395947,
+          -0.08507969508613733
+        ],
+        "final_best": -0.08252256101760119,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "acacia gum"
+            ],
+            "additions": [
+              "acacia gum"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"dipotassium phosphate\",\"acacia gum\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"potassium phosphate\",\"acacia gum\"]}",
+            "parsed_additions": [
+              "acacia gum"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.32013886099743255,
+          -0.217969574259865,
+          -0.217969574259865,
+          -0.217969574259865,
+          -0.217969574259865,
+          -0.16102683006459872,
+          -0.13319204792352463,
+          -0.13319204792352463,
+          -0.13319204792352463,
+          -0.10748451907108099,
+          -0.10748451907108099,
+          -0.10748451907108099,
+          -0.09659165316514345,
+          -0.09016198945046117,
+          -0.09016198945046117,
+          -0.09016198945046117,
+          -0.09016198945046117,
+          -0.08381878815050617,
+          -0.08381878815050617
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.3851967196730019,
+          -0.217969574259865,
+          -0.3137034459657201,
+          -0.22174459607013114,
+          -0.22678173903888157,
+          -0.16102683006459872,
+          -0.13319204792352463,
+          -0.1432279372754064,
+          -0.19037202066241948,
+          -0.10748451907108099,
+          -0.1196752791877612,
+          -0.11652882565331377,
+          -0.09659165316514345,
+          -0.09016198945046117,
+          -0.10265327648999145,
+          -0.09167226577109072,
+          -0.09023702226501837,
+          -0.08381878815050617,
+          -0.09619696206194109
+        ],
+        "final_best": -0.08381878815050617,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.18779961042892612,
+          -0.18779961042892612,
+          -0.18779961042892612,
+          -0.18779961042892612,
+          -0.18779961042892612,
+          -0.08909263084683745,
+          -0.08417397864406963,
+          -0.08022619306578052,
+          -0.08022619306578052,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529,
+          -0.07754551897428529
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.18779961042892612,
+          -0.2843256437172391,
+          -0.2958481404945308,
+          -0.24507644111352073,
+          -1.0695080329096314,
+          -0.08909263084683745,
+          -0.08417397864406963,
+          -0.08022619306578052,
+          -0.09197815869852147,
+          -0.07754551897428529,
+          -0.07839608691226765,
+          -0.09056622595677931,
+          -0.08722312183845762,
+          -0.08140820179669996,
+          -0.08778460350578454,
+          -0.0809497935234719,
+          -0.08689059174147894,
+          -0.08553184443918098,
+          -0.08862048636270146
+        ],
+        "final_best": -0.07754551897428529,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, let me reconsider - I need to use exact catalog names.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.32013886099743255,
+          -0.3193765500718165,
+          -0.2547282992141148,
+          -0.2547282992141148,
+          -0.2131235917975173,
+          -0.1705798742719043,
+          -0.1705798742719043,
+          -0.14327631332467552,
+          -0.14327631332467552,
+          -0.10872983671483968,
+          -0.10179710888866197,
+          -0.10179710888866197,
+          -0.10179710888866197,
+          -0.0729480652401806,
+          -0.0729480652401806,
+          -0.0729480652401806,
+          -0.0729480652401806,
+          -0.0729480652401806,
+          -0.0729480652401806
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.3722098445271702,
+          -0.3193765500718165,
+          -0.2547282992141148,
+          -0.4147784000458057,
+          -0.2131235917975173,
+          -0.1705798742719043,
+          -0.3687856125202857,
+          -0.14327631332467552,
+          -0.182165075483978,
+          -0.10872983671483968,
+          -0.10179710888866197,
+          -0.1319675786057285,
+          -0.10397516273800965,
+          -0.0729480652401806,
+          -0.13805579504900772,
+          -0.0860601291486632,
+          -0.0819367314052175,
+          -0.07867110986351744,
+          -0.09164249210816405
+        ],
+        "final_best": -0.0729480652401806,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to check the catalog. \"dipotassium phosphate\" isn't listed, but \"potassium phosphate\" is.\n\n{\"additions\":[\"sunflower lecithin\",\"potassium phosphate\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.32013886099743255,
+          -0.29558240264529545,
+          -0.29558240264529545,
+          -0.18565607161449038,
+          -0.18565607161449038,
+          -0.18565607161449038,
+          -0.1549140345209623,
+          -0.1549140345209623,
+          -0.10817131810680693,
+          -0.0881239642862957,
+          -0.0881239642862957,
+          -0.0881239642862957,
+          -0.0881239642862957,
+          -0.0881239642862957,
+          -0.0881239642862957,
+          -0.0881239642862957,
+          -0.08229877279682259,
+          -0.08229877279682259,
+          -0.08229877279682259,
+          -0.08229877279682259
+        ],
+        "all_y": [
+          -0.32013886099743255,
+          -0.29558240264529545,
+          -0.3117152715745983,
+          -0.18565607161449038,
+          -0.26319973219296133,
+          -1.0695080329096314,
+          -0.1549140345209623,
+          -0.25077959543122225,
+          -0.10817131810680693,
+          -0.0881239642862957,
+          -0.09532319804892174,
+          -0.09415329049327217,
+          -0.0986277445533931,
+          -0.10469185870224257,
+          -0.12256154350962278,
+          -0.09336309544499234,
+          -0.08229877279682259,
+          -0.09081857057777666,
+          -0.08481012532909846,
+          -0.0965942108248498
+        ],
+        "final_best": -0.08229877279682259,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "oat milk",
+              "coconut cream",
+              "canola oil",
+              "pea protein",
+              "allulose",
+              "soy lecithin",
+              "gellan gum",
+              "potassium citrate",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"sunflower lecithin\",\"dipotassium phosphate\"]}\n\nWait, I need to use exact catalog names. Let me reconsider.\n\nLooking at the trend: lower coconut cream and higher oat milk improved scores. The best (0.088) has very little coconut cream. For barista milk, key features are protein, emulsification, and buffering salts for coffee stability.\n\n{\"additions\":[\"potassium phosphate\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

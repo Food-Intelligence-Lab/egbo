@@ -1,0 +1,677 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based pulled pork. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"jackfruit\",\"fraction\":0.45},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.18},{\"ingredient\":\"tomato paste\",\"fraction\":0.1},{\"ingredient\":\"wheat gluten\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.05},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}],\"target_dissimilarity\":0.09087068979943948}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll analyze the problem and iteratively improve the formulation. Starting score is 0.0909, which is already quite good. Let me think strategically.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01TaKL9o9amKmQswzcgc4tTQ",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nprint(data)\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TaKL9o9amKmQswzcgc4tTQ",
+"content": "[{'iteration': 1, 'recipe': [{'ingredient': 'jackfruit', 'fraction': 0.45}, {'ingredient': 'soy protein concentrate', 'fraction': 0.18}, {'ingredient': 'tomato paste', 'fraction': 0.1}, {'ingredient': 'wheat gluten', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'apple cider vinegar', 'fraction': 0.05}, {'ingredient': 'liquid smoke', 'fraction': 0.03}, {'ingredient': 'yeast extract', 'fraction': 0.03}, {'ingredient': 'methylcellulose', 'fraction': 0.02}], 'target_dissimilarity': 0.09087068979943948}]\n"
+},
+{
+"role": "assistant",
+"content": "The starting formulation is already strong (0.0909). Jackfruit-based pulled pork is a classic approach. Let me try variations to understand sensitivities. Let me try a few focused perturbations:\n\n1. Increase jackfruit (the main texture), reduce tomato paste\n2. Try soy-based alternative\n3. Try adding onion/garlic for flavor",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_0181NPAKq59T6Wq7o1Lb5ZQW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0181NPAKq59T6Wq7o1Lb5ZQW",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.009437943457954345, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"content": "Huge improvement from 0.091 \u2192 0.0094. Increasing jackfruit and decreasing tomato paste really helped. Let me push further in this direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01T2hHLTvhY74M1AEBfiKcwG",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.62},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.13},{\"ingredient\":\"tomato paste\",\"fraction\":0.04},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.04},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.03},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01T2hHLTvhY74M1AEBfiKcwG",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.17979571438395706, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Too much jackfruit hurt it badly (0.18). The sweet spot is around 0.55 jackfruit. Let me explore nearby to iter 2's recipe.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01P42vbDAQQSLsF7Dj6AHHao",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.52},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.16},{\"ingredient\":\"tomato paste\",\"fraction\":0.07},{\"ingredient\":\"wheat gluten\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01P42vbDAQQSLsF7Dj6AHHao",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.17013684592617528, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"content": "Hmm, 0.52 gave 0.17 which is worse than 0.55 (0.0094). The surface is noisy or sensitive. Let me re-evaluate near 0.55 to check noise.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013FdKqmHeTHoToKgPDqHJL2",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013FdKqmHeTHoToKgPDqHJL2",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": -0.0689193781048354, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Negative! -0.069 is even better. This means significant noise exists OR the function allows negatives. Let me try to refine but stay near iter 2/5 recipe. Let me look at what features matter \u2014 maybe small tweaks.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01F3uJD1ddLKvgLETmiggie4",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.56},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.05},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01F3uJD1ddLKvgLETmiggie4",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.21294743965802962, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"content": "Big jump! Noise is very high, or small changes matter a lot. Let me think: iter 2 (0.55 JF, 0.06 TP) \u2192 0.0094, iter 5 (same) \u2192 -0.069, iter 6 (0.56 JF, 0.05 TP) \u2192 0.21. \n\nMaybe tomato paste 0.06 specifically matters, or there's just a lot of noise. Let me try the same exact iter 2 recipe again to measure noise.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WPJ9aLG7DT64mGycFhBDWV",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WPJ9aLG7DT64mGycFhBDWV",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.03027655268684299, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Su61bmzpDZc1mPkXkVYJ94",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Noise analysis for same recipe: iter2=0.0094, iter5=-0.069, iter7=0.030\\nimport numpy as np\\nvals = [0.009437943457954345, -0.0689193781048354, 0.03027655268684299]\\nprint(\\\"mean:\\\", np.mean(vals), \\\"std:\\\", np.std(vals))\\n# iter4 at 0.52 JF, 0.07 TP got 0.17\\n# iter6 at 0.56 JF, 0.05 TP got 0.21\\n# So there's real sensitivity + noise ~0.04-0.05\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Su61bmzpDZc1mPkXkVYJ94",
+"content": "mean: -0.009734960653346019 std: 0.04270564646860882\n"
+},
+{
+"role": "assistant",
+"content": "So the iter 2/5/7 recipe averages around -0.01 with ~0.04 noise. The nearby points iter4, iter6 at ~0.17-0.21 are worse by multiple SDs. So there's genuine sensitivity.\n\nI have 13 evals left. Let me try: swap out tomato paste or vinegar? Actually since tomato paste at 0.06 seems to work but 0.05 doesn't, and 0.07 doesn't, the signal is noisy around the gradient. Let me try modifications that explore differently.\n\nLet me try adding onion/garlic (pulled pork typically has these):",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01W5LvE44tNkbiJx1FiySjEL",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.53},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"onion\",\"fraction\":0.03},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.03}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01W5LvE44tNkbiJx1FiySjEL",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.10895520402404624, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Worse. Dropping methylcellulose and adding onion wasn't good. Let me try keeping methylcellulose but swapping something else:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01TFMeS1HNHCbXXTywcGXS9N",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TFMeS1HNHCbXXTywcGXS9N",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.0970866799566863, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Scr4x4ppj5EquZaTPJF36S",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Now 4 replicates of the \\\"iter2\\\" recipe: 0.0094, -0.069, 0.030, 0.097\\nvals = [0.009437943457954345, -0.0689193781048354, 0.03027655268684299, 0.0970866799566863]\\nimport numpy as np\\nprint(\\\"mean:\\\", np.mean(vals), \\\"std:\\\", np.std(vals, ddof=1))\\n# SE of mean\\nprint(\\\"SE:\\\", np.std(vals, ddof=1)/np.sqrt(len(vals)))\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Scr4x4ppj5EquZaTPJF36S",
+"content": "mean: 0.016970449499162057 std: 0.068384851874933\nSE: 0.0341924259374665\n"
+},
+{
+"role": "assistant",
+"content": "The noise is very high (std ~0.068). Given this noise level, chasing tiny improvements is futile. The underlying mean of our best recipe is ~0.017. Let me try a couple of systematic variations to find if any direction clearly helps, then replicate the best:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WU445wtnfURVVG6dUqZmop",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"sunflower oil\",\"fraction\":0.03},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WU445wtnfURVVG6dUqZmop",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.2625489188081378, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Worse. Reducing oil / increasing yeast extract hurt. Let me try the opposite \u2014 more oil:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JQPH54QcNBYjHP26jX2jDo",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JQPH54QcNBYjHP26jX2jDo",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.0010164234474315664, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "0.001! Best so far. More oil, less wheat gluten, less yeast extract helped. Let me push more oil / tune:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Kg6xcUCBQiQnVqhmxoSVEq",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.54},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.14},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.09},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Kg6xcUCBQiQnVqhmxoSVEq",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.09676629748982409, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Pushing oil to 0.09 made it worse. 0.07 was good. Let me try 0.08 and also test if replicating iter11 holds up:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01YVPqR9kciaigedghZEo1MA",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01YVPqR9kciaigedghZEo1MA",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.0024248127562249006, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Excellent \u2014 replicated at 0.0024! This recipe is reproducibly good. Let me try fine-tuning: maybe 0.06 oil, or slightly different wheat gluten:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01GzdY1sPrNAFJW1aKLLfz6h",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.05},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01GzdY1sPrNAFJW1aKLLfz6h",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": -0.00940593698669305, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "-0.0094! Even better. Pattern: more oil, less wheat gluten is good. Let me continue the gradient carefully:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JuKFhPXdFx5R6CVDLGsN2K",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.04},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JuKFhPXdFx5R6CVDLGsN2K",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.1646751525310023, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Going too far hurt (0.16). WG 0.05 is the sweet spot. Let me try varying SPC a tad or try a slightly different oil:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01LfnmGByH1UmCQur97hgLsq",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Summary so far - best recipes:\\n# iter11: JF0.55, SPC0.15, TP0.06, WG0.06, SO0.07, ACV0.04, LS0.03, YE0.02, MC0.02 -> 0.00102\\n# iter13: same as iter11 -> 0.0024\\n# iter14: JF0.55, SPC0.15, TP0.06, WG0.05, SO0.08, ACV0.04, LS0.03, YE0.02, MC0.02 -> -0.00941\\n# iter15: WG0.04, SO0.08, YE0.03 -> 0.165 (bad)\\n# So WG0.05 + SO0.08 + YE0.02 is a promising point\\n# With 5 evals left I should mostly replicate best and do 1-2 careful nudges\\nprint(\\\"remaining: 5\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LfnmGByH1UmCQur97hgLsq",
+"content": "remaining: 5\n"
+},
+{
+"role": "assistant",
+"content": "With 5 evals left, let me try one small nudge then replicate the best to confirm:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_0176GVtFGAmYpKZAyuz8xxjW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.16},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.05},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.03},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_0176GVtFGAmYpKZAyuz8xxjW",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.08239978026575262, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"content": "Worse. Going back to iter 14 formula. Let me replicate to confirm and also try the oil change (some pulled pork is more savory - try tiny bump in liquid smoke):",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01S4hqtoqLF6yJ97CrgCHueh",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.05},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01S4hqtoqLF6yJ97CrgCHueh",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.08973217962953253, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01V37UXz9LGDbGZSkuznKzhp",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# iter14 (same recipe) = -0.0094, iter17 (same recipe) = 0.0897. High noise.\\n# So the real mean of this recipe is around (-0.0094+0.0897)/2 = 0.04\\n# The best observed averaged pt is iter11/13 recipe: 0.00102, 0.0024 -> mean ~0.0017\\n# These two recipes are very close. Hard to distinguish given noise.\\n\\n# Let me try small smart tweaks. Take the mean recipe and run iter11 recipe once more:\\n# iter11: JF0.55, SPC0.15, TP0.06, WG0.06, SO0.07, ACV0.04, LS0.03, YE0.02, MC0.02\\n# Try blend between iter11 & iter14: WG0.055, SO0.075 (but can't do fractional sums nicely)\\n# Easier: try iter11 recipe again - it's reliably low\\nprint(\\\"plan: run iter11 recipe again (2 more evals left after)\\\")\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01V37UXz9LGDbGZSkuznKzhp",
+"content": "plan: run iter11 recipe again (2 more evals left after)\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Y5FQQqa62kRhCSPeeR9dvu",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Y5FQQqa62kRhCSPeeR9dvu",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.10524315596863598, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013vQmL5WSQSutExNvZn8Yzn",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# iter11 recipe observations: 0.00102, 0.0024, 0.1052 -> mean 0.036\\n# iter14 recipe observations: -0.0094, 0.0897 -> mean 0.040\\n# They're essentially equivalent given noise. \\n# 2 evals left. Let me try another small variation to find if there's a better region.\\n# Observations about sensitive dimensions:\\n# - JF around 0.55 is critical\\n# - WG 0.05-0.07 works, 0.04 fails, 0.08 fails\\n# - SO 0.07-0.08 works, 0.05 and 0.09 worse\\n# - TP 0.06 seems key\\n# - MC should stay around 0.02\\n# \\n# Haven't tried: tiny amount of garlic? But adding 10th ingredient would need to drop one.\\n# Also haven't tried: changing ACV level\\n# Let me try something new: slightly different balance, iter14 style but SO=0.075 isn't possible \\n# with 2-digit percentages. Actually fractions can be anything. Let me try precise:\\n# JF=0.55, SPC=0.15, TP=0.06, WG=0.055, SO=0.075, ACV=0.04, LS=0.03, YE=0.02, MC=0.02\\n# Sum = 1.0\\nprint(0.55+0.15+0.06+0.055+0.075+0.04+0.03+0.02+0.02)\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013vQmL5WSQSutExNvZn8Yzn",
+"content": "1.0\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Mnvc58KZpy4o6hkJeU3X5e",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.055},{\"ingredient\":\"sunflower oil\",\"fraction\":0.075},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Mnvc58KZpy4o6hkJeU3X5e",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.19023877829356967, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01LvLNM7MdzPQncYL71rFhkX",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Noise got us again. Let me use the last eval on the recipe with best observed single value: iter14 (-0.0094)\\n# JF0.55, SPC0.15, TP0.06, WG0.05, SO0.08, ACV0.04, LS0.03, YE0.02, MC0.02\\n# Actually since both iter11 and iter14 formulas have comparable mean, lets just pick one. \\n# Given observations, I'll go with iter14 recipe for the last one - it has the lowest single value seen.\\n\"}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LvLNM7MdzPQncYL71rFhkX",
+"content": ""
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WHX3YqDpdc4sUtkvHJhgHD",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"jackfruit\",\"fraction\":0.55},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.15},{\"ingredient\":\"tomato paste\",\"fraction\":0.06},{\"ingredient\":\"wheat gluten\",\"fraction\":0.05},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"apple cider vinegar\",\"fraction\":0.04},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WHX3YqDpdc4sUtkvHJhgHD",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.007119127167484793, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "14"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2357,
+"completion_tokens": 141,
+"cost": 0.01531
+},
+{
+"prompt_tokens": 2803,
+"completion_tokens": 394,
+"cost": 0.023865
+},
+{
+"prompt_tokens": 3277,
+"completion_tokens": 354,
+"cost": 0.025235
+},
+{
+"prompt_tokens": 3685,
+"completion_tokens": 358,
+"cost": 0.027375
+},
+{
+"prompt_tokens": 4097,
+"completion_tokens": 368,
+"cost": 0.029685
+},
+{
+"prompt_tokens": 4519,
+"completion_tokens": 374,
+"cost": 0.031945
+},
+{
+"prompt_tokens": 4947,
+"completion_tokens": 454,
+"cost": 0.036085
+},
+{
+"prompt_tokens": 5455,
+"completion_tokens": 244,
+"cost": 0.033375
+},
+{
+"prompt_tokens": 5736,
+"completion_tokens": 497,
+"cost": 0.041105
+},
+{
+"prompt_tokens": 6287,
+"completion_tokens": 347,
+"cost": 0.04011
+},
+{
+"prompt_tokens": 6688,
+"completion_tokens": 226,
+"cost": 0.03909
+},
+{
+"prompt_tokens": 6963,
+"completion_tokens": 387,
+"cost": 0.04449
+},
+{
+"prompt_tokens": 7404,
+"completion_tokens": 338,
+"cost": 0.04547
+},
+{
+"prompt_tokens": 7797,
+"completion_tokens": 343,
+"cost": 0.04756
+},
+{
+"prompt_tokens": 8194,
+"completion_tokens": 351,
+"cost": 0.049745
+},
+{
+"prompt_tokens": 8600,
+"completion_tokens": 363,
+"cost": 0.052075
+},
+{
+"prompt_tokens": 9017,
+"completion_tokens": 344,
+"cost": 0.053685
+},
+{
+"prompt_tokens": 9415,
+"completion_tokens": 384,
+"cost": 0.056675
+},
+{
+"prompt_tokens": 9818,
+"completion_tokens": 329,
+"cost": 0.057315
+},
+{
+"prompt_tokens": 10201,
+"completion_tokens": 361,
+"cost": 0.06003
+},
+{
+"prompt_tokens": 10616,
+"completion_tokens": 386,
+"cost": 0.06273
+},
+{
+"prompt_tokens": 11036,
+"completion_tokens": 301,
+"cost": 0.062705
+},
+{
+"prompt_tokens": 11391,
+"completion_tokens": 523,
+"cost": 0.07003
+},
+{
+"prompt_tokens": 11930,
+"completion_tokens": 301,
+"cost": 0.067175
+},
+{
+"prompt_tokens": 12285,
+"completion_tokens": 227,
+"cost": 0.0671
+},
+{
+"prompt_tokens": 12525,
+"completion_tokens": 301,
+"cost": 0.07015
+},
+{
+"prompt_tokens": 12933,
+"completion_tokens": 6,
+"cost": 0.064815
+}
+]
+}

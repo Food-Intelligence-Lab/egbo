@@ -1,0 +1,1007 @@
+{
+  "config": {
+    "category": "bacon",
+    "domain": "meat",
+    "n_ingredients": 106,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "egg white",
+      "egg whites",
+      "fat",
+      "milk",
+      "milk proteins"
+    ],
+    "shared_initial_loss": 0.5145430305637176,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.25
+      },
+      {
+        "ingredient": "soy protein concentrate",
+        "fraction": 0.22
+      },
+      {
+        "ingredient": "wheat gluten",
+        "fraction": 0.13
+      },
+      {
+        "ingredient": "tapioca starch",
+        "fraction": 0.09
+      },
+      {
+        "ingredient": "soy sauce",
+        "fraction": 0.08
+      },
+      {
+        "ingredient": "natural vegetable color",
+        "fraction": 0.08
+      },
+      {
+        "ingredient": "liquid smoke",
+        "fraction": 0.06
+      },
+      {
+        "ingredient": "plain caramel",
+        "fraction": 0.06
+      },
+      {
+        "ingredient": "methylcellulose",
+        "fraction": 0.03
+      }
+    ],
+    "shared_initial_support": [
+      "coconut oil",
+      "soy protein concentrate",
+      "wheat gluten",
+      "tapioca starch",
+      "soy sauce",
+      "natural vegetable color",
+      "liquid smoke",
+      "plain caramel",
+      "methylcellulose"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5005892899614109,
+          -0.5005892899614109,
+          -0.5005892899614109,
+          -0.5005892899614109,
+          -0.5005892899614109,
+          -0.5005892899614109,
+          -0.5005892899614109,
+          -0.4881093383277246,
+          -0.4794663190228032,
+          -0.4794663190228032,
+          -0.4627892761861923,
+          -0.42805380951324434,
+          -0.42805380951324434,
+          -0.42805380951324434,
+          -0.42805380951324434,
+          -0.42364301681065053,
+          -0.4224135926116895,
+          -0.4224135926116895
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.5538080931545807,
+          -0.5005892899614109,
+          -0.5772649489231301,
+          -0.5314146203092344,
+          -0.5253352052457061,
+          -0.7552011355976788,
+          -0.5154241794895716,
+          -0.541783819482529,
+          -0.4881093383277246,
+          -0.4794663190228032,
+          -0.5880901597531842,
+          -0.4627892761861923,
+          -0.42805380951324434,
+          -0.48061732712581884,
+          -0.43184167134445584,
+          -0.4305582126076777,
+          -0.42364301681065053,
+          -0.4224135926116895,
+          -0.4362339439259339
+        ],
+        "final_best": -0.4224135926116895,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "yeast extract",
+              "konjac powder"
+            ],
+            "additions": [
+              "yeast extract",
+              "konjac powder"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"konjac powder\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "konjac powder"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.507136806604026,
+          -0.507136806604026,
+          -0.507136806604026,
+          -0.4717963764195026,
+          -0.4354061357408397,
+          -0.4354061357408397,
+          -0.4354061357408397,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505,
+          -0.41594414770700505
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.6858705357544926,
+          -0.5624050225736026,
+          -0.545262765086789,
+          -0.507136806604026,
+          -0.7047254659522737,
+          -0.5097430101872464,
+          -0.4717963764195026,
+          -0.4354061357408397,
+          -0.46455694739011544,
+          -0.526634700694351,
+          -0.41594414770700505,
+          -0.45852112816293555,
+          -0.43852326155446036,
+          -0.4220124618757029,
+          -0.42023103150593955,
+          -0.42138134684851464,
+          -0.4299331221404849,
+          -0.41720265303832127,
+          -0.41798733793333787
+        ],
+        "final_best": -0.41594414770700505,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "yeast extract",
+              "pea protein"
+            ],
+            "additions": [
+              "yeast extract",
+              "pea protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"pea protein\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "pea protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.49730029516062163,
+          -0.49730029516062163,
+          -0.48689627405690905,
+          -0.4726360412873804,
+          -0.45080302052053584,
+          -0.45080302052053584,
+          -0.4258084729553772,
+          -0.4258084729553772,
+          -0.4149269832031465,
+          -0.41432729017025827,
+          -0.4104700451384788,
+          -0.4104700451384788,
+          -0.4104700451384788
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.5632836805751203,
+          -0.5492133335396024,
+          -0.5278067594617901,
+          -0.5376068250267868,
+          -0.6855793714145059,
+          -0.6747115460036146,
+          -0.49730029516062163,
+          -0.5742975994379727,
+          -0.48689627405690905,
+          -0.4726360412873804,
+          -0.45080302052053584,
+          -0.48338905542756083,
+          -0.4258084729553772,
+          -0.4545394135480511,
+          -0.4149269832031465,
+          -0.41432729017025827,
+          -0.4104700451384788,
+          -0.48417031887857587,
+          -0.41175760349789875
+        ],
+        "final_best": -0.4104700451384788,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "yeast extract"
+            ],
+            "additions": [
+              "yeast extract"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"beet juice\"]}\n\nWait, let me reconsider - must use exact catalog names.\n\n{\"additions\":[\"yeast extract\",\"apple cider vinegar\"]}",
+            "parsed_additions": [
+              "yeast extract"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5061675608021582,
+          -0.5061675608021582,
+          -0.5061675608021582,
+          -0.5061675608021582,
+          -0.4688466308895488,
+          -0.4688466308895488,
+          -0.4688466308895488,
+          -0.4688466308895488,
+          -0.4688466308895488,
+          -0.45329392789521517,
+          -0.4490149286340099,
+          -0.4490149286340099,
+          -0.4306631325715892,
+          -0.42300033188764835,
+          -0.4158016863699387,
+          -0.4158016863699387,
+          -0.4158016863699387,
+          -0.4158016863699387
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.6776663619122262,
+          -0.5061675608021582,
+          -0.6140433409236065,
+          -0.5093816984692981,
+          -0.6667747892800922,
+          -0.4688466308895488,
+          -0.5626785223414099,
+          -0.5271446657319656,
+          -0.5133492811265428,
+          -0.4825366028951174,
+          -0.45329392789521517,
+          -0.4490149286340099,
+          -0.46004741253343295,
+          -0.4306631325715892,
+          -0.42300033188764835,
+          -0.4158016863699387,
+          -0.41612630959739316,
+          -0.41781132030442064,
+          -0.4361611172107757
+        ],
+        "final_best": -0.4158016863699387,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "konjac powder"
+            ],
+            "additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"konjac powder\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.48254201563597593,
+          -0.48254201563597593,
+          -0.48254201563597593,
+          -0.48254201563597593,
+          -0.46751247552340347,
+          -0.46751247552340347,
+          -0.45045413491452424,
+          -0.45045413491452424,
+          -0.45045413491452424,
+          -0.4453932493350624,
+          -0.4448506838778853,
+          -0.4372769662970647
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.535878392274923,
+          -0.5685693473995527,
+          -0.554226014717068,
+          -0.5998708173115471,
+          -0.5203632795512978,
+          -0.5340642614223091,
+          -0.6071677027949994,
+          -0.48254201563597593,
+          -0.5543582670845569,
+          -0.5064519753660438,
+          -0.5627380108724337,
+          -0.46751247552340347,
+          -0.5191397866308762,
+          -0.45045413491452424,
+          -0.5211679193164661,
+          -0.45797443361896595,
+          -0.4453932493350624,
+          -0.4448506838778853,
+          -0.4372769662970647
+        ],
+        "final_best": -0.4372769662970647,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "yeast extract"
+            ],
+            "additions": [
+              "pea protein",
+              "yeast extract"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"yeast extract\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "yeast extract"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.4702530060249794,
+          -0.4702530060249794,
+          -0.4702530060249794,
+          -0.4702530060249794,
+          -0.4702530060249794,
+          -0.4702530060249794,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4494457745928692,
+          -0.4400318283800812,
+          -0.4373822649828772,
+          -0.4364209790841796
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.4702530060249794,
+          -0.5124002123063682,
+          -0.5938793016870619,
+          -0.5281111980656069,
+          -0.5335439278916702,
+          -0.49609370374887296,
+          -0.4494457745928692,
+          -0.5822331075472259,
+          -0.5277625997594522,
+          -0.47808151609808974,
+          -0.5233267979734445,
+          -0.5196442305524884,
+          -0.5068588680261128,
+          -0.4558386976623292,
+          -0.45489407283082534,
+          -0.49049476601576414,
+          -0.4400318283800812,
+          -0.4373822649828772,
+          -0.4364209790841796
+        ],
+        "final_best": -0.4364209790841796,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "yeast extract"
+            ],
+            "additions": [
+              "pea protein",
+              "yeast extract"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"yeast extract\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "yeast extract"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.49394485427945806,
+          -0.49394485427945806,
+          -0.49394485427945806,
+          -0.4842367249209262,
+          -0.4842367249209262,
+          -0.48255431917959507,
+          -0.48255431917959507
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.5319375741975788,
+          -0.6133667131245243,
+          -0.5319641385445718,
+          -0.533611966630649,
+          -0.6765569735019912,
+          -0.5607001518732794,
+          -0.6815451902519457,
+          -0.5839084019238175,
+          -0.5205109907737189,
+          -0.555291725292267,
+          -0.5423526705367433,
+          -0.5572018881466564,
+          -0.49394485427945806,
+          -0.5498037891335879,
+          -0.5773105723308016,
+          -0.4842367249209262,
+          -0.5857107283532127,
+          -0.48255431917959507,
+          -0.5019617099748088
+        ],
+        "final_best": -0.48255431917959507,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "konjac powder"
+            ],
+            "additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"konjac powder\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.49374851002430437,
+          -0.49374851002430437,
+          -0.49374851002430437,
+          -0.49374851002430437,
+          -0.49374851002430437,
+          -0.49374851002430437,
+          -0.47723285736897575,
+          -0.47723285736897575,
+          -0.4391070493176861,
+          -0.4391070493176861,
+          -0.4391070493176861,
+          -0.4391070493176861,
+          -0.42465877148687864,
+          -0.42465877148687864,
+          -0.42465877148687864,
+          -0.42465877148687864,
+          -0.42193866619396
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.6887677013041272,
+          -0.5549795798316293,
+          -0.49374851002430437,
+          -0.6506490879859665,
+          -0.5691696580107951,
+          -0.6855793714145059,
+          -0.49597689460338107,
+          -0.5565931054584565,
+          -0.47723285736897575,
+          -0.5233658039250382,
+          -0.4391070493176861,
+          -0.4586653124060673,
+          -0.5300592274004796,
+          -0.45979126763389633,
+          -0.42465877148687864,
+          -0.426543886278287,
+          -0.43707775223456447,
+          -0.42793837007337027,
+          -0.42193866619396
+        ],
+        "final_best": -0.42193866619396,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "konjac powder"
+            ],
+            "additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"konjac powder\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.4835038670911731,
+          -0.4835038670911731,
+          -0.4835038670911731,
+          -0.4835038670911731,
+          -0.4835038670911731,
+          -0.4835038670911731,
+          -0.43657731385796644,
+          -0.43657731385796644,
+          -0.43657731385796644,
+          -0.4181464236817137,
+          -0.417147532621856,
+          -0.417147532621856,
+          -0.417147532621856,
+          -0.417147532621856,
+          -0.41327838805708367,
+          -0.4025005134962041,
+          -0.4025005134962041
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.571502679612267,
+          -0.523840252813415,
+          -0.4835038670911731,
+          -0.5874689322505324,
+          -0.5784061021989706,
+          -0.6855793714145059,
+          -0.5280409436444643,
+          -0.6175229134730512,
+          -0.43657731385796644,
+          -0.5213253706538498,
+          -0.5586016207315692,
+          -0.4181464236817137,
+          -0.417147532621856,
+          -0.4221955393885628,
+          -0.4192882234851308,
+          -0.42019100536725723,
+          -0.41327838805708367,
+          -0.4025005134962041,
+          -0.41076914571044
+        ],
+        "final_best": -0.4025005134962041,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "konjac powder"
+            ],
+            "additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"konjac powder\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "konjac powder"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.5145430305637176,
+          -0.49265955670006667,
+          -0.49265955670006667,
+          -0.49265955670006667,
+          -0.48407345382525513,
+          -0.47897272189037077,
+          -0.46802530764832156,
+          -0.46802530764832156,
+          -0.46802530764832156,
+          -0.46802530764832156,
+          -0.46802530764832156
+        ],
+        "all_y": [
+          -0.5145430305637176,
+          -0.539658599906058,
+          -0.568011085595999,
+          -0.5352777345364591,
+          -0.5453736215584114,
+          -2.003948635479536,
+          -0.9584756856983752,
+          -0.5928926060814804,
+          -0.5351915718527728,
+          -0.7056680768523063,
+          -0.49265955670006667,
+          -0.5149121730673933,
+          -0.582661841004874,
+          -0.48407345382525513,
+          -0.47897272189037077,
+          -0.46802530764832156,
+          -0.5132201923961814,
+          -0.48852441537324987,
+          -0.4750517215627139,
+          -0.5679103224413534
+        ],
+        "final_best": -0.46802530764832156,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "soy protein concentrate",
+              "wheat gluten",
+              "tapioca starch",
+              "soy sauce",
+              "natural vegetable color",
+              "liquid smoke",
+              "plain caramel",
+              "methylcellulose",
+              "pea protein",
+              "yeast extract"
+            ],
+            "additions": [
+              "pea protein",
+              "yeast extract"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"yeast extract\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "yeast extract"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

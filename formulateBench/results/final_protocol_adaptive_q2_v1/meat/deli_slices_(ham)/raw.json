@@ -1,0 +1,985 @@
+{
+  "config": {
+    "category": "deli slices (ham)",
+    "domain": "meat",
+    "n_ingredients": 106,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "egg white",
+      "egg whites",
+      "fat",
+      "milk",
+      "milk proteins"
+    ],
+    "shared_initial_loss": 0.3187263251377356,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "vegetable juice",
+        "fraction": 0.4329896907216495
+      },
+      {
+        "ingredient": "soy protein isolate",
+        "fraction": 0.1443298969072165
+      },
+      {
+        "ingredient": "wheat gluten",
+        "fraction": 0.12371134020618557
+      },
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.09278350515463918
+      },
+      {
+        "ingredient": "pea protein",
+        "fraction": 0.08247422680412371
+      },
+      {
+        "ingredient": "flavours",
+        "fraction": 0.061855670103092786
+      },
+      {
+        "ingredient": "methylcellulose",
+        "fraction": 0.041237113402061855
+      },
+      {
+        "ingredient": "carrageenan",
+        "fraction": 0.020618556701030927
+      }
+    ],
+    "shared_initial_support": [
+      "vegetable juice",
+      "soy protein isolate",
+      "wheat gluten",
+      "coconut oil",
+      "pea protein",
+      "flavours",
+      "methylcellulose",
+      "carrageenan"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.18512027715272986,
+          -0.18512027715272986,
+          -0.1571032924483084,
+          -0.1571032924483084,
+          -0.15283011123738027,
+          -0.1425618468225989,
+          -0.1425618468225989,
+          -0.1425618468225989,
+          -0.14110491384720916,
+          -0.14110491384720916,
+          -0.14110491384720916,
+          -0.14110491384720916,
+          -0.14110491384720916,
+          -0.14110491384720916,
+          -0.14110491384720916,
+          -0.13739724111023122,
+          -0.13739724111023122
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.3818754397630533,
+          -0.4480916938757047,
+          -0.18512027715272986,
+          -0.19749047364185923,
+          -0.1571032924483084,
+          -0.16375351897666335,
+          -0.15283011123738027,
+          -0.1425618468225989,
+          -0.17205193931720028,
+          -0.19300398507529998,
+          -0.14110491384720916,
+          -0.23754393870732557,
+          -0.17884273831632957,
+          -0.15925411394238934,
+          -0.15703376954620119,
+          -0.2827274162750265,
+          -0.18325242363600971,
+          -0.13739724111023122,
+          -0.14316298901089172
+        ],
+        "final_best": -0.13739724111023122,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "liquid smoke"
+            ],
+            "additions": [
+              "yeast extract",
+              "liquid smoke"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"liquid smoke\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "liquid smoke"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.18571478871978744,
+          -0.18571478871978744,
+          -0.18571478871978744,
+          -0.18571478871978744,
+          -0.16802258673247575,
+          -0.16802258673247575,
+          -0.16802258673247575,
+          -0.15515640486871635,
+          -0.15515640486871635,
+          -0.15515640486871635,
+          -0.15515640486871635,
+          -0.13061471092589108,
+          -0.13061471092589108,
+          -0.13061471092589108,
+          -0.13061471092589108,
+          -0.13061471092589108,
+          -0.13061471092589108,
+          -0.13061471092589108,
+          -0.13061471092589108
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.18571478871978744,
+          -0.2499806173211874,
+          -0.364517480007757,
+          -0.20500158063171203,
+          -0.16802258673247575,
+          -0.17278547742315678,
+          -0.3585844559577128,
+          -0.15515640486871635,
+          -0.20440782802733873,
+          -0.16296696703954966,
+          -0.15895334522895435,
+          -0.13061471092589108,
+          -0.1324774955383113,
+          -0.14050385017113023,
+          -0.1318769171699953,
+          -0.13981009869437871,
+          -0.1404173237211922,
+          -0.1506771298564695,
+          -0.13616754658612323
+        ],
+        "final_best": -0.13061471092589108,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.25667536474627206,
+          -0.19817424661765795,
+          -0.19817424661765795,
+          -0.19817424661765795,
+          -0.19817424661765795,
+          -0.18988328672290944,
+          -0.18712058106672905,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.1832102290460571,
+          -0.15800283381484145
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.5635475584619134,
+          -0.6827825622623168,
+          -0.34085770944335164,
+          -0.25667536474627206,
+          -0.19817424661765795,
+          -0.3936990682699048,
+          -0.2419198049101232,
+          -0.27086207878494467,
+          -0.18988328672290944,
+          -0.18712058106672905,
+          -0.1832102290460571,
+          -0.22480876100594385,
+          -0.1909439818326184,
+          -0.19994499674077296,
+          -0.19113220028722144,
+          -0.19344747007413013,
+          -0.1945073451056877,
+          -0.20500064548503774,
+          -0.15800283381484145
+        ],
+        "final_best": -0.15800283381484145,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.1568111374236893,
+          -0.1568111374236893,
+          -0.1568111374236893,
+          -0.1568111374236893,
+          -0.1568111374236893,
+          -0.1337167261918663,
+          -0.1337167261918663,
+          -0.1337167261918663,
+          -0.1337167261918663,
+          -0.1337167261918663,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646,
+          -0.12076384922816646
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.1568111374236893,
+          -0.3693752148427171,
+          -0.28894154493594165,
+          -0.36877661131503586,
+          -0.15894343061204133,
+          -0.1337167261918663,
+          -0.30562686055385213,
+          -0.1816464443675698,
+          -0.14347993848381402,
+          -0.17992158786729592,
+          -0.12076384922816646,
+          -0.13867660070570403,
+          -0.12594474956750268,
+          -0.22881826071985845,
+          -0.12677196988828304,
+          -0.1253123489963954,
+          -0.1279065223339804,
+          -0.1312787528454798,
+          -0.12873758350490933
+        ],
+        "final_best": -0.12076384922816646,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.284960666304521,
+          -0.284960666304521,
+          -0.18353568920585894,
+          -0.17320709838789916,
+          -0.17320709838789916,
+          -0.17320709838789916,
+          -0.1586156505208027,
+          -0.1586156505208027,
+          -0.1586156505208027,
+          -0.15831160233857822,
+          -0.15831160233857822,
+          -0.15831160233857822,
+          -0.1574546521873977,
+          -0.1570592769764427,
+          -0.1567444963634425,
+          -0.1567444963634425,
+          -0.1567444963634425,
+          -0.1527009009288859
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.3857870231664845,
+          -0.284960666304521,
+          -0.4191330816858097,
+          -0.18353568920585894,
+          -0.17320709838789916,
+          -0.4188386038783499,
+          -0.17907066636121488,
+          -0.1586156505208027,
+          -0.18346375124550515,
+          -0.16410032689414372,
+          -0.15831160233857822,
+          -0.16126870491598108,
+          -0.23993463623180122,
+          -0.1574546521873977,
+          -0.1570592769764427,
+          -0.1567444963634425,
+          -0.15864629956524567,
+          -0.22452810651493968,
+          -0.1527009009288859
+        ],
+        "final_best": -0.1527009009288859,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "konjac powder"
+            ],
+            "additions": [
+              "yeast extract",
+              "konjac powder"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"konjac powder\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "konjac powder"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.30392287538430396,
+          -0.28208142743995546,
+          -0.28208142743995546,
+          -0.24361851376718682,
+          -0.24361851376718682,
+          -0.16103960703852857,
+          -0.16103960703852857,
+          -0.13780590067151477,
+          -0.13780590067151477,
+          -0.13780590067151477,
+          -0.12923722149530759,
+          -0.12923722149530759,
+          -0.12923722149530759,
+          -0.12923722149530759,
+          -0.12923722149530759,
+          -0.1291886658214573,
+          -0.1291886658214573,
+          -0.1291886658214573,
+          -0.1291886658214573
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.30392287538430396,
+          -0.28208142743995546,
+          -0.3077378288384284,
+          -0.24361851376718682,
+          -0.4359020749762042,
+          -0.16103960703852857,
+          -0.3032311307796691,
+          -0.13780590067151477,
+          -0.18234985490522568,
+          -0.16175977635093308,
+          -0.12923722149530759,
+          -0.12960497206976362,
+          -0.18554532258016837,
+          -0.23876238416775097,
+          -0.1316581257358256,
+          -0.1291886658214573,
+          -0.13099890732284103,
+          -0.1307495722073575,
+          -0.12953070397423494
+        ],
+        "final_best": -0.1291886658214573,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.3059772645107476,
+          -0.2663048456321635,
+          -0.2663048456321635,
+          -0.2663048456321635,
+          -0.2663048456321635,
+          -0.2663048456321635,
+          -0.2663048456321635,
+          -0.16656322265775655,
+          -0.16656322265775655,
+          -0.16656322265775655,
+          -0.15038363372678393,
+          -0.15038363372678393,
+          -0.15038363372678393,
+          -0.13585960738456762,
+          -0.13585960738456762,
+          -0.13126780059435555,
+          -0.12118885502247706,
+          -0.12118885502247706,
+          -0.12118885502247706
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.3059772645107476,
+          -0.2663048456321635,
+          -0.35667896264152416,
+          -0.3202106436871238,
+          -0.335039632741428,
+          -0.4359020749762042,
+          -0.6994257281436086,
+          -0.16656322265775655,
+          -0.16673491673675203,
+          -0.2779625949717237,
+          -0.15038363372678393,
+          -0.20361223908526838,
+          -0.1879690950932631,
+          -0.13585960738456762,
+          -0.16652136719645708,
+          -0.13126780059435555,
+          -0.12118885502247706,
+          -0.1706884821668784,
+          -0.1242482592140182
+        ],
+        "final_best": -0.12118885502247706,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.24468537348131908,
+          -0.24468537348131908,
+          -0.2208188235671916,
+          -0.2062112799687058,
+          -0.20153023648234247,
+          -0.15852987621922593,
+          -0.15852987621922593,
+          -0.15852987621922593,
+          -0.15852987621922593,
+          -0.13219082446677177,
+          -0.13219082446677177,
+          -0.13219082446677177,
+          -0.12858570993184512,
+          -0.12858570993184512,
+          -0.1261434272898414,
+          -0.1261434272898414,
+          -0.1261434272898414,
+          -0.1259812629341039,
+          -0.1259812629341039
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.24468537348131908,
+          -0.24672818078698963,
+          -0.2208188235671916,
+          -0.2062112799687058,
+          -0.20153023648234247,
+          -0.15852987621922593,
+          -0.21491264949510447,
+          -0.17934978650307562,
+          -0.16268027065946608,
+          -0.13219082446677177,
+          -0.1624123244244586,
+          -0.2010429383519857,
+          -0.12858570993184512,
+          -0.2143832123753615,
+          -0.1261434272898414,
+          -0.12654344988744182,
+          -0.1291743241793425,
+          -0.1259812629341039,
+          -0.12804729358065936
+        ],
+        "final_best": -0.1259812629341039,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.20628536313611986,
+          -0.20628536313611986,
+          -0.20628536313611986,
+          -0.20628536313611986,
+          -0.14733776785818062,
+          -0.14733776785818062,
+          -0.14733776785818062,
+          -0.14733776785818062,
+          -0.14733776785818062,
+          -0.14358347086718162,
+          -0.14319674670304772,
+          -0.14319674670304772,
+          -0.1347407352611256,
+          -0.1347407352611256,
+          -0.1347407352611256,
+          -0.1347407352611256,
+          -0.12791342335828276,
+          -0.12791342335828276,
+          -0.12791342335828276
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.20628536313611986,
+          -0.46006114862832903,
+          -0.25081795094412696,
+          -0.5426629034212829,
+          -0.14733776785818062,
+          -0.17988775563807266,
+          -0.2902971339227191,
+          -0.2059263772346904,
+          -0.15399631885487558,
+          -0.14358347086718162,
+          -0.14319674670304772,
+          -0.1490386452564335,
+          -0.1347407352611256,
+          -0.1399453411805255,
+          -0.16771497244398303,
+          -0.13646477645489768,
+          -0.12791342335828276,
+          -0.1344918574731219,
+          -0.1321634408486981
+        ],
+        "final_best": -0.12791342335828276,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.3187263251377356,
+          -0.31199846423470967,
+          -0.18327402889735445,
+          -0.18327402889735445,
+          -0.18327402889735445,
+          -0.18327402889735445,
+          -0.17034566914858656,
+          -0.15360416011140926,
+          -0.14670897130439325,
+          -0.14670897130439325,
+          -0.14670897130439325,
+          -0.14670897130439325,
+          -0.14670897130439325,
+          -0.14670897130439325,
+          -0.14670897130439325,
+          -0.1453640324693317,
+          -0.14462361059135592
+        ],
+        "all_y": [
+          -0.3187263251377356,
+          -0.3198185342264322,
+          -0.4869585115527047,
+          -0.3214135260918591,
+          -0.31199846423470967,
+          -0.18327402889735445,
+          -0.22371805591925134,
+          -0.22934096976313664,
+          -0.29536051346482745,
+          -0.17034566914858656,
+          -0.15360416011140926,
+          -0.14670897130439325,
+          -0.15376133174321027,
+          -0.15553125408996474,
+          -0.19052560954846628,
+          -0.16600033763869346,
+          -0.17358517320398442,
+          -0.1941553153408144,
+          -0.1453640324693317,
+          -0.14462361059135592
+        ],
+        "final_best": -0.14462361059135592,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "vegetable juice",
+              "soy protein isolate",
+              "wheat gluten",
+              "coconut oil",
+              "pea protein",
+              "flavours",
+              "methylcellulose",
+              "carrageenan",
+              "yeast extract",
+              "potato starch"
+            ],
+            "additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"yeast extract\",\"potato starch\"]}",
+            "parsed_additions": [
+              "yeast extract",
+              "potato starch"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

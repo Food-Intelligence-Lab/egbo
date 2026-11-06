@@ -1,0 +1,552 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based unbreaded chicken strips and chunks. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.32},{\"ingredient\":\"soy milk\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.18},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.03}],\"target_dissimilarity\":0.335661006037036}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations."
+},
+{
+"role": "assistant",
+"content": "I'll systematically explore the formulation space, starting with variations around common chicken analog recipes.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JjoznYtBYefPnCF6pHmiUJ",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    print(json.load(f))\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JjoznYtBYefPnCF6pHmiUJ",
+"content": "[{'iteration': 1, 'recipe': [{'ingredient': 'soy protein concentrate', 'fraction': 0.32}, {'ingredient': 'soy milk', 'fraction': 0.22}, {'ingredient': 'wheat gluten', 'fraction': 0.18}, {'ingredient': 'pea protein', 'fraction': 0.08}, {'ingredient': 'sunflower oil', 'fraction': 0.06}, {'ingredient': 'potato starch', 'fraction': 0.05}, {'ingredient': 'methylcellulose', 'fraction': 0.03}, {'ingredient': 'yeast extract', 'fraction': 0.03}, {'ingredient': 'flavours', 'fraction': 0.03}], 'target_dissimilarity': 0.335661006037036}]\n"
+},
+{
+"role": "assistant",
+"content": "Let me think strategically. Chicken strips are mainly: water, protein (soy/pea/wheat), small amounts of oil, binders, flavor. The baseline is 0.336. Let me try a few diverse recipes to learn the landscape.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KXzUcrQME1ZyyBhy4f9ydV",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.4},{\"ingredient\":\"wheat gluten\",\"fraction\":0.25},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.02},{\"ingredient\":\"salt\"}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KXzUcrQME1ZyyBhy4f9ydV",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.4843586429015857, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"content": "Oops, I used \"salt\" which isn't in the catalog. Luckily it looks like it was just ignored. That recipe (no soy milk, more protein) is worse (0.484). So soy milk / water content matters. Let me try something more different.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01HrM38tvzk5MfAqSzZNwM5y",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.28},{\"ingredient\":\"soy milk\",\"fraction\":0.3},{\"ingredient\":\"wheat gluten\",\"fraction\":0.15},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HrM38tvzk5MfAqSzZNwM5y",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.4486586452353386, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "More soy milk made it worse too. Original balance is better. Let me try textured vegetable protein which is actually characteristic of chicken strips.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01V7VUyhRHeZUekgDfocAhGv",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.35},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.2},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01V7VUyhRHeZUekgDfocAhGv",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.6332000814767712, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"content": "TVP was much worse. Let me try adjusting composition near the best (iter 1).",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01CBZvgqmm1rJHE5GZH45Vn4",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01CBZvgqmm1rJHE5GZH45Vn4",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.2521985512274595, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Nice improvement to 0.252! More protein concentrate + wheat gluten helped. Let me push that direction.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01NdHC2dLxYQELZxfVkjC1mr",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.38},{\"ingredient\":\"soy milk\",\"fraction\":0.15},{\"ingredient\":\"wheat gluten\",\"fraction\":0.23},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01NdHC2dLxYQELZxfVkjC1mr",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.6121680352461023, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"content": "Jumped way worse. The soy milk reduction/wheat gluten increase hurt. So iter 5 was a sweet spot. Let me probe around it.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01SDyFXF77R26ay1zsrhfXQd",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.22},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.06},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01SDyFXF77R26ay1zsrhfXQd",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.3483421507766702, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Worse than iter 5. Iter 5 is still best. Let me try slight tweaks around iter 5.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013cKGX18zXvvaH9rebQvnUM",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.1},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013cKGX18zXvvaH9rebQvnUM",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.44129811916880846, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Worse. The small changes matter a lot. Let me try substituting an ingredient to see effect.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Mq2ScMUQv7oje4zCErH86w",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"canola oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Mq2ScMUQv7oje4zCErH86w",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.4308641887870209, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Switching sunflower to canola worsened it (0.252 -> 0.431). Sunflower oil matters. Let me try exact iter 5 but reduce flavours (which may count against us) and redistribute.\n\nActually iter 5 is very robust. Let me try small, different perturbations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01D4iGqQNVPZvwhYEWtJrzcT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.34},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.21},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01D4iGqQNVPZvwhYEWtJrzcT",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.6048075437893725, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Ouch - very sensitive. Let me think. Iter 5 with wheat gluten 0.20, soy conc 0.35 is a sharp minimum. Let me check at 0.36/0.19.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01BtDBhGxExgAafqYEjm2fY8",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.36},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.19},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01BtDBhGxExgAafqYEjm2fY8",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.3235911232126999, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "0.324 - slightly worse than 0.252. The sensitivity is very high. Let me try 0.35/0.20 with slight oil/starch change.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Mo1tjnQJjks486VSKECDcn",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Mo1tjnQJjks486VSKECDcn",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.39189722920863146, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5 (0.252) is still the best. Looking at results, iter 5 seems to be at a local optimum. Let me try changing just one minor ingredient\u2014maybe swap yeast extract for something else, or add a different type.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013rK1ebLNn7Pr3gxihNwQDs",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Summarize results\\nresults = [\\n    (1, 0.3357, \\\"soy conc 0.32, milk 0.22, gluten 0.18, pea 0.08, sun 0.06, pot 0.05, mc 0.03, ye 0.03, fl 0.03\\\"),\\n    (2, 0.4844, \\\"no milk\\\"),\\n    (3, 0.4487, \\\"milk 0.3\\\"),\\n    (4, 0.6332, \\\"TVP added\\\"),\\n    (5, 0.2522, \\\"0.35/0.20/0.20/0.08/0.05/0.05/0.03/0.02/0.02 - BEST\\\"),\\n    (6, 0.6122, \\\"milk 0.15, gluten 0.23\\\"),\\n    (7, 0.3483, \\\"milk 0.22, pea 0.06, sun 0.06\\\"),\\n    (8, 0.4413, \\\"pea 0.10, fl 0.01\\\"),\\n    (9, 0.4309, \\\"canola oil\\\"),\\n    (10, 0.6048, \\\"conc 0.34, gluten 0.21\\\"),\\n    (11, 0.3236, \\\"conc 0.36, gluten 0.19\\\"),\\n    (12, 0.3919, \\\"sun 0.06, pot 0.04\\\"),\\n]\\nfor r in results:\\n    print(r)\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013rK1ebLNn7Pr3gxihNwQDs",
+"content": "(1, 0.3357, 'soy conc 0.32, milk 0.22, gluten 0.18, pea 0.08, sun 0.06, pot 0.05, mc 0.03, ye 0.03, fl 0.03')\n(2, 0.4844, 'no milk')\n(3, 0.4487, 'milk 0.3')\n(4, 0.6332, 'TVP added')\n(5, 0.2522, '0.35/0.20/0.20/0.08/0.05/0.05/0.03/0.02/0.02 - BEST')\n(6, 0.6122, 'milk 0.15, gluten 0.23')\n(7, 0.3483, 'milk 0.22, pea 0.06, sun 0.06')\n(8, 0.4413, 'pea 0.10, fl 0.01')\n(9, 0.4309, 'canola oil')\n(10, 0.6048, 'conc 0.34, gluten 0.21')\n(11, 0.3236, 'conc 0.36, gluten 0.19')\n(12, 0.3919, 'sun 0.06, pot 0.04')\n"
+},
+{
+"role": "assistant",
+"content": "The landscape is very noisy / sensitive. Iter 5's exact formula is best. Let me try swapping one minor ingredient at a time to see if I can find improvements. Try replacing yeast extract with something more chicken-like.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01QDEYV9oBc6ChjxFpmmqptN",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.04}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QDEYV9oBc6ChjxFpmmqptN",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.3123821670863359, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Removed yeast extract, moved mass to flavours \u2014 worse (0.312 vs 0.252). Let me try adding something distinctive like a flavor ingredient.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01LQVAdLj5bXtuUCowjgmxgS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"plant flavors\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LQVAdLj5bXtuUCowjgmxgS",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.3052909900643056, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "Replacing \"flavours\" with \"plant flavors\" was worse too. Let me go back to iter 5 structure but try a different minor swap \u2014 replace pea protein with soy protein isolate.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01K5M7wfLmWguVR4pm88D5mS",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01K5M7wfLmWguVR4pm88D5mS",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.5177325224499338, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Worse. Pea protein is better than soy isolate here. Let me try replacing potato starch with another starch.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_015NyKxNB2HfMCzEedoYa5g2",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"tapioca starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_015NyKxNB2HfMCzEedoYa5g2",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.3955092612686998, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"content": "Worse. Potato starch is better. Let me try a reasonable alternative - changing methylcellulose amount slightly.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_016zFVi82sQSYkVbXpqkcoCv",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_016zFVi82sQSYkVbXpqkcoCv",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.40840265939090353, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5 remains best at 0.252. Let me try one change swapping yeast extract for a different umami one.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XAYvCAnKAV9Q2tvvb1PaAr",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XAYvCAnKAV9Q2tvvb1PaAr",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.43046346723174106, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5 formulation is really locked in. Let me try one last variation - maybe add a small amount of 'protein' as a generic to displace flavours.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01BNc2D1wJN74jRRW2Ugk58Z",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01BNc2D1wJN74jRRW2Ugk58Z",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.5228067044417755, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Much worse! Even changing yeast extract 0.02->0.03 and flavours 0.02->0.01 ruined it. This landscape is extremely sensitive. Let me re-submit the exact iter 5 formula for my last call to lock in that result.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01KZc6VWZJTJA19e32cvRuog",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.35},{\"ingredient\":\"soy milk\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.08},{\"ingredient\":\"sunflower oil\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.05},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01KZc6VWZJTJA19e32cvRuog",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.31817644038667625, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2321,
+"completion_tokens": 119,
+"cost": 0.01458
+},
+{
+"prompt_tokens": 2735,
+"completion_tokens": 361,
+"cost": 0.0227
+},
+{
+"prompt_tokens": 3150,
+"completion_tokens": 370,
+"cost": 0.025
+},
+{
+"prompt_tokens": 3574,
+"completion_tokens": 342,
+"cost": 0.02642
+},
+{
+"prompt_tokens": 3970,
+"completion_tokens": 320,
+"cost": 0.02785
+},
+{
+"prompt_tokens": 4344,
+"completion_tokens": 330,
+"cost": 0.02997
+},
+{
+"prompt_tokens": 4728,
+"completion_tokens": 344,
+"cost": 0.03224
+},
+{
+"prompt_tokens": 5126,
+"completion_tokens": 328,
+"cost": 0.03383
+},
+{
+"prompt_tokens": 5508,
+"completion_tokens": 322,
+"cost": 0.03559
+},
+{
+"prompt_tokens": 5884,
+"completion_tokens": 386,
+"cost": 0.03907
+},
+{
+"prompt_tokens": 6324,
+"completion_tokens": 359,
+"cost": 0.040595
+},
+{
+"prompt_tokens": 6737,
+"completion_tokens": 342,
+"cost": 0.042235
+},
+{
+"prompt_tokens": 7133,
+"completion_tokens": 542,
+"cost": 0.049215
+},
+{
+"prompt_tokens": 8052,
+"completion_tokens": 342,
+"cost": 0.04881
+},
+{
+"prompt_tokens": 8448,
+"completion_tokens": 348,
+"cost": 0.05094
+},
+{
+"prompt_tokens": 8850,
+"completion_tokens": 355,
+"cost": 0.053125
+},
+{
+"prompt_tokens": 9259,
+"completion_tokens": 330,
+"cost": 0.054545
+},
+{
+"prompt_tokens": 9643,
+"completion_tokens": 332,
+"cost": 0.056515
+},
+{
+"prompt_tokens": 10029,
+"completion_tokens": 331,
+"cost": 0.05842
+},
+{
+"prompt_tokens": 10414,
+"completion_tokens": 346,
+"cost": 0.06072
+},
+{
+"prompt_tokens": 10814,
+"completion_tokens": 375,
+"cost": 0.063445
+},
+{
+"prompt_tokens": 11296,
+"completion_tokens": 6,
+"cost": 0.05663
+}
+]
+}

@@ -1,0 +1,931 @@
+{
+  "config": {
+    "category": "cheddar",
+    "domain": "dairy",
+    "n_ingredients": 90,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "mozzarella"
+    ],
+    "shared_initial_loss": 0.2782618694656195,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.23
+      },
+      {
+        "ingredient": "cashew cream",
+        "fraction": 0.22
+      },
+      {
+        "ingredient": "tapioca starch",
+        "fraction": 0.15
+      },
+      {
+        "ingredient": "soy protein isolate",
+        "fraction": 0.14
+      },
+      {
+        "ingredient": "fermented tofu",
+        "fraction": 0.09
+      },
+      {
+        "ingredient": "modified food starch",
+        "fraction": 0.08
+      },
+      {
+        "ingredient": "lemon juice",
+        "fraction": 0.06
+      },
+      {
+        "ingredient": "carrageenan",
+        "fraction": 0.03
+      }
+    ],
+    "shared_initial_support": [
+      "coconut oil",
+      "cashew cream",
+      "tapioca starch",
+      "soy protein isolate",
+      "fermented tofu",
+      "modified food starch",
+      "lemon juice",
+      "carrageenan"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.20012764540293948,
+          -0.20012764540293948,
+          -0.20012764540293948,
+          -0.20012764540293948,
+          -0.20012764540293948,
+          -0.20012764540293948,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.19395891873068757,
+          -0.16939134718458398,
+          -0.16939134718458398,
+          -0.16939134718458398,
+          -0.16939134718458398,
+          -0.15342961985355408
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.20012764540293948,
+          -0.26841161626930066,
+          -0.48178600408347355,
+          -0.46474339528646524,
+          -0.6135358708344667,
+          -0.25513748322741536,
+          -0.19395891873068757,
+          -0.35708506437759674,
+          -0.24556395527080246,
+          -0.20469173566477775,
+          -0.21850473087096464,
+          -0.24385452559175985,
+          -0.20936865508227803,
+          -0.2687748269604137,
+          -0.16939134718458398,
+          -0.25339723628870003,
+          -0.20858742074587638,
+          -0.2770104641306619,
+          -0.15342961985355408
+        ],
+        "final_best": -0.15342961985355408,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"sunflower lecithin\"]}\n\nWait, I need to check the catalog. \"nutritional yeast\" is not in the available list. Let me reconsider.\n\n{\"additions\":[\"sunflower lecithin\",\"glucono-delta-lactone\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.19975724674922413,
+          -0.19975724674922413,
+          -0.19975724674922413,
+          -0.17167453838645141,
+          -0.17167453838645141,
+          -0.17167453838645141,
+          -0.14274034916441344,
+          -0.13802486600507263,
+          -0.13802486600507263,
+          -0.13802486600507263,
+          -0.13802486600507263,
+          -0.13802486600507263
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.44348807184115113,
+          -0.38497485807609955,
+          -0.2785938134722431,
+          -0.3718985037866091,
+          -0.4688688844307403,
+          -0.5167605727182474,
+          -0.3284201484597851,
+          -0.19975724674922413,
+          -0.23637705867680686,
+          -0.2854707592235952,
+          -0.17167453838645141,
+          -0.27061679669407723,
+          -0.421684351145947,
+          -0.14274034916441344,
+          -0.13802486600507263,
+          -0.16651424649115984,
+          -0.1409687162194873,
+          -0.2074803715151027,
+          -0.15841132194801166
+        ],
+        "final_best": -0.13802486600507263,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"sunflower lecithin\"]}\n\nWait, I need to check the catalog. \"nutritional yeast\" is not in the list. Let me reconsider.\n\n{\"additions\":[\"sunflower lecithin\",\"glucono-delta-lactone\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.26619512045810056,
+          -0.26619512045810056,
+          -0.26619512045810056,
+          -0.26619512045810056,
+          -0.26619512045810056,
+          -0.26619512045810056,
+          -0.26619512045810056,
+          -0.2541198605134202,
+          -0.2541198605134202,
+          -0.2541198605134202,
+          -0.2541198605134202,
+          -0.2541198605134202,
+          -0.2466991368882565,
+          -0.2466991368882565,
+          -0.24348943798106337,
+          -0.24348943798106337,
+          -0.24348943798106337,
+          -0.18976981415146305,
+          -0.18976981415146305
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.26619512045810056,
+          -0.3543540172895552,
+          -0.3404901882345442,
+          -0.353553897756761,
+          -0.4458421905292774,
+          -0.4569212069601699,
+          -0.44699747094437925,
+          -0.2541198605134202,
+          -0.33246199716555863,
+          -0.44750333007937365,
+          -0.4268057728473706,
+          -0.2594942875449129,
+          -0.2466991368882565,
+          -0.3421292947525427,
+          -0.24348943798106337,
+          -0.2556187942359429,
+          -0.5173366105414332,
+          -0.18976981415146305,
+          -0.2551575881145571
+        ],
+        "final_best": -0.18976981415146305,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan",
+              "coconut cream"
+            ],
+            "additions": [
+              "coconut cream"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"coconut cream\"]}\n\nWait, I need to check the catalog. \"nutritional yeast\" is not in the list. Let me reconsider.\n\nLooking at best score (0.254) - evaluation 9 had moderate soy protein, moderate coconut oil, lower cashew cream. For cheddar flavor/color, I should look for ingredients that add savory/umami notes and emulsification.\n\n{\"additions\":[\"mushroom extract\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "coconut cream"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.23647802713537083,
+          -0.20715884068140047,
+          -0.20715884068140047,
+          -0.20715884068140047,
+          -0.20715884068140047,
+          -0.20715884068140047,
+          -0.2034756684914356,
+          -0.19771290049989743,
+          -0.19771290049989743,
+          -0.19771290049989743
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.5181526070787201,
+          -0.23647802713537083,
+          -0.35103874977631483,
+          -0.3534229510493705,
+          -0.5029767805212931,
+          -0.3819229523715601,
+          -0.29735006485179233,
+          -0.4560441065181688,
+          -0.4458421905292774,
+          -0.9365528261576522,
+          -0.20715884068140047,
+          -0.2547030807277671,
+          -0.2778948590958908,
+          -0.2257964082215505,
+          -0.3281345482407311,
+          -0.2034756684914356,
+          -0.19771290049989743,
+          -0.236004872230047,
+          -0.24235593711043918
+        ],
+        "final_best": -0.19771290049989743,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ],
+            "additions": []
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"annatto\"]}\n\nWait, those aren't in the catalog. Let me reconsider.\n\n{\"additions\":[\"glucono-delta-lactone\",\"sunflower lecithin\"]}",
+            "parsed_additions": []
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.25429274556121967,
+          -0.25429274556121967,
+          -0.25429274556121967,
+          -0.25429274556121967,
+          -0.2519880973998585,
+          -0.19892001622326264,
+          -0.19892001622326264,
+          -0.19892001622326264,
+          -0.19892001622326264,
+          -0.19892001622326264,
+          -0.19892001622326264,
+          -0.19892001622326264,
+          -0.17814679833066277,
+          -0.17814679833066277,
+          -0.17814679833066277,
+          -0.17814679833066277,
+          -0.16646038314215744,
+          -0.16646038314215744,
+          -0.16646038314215744
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.25429274556121967,
+          -0.2662272651333188,
+          -0.4124846646192761,
+          -0.44208816794522504,
+          -0.2519880973998585,
+          -0.19892001622326264,
+          -0.2640554944678349,
+          -0.41857986946753056,
+          -0.38205628197562747,
+          -0.1989983480314864,
+          -0.6438414813919721,
+          -0.26168197861489373,
+          -0.17814679833066277,
+          -0.18688503115437005,
+          -0.23011084746168933,
+          -0.21044366903979406,
+          -0.16646038314215744,
+          -0.23279289445722595,
+          -0.20655686589923258
+        ],
+        "final_best": -0.16646038314215744,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast flavor via mushroom extract\",\"sunflower lecithin\"]}\n\nWait, I need to return exact catalog names only.\n\n{\"additions\":[\"mushroom extract\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2760932621998916,
+          -0.2760932621998916,
+          -0.2760932621998916,
+          -0.2760932621998916,
+          -0.2760932621998916,
+          -0.2760932621998916,
+          -0.2760932621998916,
+          -0.23654180548766393,
+          -0.23654180548766393,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.16036425053805878,
+          -0.14864543008470346
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.3567915150656234,
+          -0.2760932621998916,
+          -0.36196638886702753,
+          -0.34136492409020264,
+          -0.7833133879337978,
+          -0.3727307933466094,
+          -0.3507763459664511,
+          -0.2780791743566564,
+          -0.23654180548766393,
+          -0.46515029575860045,
+          -0.16036425053805878,
+          -0.42933353193838475,
+          -0.25603589075137007,
+          -0.2135273135713906,
+          -0.21039528379321196,
+          -0.1937263272480732,
+          -0.16216875217646365,
+          -0.1611885732503825,
+          -0.14864543008470346
+        ],
+        "final_best": -0.14864543008470346,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan",
+              "glucono-delta-lactone"
+            ],
+            "additions": [
+              "glucono-delta-lactone"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast flavor substitute\",\"glucono-delta-lactone\"]}\n\nWait, I need to pick from the catalog. Let me reconsider.\n\n{\"additions\":[\"glucono-delta-lactone\",\"soy lecithin\"]}",
+            "parsed_additions": [
+              "glucono-delta-lactone"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2702358144053723,
+          -0.2702358144053723,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.21205815472374157,
+          -0.19660084495736238,
+          -0.19660084495736238,
+          -0.19660084495736238,
+          -0.17927598992304106
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.41407712932087254,
+          -0.3405946606260331,
+          -0.27969255587532255,
+          -0.2702358144053723,
+          -0.3358701272672078,
+          -0.21205815472374157,
+          -0.35606111372099464,
+          -0.2649237964279218,
+          -0.46996483783729043,
+          -0.4458421905292774,
+          -0.31435232719408024,
+          -0.354662597346711,
+          -0.29490255927343556,
+          -0.33477578995460044,
+          -0.24519747670352965,
+          -0.19660084495736238,
+          -0.25603899529499363,
+          -0.1967012541441456,
+          -0.17927598992304106
+        ],
+        "final_best": -0.17927598992304106,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ],
+            "additions": []
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"annatto\"]}\n\nWait, I need to check the catalog. Neither is available. Let me reconsider.\n\n{\"additions\":[\"mushroom extract\",\"soy lecithin\"]}",
+            "parsed_additions": []
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.25276414358010413,
+          -0.25276414358010413,
+          -0.25276414358010413,
+          -0.25276414358010413,
+          -0.25276414358010413,
+          -0.25276414358010413,
+          -0.23430187325234034,
+          -0.23430187325234034,
+          -0.22847075483480217,
+          -0.22539326186955613,
+          -0.22539326186955613,
+          -0.21295153955132695
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.42257029258593815,
+          -0.3180033366138766,
+          -0.3269644284352995,
+          -0.3278735490335332,
+          -0.4458421905292774,
+          -0.43758947110267576,
+          -0.3894537164590398,
+          -0.25276414358010413,
+          -0.3166979901680142,
+          -0.32075666744082687,
+          -0.4812713915401391,
+          -0.282275102106463,
+          -0.3876662683156983,
+          -0.23430187325234034,
+          -0.24867307914569117,
+          -0.22847075483480217,
+          -0.22539326186955613,
+          -0.22680293506658256,
+          -0.21295153955132695
+        ],
+        "final_best": -0.21295153955132695,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan",
+              "glucono-delta-lactone"
+            ],
+            "additions": [
+              "glucono-delta-lactone"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"glucono-delta-lactone\"]}\n\nWait, \"nutritional yeast\" isn't in the catalog. Let me reconsider.\n\n{\"additions\":[\"glucono-delta-lactone\",\"mushroom extract\"]}",
+            "parsed_additions": [
+              "glucono-delta-lactone"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.2782618694656195,
+          -0.262703361135604,
+          -0.262703361135604,
+          -0.262703361135604,
+          -0.262703361135604,
+          -0.262703361135604,
+          -0.262703361135604,
+          -0.262703361135604,
+          -0.21668275892646738,
+          -0.21668275892646738,
+          -0.21668275892646738,
+          -0.21668275892646738,
+          -0.21668275892646738,
+          -0.21668275892646738,
+          -0.21668275892646738,
+          -0.17488825447441017,
+          -0.17488825447441017,
+          -0.17488825447441017,
+          -0.17488825447441017
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.45973265337466057,
+          -0.262703361135604,
+          -0.27595576652585013,
+          -0.385129626152425,
+          -0.4760021948517463,
+          -0.5595084550714704,
+          -0.3666001448050994,
+          -0.4831105132481391,
+          -0.21668275892646738,
+          -0.47142015367781065,
+          -0.2336052318994191,
+          -0.24970575573332593,
+          -0.30091080212031396,
+          -0.2694315475735328,
+          -0.2504957878058035,
+          -0.17488825447441017,
+          -0.19460263634889563,
+          -0.19045728725576322,
+          -0.21956673197221493
+        ],
+        "final_best": -0.17488825447441017,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ],
+            "additions": []
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"annatto\"]}\n\nWait, I need to check the catalog. Neither \"nutritional yeast\" nor \"annatto\" are in the available list. Let me reconsider.\n\nLooking at cheddar characteristics: needs color, savory/umami flavor, and the available options include \"mushroom extract\" (umami) and various others.\n\n{\"additions\":[\"mushroom extract\",\"soy lecithin\"]}",
+            "parsed_additions": []
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.2782618694656195,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.25323603562027625,
+          -0.196288387049282,
+          -0.16996278333713113,
+          -0.16996278333713113,
+          -0.16996278333713113,
+          -0.15566148458505924,
+          -0.15566148458505924,
+          -0.15566148458505924
+        ],
+        "all_y": [
+          -0.2782618694656195,
+          -0.25323603562027625,
+          -0.2819167839496618,
+          -0.27577821596307234,
+          -0.27049682830849847,
+          -0.5937404793933375,
+          -0.870836112069868,
+          -0.5456886221986373,
+          -0.3282010407869544,
+          -0.44051296806027124,
+          -0.3148608238367271,
+          -0.26312897512918526,
+          -0.2563455883165692,
+          -0.196288387049282,
+          -0.16996278333713113,
+          -0.18481305053980115,
+          -0.1898400788673486,
+          -0.15566148458505924,
+          -0.2880181320400352,
+          -0.1593390919090961
+        ],
+        "final_best": -0.15566148458505924,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "cashew cream",
+              "tapioca starch",
+              "soy protein isolate",
+              "fermented tofu",
+              "modified food starch",
+              "lemon juice",
+              "carrageenan"
+            ],
+            "additions": []
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"nutritional yeast\",\"annatto\"]}\n\nWait, those aren't in the catalog. Let me reconsider.\n\n{\"additions\":[\"mushroom extract\",\"soy lecithin\"]}",
+            "parsed_additions": []
+          }
+        ]
+      }
+    ]
+  }
+}

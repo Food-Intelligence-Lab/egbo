@@ -1,0 +1,991 @@
+{
+  "config": {
+    "category": "milk",
+    "domain": "dairy",
+    "n_ingredients": 90,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "mozzarella"
+    ],
+    "shared_initial_loss": 0.16457920341672802,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "soymilk",
+        "fraction": 0.82
+      },
+      {
+        "ingredient": "gellan gum",
+        "fraction": 0.061
+      },
+      {
+        "ingredient": "allulose",
+        "fraction": 0.045
+      },
+      {
+        "ingredient": "sunflower oil",
+        "fraction": 0.032
+      },
+      {
+        "ingredient": "soy protein isolate",
+        "fraction": 0.02
+      },
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.013
+      },
+      {
+        "ingredient": "calcium citrate",
+        "fraction": 0.004
+      },
+      {
+        "ingredient": "sunflower lecithin",
+        "fraction": 0.003
+      },
+      {
+        "ingredient": "potassium phosphate",
+        "fraction": 0.002
+      }
+    ],
+    "shared_initial_support": [
+      "soymilk",
+      "gellan gum",
+      "allulose",
+      "sunflower oil",
+      "soy protein isolate",
+      "coconut oil",
+      "calcium citrate",
+      "sunflower lecithin",
+      "potassium phosphate"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.12750739012099846,
+          -0.12750739012099846,
+          -0.11068198802497867,
+          -0.09126221159420818,
+          -0.05358628852152824,
+          -0.03815242362913954,
+          -0.03815242362913954,
+          -0.03815242362913954,
+          -0.03815242362913954,
+          -0.03815242362913954,
+          -0.03815242362913954,
+          -0.0347674906822442,
+          -0.03362556805441913,
+          -0.03362556805441913,
+          -0.03362556805441913,
+          -0.033101621753910807,
+          -0.03152645716907513
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.18205290121450274,
+          -0.17576550677258332,
+          -0.12750739012099846,
+          -0.23551611904011988,
+          -0.11068198802497867,
+          -0.09126221159420818,
+          -0.05358628852152824,
+          -0.03815242362913954,
+          -0.05669419396279353,
+          -0.1069051790373782,
+          -0.1023357710199912,
+          -0.04197876545777183,
+          -0.046416007639470576,
+          -0.0347674906822442,
+          -0.03362556805441913,
+          -0.035658642306805814,
+          -0.034007838559238696,
+          -0.033101621753910807,
+          -0.03152645716907513
+        ],
+        "final_best": -0.03152645716907513,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein",
+              "carrageenan"
+            ],
+            "additions": [
+              "pea protein",
+              "carrageenan"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"carrageenan\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "carrageenan"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.12672936866151374,
+          -0.12672936866151374,
+          -0.12672936866151374,
+          -0.12672936866151374,
+          -0.12102961351334533,
+          -0.12102961351334533,
+          -0.11462823761406532,
+          -0.11462823761406532,
+          -0.08923690430969852,
+          -0.08923690430969852,
+          -0.08713248446305227,
+          -0.08467238390323799,
+          -0.08467238390323799,
+          -0.07169581617888363,
+          -0.07138450501042633,
+          -0.07112343773312829,
+          -0.07112343773312829,
+          -0.07060885791943852,
+          -0.07060885791943852
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.12672936866151374,
+          -0.1988503686748132,
+          -0.17856759482158316,
+          -0.2031180401658175,
+          -0.12102961351334533,
+          -0.20207933297100777,
+          -0.11462823761406532,
+          -0.1683928401471998,
+          -0.08923690430969852,
+          -0.1101141060267854,
+          -0.08713248446305227,
+          -0.08467238390323799,
+          -0.11938210888004397,
+          -0.07169581617888363,
+          -0.07138450501042633,
+          -0.07112343773312829,
+          -0.0804471640749761,
+          -0.07060885791943852,
+          -0.07113306995565839
+        ],
+        "final_best": -0.07060885791943852,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein",
+              "soy lecithin"
+            ],
+            "additions": [
+              "pea protein",
+              "soy lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"soy lecithin\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "soy lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16309954721423545,
+          -0.16309954721423545,
+          -0.13291182106189312,
+          -0.1311082916891716,
+          -0.10456569220989581,
+          -0.10456569220989581,
+          -0.078359065502497,
+          -0.078359065502497,
+          -0.078359065502497,
+          -0.078359065502497,
+          -0.078359065502497,
+          -0.078359065502497,
+          -0.078359065502497
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.18134867477674715,
+          -0.2692134411665031,
+          -0.18491705722403284,
+          -0.20333452189997966,
+          -0.21178897383126138,
+          -0.19307036531310037,
+          -0.16309954721423545,
+          -0.22089193766537543,
+          -0.13291182106189312,
+          -0.1311082916891716,
+          -0.10456569220989581,
+          -0.2148399857347451,
+          -0.078359065502497,
+          -0.08834132535762812,
+          -0.08343181812701343,
+          -0.08763169869562318,
+          -0.09442555253436737,
+          -0.0822417223709478,
+          -0.08341781174771694
+        ],
+        "final_best": -0.078359065502497,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "vanilla extract"
+            ],
+            "additions": [
+              "vanilla extract"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"maltodextrin\",\"vanilla extract\"]}\n\nWait, let me reconsider. \"maltodextrin\" isn't in the list but \"corn maltodextrin\" is. Milk contains lactose (sugar) and the formulation could benefit from carbohydrates mimicking lactose. Also, milk has characteristic flavor.\n\nBest eval (10) has high soymilk, moderate gellan, allulose. Adding carbohydrate bulk like corn maltodextrin could mimic lactose body. Vanilla extract is often used but may not help with \"milk\" similarity directly.\n\n{\"additions\":[\"corn maltodextrin\",\"tapioca starch\"]}",
+            "parsed_additions": [
+              "vanilla extract"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.1484673460945992,
+          -0.1484673460945992,
+          -0.1225457247024776,
+          -0.1225457247024776,
+          -0.11069350870367001,
+          -0.11069350870367001,
+          -0.11069350870367001,
+          -0.11069350870367001,
+          -0.10044408636155427,
+          -0.09056158867090042,
+          -0.09056158867090042,
+          -0.09056158867090042,
+          -0.09056158867090042,
+          -0.09056158867090042,
+          -0.08447758551459697,
+          -0.07978624288913971,
+          -0.07978624288913971,
+          -0.06980463909049074,
+          -0.06495808307748298
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.1484673460945992,
+          -0.1898224684047512,
+          -0.1225457247024776,
+          -0.16806196910247612,
+          -0.11069350870367001,
+          -0.11651527561258154,
+          -0.20374190809200182,
+          -0.12000004453441808,
+          -0.10044408636155427,
+          -0.09056158867090042,
+          -0.15101605529108852,
+          -0.11028018480810069,
+          -0.09606701402865195,
+          -0.10419649777065901,
+          -0.08447758551459697,
+          -0.07978624288913971,
+          -0.11263802514041725,
+          -0.06980463909049074,
+          -0.06495808307748298
+        ],
+        "final_best": -0.06495808307748298,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein"
+            ],
+            "additions": [
+              "pea protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"maltodextrin\"]}\n\nWait, let me reconsider - need exact catalog names.\n\n{\"additions\":[\"pea protein\",\"corn maltodextrin\"]}",
+            "parsed_additions": [
+              "pea protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.13496424839990848,
+          -0.13496424839990848,
+          -0.13496424839990848,
+          -0.13496424839990848,
+          -0.09290913829721482,
+          -0.09290913829721482,
+          -0.08467322306636733,
+          -0.0823815528327588,
+          -0.0823815528327588,
+          -0.07050112642688904,
+          -0.07050112642688904,
+          -0.06861586162831508,
+          -0.066600167109936,
+          -0.066600167109936,
+          -0.066600167109936,
+          -0.06179853529356605,
+          -0.06179853529356605
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.1658325088431027,
+          -0.2352785839319529,
+          -0.13496424839990848,
+          -0.2531008986379543,
+          -0.1382452657187648,
+          -0.26513054351464393,
+          -0.09290913829721482,
+          -0.15622926138437962,
+          -0.08467322306636733,
+          -0.0823815528327588,
+          -0.09016110811298947,
+          -0.07050112642688904,
+          -0.08124367959436761,
+          -0.06861586162831508,
+          -0.066600167109936,
+          -0.08384210219530142,
+          -0.07113786080921482,
+          -0.06179853529356605,
+          -0.07176610227886514
+        ],
+        "final_best": -0.06179853529356605,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein"
+            ],
+            "additions": [
+              "pea protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"maltodextrin\"]}\n\nWait, let me reconsider - maltodextrin isn't in catalog exactly. Let me check.\n\n{\"additions\":[\"soy lecithin\",\"corn maltodextrin\"]}",
+            "parsed_additions": [
+              "pea protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.152087716382586,
+          -0.152087716382586,
+          -0.152087716382586,
+          -0.13083796478863496,
+          -0.1080057685194935,
+          -0.1080057685194935,
+          -0.09400058072804394,
+          -0.09400058072804394,
+          -0.07347915856526942,
+          -0.05796788628742487,
+          -0.05796788628742487,
+          -0.05063940110240561,
+          -0.05063940110240561,
+          -0.04197298139601056,
+          -0.04197298139601056,
+          -0.03418345403986998,
+          -0.03418345403986998,
+          -0.03418345403986998
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.18583473143948784,
+          -0.152087716382586,
+          -0.23489551529451294,
+          -0.18489077660911807,
+          -0.13083796478863496,
+          -0.1080057685194935,
+          -0.13146572710855442,
+          -0.09400058072804394,
+          -0.223405143676416,
+          -0.07347915856526942,
+          -0.05796788628742487,
+          -0.06021819649522245,
+          -0.05063940110240561,
+          -0.06423356537641332,
+          -0.04197298139601056,
+          -0.05013505132539564,
+          -0.03418345403986998,
+          -0.05405182810515383,
+          -0.037338128870311564
+        ],
+        "final_best": -0.03418345403986998,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein"
+            ],
+            "additions": [
+              "pea protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"maltodextrin\"]}\n\nWait, let me reconsider - \"maltodextrin\" isn't in the catalog. Let me check again.\n\n{\"additions\":[\"pea protein\",\"corn maltodextrin\"]}",
+            "parsed_additions": [
+              "pea protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.14521500698934145,
+          -0.14521500698934145,
+          -0.14521500698934145,
+          -0.09976494446653979,
+          -0.0732381329120662,
+          -0.0732381329120662,
+          -0.0732381329120662,
+          -0.0732381329120662,
+          -0.0732381329120662,
+          -0.07185100500957799,
+          -0.07185100500957799,
+          -0.07185100500957799,
+          -0.07185100500957799,
+          -0.06950755167450824,
+          -0.06950755167450824,
+          -0.06950755167450824
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.19610967552570402,
+          -0.27704440851493023,
+          -0.1752697837423101,
+          -0.14521500698934145,
+          -0.18249553023126416,
+          -0.20127773218465667,
+          -0.09976494446653979,
+          -0.0732381329120662,
+          -0.09899681495991867,
+          -0.07613365234755659,
+          -0.08147747875807049,
+          -0.07521713996649704,
+          -0.07185100500957799,
+          -0.07481606234392602,
+          -0.0747544802208909,
+          -0.08180387834872134,
+          -0.06950755167450824,
+          -0.07018292367289256,
+          -0.07081799865514679
+        ],
+        "final_best": -0.06950755167450824,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein",
+              "soy lecithin"
+            ],
+            "additions": [
+              "pea protein",
+              "soy lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"soy lecithin\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "soy lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.1382571485813952,
+          -0.13413209196109802,
+          -0.13413209196109802,
+          -0.13413209196109802,
+          -0.13413209196109802,
+          -0.10780548462942846,
+          -0.10780548462942846,
+          -0.10570587489404018,
+          -0.07430724314192876,
+          -0.05999863264406821,
+          -0.05999863264406821,
+          -0.054582423288573864,
+          -0.054582423288573864,
+          -0.054582423288573864,
+          -0.051208748247862874,
+          -0.051208748247862874,
+          -0.051208748247862874,
+          -0.051208748247862874,
+          -0.051208748247862874
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.1382571485813952,
+          -0.13413209196109802,
+          -0.1644830983742,
+          -0.3090711840596034,
+          -0.15659715280762704,
+          -0.10780548462942846,
+          -0.18931211417124102,
+          -0.10570587489404018,
+          -0.07430724314192876,
+          -0.05999863264406821,
+          -0.06354548726715777,
+          -0.054582423288573864,
+          -0.055183513287194334,
+          -0.05603024513143298,
+          -0.051208748247862874,
+          -0.05302715661844721,
+          -0.0545248777198418,
+          -0.05203125825244413,
+          -0.054923028227320814
+        ],
+        "final_best": -0.051208748247862874,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein",
+              "coconut cream"
+            ],
+            "additions": [
+              "pea protein",
+              "coconut cream"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"coconut cream\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "coconut cream"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.16457920341672802,
+          -0.1540007651027021,
+          -0.1540007651027021,
+          -0.15127407386399755,
+          -0.15127407386399755,
+          -0.15127407386399755,
+          -0.14712296043090725,
+          -0.11414297643634069,
+          -0.08031033094941355,
+          -0.08031033094941355,
+          -0.08031033094941355,
+          -0.06808693248214491,
+          -0.06808693248214491,
+          -0.060180702796329144,
+          -0.060180702796329144,
+          -0.053563220146657924,
+          -0.050258258899222384,
+          -0.050258258899222384,
+          -0.050258258899222384
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.17344720296048532,
+          -0.1540007651027021,
+          -0.1825857453465873,
+          -0.15127407386399755,
+          -1.7968246671955093,
+          -0.2758151838460723,
+          -0.14712296043090725,
+          -0.11414297643634069,
+          -0.08031033094941355,
+          -0.12324049204728377,
+          -0.08315574396878483,
+          -0.06808693248214491,
+          -0.23648185477969316,
+          -0.060180702796329144,
+          -0.08841547121548694,
+          -0.053563220146657924,
+          -0.050258258899222384,
+          -0.06682606945653286,
+          -0.05122545644491785
+        ],
+        "final_best": -0.050258258899222384,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein"
+            ],
+            "additions": [
+              "pea protein"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"maltodextrin\"]}\n\nWait, let me reconsider. \"maltodextrin\" isn't in the catalog exactly - \"corn maltodextrin\" is. Also, the trend shows higher soymilk fraction improves score. Adding ingredients that help mimic milk's protein, sugar (lactose-like), or emulsion properties could help. Pea protein could add dairy-like protein profile. For sugars, allulose is already there.\n\n{\"additions\":[\"pea protein\",\"corn maltodextrin\"]}",
+            "parsed_additions": [
+              "pea protein"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.16457920341672802,
+          -0.14692055324762132,
+          -0.14692055324762132,
+          -0.14692055324762132,
+          -0.141327633498864,
+          -0.08867259901732175,
+          -0.06605697018172889,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.05623342131624737,
+          -0.055079387489298026,
+          -0.055079387489298026,
+          -0.055079387489298026
+        ],
+        "all_y": [
+          -0.16457920341672802,
+          -0.14692055324762132,
+          -0.2471222930308841,
+          -0.21345299528147255,
+          -0.141327633498864,
+          -0.08867259901732175,
+          -0.06605697018172889,
+          -0.05623342131624737,
+          -0.06344480787022624,
+          -0.06660659382989988,
+          -0.05671014572735283,
+          -0.13155933906962244,
+          -0.06318691775017876,
+          -0.060368852638611456,
+          -0.059410451940500306,
+          -0.05869044809135418,
+          -0.09675581537762547,
+          -0.055079387489298026,
+          -0.05792829204259047,
+          -0.05967233173071452
+        ],
+        "final_best": -0.055079387489298026,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "soymilk",
+              "gellan gum",
+              "allulose",
+              "sunflower oil",
+              "soy protein isolate",
+              "coconut oil",
+              "calcium citrate",
+              "sunflower lecithin",
+              "potassium phosphate",
+              "pea protein",
+              "vanilla extract"
+            ],
+            "additions": [
+              "pea protein",
+              "vanilla extract"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"pea protein\",\"vanilla extract\"]}",
+            "parsed_additions": [
+              "pea protein",
+              "vanilla extract"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

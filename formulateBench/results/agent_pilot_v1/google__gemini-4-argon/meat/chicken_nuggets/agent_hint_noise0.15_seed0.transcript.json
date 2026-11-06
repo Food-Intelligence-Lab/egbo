@@ -1,0 +1,1223 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based chicken nuggets. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.35},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.15},{\"ingredient\":\"wheat gluten\",\"fraction\":0.15},{\"ingredient\":\"canola oil\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.1},{\"ingredient\":\"wheat flour\",\"fraction\":0.06},{\"ingredient\":\"corn starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"yeast extract\",\"fraction\":0.02}],\"target_dissimilarity\":0.46298882625293303}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_4260190437417142354",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.35,\"ingredient\":\"mycoprotein\"},{\"fraction\":0.15,\"ingredient\":\"pea protein\"},{\"ingredient\":\"sunflower oil\",\"fraction\":0.14},{\"fraction\":0.12,\"ingredient\":\"wheat flour\"},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.1},{\"fraction\":0.06,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"fraction\":0.02,\"ingredient\":\"flavours\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Exploring Alternative Protein**\n\nI'm currently investigating alternative protein bases like mycoprotein, pea protein, and soy protein concentrate, alongside breading and fat systems. My initial test combines mycoprotein with pea protein and sunflower oil, a starting point for determining what contributes to the observed variations.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EpwECpkEAWkUfRPpkhSamdHB2qGECTbS0vfWDmaNRKu48YrEj9KtdLcF4DLuq+Esn/6UO5RR8vhRzsCBD2qES6ibL2oHKILk6BGd4wo8hnkW0tMqFEOf+iDsKJFecy9FEWSlpYKeo7WtX4z2WaWx+JM17n1hJYf3tYBCJnarltxHwWz6iR84ZhUymgL1dETuty/Fljenk5NajksK3ugPlVTY8sg5VZesnnm3H5wX8qs9IxjJTQs6pzSIcDtZ/zIN+cgHLFogv4qDuhPfXEwtwWz8RbFWBpUU1JFhmoKYhOXxBZDYW1j+Ka3PvHh+zL2pELV/ULf5titg719R7Fb0Pyix97PHfDzuhLPnURrRwwBXD+YEJ/VFTN8qU0gPWrY0Di1SyTP96ByBv0el0kq1sXVfOyaOlTJxRkfjbxhr9CPFuopBsl4QmqKE+cD6n9DbZLTHLvov7bqO+yZeZkBY7oZH+bWQRnOe1hxTSbgrhHjy70AszwusTtfPYCoHeQVNU5xsBh4Qyy8D9hjqPS3ARhTz9uHsVj14W1W7c7/Akudk584ZvfTuEWMFL5kThDxFAlS8M8HTC8jzS7hcrkiNfRZaLFf4fhK0as+gVBBsIs3jey4gKT397CMpslQEe/B9ODXHn1zojZo1mZU0GIUR0kl4bekaBqVLBCmQ5fK/Ja2NX3KNkDTCIArkJZcWtt7UW1ZHTHovB+gOpT4DSslY",
+"format": "google-gemini-v1",
+"id": "call_4260190437417142354",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_4260190437417142354",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.10023685554602216, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_290658",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.5,\"ingredient\":\"mycoprotein\"},{\"fraction\":0.12,\"ingredient\":\"wheat flour\"},{\"fraction\":0.12,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.08},{\"fraction\":0.08,\"ingredient\":\"pea protein\"},{\"fraction\":0.04,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.015},{\"ingredient\":\"flavours\",\"fraction\":0.015}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Performance**\n\nWow, that's quite a drop! I'm now digging into why iteration 2 performed so well. Specifically, I am scrutinizing the composition that contributed to the success. It looks like `mycoprotein` led the charge, with `pea protein` and `sunflower oil` making significant contributions, followed by the rest!\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EtMICtAIAWkUfRNvA+NC7pEQCFdgQjy0+37+STyhhCMXYOu4InGGlmw1oiT2v5kw+awZaoC5h+hNNlev/YwHN4X8ZoSrBoh/DP+Cj2EiLFd43WzZalNyqYhakFr+F8AlIAhExJtacxkMEWr12uJgr3CMLfnqOPECLfpPYXqdXL/dikSq9sBurgJM/ZIL3E8kLCm9ICXpuCziIbnbSyc0qyjDQeKafXyfObMWk43nGqqZRNV6KiXWFuAq+iDPpE0fsUdEkaayezAUxBd7eT3F+TVEv1jIitR7/uqqzG69f7GfZyI/KFZzLVWF2wOUyfJleXei0CxOYPYN4jqqfT9E+6cHwIUBdWmTDuGrzilbymwBetXTga6y+bY8uHkOer/+cefWZyD+vkkzP0RExxiz5mLEfiDl4WgWVdFBxj94hhYLTRfcnFPCqDyBgCWc8mZsHxeFyw9sh/TU6yt0EI52PaMTgF8qsCFSOZFlGbbBYD3hXw1GN8IAHaWS0jfqqAAqmfLmesEyNuGd0mFerEn/1oDZRWuPl9wQIfEgCGwYCVFnfiaNqFrDJQ7m4DidCH1oKQzrbanDF69/+JpIwrklgSQCCnirMTgugZgfby1V8zKX+WAL3LyvFzc0+T0IAcu1OC85+/ptMczGVeY7Gacvg2epzvwPeQzkpbkLvRW80Yz8XVOdo8UsW+C3FiLL5DSWfltd4iqvTvLiDGCRyM0EA3iP+Rzn0O3fsh01+coYlZPe0pMF1MdTD2+v8fWs0yuK+yyFFtlP4RuoloC2Wy0VmYNnxfqyZT2C+jSGrSoDEIMQrfau70RxdI6irrrzYaukv7uf0ky8qkY6xNYY8n7gII4+O3bvUw5l58zGWrO/KTNeg+FUE2WhR0ofB80AX8B2RI+JwLrxzDM3ojtQj715/i+Kk67DKmf0ZMp1omKmmSmi/L1LXIqLD7sayCqxejpkn3xGxjIE7unXxrhMDPc67bEeVDIqQTVO0uXK52ujXXc5rbt2V8OrxxaYfyrwCsFLluW+AbzeTfbDeAxZF34UgOxl6UcdfdrtilA9MGpI5mtmhxf7Z+/6A81OJS9z6bBNOyrxZon2y4VmwOHerSBCV6e9q2Y7am5xc9GFxcfLQbu2eCde6DUu5XU8EyON8bm0K97CO92gj1UWyV2dL1lAtFIu9XEvHWr9izYlqClBSpDKf0NjRpfXd2TfpaNl0fP1lyLLGPaD+m/ONneCfTBAYSwPfvUJkkla1+strom40ttpA0B120TAtjAsUimqd4iL5SWs7pKVodL4PWmW5/PmgBhz+J0wWC9EBTvcsBvkuiDUSae4UwewZ3eDnM4qG7MmshL2N8hMcYCFmLe4T5Ez6A77I+m5thFvraejFaBDoM7WVEY2rPhWnnccdHVNpft/70JhNBIsZQLTsZLBBeuXiM7QOcPcYRfPg4RBzqmNqS1CseBHlGUt33PkxKQ0VJPwxqG2ajEP",
+"format": "google-gemini-v1",
+"id": "call_290658",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_290658",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.1986446183986359, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_495930",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.2},{\"ingredient\":\"pea protein\",\"fraction\":0.3},{\"fraction\":0.14,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.12},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.1},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"fraction\":0.04,\"ingredient\":\"potato starch\"},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Adjusting Protein Ratios**\n\nI'm currently exploring the impact of altering the protein ratio. Specifically, I'm considering reducing mycoprotein levels to 0.20 while simultaneously increasing pea protein to 0.30. The other components are staying put. I'm eager to see how this modification affects the overall outcome.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EssDCsgDAWkUfROiPbAP2h0KKXck0N2c94Idd45s3awqkDlljYQe+2ZX3VxSDxZuKm/7oaFj3z5jWNzT/7Antu/TGYExu/eml5krNnQ9xe3WVrnRA4vUYvxyIEMnEX5wcFXtgWf6ubJD21jIpjtV+riE+T1J60cXxYpnKTtAYRwP7R/SvOw6yErTlKzmgAKwA+ljMu96dw9Po5cnKdfCxwiImzlEdjRWnI1XFRlXaSzgjselesc0r+wPoCZVHNA3S/qxMWL0ich+Aa2IUcKmVzd6ouFY7eTy8W3p3h6dsGP+o1efB0n+Yoh0DXfBRlea+Su6lUHl7ggIvkN2tvtXMy6/ldNBwjHQJh2VjkTa9PMJv3wIKEm53yi/rVCy1aqJFLPIpeohBpGJPyskqoDQLkbjhwWGszG6eNlmhlKlmGPN3WjEt9w0fb1pTY3Jm0GgbKIaWbniKMoGY8jeML2LqL+IImrF5HCtOPpvZ+WXUKaFXHILO/Nh22wR2/W34XYhb0epoMr/9R6UNe2JV/lncQHMNDpLvswDbJbf+FG7ofzDcjkBSqG2BOG2t/sQWvzBVrJa46YTAwRuE5T2v18ySyXtussp/rrMT1tMRO+E",
+"format": "google-gemini-v1",
+"id": "call_495930",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_495930",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.24012885817852644, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_272999",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"fraction\":0.15,\"ingredient\":\"pea protein\"},{\"fraction\":0.18,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.08},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Protein Ratios**\n\nI've been analyzing some protein ratios. It looks like both 0.50 mycoprotein with 0.08 pea protein and 0.20 mycoprotein with 0.30 pea protein performed worse than the 0.35/0.15 combination. My current focus is on understanding the optimal blend, and I'm looking at iteration 2, where the total protein content, including mycoprotein, pea protein, and wheat gluten, hits 0.5.\n\n\n**Testing Macronutrient Balance**\n\nI'm now shifting gears to evaluate Iteration 5. My focus is on understanding how macronutrient balance impacts dissimilarity scores. I'm testing a slight increase in fat content with a corresponding decrease in carbs, keeping the protein blend constant to isolate these effects. I'm curious to see if this adjustment leads to an improvement or if replacing an individual ingredient offers a better path.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_272999",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_272999",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.05625357904922798, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_418689",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.37},{\"fraction\":0.16,\"ingredient\":\"pea protein\"},{\"fraction\":0.21,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.08},{\"fraction\":0.06,\"ingredient\":\"breadcrumbs\"},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.02},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Dissimilarity Reduction**\n\nWow, that latest calculation is quite a breakthrough! The dissimilarity has been slashed significantly. I'm seeing a clear trend: starting with mycoprotein at 0.35, we've progressed through pea protein at 0.15, down to breadcrumbs at 0.10, and now wheat gluten showing 0.06. This is incredibly exciting to see.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EpwICpkIAWkUfROzBLcaBcP/qMBI0WdlYgN9HumDbNhhpAu/Lb+x4T6JoN8KD4O65vDQLoMJsRtZo9Tjilm2RQ8Qx1Bl9L8rCUxnrrooUN2EpXbGhBfftn00hLHb7YzHkVRvZfDkWE67cUeFOm10r42e3esXzUazXfYPi8lHrZbp+rjZxhcm4QZYFWG+VHongpv+7u/qVbu746IVJCNiwbgZhy9IgU9ycWWk9RS3Uv3GUig9blYAaxdyP6UgD2WRzNZ/xyQ94miRsikO6J86S5So+gEdA9FIBHXEQ/izOmzXmqtgewZT2dwTAzw1ePQmtqCo4shQk93WQvbca7RQJO0DfBhYxSPjSWUezvb0mgGtB4XYSiUlsArygEH0c9He6EM+7rhUxzJGrKBuipVbUvciFPpcUf3q6sOEmfr8axMje0FIPo/ty5hMpH2WHODeDGe58MbWEAPoOI9UOhD234/Cp1LEual3b4PO1fovyYNuTDpr7M8UOiDal2bz4qoKgF63LrMhaFS0Trv8HvJg94W5aY8e4Sh8uu2YAS4AN+1PqgkbZWDJw0P3nwwL/ucM+fcY7x0kh1R+KoA/OqrNQagKzerd5W/Q41tjGiXWD7o7kiLQ7vVwHzHxFMB9Ye/4ehHCIt12qPX/KnbqUNKidAtZyqS9f8DcReT/0wYXKEd5rXflsrF4bPhsjb63ufpsNNA+k1nBWG7PPdeWwCOJ8aGcfRFNR9BhOYRds2HHNe3ilAHTHxkUO7vnSEBOuf+VX5LaqpC+jZrLu6dwyjJGf9mUyEzmAxaegKHj8Ao0zh9T/llrRw2c9vyflC8kT9ZerhjS/qbYuzDr5F3sRIthSYd/TJQwgLLLWHGJqCBF7ylwCVpyD9kaIeVdTR4wQrZMGTmel2ZQq4sRvPYFujNiBh5PQJb1rdl0wlxAdm18fn7H0865qBxpbFcoaArHGEcldmkOtex4G+GsWpps+2hoNJQ/Y5DcXN6u8AFzbeasmIg/I4VfhLdwln9rDJjmgvR4f5eEUBkbHS84OEYEDlOYZ9oZ4iLe8gO04LS4xtshv9MBZVAkr9rcG1I3+sDU9AGeLwTxIWAL1qGLn/U+dCGWZXlE19REGireU4aSAMrQoFbp0mDqlThHOMeoVOHrmXHIi0SqZ+fCCvavHXYIZy+m6v9IjV+Z9JzTLURU4Qp2Lmz+LCbV6lwAK273noB5HiJrgrqKsp5hGx+Kb9dC8C7NUlo/oMD/GXxTlGB+2TglupSiNHUgtIZ9G+rw9X1Pkh+ipqVTstmUSRE/mM2dQKx+qMvpsPc+1Egz8em3kEG+XX7gEmiNMjB04/tOBAgNijHy05XC/J+ch+iDGLDHLMah4NTO2058qOLHFkBHv3O8df1lahAy4myzglKKpxs0orQ=",
+"format": "google-gemini-v1",
+"id": "call_418689",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_418689",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.22641973069034724, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_353567",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\nfor e in evals:\\n    print(e[\\\"iteration\\\"], e[\\\"target_dissimilarity\\\"], {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]})\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Behavior**\n\nI'm noticing a significant jump in performance from Iter 5 to Iter 6. To investigate, I'm shifting focus to a Python script. I want to build a response surface to identify patterns, or just check the differences between earlier Iterations. The goal is to figure out why Iter 6 did so well. I'm running this script to see if I can understand what's happening.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EpkDCpYDAWkUfROeWx6grAs08zahEo4ol/bIByckuqIu+8RMTft2QuNxX44veAM4WrRABm8cns2z9MexuZkNcOhP+lgniiH1wTeU5aczBZ5IkvKaYaZMCKaVv4oVq5UoqSyspKuvAgwpXEOhduJRJROE8xP35ST0w2gKEdib+QU6ld1sS0y4oZ407Cn8k+7DU8Vj9S/zEgzO5r54eXPwNp2RUUUFJ3PXBlZn3XIIJiz4tvJkMgdhc7eGXmzgYhjO9RLFcn+aUTi5TFiO/PvvNL2n0y5k/8epdYV0g6hYeAG7BrBO+69t4Fe6qxAoiDS7311iQvE8QX3soFjRvmy9f9Ri38zmaxnV8EdludEpjT3zMiQChx3YQqOtP06cqJcAs78k/oX1zdiQ3jCDWHq5qfHDo7bkTxZb/8bIyWvfqyMf7CGZRH5frr5UIP6Dn7cHgsoAsLL1CWVOwYrV8qLhYBxyXV9DEKNp6KOTZiYAmZyi2XkL629qm6fie1FpMcxkkn5mmdw7XAJ7RI6zjUegPUsAi6Yw0Z+srvglmg==",
+"format": "google-gemini-v1",
+"id": "call_353567",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_353567",
+"content": "1 0.46298882625293303 {'textured vegetable protein': 0.35, 'breadcrumbs': 0.15, 'wheat gluten': 0.15, 'canola oil': 0.12, 'soy protein isolate': 0.1, 'wheat flour': 0.06, 'corn starch': 0.03, 'methylcellulose': 0.02, 'yeast extract': 0.02}\n2 0.10023685554602216 {'mycoprotein': 0.35, 'pea protein': 0.15, 'sunflower oil': 0.14, 'wheat flour': 0.12, 'breadcrumbs': 0.1, 'wheat gluten': 0.06, 'potato starch': 0.04, 'methylcellulose': 0.02, 'flavours': 0.02}\n3 0.1986446183986359 {'mycoprotein': 0.5, 'wheat flour': 0.12, 'sunflower oil': 0.12, 'breadcrumbs': 0.08, 'pea protein': 0.08, 'wheat gluten': 0.04, 'potato starch': 0.03, 'methylcellulose': 0.015, 'flavours': 0.015}\n4 0.24012885817852644 {'pea protein': 0.3, 'mycoprotein': 0.2, 'sunflower oil': 0.14, 'wheat flour': 0.12, 'breadcrumbs': 0.1, 'wheat gluten': 0.06, 'potato starch': 0.04, 'methylcellulose': 0.02, 'flavours': 0.02}\n5 0.05625357904922798 {'mycoprotein': 0.36, 'sunflower oil': 0.18, 'pea protein': 0.15, 'wheat flour': 0.1, 'breadcrumbs': 0.08, 'wheat gluten': 0.06, 'potato starch': 0.03, 'methylcellulose': 0.02, 'flavours': 0.02}\n6 0.22641973069034724 {'mycoprotein': 0.37, 'sunflower oil': 0.21, 'pea protein': 0.16, 'wheat flour': 0.08, 'breadcrumbs': 0.06, 'wheat gluten': 0.06, 'potato starch': 0.02, 'methylcellulose': 0.02, 'flavours': 0.02}\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_309319",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.355,\"ingredient\":\"mycoprotein\"},{\"ingredient\":\"pea protein\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.165},{\"fraction\":0.11,\"ingredient\":\"wheat flour\"},{\"fraction\":0.09,\"ingredient\":\"breadcrumbs\"},{\"fraction\":0.06,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"fraction\":0.02,\"ingredient\":\"flavours\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iterations' Behavior**\n\nI've noticed a near-linear relationship between Iterations 2, 5, and 6. If I set Iteration 2 as t=0, Iteration 5 as t=1, and Iteration 6 as t=1.8, the y-values are 0.1002, 0.05625, and 0.2264, respectively. This unusual pattern has sparked curiosity, and I'm currently investigating the nature of this unexpected behavior. Why did y change so nonlinearly?\n\n\n**Investigating Nonlinearity Further**\n\nI'm now diving deeper into the potential for measurement noise vs. a sharp minimum near t=0.8-1.1. To clarify, I'm planning a targeted experiment with Iteration 5's oil/carb levels, but with tweaked protein ratios, specifically testing wheat gluten versus pea protein, as I did find it unusual. I will test a modified point very close to Iteration 5.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_309319",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_309319",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.10600741235055866, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_264857",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.4},{\"ingredient\":\"sunflower oil\",\"fraction\":0.18},{\"fraction\":0.1,\"ingredient\":\"pea protein\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"fraction\":0.08,\"ingredient\":\"breadcrumbs\"},{\"ingredient\":\"wheat gluten\",\"fraction\":0.08},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"fraction\":0.015,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.015}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Discrepancies**\n\nI'm noticing something peculiar in the iteration data. Specifically, iteration 7's value (0.1060) is unexpectedly high, falling between iteration 2 (0.1002) and iteration 5 (0.05625), yet it's much higher than iteration 5's value. I'm now leaning towards the hypothesis of significant measurement noise. This is the most simple explanation.\n\n\n**Investigating Data Anomalies**\n\nI'm now zeroing in on iteration 6. The 0.2264 value stands out significantly. I've re-examined the ingredients, comparing it directly with iterations 2, 5, and 7. I've discovered significant differences in the proportions of pea protein and sunflower oil, combined with reduced carb components (wheat flour, breadcrumbs, potato starch) in this iteration, and those differences are probably relevant.\n\n\n**Exploring Ingredient Substitution**\n\nI'm now considering the compositional differences between iteration 5 and 6, and I think I've overlooked a crucial aspect. The drastic decrease in the outcome (from 0.21 to 0.16) in Iteration 6 compared to Iteration 5 now seems linked to changes in the protein source. Iteration 6 replaced Iteration 5's original ingredient with `mycoprotein`, a wet ingredient that contributes a higher water content than dry isolates, which I wasn't accounting for. I'm expanding my investigation to include other wet or whole ingredients and plan on checking the recipe catalog for possible improvements.\n\n\n**Considering Iteration 5's Results**\n\nI'm now taking a step back to re-evaluate the low value of 0.05625 for Iteration 5. I want to understand what's contributed to such a low dissimilarity index value. I'm focusing on the recipe itself, and whether I missed something that made that iteration very effective. I am now looking at all ingredients used.\n\n\n**Formulating Test Parameters**\n\nI'm now formulating a new experiment, Iteration 8. I'll maintain key ratios from Iteration 5, but I'll introduce variations to `wheat gluten` and the `mycoprotein` / `pea protein` ratio. I'm aiming to build a more comprehensive understanding by systematically exploring ingredient combinations. The goals are to test those ingredients for impact, and to see if we can get even lower than 0.05625.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_264857",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_264857",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.14724691201648496, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_320481",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.33,\"ingredient\":\"mycoprotein\"},{\"fraction\":0.18,\"ingredient\":\"pea protein\"},{\"fraction\":0.18,\"ingredient\":\"sunflower oil\"},{\"fraction\":0.1,\"ingredient\":\"wheat flour\"},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.09},{\"ingredient\":\"wheat gluten\",\"fraction\":0.04},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"ingredient\":\"methylcellulose\",\"fraction\":0.025},{\"ingredient\":\"flavours\",\"fraction\":0.025}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Exploring Protein Ratios**\n\nI'm currently dwelling on the recent Iter 8 data, which unfortunately underperformed compared to Iter 5. The shift towards a higher mycoprotein ratio in Iter 8 hasn't yielded the desired results. Now I'm considering an opposing approach, a move in the reverse direction. I need to investigate what's working and what's not.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "Eq8ICqwIAWkUfROVZXiARbab/dLNSsPVXvLHm4i5BpoawRLLEq7jdZ0WrCtEAzKUuZWYQziLLvAHZ5hwVP3yRBn5CUQThHb5iML9gAlz2umU/5mM1S3o0q2yWKy1hkc40gLwxJnDOMzzi0muz0eSXZa8aD8yUvznB0XzuK7zT0h++E4sqjiZqJ8IsRRFNlY2uZPAnnjQnUOcgxobcIRuPKwRfdwadtRuG8TzzGr44RKxrQjzo90YY+MoRoUbl8c37jfd3kO/GW2Busfqrdzcn3u1Ruaz61UgyTyt58SG0LHs6XOp/cO3g3cKFYNq9lEJMAWq9SDjLMspX1i6hhRuRntIOENBKGln+9EdwuBnE8p+w97MlPSF6KqFuZI2VLP/Ww+XhaVGpL3C5KfMxUMISiM3DIT84LNkmT5s04x9AHXB5BRbmVM4N/vLfkezfIXtFCffWNB5cc1I8X/oIfrhn4e0JtSGXuyCVqp+ll72MHr5hHH6NuFlrWJgaK3gOzraWnOgTgeuzfU+FBnmzt0SukvH7PSZtzVE0HWncbC+4jhd+CS4aVrjl/tWH9Ij8tw+Lp0ijk03Mg8Z7gD6eHDR+OZFgCFEV7jC1dv1huHTnDXyVCka0lbu4/LeBwkaVfcN1V/TFly8Wp9v3ADABb/kzGE/jxrJZtC41D4XJgtRqM1ZmJdzXAAT1j1UlQql6X7dGww90x//g0BPJCOwJGHq+iEU7mZhVL8NQwSIOXCdoG/EdriuIP4lLLDTZBI1DuoLnr9wHRYdyH8GkO0Nv67hFREfHMn2MtyKjLcmUeiuPrHdCJ6TCwtwSe6LhkKBLBU1TV7fODE2CyxpVDwz5YYDc+UPx6xlMUZmwXvUHyps7UxrKYrEVv3N9/DSGhwZy/16QcvXsLVfHhQ9Von7XwyO1+Ns55bPnWkF3WsQsdstaG6RfRJsh0boQ9LFmhekilLY1b0FzzfEPJNIwf+YTMVA11rOV8fNwCl40ugjUKe4gliieYj77pAHSaJqw5ONNxcPD6ZnOjAGvPyFtpvloNehoKXNj0Jn9MJZNPuJpQlFiDwMhCnBmx5ulpqNBuZZVaWc8SPrR2+zGVE8VZRyKLG0+0BnxdtOQtRh5uSE2gCrfMUrOX555eglVwZgJLcCe+JiQIHMDGj31OzjZkZdbwBNuUGH62kZA8+6e9WlGabb1VCWvJWus8XOvelR7Y63I1RPWIy2zL4TdOhH6Wkhr1RJ6qFi32IYsmGqBj++2zY4HU/UrD1aPVF5QduFIXhsCWo+RVs1ztLaTbWaMR2QuHXSpbRsZ0GlCFdfM6t3EdOtnX8fr5D/GWxyE3xwN3jH7vxpJdDa1Ofw9f5fJUwW4d70xpmT+NYHKyOOGZDdduNF8pZNNFkpobFe2LK4X+W9hDxx943n0c4VIhHhv7p05FS2dGae",
+"format": "google-gemini-v1",
+"id": "call_320481",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_320481",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.1489431566935697, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_201721077821057131",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nrows = []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] == 1: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    row = [d.get(k, 0.0) for k in ings] + [e[\\\"target_dissimilarity\\\"]]\\n    rows.append(row)\\n\\ndf = pd.DataFrame(rows, columns=ings + [\\\"y\\\"], index=[e[\\\"iteration\\\"] for e in evals if e[\\\"iteration\\\"] > 1])\\nprint(df)\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Data**\n\nI'm noticing interesting symmetry around Iteration 5. Specifically, I'm tracking how the ratios affect the final score. Iteration 8 represents incremental change from Iteration 5: adding mycoprotein while reducing pea protein. Further, I see small shifts with gluten and the combined methylcellulose and flavors. I am eager to see how this translates to final scores.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EocKCoQKAWkUfRPvNlGlifA7cAYNzA7No0Lb6zprMJTw/CzuPPp36y+YBGRNP3OIyJ3UW9PzRUdOepVe58GT+RtfS/dzWlYUySI67dTctOxE0WKfF9XKcuYz0E35FLZTgAqLyx3qv87odtXX6HtarAYL7vKDQwk+2Uj91iNQoFcOXvVVldD+Dv8hHrjkDe4c5TplbfqlCVK/GsO5/ywNBvbeXMw2Mu23/wd9byzPfBQK5VjSP4+cIzX4ubbPuMmaJC4xCCkDV8t32+IWncx4tLu3wCNdiODNHVXCkg959unoz+IOEjjt2IpMXjJfLkMwl3OTyQASz2ARJHG+pYsCTNvg21fTGD+ajkWN2UWP9F5k2yX5jqRz2aYNyx7t0yp34pRhXhstotf6sgtBz5/b/a5LosAqj2e1bj9zEoA1gmnjRHdoSAFjrAY3aTD/ROk3p3p8yKMn2WRMn4/Exsg209WBECz3KIt5PqMbjl8qeLFjiXzAVnRcOYm+BpHHgRvf9xtPYwTyXA8GZ1dGSDp6HU27GChhjKojgRwmKohyPaCVsLahxF9+KQBzC+6V2e6SGaNVfTMN6vXOmVdXoJTxwGdkeb4iAQEf/2f8d8GQs28vMjngPTC2fXNlhccB7Sd5EnnJdjsWzIT0AyuXJTjKGJQvsM7cR2DDG8CWWucIQLN69J1jFFBU/CE0FXoQ7oC49dQJKmRhZ7I0Oj8I46YsIFK5JJ6GOK+s8/QV0XCQwz7zMceiIZ58hTr7XeH7b06zQw1IZa5rdXfAoH/1WPOP1W8P/l9ogXs4NyDHAz9sXtqZCykdqF5Vi4ohjU7Phig14NADBTBqblJafxd3A65lhM3nDjOWuONhH5Un/o3WvLgfqF7ryOQOBaFK8ouuYh/eUOYcYsnhCq/jFcuknD+A2sKKvsqzDJduOjEp6oE7LlRf729HZBgYHUPEZ3nV20MBfpvze6/hY3/+XQkbDX6/7qfLdgdUhS4SOkgyDfTQyFq4aJGqMThBFRMigi4fFAj1YSdLnf3SGMjNxKiXVc2o6pDaf5gpoNISSZLKdv3MWe4vQn+sk0RFtloV8PZ4VxD7u+5RBdZqK9n+PlLVluWny6Fw8pdTs/siEyHD2+7jLBeBw09ox7R18+/t1N+Nma/vfqgSjOKD4HS2xqeRwiepzX3M2kePKw0M6sy66p9O94FiVl9KZOataMo/GlDbV7BwuIAa9wNo189bAWD4QDb1cAWxXGIrIP14QxKKePqXPQPB8HHyfjFFcAYlNx2FpDDLEwYtckUcKFORiBNqnTDsrNXI5Jc0tP5aitA+KI1wp9WQWzkIGRFEljbmG7V/bDhPvV5KTN9sEtVGxW6sW3MGi2leG/U2YWDCVt9W5y5NAsIY5g6VoiPJYhF28e1yzmtximl2OvfdWVR36dKy5UJQQXCs0eLe/X9C+VBLx1SaRUDOjKhLdFq9lTILGcp61v5vDZODGLremJgvCpgq6UsU9DmnswOEX8IXyzPYmlO6SzU8fJ+Oj48rxj4Yw0C35ePGQGxzH6ob1YdmmVxRE0sYek7OvqaMU4XGonJ9/rOL20q3TqYrvC+WqLnHCAlNcCiZKDd1CH20S6MWBA0DltFtR1ypOZxZWCs8bJyI9mXRYgAzrgkexIlgbFwTBDtOsXHKNMl50x2itV8vciHxwBRNnlS+TUv7rK2yN5tReJzRa+aVrniXkOnLKTlA",
+"format": "google-gemini-v1",
+"id": "call_201721077821057131",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_201721077821057131",
+"content": "   mycoprotein  pea protein  sunflower oil  ...  methylcellulose  flavours         y\n2        0.350         0.15          0.140  ...            0.020     0.020  0.100237\n3        0.500         0.08          0.120  ...            0.015     0.015  0.198645\n4        0.200         0.30          0.140  ...            0.020     0.020  0.240129\n5        0.360         0.15          0.180  ...            0.020     0.020  0.056254\n6        0.370         0.16          0.210  ...            0.020     0.020  0.226420\n7        0.355         0.15          0.165  ...            0.020     0.020  0.106007\n8        0.400         0.10          0.180  ...            0.015     0.015  0.147247\n9        0.330         0.18          0.180  ...            0.025     0.025  0.148943\n\n[8 rows x 10 columns]\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_332744",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"fraction\":0.185,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"pea protein\",\"fraction\":0.15},{\"ingredient\":\"wheat flour\",\"fraction\":0.095},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.085},{\"fraction\":0.055,\"ingredient\":\"wheat gluten\"},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Ingredient Pairings**\n\nI've been examining the relationships between ingredients, specifically focusing on Iterations 2-9. It seems `wheat flour` and `breadcrumbs` consistently move together, with `wheat flour` being approximately 0.02 higher than `breadcrumbs`, except in a few instances: Iteration 3 (0.12 and 0.08) and Iteration 9 (with some other relation, unspecified here). This seems to be the most critical point.\n\n\n**Investigating Iteration Differences**\n\nI'm now diving deeper into the discrepancies between Iteration 1 and Iteration 5. I want to understand why Iteration 1's dissimilarity was so high (0.463) compared to the others. I've re-examined the ingredient lists of both iterations and I am comparing the specific ingredient contributions, hoping to isolate the critical factors influencing the dissimilarity score. It seems that the ingredient substitutions play a major role in the dissimilarity. I am considering the possibility that evaluator noise is around 0.02-0.03, so a minor swap could have big impacts on reducing dissimilarity. I'm focusing on the significant shifts in ingredients between these two runs.\n\n\n**Exploring Perturbations and Substitutions**\n\nI'm now focusing on perturbation and substitution strategies, particularly around Iteration 5. I am thinking of the interaction between `wheat gluten` and `mycoprotein`/`pea protein` and I noticed a change in the values between Iterations 8 and 9! I am testing small variations of `breadcrumbs`, `wheat flour`, `potato starch`, and `wheat gluten`. I'm evaluating the impact of replacing `flavours` with alternatives and changing `potato starch`. I only have a limited number of evaluations left. I am considering slight adjustments.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_332744",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_332744",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.2334098918554499, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_295539",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nrows = []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] == 1: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    row = [d.get(k, 0.0) for k in ings] + [e[\\\"target_dissimilarity\\\"]]\\n    rows.append(row)\\n\\ndf = pd.DataFrame(rows, columns=ings + [\\\"y\\\"], index=[e[\\\"iteration\\\"] for e in evals if e[\\\"iteration\\\"] > 1])\\nprint(\\\"Correlations with y:\\\")\\nprint(df.corr()[\\\"y\\\"].sort_values())\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Ingredient Shifts**\n\nI've been meticulously tracking how the ingredient percentages have shifted between Iteration 5 and Iteration 10. The goal is pinpoint the most influential changes driving the target dissimilarity down to 0.05625. Mycoprotein's leading the pack, but I'm paying close attention to the contributions of pea protein, sunflower oil, and wheat flour. I'm noting the interplay of these components in the overall formula.\n\n\n**Investigating Divergence Causes**\n\nI'm now deeply puzzled by a significant dissimilarity spike between Iteration 5 (0.05625) and Iteration 10 (0.2334). The ingredient differences seem minor, yet the results vary dramatically. I'm leaning toward either substantial observational noise or the possibility of a step function or threshold effect involving specific ingredient levels, like wheat flour, wheat gluten, and sunflower oil. I'm cross-referencing and checking the ingredient proportions, to correlate them with dissimilarity values.\n\n\n**Correlating Data Points**\n\nI'm now analyzing a series of iterations, focusing on the ingredient shifts and corresponding dissimilarity scores. The data from Iterations 3, 5, 6, 7, 8, 9, and 10 is the focus now, looking at the direct relationships between changes in components such as mycoprotein, pea protein, sunflower oil, wheat flour, breadcrumbs and wheat gluten, and how these affect the dissimilarity. I'm hoping to identify the critical thresholds or interaction effects.\n\n\n**Re-evaluating Statistical Noise**\n\nI've made a crucial discovery: the dissimilarity fluctuations might be largely due to noise. I've re-examined the data and calculated a standard deviation of ~0.065. I'm now revisiting the assumption of true dissimilarity changes, considering that Iteration 5's low score and Iteration 10's high score may just be statistical flukes. I'm considering the potential impact of this noise on experiment design.\n\n\n**Exploring Ingredient Potential**\n\nI'm now contemplating the implications of the high measurement noise. With only ten evaluations remaining, the current approach of incremental adjustments seems ineffective given the noise levels. I'm focusing on the significant dissimilarity drop from Iteration 1 to the subsequent iterations to pinpoint a more promising ingredient combination. I'm investigating what aspects of the Iteration 2/5 ingredient set could lead to a lower dissimilarity and how they relate to the target.\n\n\n**Identifying Key Alternatives**\n\nI'm now focusing on potential ingredient alternatives, thinking like a food scientist. I'm building on the progress of Iterations 2-10, and analyzing the impact of ingredients like mycoprotein, pea protein, and sunflower oil, along with wheat flour, breadcrumbs and wheat gluten. Given that the target is a dissimilarity score of less than 0.12, I'm aiming to identify the significant changes between Iteration 1 and Iteration 2. I'm investigating ingredients used in Iteration 1, such as textured vegetable protein, soy protein isolate, canola oil, corn starch, and yeast extract, and how the shifts in their proportions relate to the change.\n\n\n**Evaluating Ingredient Substitutions**\n\nI'm now contemplating several substitutions. I'm reassessing if certain Iteration 1 ingredients are superior to those in Iterations 2/5, particularly considering the role of `soy protein concentrate`, `chickpea flour`, and various fibers, oils, and flavorings. I'm focusing on why Iterations 3 and 4 had similar dissimilarity scores and what ingredient combinations led to those outcomes. I'm considering replacing ingredients to achieve lower dissimilarity.\n\n\n**Prioritizing Ingredient Testing**\n\nI'm now zeroing in on promising ingredient substitutions, particularly investigating the texture and fiber of Quorn nuggets, and considering `potato protein`, `soy protein concentrate`, and `chickpea flour`. I'm comparing the Iteration 2/5/7 formulas (average dissimilarity 0.0875) with Iterations 6 and 10 to understand the cause of higher dissimilarity. I'm focusing on fiber inclusion and specific flavors.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_295539",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_295539",
+"content": "Correlations with y:\nbreadcrumbs       -0.198589\nwheat gluten      -0.176485\nwheat flour       -0.157073\npotato starch     -0.150411\nmycoprotein       -0.146773\nmethylcellulose   -0.109816\nflavours          -0.109816\nsunflower oil      0.017839\npea protein        0.310433\ny                  1.000000\nName: y, dtype: float64\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_265554",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\nfrom sklearn.gaussian_process import GaussianProcessRegressor\\nfrom sklearn.gaussian_process.kernels import RBF, WhiteKernel, ConstantKernel\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nX, y = [], []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] == 1: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    X.append([d.get(k, 0.0) for k in ings])\\n    y.append(e[\\\"target_dissimilarity\\\"])\\nX = np.array(X)\\ny = np.array(y)\\n\\nkernel = ConstantKernel(0.1) * RBF(length_scale=0.1) + WhiteKernel(noise_level=0.002)\\ngp = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10, random_state=42)\\ngp.fit(X, y)\\nprint(\\\"Learned kernel:\\\", gp.kernel_)\\nfor i, (pred, std) in enumerate(zip(*gp.predict(X, return_std=True)), start=2):\\n    print(f\\\"Iter {i}: actual={y[i-2]:.4f}, pred={pred:.4f} +/- {std:.4f}\\\")\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "EusBCugBAWkUfROSX1HLVnYTme3yVZsY/B3lWjIsY1Hf+OP+PEqutC7PQk7CIFob8aChc+O/kH4fHouLJ+qcw7OsuKzysR6BV+83JOd02YPk58UHIUFWoW+KJTrggq891rK6Ekaot1MjxeQRNyU32XiwMi8UmjQUa3P50FTyoNSmfuzDAKNO4YpylMIARzd5BaMR2ni8/khFhzNyCVJ/UYEWRumfriY8F8Oz3rbiNaLDLLmx45GIvLs5KPxGFKVRp2tbqVxsTyPf945tFPRW5aAlN5x26desd5mbPdM/VwzLEiYmBzaDvo2Iy+7VsA==",
+"format": "google-gemini-v1",
+"id": "call_265554",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_265554",
+"content": "Learned kernel: 0.16**2 * RBF(length_scale=3.21e+04) + WhiteKernel(noise_level=0.0044)\nIter 2: actual=0.1002, pred=0.1589 +/- 0.0699\nIter 3: actual=0.1986, pred=0.1589 +/- 0.0699\nIter 4: actual=0.2401, pred=0.1589 +/- 0.0699\nIter 5: actual=0.0563, pred=0.1589 +/- 0.0699\nIter 6: actual=0.2264, pred=0.1589 +/- 0.0699\nIter 7: actual=0.1060, pred=0.1589 +/- 0.0699\nIter 8: actual=0.1472, pred=0.1589 +/- 0.0699\nIter 9: actual=0.1489, pred=0.1589 +/- 0.0699\nIter 10: actual=0.2334, pred=0.1589 +/- 0.0699\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_371550",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nfrom sklearn.gaussian_process import GaussianProcessRegressor\\nfrom sklearn.gaussian_process.kernels import RBF, WhiteKernel, ConstantKernel\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nX, y = [], []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] == 1: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    X.append([d.get(k, 0.0) for k in ings])\\n    y.append(e[\\\"target_dissimilarity\\\"])\\nX = np.array(X)\\ny = np.array(y)\\n\\n# Distance from mean of Iter 2, 5, 7\\ncenter = X[[0, 3, 5]].mean(axis=0)\\ndists = np.linalg.norm(X - center, axis=1)\\nfor i, (dist, val) in enumerate(zip(dists, y), start=2):\\n    print(f\\\"Iter {i:2d}: dist_from_(2,5,7)_center = {dist:.4f}, y = {val:.4f}\\\")\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Noise Levels**\n\nI've been examining the noise levels learned by the Gaussian Process (GP) across iterations 2 through 10. Specifically, the `WhiteKernel` indicates a noise level of approximately 0.066, based on a noise level parameter of 0.0044. Interestingly, this contrasts slightly with iteration 5's learned noise, which was 0.0563.\n\n\n**Interpreting Noise Implications**\n\nI'm now contemplating the impact of the indicated noise level, $\\sigma \\approx 0.05-0.07$. Small changes in ingredients won't significantly impact function values, but differing ingredients cause more distinct changes. I'm focusing on the implications of the \"noisy measurements\" directive of the prompt and seeking its implications.\n\n\n**Exploring Lower Dissimilarity**\n\nI'm now diving into the possibility of ingredient combinations yielding an even lower true dissimilarity than previously considered, aiming for values around 0.03-0.06. I'm exploring different base families of plant-based nuggets, specifically those centered around fungal (Mycoprotein / Quorn) bases. I'm considering alternatives to pea protein, such as potato protein, soy protein concentrate, chickpea flour, or oat/pea fiber.\n\n\n**Investigating Dissimilarity Drop**\n\nI'm now focused on understanding the drastic dissimilarity drop between Iteration 1 (0.4630) and Iteration 2 (0.1002). I'm looking at key differences in ingredient profiles, specifically the absence of mycoprotein, pea protein, sunflower oil, potato starch, and flavours in Iteration 1. I'm trying to identify which of these, or their combinations, contributed most significantly to the improved results. The ratio of mycoprotein and pea protein seems key, as seen across the three iterations.\n\n\n**Verifying Function Values**\n\nI'm now calculating the average dissimilarity for iterations 2, 5, and 7, which is approximately 0.0875. I've noted that iterations where the ingredients deviated from this \"sweet spot,\" (around Mycoprotein 0.355, Pea Protein 0.15, and other key ingredients), saw a higher dissimilarity. I'm hypothesizing that the true function value at these ingredient concentrations is indeed around 0.08-0.09 and variations move away from this ideal. I plan to confirm this by fitting a quadratic model to the data in Python to check these relationships.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_371550",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_371550",
+"content": "Iter  2: dist_from_(2,5,7)_center = 0.0272, y = 0.1002\nIter  3: dist_from_(2,5,7)_center = 0.1683, y = 0.1986\nIter  4: dist_from_(2,5,7)_center = 0.2173, y = 0.2401\nIter  5: dist_from_(2,5,7)_center = 0.0239, y = 0.0563\nIter  6: dist_from_(2,5,7)_center = 0.0681, y = 0.2264\nIter  7: dist_from_(2,5,7)_center = 0.0047, y = 0.1060\nIter  8: dist_from_(2,5,7)_center = 0.0743, y = 0.1472\nIter  9: dist_from_(2,5,7)_center = 0.0492, y = 0.1489\nIter 10: dist_from_(2,5,7)_center = 0.0292, y = 0.2334\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_460083",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\n# Let's check total dry protein, fat, carb, wet base (mycoprotein) across all 10 evals\\nfor e in evals:\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    myco = d.get(\\\"mycoprotein\\\", 0.0)\\n    dry_prot = d.get(\\\"pea protein\\\", 0.0) + d.get(\\\"wheat gluten\\\", 0.0) + d.get(\\\"soy protein isolate\\\", 0.0) + d.get(\\\"textured vegetable protein\\\", 0.0)\\n    oil = d.get(\\\"sunflower oil\\\", 0.0) + d.get(\\\"canola oil\\\", 0.0)\\n    carb = d.get(\\\"wheat flour\\\", 0.0) + d.get(\\\"breadcrumbs\\\", 0.0) + d.get(\\\"potato starch\\\", 0.0) + d.get(\\\"corn starch\\\", 0.0)\\n    print(f\\\"Iter {e['iteration']:2d}: myco={myco:.3f}, dry_prot={dry_prot:.3f}, oil={oil:.3f}, carb={carb:.3f} -> y={e['target_dissimilarity']:.4f}\\\")\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Discrepancies**\n\nI'm puzzled by a recent discrepancy. Iteration 10's y-value seems inflated considering its proximity to the center. I'm focusing on the delta between Iteration 5 and 10 to understand what triggered the rise. I'm also planning to test a couple of ingredient tweaks centered around that (2,5,7) configuration, to explore potential improvements.\n\n\n**Exploring Ingredient Substitutions**\n\nI'm now zeroing in on ingredient substitutions, specifically for the (2,5,7) configuration. I'm considering replacing potato starch with pea fiber, or perhaps exploring whether potato starch is essential as a binder. I'm also pondering alternatives for the flavor component, like plant flavors, yeast extract, or onion. Finally, I'm thinking of comparing pea protein to soy protein concentrate, potato protein, or yellow pea protein to evaluate if any yield a more desirable outcome.\n\n\n**Investigating Feature Vectors**\n\nI'm now diving into the feature vectors, trying to understand how the black-box evaluator works. I need to understand what contributed to the dissimilarity score for Iteration 1. I'm focusing on the linear combination of ingredient vectors weighted by fraction, and how this relates to Iteration 1's water and macronutrient content. I will analyze if the model captured the proper water / macronutrient ratio.\n\n\n**Hypothesizing Iteration Composition**\n\nI'm developing a hypothesis: Iteration 1's performance is tied to its completely dry composition, primarily dry powders and oils. Its lack of water contrasts sharply with Iteration 2's inclusion of mycoprotein, bringing it closer to animal chicken nuggets. To test this, I'm analyzing the nutrient profiles of Iteration 5, and comparing them to those of chicken nuggets, specifically targeting the fractions of ingredients. My focus is on protein, fat, carbohydrates, and moisture content for Iteration 5.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_460083",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_460083",
+"content": "Iter  1: myco=0.000, dry_prot=0.600, oil=0.120, carb=0.240 -> y=0.4630\nIter  2: myco=0.350, dry_prot=0.210, oil=0.140, carb=0.260 -> y=0.1002\nIter  3: myco=0.500, dry_prot=0.120, oil=0.120, carb=0.230 -> y=0.1986\nIter  4: myco=0.200, dry_prot=0.360, oil=0.140, carb=0.260 -> y=0.2401\nIter  5: myco=0.360, dry_prot=0.210, oil=0.180, carb=0.210 -> y=0.0563\nIter  6: myco=0.370, dry_prot=0.220, oil=0.210, carb=0.160 -> y=0.2264\nIter  7: myco=0.355, dry_prot=0.210, oil=0.165, carb=0.230 -> y=0.1060\nIter  8: myco=0.400, dry_prot=0.180, oil=0.180, carb=0.210 -> y=0.1472\nIter  9: myco=0.330, dry_prot=0.220, oil=0.180, carb=0.220 -> y=0.1489\nIter 10: myco=0.360, dry_prot=0.205, oil=0.185, carb=0.210 -> y=0.2334\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_243009",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"ingredient\":\"sunflower oil\",\"fraction\":0.17},{\"fraction\":0.15,\"ingredient\":\"soy protein concentrate\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.11},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.08},{\"fraction\":0.06,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Nutritional Optimization**\n\nI've been analyzing a nutritional optimization process. Initial iterations focused on balancing myco, dry protein, oil, and carb ratios. I observed a shift from an initial y value of 0.4630 to 0.2401 after just a few iterations. I am now exploring more refined adjustments to these variables to find better outputs.\n\n\n**Refining Iteration Parameters**\n\nI've been honing my understanding. Observing the data, it's clear the sweet spot for the variables is around `myco = 0.36, dry_prot = 0.21`, and now I want to explain why. It seems these values of mycoprotein and dry protein, along with oil at 0.16, is where the lowest \"y\" value occurs. The curve is clear when looking at myco and dry prot.\n\n\n**Expanding Ingredient Considerations**\n\nI'm now expanding my scope. I was focusing on the initial variables, but now I'm considering new wet ingredient additions or ingredient combinations. I'm exploring the catalog to see if combining mycoprotein with other ingredients might unlock new and superior properties. Specifically, I'm cataloging wet ingredients, like soy and legume-based items, to understand their potential synergies with myco-based ingredients and dry proteins.\n\n\n**Evaluating Ingredient Substitution**\n\nI'm now zeroing in on substitutions. I'm focusing on why pea protein performed well in prior iterations. The core question now is whether soy protein concentrate, used in place of pea protein, will improve outcomes. Specifically, I'm going to test a 1-to-1 swap. I'll maintain the established ratios of mycoprotein, sunflower oil, wheat flour, and other ingredients, and replace pea protein with soy protein concentrate at 0.15.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_243009",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_243009",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.15393311397270332, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_10279025693385090158",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nfor e in evals:\\n    r = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    print(f\\\"Iter {e['iteration']:2d} | y = {e['target_dissimilarity']:.6f} | {r}\\\")\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Comparing Protein Sources**\n\nI've been analyzing the data and it seems that pea protein is significantly outperforming soy protein concentrate in this particular matrix. My initial tests showed soy at 0.1539, while pea protein consistently yielded much lower values across several iterations: 0.1002, 0.0563, and 0.1060. This is encouraging. I am now looking at how potato and chickpea proteins compare.\n\n\n**Refining Ingredient Choices**\n\nI'm now evaluating potential replacements for potato starch or flavours within the nine-ingredient limit, considering both pea fiber and potato protein as options. I'm also considering the redundancy of wheat flour, breadcrumbs, and potato starch as carbohydrate sources and wondering if there's a more efficient combination. Before proceeding, I'll assess canola or coconut oil's impact versus sunflower oil.\n\n\n**Testing Fat's Influence**\n\nI'm now investigating the impact of different oils on the evaluation. My hypothesis is that the saturated fat content influences the score. I'll be swapping sunflower oil with canola, palm, and soybean oil and observing any score changes. I need to determine if the evaluator accounts for fatty acid profiles or if it is instead based on other factors. Next, I need to test if coconut oil also matters.\n\n\n**Analyzing Oil Combinations**\n\nI'm now focusing on optimizing the oil combination and evaluating why Iteration 5 yielded such a low dissimilarity score. Specifically, I'm questioning if replacing all of the sunflower oil is necessary and if the evaluator truly is black-box. The possibility of achieving a minimal dissimilarity is of interest. My next steps involve determining the smallest achievable dissimilarity within this noisy system.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_10279025693385090158",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_10279025693385090158",
+"content": "Iter  1 | y = 0.462989 | {'textured vegetable protein': 0.35, 'breadcrumbs': 0.15, 'wheat gluten': 0.15, 'canola oil': 0.12, 'soy protein isolate': 0.1, 'wheat flour': 0.06, 'corn starch': 0.03, 'methylcellulose': 0.02, 'yeast extract': 0.02}\nIter  2 | y = 0.100237 | {'mycoprotein': 0.35, 'pea protein': 0.15, 'sunflower oil': 0.14, 'wheat flour': 0.12, 'breadcrumbs': 0.1, 'wheat gluten': 0.06, 'potato starch': 0.04, 'methylcellulose': 0.02, 'flavours': 0.02}\nIter  3 | y = 0.198645 | {'mycoprotein': 0.5, 'wheat flour': 0.12, 'sunflower oil': 0.12, 'breadcrumbs': 0.08, 'pea protein': 0.08, 'wheat gluten': 0.04, 'potato starch': 0.03, 'methylcellulose': 0.015, 'flavours': 0.015}\nIter  4 | y = 0.240129 | {'pea protein': 0.3, 'mycoprotein': 0.2, 'sunflower oil': 0.14, 'wheat flour': 0.12, 'breadcrumbs': 0.1, 'wheat gluten': 0.06, 'potato starch': 0.04, 'methylcellulose': 0.02, 'flavours': 0.02}\nIter  5 | y = 0.056254 | {'mycoprotein': 0.36, 'sunflower oil': 0.18, 'pea protein': 0.15, 'wheat flour': 0.1, 'breadcrumbs': 0.08, 'wheat gluten': 0.06, 'potato starch': 0.03, 'methylcellulose': 0.02, 'flavours': 0.02}\nIter  6 | y = 0.226420 | {'mycoprotein': 0.37, 'sunflower oil': 0.21, 'pea protein': 0.16, 'wheat flour': 0.08, 'breadcrumbs': 0.06, 'wheat gluten': 0.06, 'potato starch': 0.02, 'methylcellulose': 0.02, 'flavours': 0.02}\nIter  7 | y = 0.106007 | {'mycoprotein': 0.355, 'sunflower oil': 0.165, 'pea protein': 0.15, 'wheat flour': 0.11, 'breadcrumbs': 0.09, 'wheat gluten': 0.06, 'potato starch': 0.03, 'methylcellulose': 0.02, 'flavours': 0.02}\nIter  8 | y = 0.147247 | {'mycoprotein': 0.4, 'sunflower oil': 0.18, 'pea protein': 0.1, 'wheat flour': 0.1, 'breadcrumbs': 0.08, 'wheat gluten': 0.08, 'potato starch': 0.03, 'methylcellulose': 0.015, 'flavours': 0.015}\nIter  9 | y = 0.148943 | {'mycoprotein': 0.33, 'pea protein': 0.18, 'sunflower oil': 0.18, 'wheat flour': 0.1, 'breadcrumbs': 0.09, 'wheat gluten': 0.04, 'potato starch': 0.03, 'methylcellulose': 0.025, 'flavours': 0.025}\nIter 10 | y = 0.233410 | {'mycoprotein': 0.36, 'sunflower oil': 0.185, 'pea protein': 0.15, 'wheat flour': 0.095, 'breadcrumbs': 0.085, 'wheat gluten': 0.055, 'potato starch': 0.03, 'methylcellulose': 0.02, 'flavours': 0.02}\nIter 11 | y = 0.153933 | {'mycoprotein': 0.36, 'sunflower oil': 0.17, 'soy protein concentrate': 0.15, 'wheat flour': 0.11, 'breadcrumbs': 0.08, 'wheat gluten': 0.06, 'potato starch': 0.03, 'methylcellulose': 0.02, 'flavours': 0.02}\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_13842621783378165292",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"ingredient\":\"sunflower oil\",\"fraction\":0.175},{\"ingredient\":\"pea protein\",\"fraction\":0.15},{\"fraction\":0.105,\"ingredient\":\"wheat flour\"},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.08},{\"ingredient\":\"wheat gluten\",\"fraction\":0.06},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Ingredient Proportions**\n\nI've been looking closely at the ingredient proportions across iterations 2, 5, and 7. I've noted the following: breadcrumbs have a trend of 0.10, 0.08, 0.09. Wheat flour is at 0.12, 0.10, and 0.11. Potato starch remained stable. Mycoprotein shows 0.35, 0.36, and 0.355. And pea protein is at 0.15, 0.15.\n\n\n**Considering Ingredient Swaps**\n\nI'm now focusing on potential ingredient substitutions, specifically for iteration 12. I'm thinking of replacing \"flavours\" (0.02) with \"onion\" (0.02) or \"yeast extract\" (0.02) while holding all other ingredients at their iteration 5 values. I've outlined the complete recipe for iteration 12, ready for testing. I'm wondering if this will improve the recipe.\n\n\n**Refining the Testing Strategy**\n\nI'm now reconsidering my testing approach for iteration 12. Instead of directly swapping \"flavours,\" I've realized it's crucial to confirm the Iteration 5 low-dissimilarity point by keeping all ingredients at their Iter 5 values, including \"flavours\" at 0.02. I plan to test a tiny shift in the direction opposite of Iteration 10, to confirm Iter 5. This will help determine if Iteration 5 was a true low point before testing ingredient substitutions like \"yeast extract.\"\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_13842621783378165292",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_13842621783378165292",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.12646659093217075, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_209105",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"ingredient\":\"sunflower oil\",\"fraction\":0.17},{\"ingredient\":\"pea protein\",\"fraction\":0.12},{\"fraction\":0.1,\"ingredient\":\"wheat flour\"},{\"fraction\":0.09,\"ingredient\":\"breadcrumbs\"},{\"ingredient\":\"wheat gluten\",\"fraction\":0.09},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"fraction\":0.02,\"ingredient\":\"flavours\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Patterns**\n\nI'm currently focusing on the data points near `[0.36, 0.15, 0.16-0.18, 0.10-0.12, 0.08-0.10, 0.06, 0.03-0.04, 0.02, 0.02]`. I've isolated four iterations for deeper inspection, and am trying to understand the consistency within this limited sample. The values I observed fall consistently in a specific range.\n\n\n**Investigating Potential Boundaries**\n\nI'm now considering the possibility of boundary conditions within the dissimilarity landscape. Specifically, I'm examining Iteration 10's unusual dissimilarity score and attempting to determine if it is due to noise or a threshold crossing. This means that dropping `wheat flour` below 0.10, `wheat gluten` below 0.06, or exceeding 0.18 for `sunflower oil` is worth investigating. With 8 evaluations remaining, the target is to push dissimilarity even lower within the identified region.\n\n\n**Exploring Ingredient Swaps**\n\nI'm now considering targeted ingredient substitutions to drive similarity. I've narrowed it down to exploring swapping potato starch for pea fiber (or bamboo/oat fiber), or replacing flavors with yeast extract. Furthermore, I've shifted my focus towards understanding what animal-based chicken nuggets are compared against in plant-based food science, particularly focusing on sensory profiles.\n\n\n**Refining Attribute Targets**\n\nI'm now zeroing in on key ingredient roles within the established profile. Texture, coating, juiciness, and savory notes are paramount. I'm focusing on the interplay of mycoprotein, pea protein, wheat gluten, and starch to achieve the desired chewiness and hardness. I'm also planning tests for yeast extract or onion in place of some flavors, and coconut oil replacing part of the sunflower oil, mindful of the 9-ingredient limit.\n\n\n**Revisiting Ingredient Ratios**\n\nI'm now re-evaluating the proportions of key proteins, specifically `pea protein` and `wheat gluten`, within the established mycoprotein base. It appears the ratio has been static across our top-performing runs, prompting me to investigate the impact of varied combinations while maintaining the total dry protein content. I'm scrutinizing past experiments to identify potential gaps in our testing matrix. Specifically, I'm checking if we've ever modified the ratio of `wheat gluten` to `pea protein` while keeping a 0.21 total for them and keeping `mycoprotein` fixed!\n\n\n**Testing Ratio Impact**\n\nI'm now setting up experiments to isolate the effects of the pea protein and wheat gluten ratio. I'm keeping mycoprotein, sunflower oil, wheat flour, breadcrumbs, potato starch, methylcellulose, and flavors fixed, and adjusting the `pea protein` and `wheat gluten` split. This allows me to see the effects of individual ingredients. The correlation data from earlier runs pointed to an advantage from increased wheat gluten. I'm hoping to confirm that these ratios will yield the right chewiness and overall meat-like sensation, as observed in those runs. I will record the output with the same set of measurements as before.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_209105",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_209105",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.08228868143055917, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_255830",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.36,\"ingredient\":\"mycoprotein\"},{\"ingredient\":\"sunflower oil\",\"fraction\":0.175},{\"fraction\":0.12,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"pea protein\",\"fraction\":0.09},{\"fraction\":0.085,\"ingredient\":\"breadcrumbs\"},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iteration Performance**\n\nI'm pleased with the Iter 13 results; achieving 0.082288 is our second-best so far! It seems the key ingredient values, specifically `mycoprotein` at 0.36 and the combined `pea protein` plus `wheat gluten` at 0.2, are the critical success factors. This is a significant improvement over previous iterations.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EtsHCtgHAWkUfRMdZ+csIZpO54wmlSt2JksTSr8oqb193JhIZh/MTGu9pkJ4eLGdIA+/RqhgKdmDWwxsl4avnWVDD/sam6P97vWOsNaEIKx/WneufQVIFHGCBNJ46iO91yeGuPBjUDIlwkk1sSDX4Bm9xQGCTlNEcvnB1w0GVOGxblWum5QOHqg3k5ypwk34+8t3lEIBzUWyWvo/16JNK7K7yNo1xzhymsX/UfaplLvFdU2ZFhScYlWpy6Qt5yG6N4zLdu9yD5Pkhpp5g5WWRlCRNUtr0XXIZVd/q+ksiAJ0Q3qdXa4jWQMtSvoWGJC6IJV5OEbqH3lsctus1S6mWWiKLXFliuwMqFVYRrY0XHslCbAn/1P9ih2OUz95pDPd212MXWSrtHEIw3ahe2JEC6T//oOXA8ZQzLW9XMCpC2WVEr4zUPuayZ4mFYyQUf9/Mjhz9eMU7ppMnpMSL+iaCx3lkXUsgrY49S29zxbYQjAsXXM2JKrPirMHnqIf5WSBOd3x2KgfF9AzvHuBk4C+46gS5PN6XrlRD2RQxblm8bE+0s80BW/YDQJxnz9UBjIEWB19BLmvjy7N5YmzRkEDETsj3lqXg9z2Ee9wFfyeVdgZJYMJ7k/tWNRdFLJYBSFr3k8IzrDHo1iJzRXXH7Wig/+E7xEKvGMtH37fkYBwgWM3BnP7ykoPMT43l5+wDB53ZxxtlNOtfCbaMmull9GHBrK6mgJ2Kg2Oa3AjbkPrGfaG+kyw3jEG5Bz75b5qNhijrOke59ewbd5UI8UL+z+KekRuMn3efVdJX0uU5geGTezPP8zZS03E1WKhmeu52ppb8sHj1AuM9BpyGzYYrhTEQMrTYyjfZzV0JrW0sgMb1Bnw+kc5f1l7dzAyPPYoB6N6LKtBkHGjmMnv7QatItGATfGx8rLMPf7yWVjgEjJCti/hrSv93+xUnjLCEQ60DIUo56A8xIZx8Cop4KL1eL4wfgRqay2nzCZXe1USABKaj6mgcz/itERkA4YSHTRbFi+V3qNLR6wDAc2fKwueMqaSv7f/e6XukPAT334xjPnKZlVcsN4tFKWovKZuUJR7+DaA5YUyYPu/JG846L51Sy1CB71l7Z6xJjWS8CUoSeiseD8uZ6inFr/UeonS9Qw+Vp822o0yh0s+SlKYmK3xls/9mny/UkxiRCQjt0jceWmBA7+07tNr7STlg9Py9BIm1a/gicrWTFA4SW+njwb+J6MacnbfksI5tleFym2miSJAhbSbehMkd1m0Cs5UbEJjG3dtUdxwHr6ddkiwV+tuMeQcTpVPGpefMM9vzbUvyRcw",
+"format": "google-gemini-v1",
+"id": "call_255830",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_255830",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.08428077176072339, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_401080",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\nfrom sklearn.linear_model import Ridge\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nrows = []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] in [1, 11]: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    rows.append([e[\\\"iteration\\\"]] + [d.get(k, 0.0) for k in ings] + [e[\\\"target_dissimilarity\\\"]])\\n\\ndf = pd.DataFrame(rows, columns=[\\\"iter\\\"] + ings + [\\\"y\\\"]).set_index(\\\"iter\\\")\\nprint(df.sort_values(\\\"y\\\"))\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Protein Combinations**\n\nI'm making progress in analyzing protein combinations. I've observed consecutive values around 0.082 and 0.084. I'm focusing on the progression when mycoprotein is 0.36 and pea protein plus wheat gluten sum to 0.21. Specifically, at a split of 0.15 pea protein and 0.06 wheat gluten, iterations 5, 7, and 12 yielded values of 0.0563, 0.1060, and 0.1265, respectively. I'm calculating the mean now.\n\n\n**Identifying Ingredient Relationships**\n\nI've zeroed in on the interplay between wheat flour and breadcrumbs, a pairing largely unvaried in previous iterations. In every previous run, wheat flour was at least 0.10 and breadcrumbs 0.08, with flour typically slightly higher. I see potential here to explore their orthogonal relationship, as I have just completed orthogonal exploration of `pea protein` and `wheat gluten`. I also see that the values around 0.083 for pea and gluten is where the curve bottoms.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_401080",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_401080",
+"content": "      mycoprotein  pea protein  ...  flavours         y\niter                            ...                    \n5           0.360         0.15  ...     0.020  0.056254\n13          0.360         0.12  ...     0.020  0.082289\n14          0.360         0.09  ...     0.020  0.084281\n2           0.350         0.15  ...     0.020  0.100237\n7           0.355         0.15  ...     0.020  0.106007\n12          0.360         0.15  ...     0.020  0.126467\n8           0.400         0.10  ...     0.015  0.147247\n9           0.330         0.18  ...     0.025  0.148943\n3           0.500         0.08  ...     0.015  0.198645\n6           0.370         0.16  ...     0.020  0.226420\n10          0.360         0.15  ...     0.020  0.233410\n4           0.200         0.30  ...     0.020  0.240129\n\n[12 rows x 10 columns]\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_371353",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.36,\"ingredient\":\"mycoprotein\"},{\"fraction\":0.18,\"ingredient\":\"sunflower oil\"},{\"fraction\":0.11,\"ingredient\":\"pea protein\"},{\"fraction\":0.1,\"ingredient\":\"wheat flour\"},{\"fraction\":0.1,\"ingredient\":\"wheat gluten\"},{\"fraction\":0.08,\"ingredient\":\"breadcrumbs\"},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Top Evaluations**\n\nI've homed in on the top six evaluations. They are: mycoprotein at 0.36, pea protein at 0.15, sunflower oil at 0.18, wheat flour at 0.10, breadcrumbs at 0.08, and wheat gluten at 0.06.\n\n\n**Refining Key Components**\n\nI'm now iterating on the composition, and the evaluations are changing with each step. Recently, I've adjusted the weights again. Mycoprotein and Sunflower oil are still playing a big role, but I'm making other minor tweaks. Potato starch, methylcellulose, and flavours are at a lower priority. The latest iteration is at 0.082289.\n\n\n**Testing Component Relationships**\n\nI'm now investigating the interplay between key ingredients, particularly wheat flour and breadcrumbs. My current goal is to determine if substituting wheat flour with breadcrumbs will improve the evaluation. I'm holding mycoprotein at 0.36, sunflower oil at 0.18, pea protein and wheat gluten at 0.21, potato starch at 0.03, methylcellulose and flavours at 0.02. This allows me to isolate the impact of the flour/breadcrumbs combination, as I test what happens if wheat flour is set to 0.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "ErUdCrIdAWkUfROMoHDioe4kygwJ9se9RDgZm/vu5+1nM8Gn1omGejBzLGGWF5BQiSj8ueRg9EMJDuAq8j0UiFSh19pUrNmgRaIXc3MVKQpnU7axhsOODrY7kTufUn3UNAJ3ajNSgkKWTTz+1rKzsR9ev5HFlnOHngF14idqaZo/e7rWvLP1hXwx6mY4NuoWNRuW5vrzzHGqC9KrRU7uAJWhXeGhu+sDSdwW3P6APBFHfoUc4vPC1QGE2rbW0GCGH83+CaQjrdgSwX+gZ7rsWWObSp1d6wdnsizmzd2METjnbWDbHdWA+YJilZvFGhAiWSZe63iyHw3ZMV4W7DiLYngWGLi31k2i6+4CdmL5dlU77ss4OisKyBpgnlqAObOSF8qz1BsJZ4fi+nPpESNiiTaI4XaapkeS/yjIKiUtQ8NuiyuU5fbG1pVPlc1PwQFnOiqZ2+17ndzjDte5Dss0yZv9w10ATfq3fhw8tzYIlVHTnvzm+0sEwbwIVhp2pu6UtCfdl1Xaa+e0DNi/Fn06jffawGZhK3LGACIRyqD4n1gS2ztlDcnF6WiU5ujWzdoENdv1C32CGBZEhioSfQbwpWpw4U3VYLWs6OkulOcrn4WlI0j5MZc0qQurgdQLLboF5V949WPYabjZ3MrBSTXtdVRTlcfT/KjddSQ1w/gaxkX6LPCT6agR1KYbuwPlrH2x8VpNFhbfHFgS0ygxINCiqJMg3MAw2aiO1tLunOyfD1i58fwjj3/mIl2CCRDsoJ0nPTmgDh12rwE0HSBhqRxdHVvmU802B2bV7pEJMYMEhj9UVGbOWXmKuB19XkSq6c06EMhMYZilGJGSNf3TRQbKBWIo9kNec6jjlWtrGNbjLNp/lxaxSaoMKlDcPJpWQa/EVoQyArqZ9Nm16Ror6Sasmt8rsdP3/AcRIJKVVbqXXXucIGtxYUfxZITjsB5iMOOBa1xdVc4VDMoeXYTs4RwmiBTpqciaZBeZsdWufVhuATSKPiSKhWeTVjXDCwSRFXJftwryuoT7Rz0MkF+mOIaLm5+u+03WFjDwRbg52vg2t4B9VPJzzyQrRORS6jKZa8cMHdVdbnmLN3jsCUVUEcI0f37Q+etMm25Pv6vwYvVOuo/iEMLgMTVXvhZe8z+4mIvcu6tjjMHWE6MbJ16SuYQiaKeiyVarBnhYzL3K40mXCCalyKLMS/0TKK3QHeo8MsfGOTJQ0XqlwobgRYD7iFIE33z1H1gq7yZ4kz6gfTgtdNXs9v24gmDfp2w2vpT9db73EcNLJ9GziQ0eT8/CFqd0ZJ1qFFOHu17yHIuowW8jqNZKFMzGrl/3weT0pNaHxGhDGiz2WS7HadWx+2QS/G3r6TzIYhovF5FmeZBVMsXRKI0ZCuqENZQaTaKvw65Kj/r8zyZsgTjho5tbSWBEEU9DyXNDn48P+Ho65zB1mNf3yIQ8DFr4X2XHvbGILRpU6maDC/D4VlIISBY/WA5zWPJea8JaHJEuw43By/coG+yHHR9o5PdDV7cgO0A1vFPct+7pKbT1eH/k5GVewAuwST92QMASmv12T0tPb683d354s6zZMZKE1E/CLaKF4K4BycKv3c/fTY08hWOroyKFynHWP7mL6s6hgOflNxFCaSsAG3AaN/tu/JGoFevnvsWjlAVIX66ZsFOW/yRWbnW1Ijljudvtp/weI9cNkvywW1EsswF/oCGdV8Df+orrE8uOf0kySiXsCvmmB3/vGB5Xco1YYGG1AP6ERtxygfKpdzaVkTFX0cgSODtH6nHqcxD0RL4fOu+TdyYyFln2oasqmud4WI7Ag2AfFLCd816ACtmGJLGDKH6Ap31paZOHvChikriVrZQxBIZzaS7OR7jXbhiHVcT8LpFufq4u5HNy1jM99GDVXb//c2rtur7+rLt4WlXDTIW57NlJbjjtraDpQjceGJdJO/0HFW+nxBN/JfDchVrgn5K1H6APCDYUThDfmJ2xwM17F/Cwxoo10qzy3/9F5DCmF0FdaxMVVkb+bzr2vztPHh9kaJGe6oqjrtwupB6/1kaIhS45YJw/l3TvYOhwfbixTAT3ftwLigE5jBBZex0cQ4oghO3x5RvPWGO4tBRtyjZorZm2xo4g5Qck6juPLz/0Q+NZ8RIH0aM8hRani2ECgfNubuUO1RtAIbM2HIU6LXCsiUAyRkRv3ItU4oeH3gH98BTZzfRnlHWGfqaSQJgPOMAR7MGuStAdzZqYkxlE2RXGO/xGm4BMzMd3xD8JKuuxRHQcf/2ZjVd0v1B39bDMlmlU+fuR2H25g3h1FfYqVGMF/GoCkFva4v3h441oUwkJJQgHf22H+hpN+zS3UZEQvgAfFkj1vRVQRJiOcIadfpdcEsVDsnHrc0G487Nha8Crn2SdKhB0cykFXUioLgxOgnSxGtvLtoc04dT0nP9nMc6c8ExAsXz7Q8PGCyhbePpxNrUvKvymV+85l+p5CFqx6LNN9tWrVsciCpOywB8x2eOn5E+h/3GQLCV3vKREK6MT1iL7JqUgOZmhnF19S8N9W4gL5y/NH/tGRXSbmzpqGuR5RWQAK0kUB61jKtT3JXub+7m8M+IEFVlgjFbRzPIAGgERi3T8yhWmzLWtuIw3Y3nhe1Uz7klATXVlrg2mykudgZJHNUeqjh+wyJDVitTXaa8Lbt38V/AGmrAkY4Lad789sB+6UunhMMPTLfnY1yIOS8jeWLPMtLZL+b9dl8Hi1DfXHkrD8XNZBBLmr5Y0f7iYghF5iZvVD88lSblB/YD9X5l8KRaLsoZp072nd4gvonAcCaORaH4y0UiIOCCVOhsU7GkNFEJafcVWiHj8vxwCCt61LSwKlACWKvhw5bo/EXV2G5C8fMM/owgzJ9Ke3kezsH6F4SKL31X3HHojR2unKKfkHERXRG5khx3Y7AcogJ9u1DiqsrpKEld0RWWZ4gvOO5j6Ypm/qAZluWhpV8A9z8746jQEmF3sD2SFjxqPLqGfmVUGtJMlJAIMKG7omOd06sD2SysFTrG3gWhjKcdxhzp93W49JoIwyb3hjtM3Funau3mrOHTSV593q5P6N6XFdm56opbKuvSDcKIzf2G17ueFDgsFNsN/N4fCUwWGBn+DGf+OTImC7O3DKof55m75r4ciEKWxF1ppoeiKdJOVoVYhkTarD/hSk+FbpNsgIKfH6dYdguikq6MPx/WoyxDtIbkdwelO0qFsZsb9vaZMfCJa0E37W2uvQ8d2iSyb/3VK4S8upGovgLexpmMpA1yuXryfxE4fQQhmz83gVCs2KRdvLC0uE3sttcDW9E+6si+TnRKJZJ3WOPkf2OuBhw0gT0NMT92glNjqZm28nXPEf41h+rXK/TpAQogvQrGWy3cykMeqgqkt6ab6r0CmAK4h7zBbvEiyg5SypGcKBYJwboxDAdNeWQHCIlJeG363RrZAVG0+q8UA6lVZ22L8sgy7BaFfRk3bOs5hA+SoioAj//6JqgoqTzKwIXO3lib6MMZTT//L3DnbQ4g/fl8jX3wmiSO//WLRW1EypWVqXKmku/xpeR6dmQTuhbbX1OC4SjabRsdvSwThAElMC44czVQJgWteqjnfNhl0l1sryxnTw1OWuLSG5/NSltxPQV5JszeswUzOR+f30SBRB7QIKc4lwGK+iY2BiH2IXZPimR8EWeCy+Skx7i0zBhIBIlnae0YvzfjXv16dDrx5s069OZetsfsQDAHIghzDw5IsmHd0SqJc38nUIIN+Qd2QctluaT9DzA4w2RHMDOgf4+28jaRiGMDMkW2yqv19lZy5l4M7eakT1T232vTkxSe6QDgncoVA+n2/5679tyeJ1yHcA2IJOvhPKm6KSdajv6xxMcWeyBHJJe4UhGzouaA6yVy5Y3abvBw0goUdLq3o8AiPO9bjE9hsO0zytA+RDPOHKITjh1HR8UGY+6RFpU3kvVswSz6C1cex4jOyZnwW9s2mHfGUHufP5f0ImLmEdydv8xJ8rWVXQ1x5Z4F9xJ5q66RLywmEbnjsDJItsIzz2a8p2p7/ior0vwGm7j7+pxActmu5kWztTxud1oRuh6OmzB81Xhakr1w0Wq9xXtFEVAE05W1OX1YI/O1J7mN8bxHzJCv3QNIBMTNSpsyjweuVSq4UuwsBtmjlVdXnS02o2J2P5+OlvW2AQ53jjBkXcm/bgIxqU4fL/yobFPxno8XmsA2fAX1T6Xtf15GpOUVSJ7YEeaSwhNHii7h7gShuCDouasKZyiDuia0sssuTEwGPOwIVEKxks0VfdCn1sHSXsksZ5//mjCzxuX3MDVcFJ/3vmB+XGAafeOGtzZZG8X1ZLmgR4qT3Faz+4xsZaa9XcoO4qY0WlkO1lJNXVBM45k5OSARdbT03/AqZz0mpsbmjXjiK/99V5XZm1ypsMP1JzdtQtiyJklVWAUGddTU+k4gs+FFqdjFfB+cHscRhleeZwnHb/a65rSYFzJDVVEjh/yMBLt4VcoqoSwMRO8/qRrueID/EUHLwJ85c+lzfv39WCpE1Zi3rQE22Qsclv//3+bwMUbZQWmvs+vpYCYG+RGDGvJ57dAxxsu41/KZft5qxEDds1OmonxP9Cq8MW/d7C9T235Zhal8eYfsrX1HjT2u5Wg0IFBvfoVHfbxsxaanChlFAVZILfD4z5RAE/irAZ3/mSgss8TSTg3GP5/wTjBYrrBdXsp3fpfPmroPHUQlMz8tnF7E0aEUt08ODjeGTTavhduyAOhgb2mqNn+zjE8ufRc8J8Gu+SWmyEV11POphYA0hL8eMw5flNBonpU3qahB5hIqq5jDrLEnmxQGyokRVlo+TcMnvUkTVKlKQWRRvYtmMqpmcBPvhdH1U3z70DWauhvuI8a33by5mGwfSErldBzKbqoBot0mixmT6nsiQhjH00QDXa6kNTzS7UgPyEg+33h2pWejAAXPMMSrHUQR5YDXRpLAesbJ4KmoDDgQmwXNh8RB8TMqW9E8AgtDd2iXrfb+8VR7HjUsh8J9vStvE7IW2PyEoWYju",
+"format": "google-gemini-v1",
+"id": "call_371353",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_371353",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.17808211667342363, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_259932",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.36,\"ingredient\":\"mycoprotein\"},{\"fraction\":0.14,\"ingredient\":\"sunflower oil\"},{\"fraction\":0.12,\"ingredient\":\"pea protein\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.11},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.1},{\"fraction\":0.09,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"coconut oil\",\"fraction\":0.03},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Optimization Results**\n\nI've been analyzing the optimization results from iterations 13 and 14. Iteration 13 shows a value of 0.0823 with sunflower oil at 0.17, breadcrumbs at 0.09, pea protein at 0.12, and wheat gluten at 0.09. Iteration 14 is just a small tweak, but no results are given yet. These new points will give direction to the next steps.\n\n\n**Evaluating Iteration Outcomes**\n\nI've just reviewed Iteration 15: the value hit 0.1781 using sunflower oil, breadcrumbs, pea protein, and wheat gluten at 0.18, 0.08, 0.11, and 0.10 respectively. The noise level remains significant. Now, with five evaluations left, I am strategizing ingredient substitutions around the sweet spot to drive the true mean value lower. I'm focusing on single ingredient swaps to identify potentially impactful changes, particularly looking at minor ingredient additions or substitutions. I will carefully consider each ingredient's role.\n\n\n**Considering Ingredient Swaps**\n\nI'm pondering ingredient substitutions, specifically focused on the impact of minor ingredients on the dissimilarity value. I'm questioning whether a 0.02 fraction change, like adding plant flavors or onion, would significantly alter the outcome. The impact depends on how ingredient features are weighted by fraction. I'm exploring potato starch, and the influence of larger ingredients like coconut oil versus sunflower oil. The key question is this: does our recipe have a saturated fat source, and is this something we should introduce?\n\n\n**Testing Solid Fat Inclusion**\n\nI'm now formulating Iteration 16, exploring a crucial swap. I'm testing coconut oil for potato starch to match animal fat's solid fat content. The recipe now balances: mycoprotein, sunflower, coconut oils, pea protein, wheat gluten, flour, breadcrumbs, methylcellulose, and flavors at their individual percentages to create the proper target weights. I'm eager to evaluate this shift.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_259932",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_259932",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.11490522435132855, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_277199",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nimport pandas as pd\\nfrom sklearn.linear_model import Ridge, Lasso\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\n# Fit linear model on iterations 2..16 (excluding iter 1 and 11 which had different protein bases)\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\", \\\"coconut oil\\\"]\\nX, y, iters = [], [], []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] in [1, 11]: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    X.append([d.get(k, 0.0) for k in ings])\\n    y.append(e[\\\"target_dissimilarity\\\"])\\n    iters.append(e[\\\"iteration\\\"])\\n\\nX = np.array(X)\\ny = np.array(y)\\n\\nreg = Ridge(alpha=0.01).fit(X, y)\\nfor k, c in zip(ings, reg.coef_):\\n    print(f\\\"{k:20s}: {c:+.4f}\\\")\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Recent Iterations**\n\nI'm evaluating the latest result, 0.1149, which is a bit higher than Iterations 13 and 14. We saw promising results with `potato starch` (0.03) and `sunflower oil` (0.17-0.175). I'm considering replacing the `potato starch` with `potato protein` or `pea fiber` to see if we can improve things.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EusJCugJAWkUfRN3pCZAM/SnpTwH3xJHCaooNIkIu47T33Y7Dl3Qve7mFhuk2pl52Zd7O4OVWcNF8Ih5zgQZM6HOgyWuKjV+o0owLnlQqqizrbWb2MrPvrsX9VWQDLLszUkb/f6KjxNGFRPYxJkVMi6E/8yRAK5N5aKHqPXA7oWXgk4YAM/p47h/RbKN1ndZVd6b6/T5Hx7HQUc9SYZq9HbVBMDPEocHYJ+DjvNvSQMsJRCe7IItPOQzcLWWkxt4aAGSIWSuzVIXFFdZ2AVmJf1B2gwy9H+yWCYHXLdoHtiubK5XD84rmcGI3zvOGtfv8jcO3xDoOyOpiEu4vX+c0RnTnpfTFcpNcCmxeSL9LldM4wYeYoczvpj1gvo4vFu2Fwco+k/3dWhJqqqOOXwflZaKBEppYs1IzzG88gbsPR3pdhFy4LiMNICiCCg0Xk2nnzTzBfSLW3QqsqsPfZcBuw6pB1rctnjYjFJ3NspYpNTw9RpM9QPMA3OavbiRp7AtM8oYco1gBMn/6jHbRzlsH1pQFMUskuIXx4fqJLmSvriBJzzrpM7iztbXO3s8m05chocHE5MMNBmeZxXyfNgNPoNTk/UghVocTeq0R2sFdIth1QLtQ9Hs6LSRkCJ4TO0qhTHW4m5H/a4u+JVCP5AKGYqcnWlgCY7RKiXklNP7Alj4PiytvIRt+2evvRfFR+ALo2bNOHOGG+fVPotzMeQVSymWCFibIMJR7Y2vq3OCBllxl6o6meaxCJT6yoMuvzCg8KI43466z5NaOBBDQleJRZjvaapUZWsibvniHMvcMC0+rn25FpbXMTpCyo6B9FRtB2H/K4X+hvxSOn5g5uP7DI9P2saqoKyqCXNKTdPAntGLNc5tNKesNiaUcBdEqi/BjoCUSh0+feWRv3ECLlScDrLoqlmAiWdtTeaEQuZRhpf+VITWTer82e2/HvYxWod4MYN4BXCRCEAtePvPlQ6ru0axasgg5W76npShl69pRpA8YcB/s7KIawGEGUIJAG6gB0l3JHNfMblBDMFLtav3Gr/5+upcy8JuGwIsKBcbk2Q1XXI9WBMwJU703TgzCS+9HwLrhzuK8iRsgqQVykYV05hHixfvOSQ5MRg0xsDFQU8ymUPPY/3Qc8Qgyp4uc7w7xidpDaMe1gD2zfWVqGGxiMTc26+/w4v/srHYuWXQy7rzeRwAFroZR2SR2ZjvcbCUiPAEpslC91RrVl/M71nSDF5Ieg4MyDHH/W1k5rWF2iVlyMx7jq+U87CqrWft30YTIkY7FYIz1mVt8x2iMQLO1igS5KIda5JyKr2B8qLrn1ptC3JDHUtBN3HgbraI6h4HKqskGo0nCUYCyANjWJv6N11SwoPGPh5egmWzK5dXfCZF2t26rM5xpPb/3yMTMIvVJhdhovd/aBcG1hsCI9cPgx/9eUEi9eiDkDI/6Jrd3xsMdooRt373HJJ7Mm5mntnlYkxwvOvhSksj7Ta+7XXuSwxA9XOGHiiAQgAle1x97I5h0aNdPl6oQ/akA7cJ+kaYRgr6YgmWtXTTiqu8y6tq1ZvCGNChiI7WfdLRk2Onfvqx3JkpsMmgYhQnKHpKjEwJRy6G9QBm9uiBOH+2mBPFpRWGsgvrysIGlHexiyNNoXhkj3AN4d12bvqrOEe8LfvDwtRfFEYdVeYZQ3Lc9Ro=",
+"format": "google-gemini-v1",
+"id": "call_277199",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_277199",
+"content": "mycoprotein         : +0.1627\npea protein         : +0.4618\nsunflower oil       : +0.0409\nwheat flour         : -0.1017\nbreadcrumbs         : -0.2063\nwheat gluten        : -0.2211\npotato starch       : -0.0173\nmethylcellulose     : -0.0424\nflavours            : -0.0424\ncoconut oil         : -0.0343\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_9816825398172656133",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nfrom sklearn.linear_model import Ridge\\nfrom sklearn.preprocessing import PolynomialFeatures\\nfrom sklearn.pipeline import make_pipeline\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nX, y = [], []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] in [1, 11, 16]: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    X.append([d.get(k, 0.0) for k in ings])\\n    y.append(e[\\\"target_dissimilarity\\\"])\\nX = np.array(X)\\ny = np.array(y)\\n\\nreg1 = Ridge(alpha=0.005).fit(X, y)\\nreg2 = make_pipeline(PolynomialFeatures(2), Ridge(alpha=0.01)).fit(X, y)\\n\\ncand = np.array([[0.35, 0.08, 0.16, 0.11, 0.11, 0.12, 0.03, 0.02, 0.02]])\\nprint(\\\"Linear pred:\\\", reg1.predict(cand)[0])\\nprint(\\\"Quad pred:\\\", reg2.predict(cand)[0])\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Dissimilarity Coefficients**\n\nI've been examining the coefficients from the Ridge regression, specifically from iterations 2 to 16. It looks like increasing pea protein has a strong positive correlation, suggesting it significantly boosts dissimilarity. Mycoprotein also has a positive correlation, although slightly weaker. Sunflower oil shows a much smaller positive effect.\n\n\n**Investigating Key Correlations**\n\nI'm now focusing on the negative correlations, specifically breadcrumbs, wheat gluten, and wheat flour. The most recent data reveals that increasing these ingredients significantly decreases dissimilarity, which is the exact opposite of what I observed with pea protein. I'm exploring an experiment where I increase both breadcrumbs and wheat gluten while reducing pea protein. This might be a viable path to lowering the dissimilarity score.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_9816825398172656133",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_9816825398172656133",
+"content": "Linear pred: 0.08432418925797708\nQuad pred: 0.09477358592896512\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_318924",
+"function": {
+"name": "python",
+"arguments": "{\"code\":\"import json, numpy as np\\nfrom sklearn.linear_model import Ridge\\nfrom sklearn.preprocessing import PolynomialFeatures\\nfrom sklearn.pipeline import make_pipeline\\nfrom scipy.optimize import minimize\\n\\nwith open(\\\"evaluations.json\\\") as f:\\n    evals = json.load(f)\\n\\nings = [\\\"mycoprotein\\\", \\\"pea protein\\\", \\\"sunflower oil\\\", \\\"wheat flour\\\", \\\"breadcrumbs\\\", \\\"wheat gluten\\\", \\\"potato starch\\\", \\\"methylcellulose\\\", \\\"flavours\\\"]\\nX, y = [], []\\nfor e in evals:\\n    if e[\\\"iteration\\\"] in [1, 11, 16]: continue\\n    d = {x[\\\"ingredient\\\"]: x[\\\"fraction\\\"] for x in e[\\\"recipe\\\"]}\\n    X.append([d.get(k, 0.0) for k in ings])\\n    y.append(e[\\\"target_dissimilarity\\\"])\\nX = np.array(X)\\ny = np.array(y)\\n\\nreg1 = Ridge(alpha=0.005).fit(X, y)\\nreg2 = make_pipeline(PolynomialFeatures(2), Ridge(alpha=0.005)).fit(X, y)\\n\\nbounds = [\\n    (0.34, 0.38), # mycoprotein\\n    (0.06, 0.16), # pea protein\\n    (0.14, 0.19), # sunflower oil\\n    (0.09, 0.13), # wheat flour\\n    (0.08, 0.13), # breadcrumbs\\n    (0.06, 0.14), # wheat gluten\\n    (0.025, 0.045), # potato starch\\n    (0.015, 0.025), # methylcellulose\\n    (0.015, 0.025), # flavours\\n]\\n\\nx0 = X[np.argmin(y)]\\nres = minimize(lambda x: reg2.predict(x.reshape(1, -1))[0], x0, bounds=bounds, constraints={\\\"type\\\": \\\"eq\\\", \\\"fun\\\": lambda x: np.sum(x) - 1.0})\\nfor k, v in zip(ings, res.x):\\n    print(f\\\"{k:18s}: {v:.4f}\\\")\\nprint(\\\"Min quad pred:\\\", res.fun)\\n\"}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "ErcCCrQCAWkUfRNc2YhsxubSyblrB5WM+or95NZrW9vXGysWD8PUIqKET75MR/gw3Y9d01vE1FxKmbAUbw3dv1nBuqzLdxW/QYM/Ad0zUtlEL/FwKz159tW5ktdB8AluzLw6YzL2nuAP+GVH/QoXvTsMitNLYKBOOKBZJiOiBBd3SkFd4QSswcMLRMKZicNZydpSQ3Xy+bS1SKp8i90CjI6ZeQyjn+p9e5aeY9Tij9ANuraT0UA5tPGmyJXiTyzbuzJ/PZ5pidntVlcWyg/zm8djdW7UPZpikqghEU5QHi19p68Byl7lEZQPhCMxCG6HzrKUBIQdlgMcN1QrFR7F+rOraEWfWL7GelfkaGT+Tl/rX5TvFaJCbFFG/erZ2nuWfT7dOqaRFVbxWLedjaS7Bbx3CRVZND4UOp8=",
+"format": "google-gemini-v1",
+"id": "call_318924",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_318924",
+"content": "mycoprotein       : 0.3400\npea protein       : 0.0600\nsunflower oil     : 0.1400\nwheat flour       : 0.1300\nbreadcrumbs       : 0.1300\nwheat gluten      : 0.1400\npotato starch     : 0.0300\nmethylcellulose   : 0.0150\nflavours          : 0.0150\nMin quad pred: 0.04593967569699669\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_268961",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.35,\"ingredient\":\"mycoprotein\"},{\"fraction\":0.16,\"ingredient\":\"sunflower oil\"},{\"fraction\":0.12,\"ingredient\":\"wheat gluten\"},{\"ingredient\":\"wheat flour\",\"fraction\":0.11},{\"fraction\":0.11,\"ingredient\":\"breadcrumbs\"},{\"fraction\":0.08,\"ingredient\":\"pea protein\"},{\"fraction\":0.03,\"ingredient\":\"potato starch\"},{\"fraction\":0.02,\"ingredient\":\"methylcellulose\"},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Predictions**\n\nI've examined the quadratic response surface's predictions, specifically focusing on the impact of increasing `wheat gluten`, `breadcrumbs`, and `wheat flour` while decreasing `pea protein`. The model predicts a minimum of 0.0459 in that direction. Now I'm preparing to test a step in that direction during Iteration 17, and not completely hitting the boundary.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EuMGCuAGAWkUfRMDvG56e/uIylkB/cU02DOsxKkxJhXOYEtkQcMS0fKFjRrZEk6rhi9NZJjSxrqXXvdgqPt4RbmMde2mtmGcAvD8MeXDDx964/FdpLU6lwGyKvUzn62toEMx0lnSfnXGyoanCPFFI7mIEfwTDb+cMPziZDQ5pnJKtawbNRAQYRbBnLTO+8jKYDZQCR1bfDmr2zXNB25FzVq0ANvXLc/IylK91PJzVqYM1zyXkzEoA1f8+vk2PloFgNkmTTIBUHe8DWn+2DgSSpXeSd94IQMhieH7YiBCRi3aMtK1GbbofZISxlollXv3wx3hVmrWSovhAdVt61oIFYNujJShJAIe/eh1r87qiX+E3oo5pBnao8PmNQvavUu5fueNb4AbHH+x08w/gkRN3CxIH1sI6rJ/sW1J+Lzaqwmzg4M//O1Z/oLDix5IVhl3s4JEY9kzprDj54aI8V9hy39A0BihtFfRnEnE2qnmtyySJnMnAqo43XUuxmfAEK6XiRQ4P16BQCYtYsxrh5+NyNEgSdmq5TXNZLdHdigf/5ht+MnKkvkELWh9gc/3gNcIFR3OV4adIcLtsc6W4FF0qzbc2vyNDMf7Fk7UaGt85TapxHjtSHDePVulFLGLHxf7WSXLTb7EZF2qrEj/Ed/8vKgpQE+n2FheRH0opt+YlM5Jbsdd73+rdARduciM3PojtehveKyVgv9SOq4+eMELRf+675N3jBVdx5fSPDZSH6Bl69avQZIa2b50GFYLaSKgm8jFND6ZSdD0+j28MGYf1mjn8eg3Okiwr0gkf+VY8PfdyZ8K1+5E96JkgZfELu10DVx38OkLj9wwhhMA+Ijq0qZ+p8eoZeNTp+30+7UVQ3qOAMEq8TF4nxrijjeUNrholRxsqR5EQ0+8l1F8+1klxZylhcIEE+vLgh22W/YHTeGndHl39Yfx4UQEc/HyrM52NIDp8n8RwtD8hOura/9M/NfmcrZohQeuyVZgTzcOedSJouxBbZF73u14R0Fg3pfl50X+i0DUzPWHjjwMY8ACs7k/BLOaIn+KdZNObY1EJ0uJvCrd82GEz41/8rPMom597WYqCVIt7tgFlS/A8TFY+bHgl+jiaDMWW83rkJoWQNq7f9Why2zaE41CgCHuGr7IuUg7YEkJ",
+"format": "google-gemini-v1",
+"id": "call_268961",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_268961",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.12615243811002277, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_368588",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"fraction\":0.36,\"ingredient\":\"mycoprotein\"},{\"ingredient\":\"sunflower oil\",\"fraction\":0.175},{\"ingredient\":\"pea protein\",\"fraction\":0.135},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"fraction\":0.085,\"ingredient\":\"breadcrumbs\"},{\"ingredient\":\"wheat gluten\",\"fraction\":0.075},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Iterations**\n\nI've just finished reviewing Iteration 17, and the results are intriguing. We're seeing a value of 0.12615. Interestingly, mycoprotein at 0.35 seems to be having a noticeable effect while keeping other inputs stable. It's becoming clearer where the strengths and weaknesses of the current approach lie.\n\n\n**Evaluating New Data**\n\nI'm now focusing on comparing the results of Iterations 5, 13, and 14, where values were lowest. Analyzing Iteration 5's data with pea protein and wheat gluten is proving insightful. It seems adjusting the ratios of these two ingredients has a significant impact, as Iterations 13 and 14, which modified the ratio, produced slightly better results. I'm excited to see if the final three iterations can surpass these promising starting points.\n\n\n**Pinpointing Commonality**\n\nI'm now identifying the core ingredients and their proportions across the top-performing iterations. It's becoming evident that specific ingredient combinations are key drivers. Mycoprotein, sunflower oil, wheat flour, and breadcrumbs, along with potato starch, methylcellulose, and flavors have a clear correlation to performance. Changing their values moved us away from 0.08428.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "Et8eCtweAWkUfRNEwEawEmoWwhSxLOK1qAl2tb4fSB9OrRCNop21OjuPjtJc2uWYX9Kb4LsSkYzzRFT1ZeONflSDXwCFRzFiMTIxF0QsRxDarZitwuqejdL6SEh8BHq45Cr6Y0W6CEf5BoEDPx0YC0Gk+ODPk4p5Lc8wnOVeMqhSJaKV5ThrRdKFn3BMLe/CykfLKMr9Ez1k6CrQND61pGTxE0uCs5BGg8ZJrJdE12PnkpblKtnlCGbfkD8rTwkbU4ZjNdzuZXXbSsmZTndIgSw3MHu/f8Mple8TnU2HzG6yb1jhXqNxOYKD97y3+QaHXgGS1hK7AFPEu5URsjNWRBZMqNz7eLP53Kgqcgi83REf2dRp8j61SdCTNg8ZLRtpndkbDZ5KOWdq32EPBwPRKDQ022c0epYqZi/LJOtbCxw8V9GSXl1SD3ddRoUDviBBGsRYZrV2YJA6CFAGJa7oSxz7jBUbUasAhkE7keRLaeU6YkG45IroFAC1vSfz6sWfgfxlc//HMZL1uK9sSm+b0lE6lYuSqUEZWU6lkZA3j7EpBYKfC3HG0sO3uhEPyD03XtTje1R2LzzdPatZRxAZsci0I4WvFvVC7CHfkXpxSdn5gwDe/VIS2WK9XPcnZ4c87dxSJZrfJYOzotGu5uuaS50gDd1Qvh8ahjgLhtMjy4sy1l8hsSpduSXnfT+3yLpE69b8/KnibvDuueXmVrDI6wnzzPxCQSwwRgYMBpjphgZM539yyHvP1wGFhvsmgHnpIvIjCB1GIM+pSSk/p4o8SwHOWhFTJzqGd5T6gF9a43gmrLbkxNMSIJkINjUOAYV8tI5xHxwdKezPsdHpqAT1MtPHq8KFpVNIcwWTVkufKGbQ5KleWATOkWirqru1s34lFPXcg/yljxrW79YWGC1N3S3n+nfZg/7c1dmjNIH4fFHrqUZ63zTMOUKvKam+Gm2mWn2OWmxesNJjQvISnOGITSYBoy4gD/6h+FuuHXfx3UEqbx+1vqfax/5Iib6Fh53wAFzecUuSzwPPIbgemOCwIx7oTVDI2tSzDZgop6u8P8WQJhqXsUTgFWnoJua/lwZfayqsjthNgl5VtIuxWUjVnL/K718v7NybnkIUEL7gC3Rw57Wgi0VVgpgSP7bk/AuE9VFs9yz2bsiaxgukZLVdqsLtV2deJlS+fsBnSX+hVXE0juFVF94oHlqTAV3SUD1X/sCfGl2fMulaOa6MyxdiWEjFA4aw1GUzxc7CkwrRryVcMq19zZKKv7jsVo/txO5SfyHeDsfDbXl7WYNF421wp4FSt9NNCrC7izP0RMbiI3ecwZdfdKgZNLJzBxdx9BgkSYG5zW33CnwNXBjHiAX98Bo3tw6LrCP0/PWATU6PRPYNymeYobLvWo2ScJGH4wgGorpKjDvCocjJE2WtruG9dXWjW7nP6kr0LP2woMY7AjVUITVTvcyGD8Mg5dl6noAvMs+4mkuASNFZTC//Olx5w5y1K7HdbZE0qE9fjR7+AoqqrSai1o0mKWel0zxNlOlf1NNfj3Y/ZXHcC8gTcrsVjmzpMJ+bm66gFxkWV1o1MUoe1rEIrwymTWrV2mLlz5R4niZ0f98j2w1RcC5JoNTio2ds+LLn6SR6MyoSKskuUWioQlr1hF6QryPks7SyFYAbIBm7Eh6vnELV18y4sdSQ/iWTqdrV49+700VcwKwOEAwXhJBu1+yfhN6kmdRoRu0zXoeFhv/08HE+qjksHTofdm9WZhmTJVF4gT6GNkbIZw0ZZP5FCMJ815WNA+tM3o64pzEYcQQ+zZFU6w02CT2QoUe7nhvD8+NfN4jYVFDTiJqrlFJYgvdnJxoM42c7nGO58xVTFxkrVtgBj0PGAZoLae/FnCBgGOuNWNBEWO8/63/OQlu+YQ0rGv1E5Ly/rWa8XyvqOOa83D8zpJNIALmb9AUvR71dykUWgIVJbsf4Tghoc690frMbJNjbKbhVo8v7Bi2sBlZSWSX2np4lDomBGJ63ijt0ksJAd8hfZcYtqI6VcgBw6wX4kc9j3T7baADiuYhJDyI9zsAAHQD6A1gYXQCd0i7CDbJ5U6dksAZiGPoNLfQKMF822hS5PaGyCzxyRZr8G12+ODIhv0DnO/fCPB9pMmcmobOYHKLP4SIY1GjVuxwlTMmpCxFmqdiJian6/2zpDJmxpQtl15GsZuWVyEWnFVG3JvyJ5/s6nDKLxVE+XBrEj15doGYFaqucdC1ETs0ReyV2PzS2mHtl5WGtUjkbZzp4aP3QwHzJPT1EgiYT1R5pIRIBikqxo6g0lmIrVAf8HqbOJVz4eqe2Ruauu2jXJwkoT1pbgOBE8qJYRYqXU0UJC9LyRsafife4nqwJ2khmlRDWdVAwTrTbega0IoEgqMQsqGbIOh3WdqNOjai1zR1th8Iox6oW3CkLZRgjIHeF+mBejXjyMZxXGnLll4ZWT5oVmxbC2rqcFZoMHdBHGWTKdM45Sn79JsWmJkHm4OC3Gy2zeSe53oWY/hQ61LxJ1sTqgeXu3v4cxhxFBl17JGz+SRBL8jUf4nOfsgYAzSofres88zPWGJP5RNnCNeR7n5ZykQLiJrCyUdLaUdEW4D0Hy2sOLvGtip64EM1jfVydHdi5FPYAxj5wYIfInlvl0F1cL+aU45KL49bLZljEFKumWRbHmbPplOuV1PgV/yKT/EyIjUgtNBPN8s9wS0HY8S94QjBJH2I2TR+vo1k2zdKLS41lqCLLS1lKIYj3zD3+2PyIyIENUwYgOtfbSTD8OHMPIcFqQWc222xKOBzgWEL+FVVNnzBc97BC5xhlYw4KhfZl49PLuXXrmZuagef7t7rP4leq8vI9iv3wKBGHtMNJAc+RXQNRw8lXx8k6BnQhwc152aEIyMFovSXzsRP7fZz7JYPQCL9q67SZIWIdAURQtdKPu6DlR9r8SFmol8XM1TMEngF99vAa8mo2M8OND+Nld4Fd2sDt0dybZaJgcb2EFtiWjPDS6GCx59yL4fmxgRNlaODDzTfwWT81qvyAJhl7yCCpr0fWIMcBACXIQ7rcAsPn6QUjSMAx/GZN0ftPlKzoB+dCCG2N6O32vvjVrg3INmBQYHByt3IEQCT9ppRt9CdsYsNGAxaOJpv04Ebl6VP+Fm420qMTS7AH5VezsaigS9B/spLFKtwrX69rj8yOCNXUhCptpH559cPDC3xzhur8wNWDZlGLTxbV6eFKuzDZkh7nH2YlD34aJlUhEvvNBQTe8l4/hbK+dsqugYvY0a4ui3sKyLjCuVIXM+LB1vpiiQ4pGtjsq6xQmvgmuzgnbtn+uWVUAI56cfB7fGN5WTv2XxuPQi5vXbCvbrEm39h8yvBj74WKQXzlF4zGvcL5QlFTB+Qv7v1kg1mPoJt2WJVO22TtJyPMcpUjv3qLcIZ2MleMDQFYXvea2migxxXGpixzhMglS7sUh6Hv2a56IuUKP8eangECJgwsvpRaYEMojq0JIPHFdJP+onoTPIhbLfCC+QEz0kTn7fcKUdKNUPSuwucl6f4Rlo3XSYo73wtl5TRFjHvXUkn1KY9dEjZu4BQX9jxK4q8ixIELVj66MQ/0J2POgI75W1oHp2/waIFWVBeFQTNBAnLHml6w3Rr4mVIYDKf2tAN2Zvm32sSwMeNk4Bw7chcLR4+Dd20RPQ7WEt5L5f8aL8F5i7cCGDm1hVi5TATwgKCqU7Fjnvr62BzLFUe2jt7m2XfNLN61TM63Mw6Da+MEqCrzivTyBQrOiQiOWbhKGQas9deyb+wL4KTH94K4MsFRyupxHYJJY4mbmEf82gpSuWAIKnZGeM5lGsGjGmNuyke6hlmTdLVRtrNrcNeA1N6RaoysLWLxK0O4eV/mFWFzyslULJNJTmWkOXN+/vbm4fxnnHeVMMskJ2DaASYoCEza5s2EsRpKh+xYnY2Kl4/oboIJFfhUyppShV3l3woYXiHrZ2nEDVFYfqUGNUtv68e/ej9KK4OQDC26bP/YAOQJHIrqpJw8VI7GbRRHdDIxjvEnYwtXJuS4J0NMNBxYH2cAelhTqlhzCfF797tSboBf9Mz/HAdwp6R3fRBW82JZE+5LsgxmkXIj192//RBGC0ykEkSaYtg6g/jG3P4IqKNKHTb9WtlLMhuLWJEzx5wQRXGTLA9xUOeR65eOv6PS4eQNkKMJ3GOes2gZr5CTW6DZVUyZYeNfKCz4pgmMaRo36NuAw58VN9Y4FqjjQDgtxKv8wNDiVvhy0k5xIY7ryT5HVveK7f5ggWLE0xRCaXFk2Bn5GnyXkaCudiNcTBnHsq9ZwGFM+PL4atjX/R4XgYEU2r6OpACamdZUvZT1GvSdfE/bVxQfV85T3JURhxr/1RyMu6Hw45wovyQGwV+zedfAMib559aAWEdOaF/zH+/4FjfnQF4j7TxbjOP03F3PiJVi3rUL4oS33K3ptxvp5+cWKX9FChCucNENBwpG2qI4xDkBBuDD26b90gF9ke+DXtxgA4u+G6F4eWlCL58bkIvVfwwJ4JJHywo2BWmG92ovhX16rVjm+7gtTkLsrQ7sYRGUgfJQ+qgQqNeWcuTWhBY2zS3VobLhhdS6xRoE+naPMRPgm8NNbea8XcxIx8msPpJ+0aUDTJNVyQbt18LBpp/f3Z0AMnGGORLPd/TYnE+jTv6WdWiZlq2drvXovM9+/l4GcmZa/Qza9g8f1f8MfkIvoL1JnaqMIFNZH0AsFMf/muC5MRlcBBLpGXQO6i+C8wTyZeqY9V/1aB48qkPwWEiVs0rQ8MxVJ0aQUOdGSHDShWY5scGhDqX2WuWPOMMtXpdKonaJVNENFmCUA8aRHolXfFGFm2cF8jT9ULsVmrfoSBrAw79aCg3uoMaAn/OKnu0N6wZHzluxFwro2VZVK2CD+XARRUHeIBZV5/aBJlyGGMUdhEF9MtdZGkC74kLz+HYaWKP/Fuxs3AT0iFzr9zuA9qVuZuWRVzdgapL34frxYGVW4+xbZNYjdPnuuazdAs1Wgsql9nvHtobii0PjuEX1Q+xU0EwuAd5dX0fnnsFlHrwkPgVNYTr4K1HVSPsq1ft1YVzzjZCtcskCQpgoqmxdRSG0hujOl6Aiuxkwou3OnVMuuXCUEuXVj17NRnfplcTnHqgtg9ADV6FZ5GrAxLfRNKw+9IsXU5b2QYaKwmr44s7Nm3PoY+KsvuoO4uGjGfBG+InnnVHlKxJIXVbXqJ1toYvwUTwkrCjS7vH2iLZqiHDZO/OxPpg=",
+"format": "google-gemini-v1",
+"id": "call_368588",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_368588",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.14007827928871805, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_326162",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"fraction\":0.17,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"pea protein\",\"fraction\":0.105},{\"ingredient\":\"wheat gluten\",\"fraction\":0.105},{\"ingredient\":\"wheat flour\",\"fraction\":0.1},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.09},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"fraction\":0.02,\"ingredient\":\"flavours\"}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Considering Ingredient Replacements**\n\nI'm now focusing on the final two evaluations. My plan is to test some ingredient substitutions in the Iter 13/Iter 5 matrix. Specifically, I'm considering replacing potato starch with potato protein or pea fiber, all at 0.03. I also plan to test pea protein at 0.125 and wheat gluten at 0.085.\n\n\n**Analyzing Substitution Potential**\n\nI'm now contemplating additional ingredient substitutions based on past results. Replacing potato starch with coconut oil in Iteration 16 yielded promising results. I'm also considering the potential of pea fiber or bamboo fiber as alternatives to potato starch. Additionally, I'm examining Iteration 19, focusing on flavor replacements, and evaluating a specific ingredient combination from Iter 13 / Iter 14.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "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",
+"format": "google-gemini-v1",
+"id": "call_326162",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_326162",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.1838715576666298, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_392935",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"mycoprotein\",\"fraction\":0.36},{\"fraction\":0.175,\"ingredient\":\"sunflower oil\"},{\"ingredient\":\"pea protein\",\"fraction\":0.14},{\"fraction\":0.1,\"ingredient\":\"wheat flour\"},{\"ingredient\":\"breadcrumbs\",\"fraction\":0.085},{\"ingredient\":\"wheat gluten\",\"fraction\":0.07},{\"ingredient\":\"potato starch\",\"fraction\":0.03},{\"ingredient\":\"methylcellulose\",\"fraction\":0.02},{\"ingredient\":\"flavours\",\"fraction\":0.02}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.text",
+"text": "**Analyzing Noisy Evaluations**\n\nI'm seeing significant noise in the evaluation results. With these last three iterations, the changes in results are jarring. For Iteration 20, I need to make some final evaluations. My goal is to understand the implications of the fluctuations.\n\n\n",
+"format": "google-gemini-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "EtkICtYIAWkUfRMH9WHE+ZESsd0UVMQK4UNZU4tDs+M4uWiFiMVq6gADNFNWqj4D5nFf0KSDTj/Lv0wOS+GTWOCoweG9x6Q9rcexhdIQExEdi6tPGVWzL2jK5WRjCYo2I+AOTqeI5pb7YhzIziVa+ESHiLFengdnW4fINW8+Y2l9+biLBnAI1wWwPeKxhgO8feqblTxIo0sc1rugFMx5idLv7dj8LgE6JxF2/Mo8ici6TO/uDOPlsS0c6AfXf4BU2dOoVCte3VrWEHy1i9ONzcQ82ZE0KbZJUXNhE9VWk3vYIIBYAMvUKgbeISzRniPqIAz4XeUQVeD+JyG1SzBmEhzQ0EXRrmriJqWbhw394InqSp0LdgLhfYBevkD6ZYY7z2z6xyAH4hPMAx427oye0vO1QOvbJa7O4kPQBM2CTPqMm5/wHb/NRtmg4jtryZPs/47wLwm7alzPxXVaPT3m62nnMuXT/F8QSkfZDAAhxjNECB+x4mYDKijjizZxcZZA+RiqC7wogx/3dMHUhFUMSj4KtdagIbQ9T7ZM+xKeQ3AbQZVv14lopkwvF4WW+kQsf5z/WDGyNj+IGrivvWdhUGQPIe8pae3ufLEF8ZO/CneHQOjAaEXYXUEElXF3OrnI8TBVuGRo0Iap4rG70aQ8sURso/fOAbQZgs/RQOQPvfuhfly+Kx+bsYu3w35zgaavLFutodGfSvs/D03+TOjN5FUH1PNKXfoLtFTGzKKrmBbrmsJGLDL6zSfaPvmppXCsYBz+xfCEBQOgB1Gg/YFIrjSArKhUe2K6lVURahlpvh6xzWv4jDgxSkNhBFU2p0OCU3MEP3c0J+ezJ1RDNy6S9MNj4Us1p90CQ5HUAgWlSD7XCdAyKEYQ9Ldx8kHw3eSMfcb++KcucvBWpXwzkm2xQ0NkAW1KJqSEZbeD6nphWO/iTRNX/YlQQCw+Hxnh4tpQwkX+skR62d5neqQipVM8sWe6EYQnA4j3J7QDCX75c4royIu80xrwb7Fm8VqDhuimovs/EWZVNhc08kuUewO/SCEnW3R0fufTuLRDRwTqfpcN8SBi7jL7zS5DjR34oWo9J31P8MVMGNGcHYYy/WOWhh0d93JhiM+Tu85rMlDu6/IL2EQJXkKg3mTfxh6jl4ItZ5xJudb6unCVlydfyUI+6yDF4kH0Os3eTqybPmgUm2DahJ163fTbR5JIZ+IvJcx2GZm9Efc4yusnYKUAeJgqeCWk8GiewVqOSbc/9s9s7tgNQn9oGcpN2pcHntRYoU0lfSnw9Wk5mxtahR542q3xS2sBYBGrOuSRBp+xGJDbpVjM+pZM12h30uds7a6mtRgmebrRMOx+FBcOkqwmXa/DmEQ+ODI8zVHTacWU8S8GgVPxM78lu490J+pfFQCadA/+yuPSfBH95SuL8C0YfNj9tum1cEFbbsnfsovOTfJjGxyom2XEr5xZYHVN25diQwxZGDNEj0vOQPRME4Gz",
+"format": "google-gemini-v1",
+"id": "call_392935",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_392935",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.08444695597037151, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5",
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "EtYCCtMCAWkUfRNblXKRs86izzmLcgwe4BpjaaFntI8kq8zZsfqbQHTqVRqkiOTEGTS6UC/oFkcZhtulwoRl8APph6sHLAdslsTDJtRwCWB91KhuZQ5W7O0SUx978kphGLzvlehPEdodK1WFhLQMhNTZX4DsiZv2WaWBwGRHMYKXYtAeMuozMc/1PHqAY/EJrYZ/W42R9ulaW5mP6GL4c85f5EeDuFAqPYMRQVh6C23s2/fvHxgQm4NTsXeo4qzEK4KBchcq19nkInxuup5/ODfiS1ij/dgcgQLb5BcPeKUvEz8r01itFHgddsDQsFg3gOre/f2ZGfXWoqDatnmFXRYdR+y7JGYO4bGX3/NWoaOIUi33poKzw4vbXi4XjCjUEaw4W+/xOEAEzYrYC8KZM+DlaA4RMJzePe4jteAhl7SH6/IaKW2IbQVZkddL2G0hi/y+lDtT/9iP",
+"format": "google-gemini-v1",
+"index": 0
+}
+]
+}
+],
+"calls": [
+{
+"prompt_tokens": 1030,
+"completion_tokens": 219,
+"cost": 0.00425
+},
+{
+"prompt_tokens": 1294,
+"completion_tokens": 404,
+"cost": 0.006628
+},
+{
+"prompt_tokens": 1745,
+"completion_tokens": 253,
+"cost": 0.00602
+},
+{
+"prompt_tokens": 2043,
+"completion_tokens": 556,
+"cost": 0.009646
+},
+{
+"prompt_tokens": 2646,
+"completion_tokens": 453,
+"cost": 0.009822
+},
+{
+"prompt_tokens": 3144,
+"completion_tokens": 172,
+"cost": 0.0068737
+},
+{
+"prompt_tokens": 3764,
+"completion_tokens": 837,
+"cost": 0.0138175
+},
+{
+"prompt_tokens": 4646,
+"completion_tokens": 1849,
+"cost": 0.0245235
+},
+{
+"prompt_tokens": 6540,
+"completion_tokens": 484,
+"cost": 0.0100692
+},
+{
+"prompt_tokens": 7068,
+"completion_tokens": 562,
+"cost": 0.0112231
+},
+{
+"prompt_tokens": 8011,
+"completion_tokens": 1124,
+"cost": 0.0177259
+},
+{
+"prompt_tokens": 9185,
+"completion_tokens": 3349,
+"cost": 0.0387823
+},
+{
+"prompt_tokens": 12691,
+"completion_tokens": 397,
+"cost": 0.0118986
+},
+{
+"prompt_tokens": 13415,
+"completion_tokens": 2036,
+"cost": 0.0269702
+},
+{
+"prompt_tokens": 15777,
+"completion_tokens": 1806,
+"cost": 0.0241236
+},
+{
+"prompt_tokens": 18083,
+"completion_tokens": 1610,
+"cost": 0.0222878
+},
+{
+"prompt_tokens": 19740,
+"completion_tokens": 1453,
+"cost": 0.0212179
+},
+{
+"prompt_tokens": 22014,
+"completion_tokens": 1359,
+"cost": 0.0201101
+},
+{
+"prompt_tokens": 23419,
+"completion_tokens": 2184,
+"cost": 0.0284075
+},
+{
+"prompt_tokens": 25654,
+"completion_tokens": 458,
+"cost": 0.01139
+},
+{
+"prompt_tokens": 26158,
+"completion_tokens": 1030,
+"cost": 0.0177665
+},
+{
+"prompt_tokens": 27598,
+"completion_tokens": 1454,
+"cost": 0.0220631
+},
+{
+"prompt_tokens": 29100,
+"completion_tokens": 1399,
+"cost": 0.0209508
+},
+{
+"prompt_tokens": 30545,
+"completion_tokens": 678,
+"cost": 0.0146035
+},
+{
+"prompt_tokens": 31358,
+"completion_tokens": 1138,
+"cost": 0.0199536
+},
+{
+"prompt_tokens": 32558,
+"completion_tokens": 596,
+"cost": 0.0134908
+},
+{
+"prompt_tokens": 33302,
+"completion_tokens": 400,
+"cost": 0.0126369
+},
+{
+"prompt_tokens": 33747,
+"completion_tokens": 1544,
+"cost": 0.0235533
+},
+{
+"prompt_tokens": 35342,
+"completion_tokens": 853,
+"cost": 0.0162195
+},
+{
+"prompt_tokens": 36240,
+"completion_tokens": 485,
+"cost": 0.0140733
+},
+{
+"prompt_tokens": 36627,
+"completion_tokens": 77,
+"cost": 0.074024
+}
+]
+}

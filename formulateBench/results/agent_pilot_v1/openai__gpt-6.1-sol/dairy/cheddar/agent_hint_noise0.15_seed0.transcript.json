@@ -1,0 +1,616 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based cheddar. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.48},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"fermented tofu\",\"fraction\":0.1},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.05},{\"ingredient\":\"cocoa butter\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}],\"target_dissimilarity\":0.44225088904124277}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_C7PUZQntbYcRuLYlZ6HXCcKC",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_C7PUZQntbYcRuLYlZ6HXCcKC",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.3213487896985585, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_7iOxB6CUztlNXu9Ypozvmqwr",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.28},{\"ingredient\":\"coconut oil\",\"fraction\":0.26},{\"ingredient\":\"fermented tofu\",\"fraction\":0.28},{\"ingredient\":\"modified food starch\",\"fraction\":0.075},{\"ingredient\":\"tapioca starch\",\"fraction\":0.035},{\"ingredient\":\"cocoa butter\",\"fraction\":0.025},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.012}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_7iOxB6CUztlNXu9Ypozvmqwr",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.6579433257012439, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_yx3sgK6Z5O7vjEvsCYuFeydw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.37},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"fermented tofu\",\"fraction\":0.16},{\"ingredient\":\"modified food starch\",\"fraction\":0.1},{\"ingredient\":\"tapioca starch\",\"fraction\":0.04},{\"ingredient\":\"cocoa butter\",\"fraction\":0.06},{\"ingredient\":\"lemon juice\",\"fraction\":0.03},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.012}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Considering composition targets**\n\nI recognize that I need to fine-tune the composition based on some hidden objective. It seems like I should focus on having 17 as a target. I\u2019m thinking it\u2019s essential to include a variety of experiments emphasizing distinct protein, starch, and fat components. This way, I can explore the best combinations. It\u2019s intriguing to see how each element interacts, and I'm excited to find the right balance!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Mms6kTfmXCyiBaUrBf51Rhnb4lXXM2mQ7PMxE4zMdAY8cvJcVW47mpE8GJs1Vz3bJdQ1f597aGVuCEy44tdfIQ_A2Bw7hOCDZlFm-HlHpVJPjC5r_fDXfG1dEYjOUJGKnU-mK4KIvyAocBbiSAZnfMKPX7wq8ugnSLrwc48tJNx5MJ1L3sS3aXOL4N4_bRYbGrr_VZlI1hKrCXWcLnOQXvjpe4J18iyaWeIqlLYlIKVFVGkhQQuQlBYpUGAS9gJZyh8CRuMGZTLPLJFoRo5XmY01ktgYh1UsGRriBxsVzdbNlikzu9ECGDIK_e-sqdL0XCfFCEQQgneoDoSl3WsjaxCWSLqP8ePolj2QghmpduMahXUqCpYJmUopFrhXaJ1IXVpxehplXvjAeOEGYTe8sFnj-AWCrT854KwpR8_6LE7Bh9AaYAorhZob9TGbY1fH3vMrnGJdE5PcJjq8oiphATF5Fb1OO4b3pAMo-a54dAHflhnbfL0xHheZ-1t1pax1ooNNPfM_LmVg_ZewofIrv9sAymT3ZUpwLd4FPfX0jQcGN08F9AMLUtMHNSfL34elZib3Lvk_AvlLwxNSII-3G5m2sbTBSORWrzlu3eJ3sAbInqDKGnsuDdodbvr0JFDPVUbr2bhPcAoO7k1GLAlLw7QeguK28KFZTF6gl2S__BP_QTRXwrGNR7ARhRcc4HpYAFzglSne0ec1BJyVC-9toezW03iYYyHxggzSAuRNZUxkxMH3squIm2yr2gVrgxa9esEe3zw4ziwXKvCEiSqRIWF5BtOwQoXw75jxFNtCbE106yLcGqf5rXi1sEHztKfQFXcp53kh7VfZw9h4quHynxZ3lnjvaESyTlnyAbazjtvGxmUkr0Ern1wg0v7fA5-lDxo8YCjHVkkWJBfgxxvfGgQeEFD-VrXz_TSDrBKAQXkWPENdHLJbtstGxQHXrIbUlglDvWeLwZi4MPzu0ZkF-ILB_lF0hGJQxRQwRs7uKLQ-SY31oEdZnypI3nFWhJcHpsRMM_X4L_0Azr73bUrPwkP8_uih52VDjAOCyPOjZohA1GGb-nKih4fGUE3GmOtYN3W6w2pIYflqs1-PknCMrgwoZAwLtqVu4P13xzYuHLg0_MALWLj_a-1HAK7zojdqrKp6HM4_ERm101LejOTNQ5OVBDjcd_P0rFoR43vx-oY2mY0FQTWnkjncwCYuiJYy4Pczd9hNuhZRCgPPi0r4WlOZqUZHTC7hWZr8iY7I_y6fUGcQbTE_FC4KGjJQ6HsFDjKk3oQCFW4kHqTMbasZLdXFnd373fYOwqaWXK_1V6Bypy4BRJQH1a5GQxXHBBdse3LYWFSaWkBFTe2h8zPs9kNUxHn-cBz2MAJF22m52r7mGNL4FQhSJTN6ACAfgZ1C8YlU5rqxQqcAN3y5xTKMrkrsyocTBnekyemDC_mvYja_2tyS9akH82ZJQLXjYBkYbqk_V7Fct43slEs5OBcc1ND06TcPnYn6JNcOj05PsHB8SPYlLkmXr_hqq-zOn4AZX2z3AIzgZCCyFJBbC2oBBFX_roTLC4VB5TP-Jcc3U_ADhT7YGXJqgwKevdbnMwEGPu1DkL6x9P0WTzuaK4thHUsy_ZuhaeHehGx6mkXWFifxdKrXdwflf5Rpu1R7DVOwsgEzTppDtvthlw-1yYzU4UmEK00hFWdjxWaFl1EGQ6AXdffHI5Nb-Y92lZS3l2e5wgbth19RizaQgxWXW0IUESOtJTX0WPsNJDyVVDjhNV4tyQSVrXR6d-wMXa6MY1WTQO_i_lKxYs-k0P4EIqql39K1E3PCuAzVrIz468dP7B3-CHEWJ_-bG3-fSCLO2ltbuQifsWKcvIhTMwpA-yQqTicaSWrA03cvUn28sbM7Ym7Cig=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aecc9ab1a2087d1ac1f4679ccc3374b",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_yx3sgK6Z5O7vjEvsCYuFeydw",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.557424467732271, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_hSgJpoKtoQrEPlrCoYYCEKKo",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_hSgJpoKtoQrEPlrCoYYCEKKo",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.20650875111208694, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_T0CMOKEN8nENqnwZxQUIfaPQ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.41},{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"fermented tofu\",\"fraction\":0.14},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.005},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_T0CMOKEN8nENqnwZxQUIfaPQ",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.6722348121790374, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_sKrkB1bz2kfVB8JCEQtAZdYl",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.395},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Assessing acidity levels**\n\nI\u2019m considering whether .015 is the optimum level for acidity or if another value would be better. It sounds like I need to focus on specific changes, but I\u2019m not quite sure what those would be. Let's explore the implications of having .015 compared to other levels and how slight adjustments might impact the overall results. I want to ensure that I\u2019m getting this right for whatever context this applies to!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MpM5dShQiVg0OxDf97veJOMvM2UqS_618VYek8h6mtkWiTygQtkD3ChIb4Wtu2ft3IqKD8Hw_Q4XThZhEwfHRuaOlZpHVdNG9eTeTJ58ba1nQcpiUy19-_zhY9rOByImVE8XAN3zw7s3idoTAF4aWyWT0rtc3ivX7kBYINCAleaoeOiL5GVKJ7DN7UaH2TiMy3RkQ90L08n1xiE5Bq7V8Ail6vxfpZbmSqAIDM18WQzBZb8EXXCTne5d5-QNarLTCHjhAVncUwgrpkuXiJRJAbxwPEO30CMPhiZiNCmnBI6swx8PUmJEF9E9aDEEzYtUJe8kH3IgWp2acR2CicQmTmcoSVhUDqzUMQvi-eyhgvmB_hZ3V_IrwtBDgNxlgtobIGnXdKwxQ_kuDdnqQ_axgyIGTh4yV-iWBrGRCLGNrsuL92ymbgi8l0t_17c309It8l6rSVLkY0Pv3ayMibMRpr1eYzG6IRyhw44rfre4AENKKY-8STqBuvvOWNch8Q6CSKt27QgLAqxk6NsBIOwVTGLXz6VnEfSkjW8AoS4blu9eCPfNEfc8lYqCsfqOVLQAEcbmRnewrN4OQmAh176GSrzqtFSalErrrlqsvQWAwwonLsTJcbYN-oy8DEsaPDpG7DvIVpXgkWHXPtN4FtGciY_8Kj7hBCyfleno7nHsXwCMAlV3FW_9UKhdlAiXbzIBA7bxPqR3f2CqXHL_RyyY29vn8rZTriAfZl3ORThyRwi5K7kU3rlDpgtBgULuw3w5mpAFf4hM6m42MegTgHLhHtD03DYIskN2o-BeDPhcpm02tqbvuVb443SgGSZSyBtOifCO8KHEgHV9MSPr9tSrqg7RcrKPWrATJqYKrTTS47OzDpejVQjrW2a-K3FwzpNkgZ8ZyD5FtG7B1vkEFT57XLLT-LSexTwLl45glYufFgkMdoEB8V90gchosDyzWiLodhbWUY1CDUNxDHCLGgGWHUe8QJHfHbDg4NRh3OCLPfRCqt7_tDzerdHfzOgM--6JHe56XSzfVCR1hzngMoicwxVqgL6rhcH_gO3cjjUfvHVXLmtgPcoJrYRZVOgMhQym241tGp32SvD8qtJaTM4z7vCYSCNNvJvVq8I6bigyGZ6KMd18casy1uggHgsciAH7BV7pnWQG6gH5AzEMMu_mQEI0_YDT5dAdnbTKgEcN10bOmAuBFhlRwf7s8WSfvvXtWMCmN9zcXGmPMfjFeH2FgDF85ILQ-hDEoV4HtnFsuC-prEoeldSBcjECZJe8kGlanSZinOXcbT1K6jbG0Yqg_gxzb3-MkxJQFg_x4ItLCIIrHlXfdqV7CXgxhWTt-xzCJ-5q-aWMaITwxoxONOAkIt2IuX3aN25pv6pny4TlcxwSywDC9tDwwHNi9ZOe_lSJ4t6TO3yWcT4YwJ4SNHPw7NKjXu_mg8NXb2t7Tcnp-x0DrLkP89P6lfwwebhEnyysAYoDTPx1FzNDExcCHZu3d1wRjKk9iJ_2wTtYG46_N9uC77PefKh1MoRzuOVRCKB1aSKFGgbbu7VhiUu9XoLzKQRjJXiurOdNSo4ltFJ_d0QXX2SaSMwx1LCOVR28B-9QWbtueEUgKnGLIW2PZH5TByswefzN8t4Ei0yOrR4ymkKEDutmnNKnvZ6KZ4-DMfvKqBGhWp1_65t4m2JPGkeZiAVgfY-EK-rx_L5o7aZ380eCUBgtn5Cnpl9Lrc_fPK99_mqX2M9pd9J-xpLHzA6iRaUclHoc6sKvnrtNUpRMXQvRhlNgi6YW8E6cMlS63tlg_LM.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aecca4b14b887d1b11c8744c8ceb11f",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_sKrkB1bz2kfVB8JCEQtAZdYl",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.3675940076850551, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_y1cVi7uf1Ly9eMt0mwHZcTqf",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_y1cVi7uf1Ly9eMt0mwHZcTqf",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.48940019645706984, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_vk3LEDskaLlJWaCH4sscCBac",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Analyzing noise and samples**\n\nI'm considering that there's a lot of noise, and I need robust samples to work with. I see that I have 12 remaining, and I'm thinking the best could be around .35 and the noise at .15. I realize I shouldn't overinterpret the data, so I\u2019ll focus on gathering more compositions instead. It seems like a balanced approach to ensure accuracy without getting too caught up in the details!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7Mq41YBsobzzK6DoCPCqCssXAxSqzMwITTNBOJQq4TqrebJyMhxq2LGBgJPgy2HK0AgX2VA9EzHnM87noyym8Z-um8E5NSjbzdbsuNguN0dBuYc2HPDf_7z1gP-aAWBEVa4VzHIcK9FnQZEaOHemUMec7jWbbYijWpS9QtNxLb52tRptzgyXDrG8O1Zb0snftfrDUpofaJ3T9ss3sEqHVlS1HFeSdXoA-qJ5Cqqn2OV5PsXQEOZq2y1YZxgRHds7kSw58jWc4IcHNOnay4kVR5AYqVnON4NjiETmdOMYhnBhphl2PCaLHh9e4o9ozGlEaCdVyFUDBY8DHPvkAIWHX9YPSfQO2PeEdZpepJIGxR6ikGVPc3sIgWEOienAc266dsgI6tPcnZkJAVKj85TegJCiD-0mOXlE9CTcvLNXdoHvcDznXTMlEbx-g1Icj-XDw-TbpJdFQ81olebcYNhaFUpPXEronRtHhUiQpV-nWTrOMDz7vx2DlW9c502HDn1gFCxRBOMKYsb0u77sB84HAyrgrYBfHV1vXbaAmpMt17E4qv16kckvNjNBvyilSjOBfaa3Fny6ZsUjVxFQEc8HwOTxlbIZ4aktqtXt4vk896H34ir3dycc0S9JcgadvOCPRxIlszHf7u7jgNyDcK3DgoXVQDZ_R-XiIDOcivADZkfqGq-eNi4e6IzhbmnUeab7Vdcx0Rv0vLT-h6uwMHFyP1gcbPU_MJaoXO8hywVbolTlfq8NZlbYokStJ230cOCDsJiZADypKYx6KgspX4VfXRU_NRxmaHAxNQ1f4fVsotGjt4r37n-SOwSg8CNgJGRZchUDesZ2wN_0BHjh9eXu1-ZaQyzKs3sm8cyz1stcX25kjW3FVwVvCqE2xBeAbNFAK_D872-9Lotb19kKxkjRtiMB9V1XbcgLWI4zdz1MqWpUTnaA4GlPAa4ES22xAKESAI9tg_WFZSfzJBJxpjAYDUKhG1rWcNoTBSxOaS6BYEcLyMA1tLR1kD7bDv20t9ETbKvcGae6A33pFDtcs33lD7-0BSN5ZN-EGeiBFrBeWb3MWVZIT096013A0Mww4Oevs-UIzW9ByQB3g3hZesTq5-Hah4r1HaBgYHPhambH6qX2W--eof6eGs3y5Gx3DrFMY7_GAV-baN_HrDPmUaWe8JnE67_KqfKhiruLTgNV2YMcmNlNCb8c1nNjZneRoWvtGoyX1F-lRH5T-T3PKxFEoNN_U9VSGKj76cJP_ccIh1NEvKnWfIeGhTMyiloApMCkmrLm46jzCP2LM5Yqo__hoR-qhwirHbzQ5ZyD9wxmGMYZZIhcXEsukb7mxkZ_XXZU5HZdV-tP4mEyNEShxeMmzhqxa_Uhq9SIc78r4L3CjpisqLaYLKUfy41zoNaT245fG97VeuS40coHmCDh6JbBuVO_7GEoAe2GzSLDKEkPbVMKhkeC3G8DaHl9zaXI4uKGFrk0bkqSgrP_suOJfi1_SOKCz4Rgca3daTGYup5Lw2VtfWBK6soj2Bdx6YpG0Z1vRZbK7leG8l8WgvvLfSBMHxR2PxJSGzMLI4GvcysBoDc3E-WkVYf3TZSBhsF8m5burzF4k6Z3L_WBq4Ve9i9gmKZySQvnW8V2ROj9fBABRydEiNLSntr5V1KwCNXIySRreI3z3RBplvgCx484C8ViuK3DGKKCIfLY2ci3wF24K5P9bfFmiUNjgHbl2xEG1-b5gWhS75slQhkKA8DA-Y2D2RCmsLx6yf2LtXsz1Ba9RcWiIB4rt57X305-IJ8PqT9EjI3POcV7FjW--92vfvoKiuhTch-bPQ4DLdUdLjZyxYi9aYqjpZpo5Vx0rsfTAC_GM0SkbE0Lso0zBedbpDwB9MVArycFWuK8s0wIYHcbTbVIVx27ft9z9L3NxLbh3-vBCbJ_5uijsckp54w25vBh4wmdJKqpHg2iktgNtkHJUzlQL3I=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aeccab6129487d1a43f7834123157ef",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_vk3LEDskaLlJWaCH4sscCBac",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.4756252156338048, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_Je8azu158zxEhIZfc1JsJ6AC",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"soymilk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Considering recipe improvement**\n\nI'm thinking about how to add variability to my recipes. I guess introducing some random elements could keep things interesting. I'll aim for a reasonable target, especially focusing on incorporating soy protein. It's a versatile ingredient that can enhance the nutritional content of meals. I\u2019m curious how I can creatively use it in different dishes while making sure the overall taste remains enjoyable! Let\u2019s explore the possibilities!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MrtBY14r91BfJfttVsyudoYp1nxhEEOx2czzQMUzHDSomuuw8jO6xyNs_bTXUVQ4KWpmOh9By7Qt9oK709goof4_VJpV4YPIgWuulmhhslkvw6GO_CLIMpmmZYlbi_0h6QxW7xi1gjXiip9jQD_GyGpqNXdcRlcjJcc10FiRaFY_aJpNGyv691kpZDZGT5kmNtXkx6qtA0mvtaodkaXdC9oUZiff_iq5oWFtUOu7XbtdumbyRieQsqIfwt9w7gqIgwf9hhUk6zPLOJAEoX51OM9m76Ow67yHAH6_1sgDQUVf30t0-MOcIdw8-irz1_HIoSY2HA2zzgL6p_Sq4yqVbhXBKaexWUIbr8wP3y0uO2eCz0r_LoMuLAkm9_wTZ8FEXhg9cHfTLs-NXKB0kw1z3kGQKL1xjcutLo82AyqU08vtlDbqxRAzNEcOXzj9oCxQtjYtOB90vCZTfrVy7BiHCl3Jf4WmMCGyp6pS4eLbOctFrJllMhEyniKeGxboucj02s3TFLVFNbbl8B7kOAOvu2l4-EQCnDlXCwQUJMApAL4nkMMQIKcz0w1eR5jvou6FyteZSMn28-34_jn9bn7lRUW-Oz7nODgeUmgyTHPEmLveAQXtRfYFthRivSKkXkNRjlAdi7CqRflOhlYZM4rFGO9k5oskubxiMx4V8EsLg-fxp-YHlw8Ad4PbG7Fze5eEUo59JyTqhnS4IL-40d7RbS-YExpDjALyn1228ax_G42kvTA0ccIsGIRP8CqHhnfZj3UEtwG6nsiigfeaD6YVY3P5yaNJmJDQ1Z5sc2bxogvUSL8eHVYyFHMFvI34Fqe0i8FEOd63INjyU6cSkmU15-IoYqkgtg1MWwQqnjONVVCMlS_8qXPi5ULASYjDG-MfTUA-1cc9woiO7dZcpP_eTGxuBTTkrEeTCFziYwRavQT8p2cgg7nl5PszLLXndCc8SFLqtCPywvSjUTI17dKljGl_mcShpPkpr6_T6zr7AV9ASoY8NQqaFb3ZFTRvCVgDb73jpj3ydBaw_gfzw2R-QUXd6X6pZ6K2a9v5IDKvwu48_OWGkzEhgr5tl8XDOAHwVkef3ckyGBVAUIv5f1B2YzL7y3751jA3F4UtQsHoaD1xrUdAWxNIEWwC3O7HspSNh0St2ftiWpaFZXRL6IIFjedLylQr6YLPaxq81wXl7-EIIzu_kWxpaf3JJ8At9yi_45nU8XYzs_JK4b_dp2UE41VYEFNiG-Z3mbs_hASYh29BBmpZTf7j4y62yp9T1mm6yHTI4f98ISIo2sXWpZ6kiaTSo5qKr6AUzDKFrWAvZL0u1DA79noDZ7216-jkVfgXtBLzWN8AQpZ2NR7-_9J69xWL982RLgRMaPpeOx0YZ5kKGTrYMzj0Yc20PwJtzkj0qa8Sgd9WcSa49F7_QntNjjWQiXLhZa9Rml0LIABjVW5i8H_kFK6bW4BkWF_zGF_50FwZ7A68X_aJ5D4qhG9Hd17H7gIqT8b80mfOhwrA9TTjNB-stJhDs3P1yx3sw-XY3F5N9LpEnwZuBoPU95G-hHf-G_ipH-9FK12Tef0hMA84GtI7Kw3vlM04ZCe_423CvjeZrV5dAJSRB0phesHQ-6Ba_d2oVtd60t18DNJ2Afso2auj042ETrcUsMDHR1NunHQxUIpsh2chn9lVtgSgYYEUXZbRZ7Qvpn3Mt69HPQEcbSfSHee97nHcK5keOwZo4nRjGvW2cyObooiksWzO9I_9sWytpb2rnP2Kq5um78oi7sC9tf67Lvkt5rF0bJGbn7iK5NIHiE-1zOZ0uXI-jH7o7dZpRHHBT8FKrrYBJnETDPRdHZN0_9unevOXUQNSSCY.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aeccaec21bc87d18816aab73a3298f4",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_Je8azu158zxEhIZfc1JsJ6AC",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.6924010013828723, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_hnxErs2j2RUm0WjUNVVnpvpU",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_hnxErs2j2RUm0WjUNVVnpvpU",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.2857489722119745, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_RiCaZgN5v72Ocax99wdaq6FZ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.4},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"modified food starch\",\"fraction\":0.09},{\"ingredient\":\"tapioca starch\",\"fraction\":0.055},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_RiCaZgN5v72Ocax99wdaq6FZ",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.39958159734699383, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_wzk8X236zLaGrFVizLsUH7kU",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_wzk8X236zLaGrFVizLsUH7kU",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.2691583069639655, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_wTLAUIbVEKJWxy4sg6K9KP4y",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"sunflower oil\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MvDIf84ZY19enEHJs2f1vfdxkJMg-7R49qYaRgdf6CBl98SsulTi_LuBDrhZKyPjhSLpjZg5FvADSplLfbcyd757YWtualAGdP4NmExMIEBo_rwi5opSEditGwgFx32Xb12Lrm6i3ivm-v98JZf8_n0Ho1_f4YFGRdAXBjgh19Y2azhkHwPfPb8SOHU1L8cMtceyouUUtsd_D8ENk6U0CQJ52djdib_YZPDpRMXEPjIC-IEV-LR8NYpQaq3lfG0A4x7_LqNL-W3ThCgDSvLPV5zL5a2P6a-wB8FS_JQ_xZlg_SENpMq_U-PaB37h42lSGYf5elXQv0M2WCcYPn62xiHZmOmMO2ZwX8SziUzsCfuAb7fN9LpqwhXojSRpJk98SnSofZWqCDiK1pf9YsdIRNVW4-vjopAzDOaviFvGtX0AJ_JPg5kjt0_u5E6qfv8EGNShdnGktsw51p3pNj6mHt44a9a_Lh8TunHdPNJY8sQfI3VAhf7Xg70SGQrJPNktutqOH6oufpQZ3K-q0wY898vgko27CPqCRrnfsxi7KPmUcyqOyjQPJZgpbgMj6qnfxY-mN9-30C4xhUdLDsGZulB_fBdRbKdAR5-jlBzjmG1o_O0B35stYmYl1QTOKb56KS2tLxfC5ppMESd9bZdvkGD-lTQxvtqS88u1zID-3pC1mM7FafEg07fe8u9TD1t_XkpFdZuoa5Os9HN62t8GF025Lhk14LLPlL_YN6NqTbg5cd_tMGyMdgKcd_xTb3evAItGK-p39C2674Fn0v2dIJvlFWiWS7mBh0ulRfoFidkxOG2Jj7R6VJbfSQBpQZ9eXWl1IvtmAaFYTkROkqlOEmuz2XyqyoHMxACUbY39gx0Nbjp6NopzT9hnp8R_5KTDfN4h5uEwNJ2auikqHylhtTWgH-M4rnfrNXkS-Coh1LKG-1DaEQq2Z9VtkshWd9IlwdkhFJ3Zlq_7xJRiifBYgu5REGMhS44YM_Gc0QcIoZ_Roe6198fyaC3Q9nn5gBCh-9ZDGnXb4RN3PYN9SL2-TTQ6FMfs3ti82dyw46txSzPAfMvgWdPner4VXfA1sRn2TuwcI7fqfohqBNL7iJkgMn_4DqU-cbqr-FsSoUAoNTFaChHJwk8R4cbaghGqfv2okQUxu0wYZZqDR4kAHD6J_z0v03wrJjy-tZzwfe-Vqcu7916pY2TVcxjywLyz_v8mZ4Wh89VoCOs90QO7bTXCFgdh-_8BXHCWstffy0Gpsmutvmn1BGRVTjC3aajd2odmOUgrzUVLjosAQUmkjRggw3QSZfUDdfRwx81Kakw-tQjCpLQkVNfDQW-RyHoh05ghXoi4-m11t-MyM0WdT5AuMBcA4bvhSE3sYYt1Fzt8LCpHI2lgwROjf6SU49EtDvb9IaIkaOj-g7nHZNKqLp1tV09YJy4lJC5Hqjdbt5ja5wjsRYVJGChbHBOCQ0GfTsmxxOLHSY7q7dmYcKERDZesZEVd3IJGN1WzhLknJk0PLIxnJXo9qCOM3Fx7viv0M2X8BcJKRRXqsvIf7MvbrULFAF6lz3x019ptdNpXviUzl62k28gqH8NPZ8yg86QXrxkp6gnpsgH7t72HfEgBl9T-KK-wA1GODiTXT4urc_GWPItnLVncar1P6sIIv5ZG5fY1oC_OwvHD2ciAUJj8Rp8jawuVIQ0LDHAtQzXnkrjnGSeRKZcqrJvNJ2QFh24Df4CYtVZ.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aeccbc1c95887d184dfc43cd0e66484",
+"index": 0
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_wTLAUIbVEKJWxy4sg6K9KP4y",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.23368371491807247, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_I4MEpti8ZHIlTIoChgqo2iD7",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"sunflower oil\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_I4MEpti8ZHIlTIoChgqo2iD7",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.5229773446363356, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_XvgucqCNm3hV762zwdNeJsjl",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.43},{\"ingredient\":\"coconut oil\",\"fraction\":0.25},{\"ingredient\":\"fermented tofu\",\"fraction\":0.12},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Exploring cashew cream options**\n\nI need to decide if I should make more cashew cream. The best repeat average is .35, but is that enough? I think I should consider using empirical cashew milk for improvements. I want to try blending cashew milk with soymilk, but can I manage it with 10 ingredients? Maybe mushrooms aren't a good idea for this recipe. It's worth tuning the fermented milk ratios, too, possibly aiming for .12 milk, .43 oil, and .25 for balance.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MwvFCYXTa7Wg-dSrPrqs-KxvLpwDHYAYAXiK2NPR8SHWun_2pVQ8FoknWlpApDH8qv6VEx53qW9Fr7rJx7zMKV8IcmSVmvvDdiu46zy7xbmIbknLvtMkgaGOUJixxq7mAvdli6QxoZ07bEDy-xqtWQWrJxjfUHS2EQw0ITJpH_4uQ38sKsR8SEthqs5kC8FCpW8eNUbi1PM3alh2dt5aHcFLLC3AwDf3yU69aM9MbXlnhEGDtL5aBpRlJ-E3ifbnTbTmgANkzvlDyiKLBFWDfsVcHjVn3np3Cf-j_UMjRVFxXwpHSmIHi136dq7vs1FK5KKDDjfkTY3ZlI6SEen4S1Frru1H4LIozBZOS9qL8n-P08Y0KrjDFJ3bWomdzBUPUd5a9fA7z4AQiEVvV1PCZOBJ58tz8N_nCnxxEr4Y-8mzTJY9en74PwKbA2gssjvIBF_DLL1e8b5hSfM7affjFSYT72sAvVj3L_E4LhCm33t90xZQJDNEGV2kEhCm6qV5it-tCJk8qFxfPvY2C_aKE78Pmpn0cGV0eUmmrmpanjK8N1MJvky3DQaITaOcJBBj0RtzwPxBC26yq48zK-lPpzG8EIN1eZnO4-F_HOWVKGbImi3_BEW-Q7eab29-2GuW7aio5g_5VxOdS27LBhQkvZJ5g9v9Zzp86py4uNWrOGfCY1nfQWxaUebIPYE7fuPL7b0mnjQ9z7GzMZcF4LuZSZM2NVVG2G8zwyUsG3MnJU0R6fNxnKsEVPJUe7DId62W2RjlLSM8IAApqAF-qaralhSRF_rdXgnLdS4rUlEj2ToegMWvkBfugTRHZbDnys5tpU5Wy60lVpCqrG-7XbtzLtx9EUaLPUcpAnMLP3XVVxaixigT1Ju3t7bFUCLu_C9S3BtM68XFGv07OS0dNYe9kVbYeD0kLJNymVQAITxvnYBKqtH-4f6NmYQWzycSfTOILFxVLsPu_uzn2Lr8PxFkd11svNBpzpADjKw6vaTwaQC-_LIQGsBfF_sXtzvgMoUZ5MJ09uU4R7bGo5WyAF0uft5NhOWMXj7cfB3ijWO7Adt8dMAHAgLlQB-lcZcIPaI6VFi42qwsmptZs4BPpdpWutk3fuPc8VxPGWrkZbqa5x7mOY-MS-wOyCHip1bjvnsswYrzNHFSplc7snsuV23yGS4_R52wqno6jMQLyAYibiJdke4JK1r2PMk8uQzOl0PYqakY5r5QN5L4KAqvgbyh1tBmmvxMOdFLVQc_Vl7sWow2uixIs1zS_RMNjKe00UeQgkf7-HdWwJ5B8e9ZKbnLw3qEV_HBhYQuOrzYTIebAtDE_e8EW2KeXJUYSqZXk7u18yJRnsbmaiSb6BqU4Hr6nScJMeQzYxhhZpDDeiwd571XqRlGBPj81Hl-2dhD76u66jP1NfK5elIICVFasUiZBnM6UcERTS3xz1MjsZYllY54TKYn4PgBL8jeD14R-rrSi-6PLupf-e5FASlwqO8-8pJFzwffxxyij89kRddWhlVU6dxjrFPyqi9fIaIk23UNmgtHDLxgGijF1X2BJf4c5EJZMjOnLMVtWMdaGLsPyA2cGsQR4kHH7dxwNNk0lVBb9rhMSJr1UdOrk4L-ZJpHyK4qW6zffvTFoLXom1Rij4RoIHI73kv2DjOGCqTzh32BDljf0qZBRdTWmkQi1XEnGZ0kpAxdhDG5-vM0FbLZg6mC-Ulu5_IJZlo0O8dCE7gUF81VEdFK_esD2qxw4hXbIRD-TKqvLcDiqEMsiGxXQ2iodkvuBKN3Awi-vmcprnr4Rw70j1mP9-Qlxo-lw2DbdjRPuoUucDybdSdQtfVbzA_AljUMIbJwRn8OBNpIZuewww0CY_cssvJMfEWS19YR-y_JtY_T8SR5giHiNpbgtKjVb9Xf4NXv9z-mfBsC8Qn8oviznRrJnjTXJHAHpDCC67dit7dH1FqpjWiHExVbxdO10itm5sejfJWPsf-oLrqk1ZLrRzsu_U8Hsvivh3qpX7Ewzy2kKAUhDnS8HNL4m3EtjGXDmCwdPNzzCWt7H6c50PnIE9PKyNglzjBTwsy4phpTHFHk4pzEjAx1hv6UEat59aqMR8OcT6OOprgrObcO7-D6DcENDaepeNi3WJ8b8nq4xu8YOLXzjYb9YWwgjiU3IWnXERd2AdrFEssbpUPeH3qJ_Q5okGVTJVOwGujhmSswlP28l22hVMB46EgzilfV3A4hA0COho3iGk9WD9rX8Kx7OzumFSqcDkGNfACdvbz4g==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aeccc2bc4e887d1bd2274de2b58826a",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_XvgucqCNm3hV762zwdNeJsjl",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.4366201978252285, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_8qn21bVMZCfvZ4Z58C4Dfucu",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.37},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"fermented tofu\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.11},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_8qn21bVMZCfvZ4Z58C4Dfucu",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.40051433970272277, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_XQ4AHbqrIiBxyFtbrFn7Lx6l",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.38},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.18},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.025},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_XQ4AHbqrIiBxyFtbrFn7Lx6l",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.4358396277326938, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_hAK3de9wyCJFeUlNGNbIVkcN",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.391},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.17},{\"ingredient\":\"modified food starch\",\"fraction\":0.08},{\"ingredient\":\"tapioca starch\",\"fraction\":0.045},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.006},{\"ingredient\":\"mushroom extract\",\"fraction\":0.013}]}"
+}
+}
+],
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Exploring gum options**\n\nI'm considering which gum to use for this exploration. It looks like starting with a smaller amount, around .008 carrageenan, might improve things. I wonder if trying .006 gum, or even .012 with mushroom lemon, could enhance results. The .02 remainder seems worth keeping too. There\u2019s a lot to experiment with here! I'll keep these adjustments in mind as I move forward with the project.",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7MzN-BRbGdLPx9BAVtxSaDWerAjzlY35lBfs5ECoO9BxVZ_o1KSJb6h-yNSZEEZdBIbjKcGmxCofznKQ129XWOUHeKbBpm474HOOf_LrJzKygv6cjMBtJqNd0yV0EeEkuc24ZePnqmtGUCuYYu3Am1ocM5UGjeimK7mgQRszOcRKS4wgBEg2p9bT90d3lHCKcKA8xnAZuZIbjonPKLYw3yHWwDXOEIdWkuVeTJTF6JWrUbdv6eX-owMigFfHoDsfh2jMGW9cGimlaMaknfOKIX_BhtWsN-XlJWrzojnWc5v5ZRae25GTL6-ieSBkEgcoi5--wlmOxMnfIO0Q-gH2KV31mqUrz7kyG8k1WedfD-qW8svBUJ9DaR58A8NzcCnAZQ9r3s0OSmS33cy192S_ip5PJrcUIVXflTrEw139BHd2eFRrXTkQNnTc1290mCiAQqljTYZnS1ymQW6ipATcZI2YzkANxAmz1NHtiNqpk-lFLJBbZWnmI-iNs6rx6MYgv9tTMMtQA2U-3F0s0kkseHMhnJFwmGjx4WLlSzKqwzSEv3kaCa2XXSP41by4upPjCj0TwAdJe1lfmtiaPG3kGhSknLLVKB16iPbJd3cyrta9uTpS1p86YL9rWg51LPT_D8qO3yEDVvfKJX_BB6TfyKFxvQ6ZjfQqcSagObWPFxmnRuYyz86DkEhmwBLtgFvBR1ltqRUJEDDiIZckaG1RYLgbua6qXOZ2qseFseZu8rVniBMnlyxQ3LuXcfXV7Vu8fvmhrp1XGBaVMQ4R5LY7yjDyCI0jVee8W56wOD0NNUbZRwCi9JRsED_9zMA0iJCCfZLnBHb8fE0OKqS4dQXHeVVLknSKvOXf36-BCVQ0chKoNmJFhx6yzz6sIMctvgBcnQwHDmo8xnTAbrRYaCKNygsazHE_JfkKq6S3q52J7Z_imQOAbD2ws4gZBnDu0FsGqc7RO0OJNqzh-oE4aaTr9Bs_9tTkJQm7Cc-db43ebgNozvLIIWSGY0-bmWONguqNy5vQWnmOHCzIRPgs-5ziCc1Qrf--roKzeXdevgNEzLYuvo8ScYXQG4uicEqoCbMkD9qR8W7KU1fGp2DgQthDvw1NN9hHmJZU9bR4513-zodTgvdWqU4YSDrJk5FgF3deNOuNSXtAjP3T32tJ8BIHYR1RaZ6sn9Oh2lpd8t8rnaYdajyx55e_nEGnVDkAro0w8SXLeqSaDfvd7JbVkp9AQdRJhUHV5E0sYAzre54gvgIu3J56A6kak-7rrYgfNcvShbW38WQtUbDhtfSqqwieQkFFzLmnLk3badb5u5LL8ImDfeDmeVwk1MuzTEcF5uDSY1zhQBT4kmmzPkx79wnplDvgDDI560I5n86jJfy1vPclPhwUA4v-bMCpuxDd6vxJoaIgTEkO0tK7QFyjLmwR1xPsSiHVeTsvgEaxpyJhnCAH-Dqp-LrzGh97NPsPUTk21ajTfjDCqXa_5KLJcQGMwPa5eVMgkGXHlziTN1JyyB7cGT1Uz_dRrnMsnct_jXzH96P0eyYzs9BtzuB0A7DdfWFMz7Hc7_VjK8sZ5X_oJwxXPDHKQZa0E9sSLgbVs4Imppp8XTkVBdYtG8CLZndZbvURsXXERbk0yi9ET14KTYzPTmN3IIkhV0hVGTgK_UNaOXJRFfjbH3iSY3K16NghHf5oeXXqKh5k3hlryhyXhVSud1aQ_IsvjCjjh5AVnDT0MjkdidtSTGlcdzYB3NQdr3VftpFa_ASqRj_R5YaYmX0YkkekQvj8R9-ZcMSKeasYmFx0vz3nYHB2fsieQcgEiLw-LqbDpnPLpnJnW9a3Qd7_0LrQn15b7g7eqXSMY0ISedQDHOIefX9cuGmp8HkpOJUXfKghvaosgpz34cVtA-gTzsY_B-rLFktsWzP4tpqGSHhGT72LCcaTNaMmOVBeRNSWIgDuHMXYL-SNfExkcEZI_HGqUD0A66eh5K8edVC1IUSO.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aeccccba71887d1a1f9ae18ab7123d2",
+"index": 1
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_hAK3de9wyCJFeUlNGNbIVkcN",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.5747256157528488, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "call_Ocy2QQjmFGAHvLdw5RIV1NJE",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.39},{\"ingredient\":\"coconut oil\",\"fraction\":0.24},{\"ingredient\":\"fermented tofu\",\"fraction\":0.165},{\"ingredient\":\"modified food starch\",\"fraction\":0.085},{\"ingredient\":\"tapioca starch\",\"fraction\":0.05},{\"ingredient\":\"cocoa butter\",\"fraction\":0.035},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.008},{\"ingredient\":\"mushroom extract\",\"fraction\":0.007}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "call_Ocy2QQjmFGAHvLdw5RIV1NJE",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.27499614423144336, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5",
+"reasoning_details": [
+{
+"type": "reasoning.summary",
+"summary": "**Selecting best observations**\n\nI need to select the best five conventional observations. The user expects at least five options, but there's noise in the data with means of .39 compared to cashew's .34. I also have an iteration of 20 that gives a mean of .275 in a single run. Typically, I should optimize by choosing the five with the lowest values. Let\u2019s see how I can sort through this data effectively!",
+"format": "openai-responses-v1",
+"index": 0
+},
+{
+"type": "reasoning.encrypted",
+"data": "gAAAAABq7M05fBmKCoLC3mnN2_fa4yCg7_e--Zu8gEa2RnMYSrrydMChjc99tPK2k7DGAxu_yPyZLAhOioYH4H4WBZi-k12A_Tw6qb0_l6BSG5pLLuk2neSYNYn9IykrlhbwNsFNAjoZncYpywuT4OpkJpt3NZnNltQxjAfA2456gt6SgXXaviozSuLFLOeF3mtLBryeYLTZSTRaRgpWxWy73yEf_B2kbanVClnqcnosIKpwv-wb93eqF5_5gsknk-SftCXReaFrhYb3CUfRNKIM4abs6Z_zV2vGcHhXAd3BJZXD_LRbkcxbxFyRuspc3gLDataNAyrJ1z2bmj_X3wAl3qRNRofCBH3PhKxqtreow4qOdPC9yT76S-qByUzqp05__gj80yuse3SZBwB_FwSxGic-sh9YafWF66ocUawPy8VHKOSZjvHO2PyrUIEKB7zQtCcT5BAEtsPn4lpV8JMjckNdzVB4j5VMuzt8XerarGZOaODFMG0_SCvgUNJJzOO7oEA_SI5M6C3SLzW6z5ASHaMatoAT4wRmiw6NoYAnVAJVRyAyBxFXwpLdf_TQuajM5S5LJlJQ2SSSUSE1mrXweqP1-notBZtJcOmR2-RPc9wHsao1DsYWk9fPmhE2PX6mBShCwd8fEpK8OQhWwJ9SyRkgOUdKUZrEFcjhVkp4MPjY6Bb4we13Qo7Y3Tj8_VUm9gqvARoz1mzjOKxHsEqUckJcIuALUhBstp4RA6RaV1COK2KIpDMULqCG4gejB4Z6V4OhhikEvByaBoKI4_qyujMhpelRe5ZssJx3yPFzHIlGiHkZ2BkFREe4AJd2dJLxRTylGdExQRahoSTJqDLOO7ZMsaDsEIXTEY3auItbVv4g62pmgb6VCawH7iRsFF3wM-XJZefInRfWHOkOvIfkd1Cs7NCT2x2Gv0S9y4A2e7xagyQdd0c-B7DokmqJvY7ns9hVwI5hnSYDnUrwEO4AnwfIDCSu6M05douT7LshS8YCMwQS6SDSM7oHXzgCbvoU_a_IjuqWShcqTnzif0tkriCtVqoDVio3rx3CvCiIb4Ya9swvdvI1JMioQRGNKC4N7V25UdSQAdxeeZ_Dsg_YZzASPgOia2WUUBIWbxZ_OGjdgF7a1k8v3h7Lw0riEqFS0KrJuvnwC1mX3K3U2X-5VZf0QdBcbr7ZV-UU8GQ_caG5pTfZLSzho2UcId1qJ0e9qm5ERth2XTrJeViJugv1NK0ak1b8ErWhke5StjAF5WJVvDmOeYlh5iKERvrCo-UZ_awqDjBLf8i_T7iMUPyKhGzfMej09BWRwagq3yphLDdnnBwdxpO9kTvf9r1p97mOY4I6OkV1JvobckU00sEo4O_JErZodbxmgkhwftwySjK7yECJ16umztMrPT1rF7jiTuU-5vJzPVLyQPqgTZA3I3w4MWBgnDmPuGBblspXDzIytF6M4VCg5ZneoHza9axbWXc6Odcl_Gb-fzN-tQRtiubqORhEOrZa09rL9jwinTliNTFaOYlndCSl6yc8368xj4FEqBdDkZ4WMbNTipVHI7nRuYS8Tz0bSAejFZGF_efze8pXVBMo9reo2kRvbpqklroHGH7XbgiXRlpk20CkbsVFSC-5fGfjD5RJgNzDm2vitKgJuCY0gMKGCS0EUrsASl91CRwKemgiwke1Tis-HeSkh3ukR4DhEfCQYBiX-mqzSp1KH26UtHblED39eQtd4irZ_6grwPc3RkwRteNAg24lmmtgjGtaBSomM1h7uW0v3tp7H5lHJBoPEM-hyIrvzcHGQ6pdNcBGm4vXm0qBjflWtI9hQYXXgdwAYAaNNQql2apC2YfkLlyVD_ow3rsTa7FQwUuE1yjhRhjPU8dzcz35kln68b3hWIDCZTScj4xZmtNjUiY_VXlPwN9Xcw1WqFe92twiuooMpvzWW1m3mANQIu1QUsUViHMH2JeuZxTVXHdq7q3V3DY7EUPZD-KXO_RjRnG1AOLmUC7rBO83cSTkBcP9Nj5zBzi4bwhmSUjoVnb_gBsrF5h7P3DDys3POov5zW0c1c55WKNy4ltkBWaQfh7KX-NYf7w8poyJsUIMWR7h0Bo=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LjEtc29sLTIwMjYwOTI5fG9wZW5haSJ9",
+"format": "openai-responses-v1",
+"id": "rs_0aae38c09ababa95016aeccd37373487d1870243f50f4407bb",
+"index": 1
+}
+]
+}
+],
+"calls": [
+{
+"prompt_tokens": 892,
+"completion_tokens": 127,
+"cost": 0.003054
+},
+{
+"prompt_tokens": 1059,
+"completion_tokens": 127,
+"cost": 0.003916
+},
+{
+"prompt_tokens": 1226,
+"completion_tokens": 152,
+"cost": 0.0020491
+},
+{
+"prompt_tokens": 1417,
+"completion_tokens": 127,
+"cost": 0.0018758
+},
+{
+"prompt_tokens": 1584,
+"completion_tokens": 127,
+"cost": 0.0018349
+},
+{
+"prompt_tokens": 1751,
+"completion_tokens": 146,
+"cost": 0.0020416
+},
+{
+"prompt_tokens": 1937,
+"completion_tokens": 127,
+"cost": 0.0019158
+},
+{
+"prompt_tokens": 2104,
+"completion_tokens": 162,
+"cost": 0.0022369
+},
+{
+"prompt_tokens": 2306,
+"completion_tokens": 147,
+"cost": 0.0021911
+},
+{
+"prompt_tokens": 2493,
+"completion_tokens": 127,
+"cost": 0.0019738
+},
+{
+"prompt_tokens": 2660,
+"completion_tokens": 127,
+"cost": 0.0019425
+},
+{
+"prompt_tokens": 2827,
+"completion_tokens": 127,
+"cost": 0.0019592
+},
+{
+"prompt_tokens": 2994,
+"completion_tokens": 141,
+"cost": 0.0021159
+},
+{
+"prompt_tokens": 3175,
+"completion_tokens": 127,
+"cost": 0.0020276
+},
+{
+"prompt_tokens": 3342,
+"completion_tokens": 187,
+"cost": 0.0026107
+},
+{
+"prompt_tokens": 3569,
+"completion_tokens": 127,
+"cost": 0.0021774
+},
+{
+"prompt_tokens": 3736,
+"completion_tokens": 127,
+"cost": 0.0020501
+},
+{
+"prompt_tokens": 3903,
+"completion_tokens": 160,
+"cost": 0.0023968
+},
+{
+"prompt_tokens": 4103,
+"completion_tokens": 127,
+"cost": 0.002166
+},
+{
+"prompt_tokens": 4300,
+"completion_tokens": 50,
+"cost": 0.0015453
+}
+]
+}

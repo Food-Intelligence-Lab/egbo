@@ -1,0 +1,478 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based breakfast sausage patties. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- agar agar\n- allulose\n- anthocyanins\n- apple cider vinegar\n- avocado oil\n- baker's yeast protein\n- bamboo fiber\n- bean flour\n- binding components\n- breadcrumbs\n- brown rice protein\n- buffered vinegar\n- calcium\n- calcium acetate\n- cannellini beans\n- canola oil\n- carrageenan\n- carrot\n- chickpea\n- chickpea flour\n- coconut oil\n- corn oil\n- corn starch\n- dextrin\n- fava bean protein\n- flavours\n- fruit juice\n- fy protein\n- garlic\n- gellan\n- isolated soy protein\n- jackfruit\n- koji culture\n- konjac powder\n- konjac root flour\n- lions mane mushroom\n- liquid smoke\n- magnesium chloride\n- maize flour\n- methylcellulose\n- mushroom mycelium\n- mushrooms\n- mustard\n- mycelium\n- mycoprotein\n- natural vegetable color\n- nutritional fungi protein\n- oat fiber\n- olive oil\n- onion\n- oyster mushroom\n- palm oil\n- pea fiber\n- pea fibre\n- pea flour\n- pea protein\n- pea protein concentrates\n- plain caramel\n- plant flavors\n- potato protein\n- potato starch\n- protein\n- psyllium seed husk\n- radish juice\n- rice flakes\n- rice flour\n- rice protein\n- rice protein concentrate\n- seaweed\n- shea butter\n- shea oil\n- shiitake mushroom\n- smoke flavouring\n- soy flour\n- soy milk\n- soy protein concentrate\n- soy protein isolate\n- soy sauce\n- soya bean oil\n- soya protein isolate\n- soya proteins\n- soybean oil\n- soybeans\n- starch\n- sunflower oil\n- sunflower protein\n- sweet potato\n- tapioca starch\n- textured vegetable protein\n- tofu\n- tomato paste\n- vegetable\n- vegetable juice\n- vegetables\n- vinegar\n- wheat fiber\n- wheat flour\n- wheat gluten\n- wheat starch\n- white pepper\n- whole soybean\n- yeast\n- yeast extract\n- yellow corn flour\n- yellow pea protein\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"binding components\",\"fraction\":0.25},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.22},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.17},{\"ingredient\":\"canola oil\",\"fraction\":0.08},{\"ingredient\":\"flavours\",\"fraction\":0.04},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.01}],\"target_dissimilarity\":0.3451860090469228}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations. Measurements are noisy and each evaluation is expensive, so consider carefully how best to choose each experiment."
+},
+{
+"role": "assistant",
+"content": "I'll approach this systematically. The first evaluation gave 0.345 - a reasonable baseline. Let me explore the ingredient space strategically to learn what matters, then exploit.\n\nStrategy: With 19 evaluations, I'll:\n1. Probe variations on the baseline to identify high-impact ingredients\n2. Try different protein/oil/binder combinations\n3. Refine best candidates\n\nLet me start with a few diverse formulations to learn the landscape. Breakfast sausage patties have: pork-like protein, fat (~20-30%), spices (sage, pepper, salt), smoke/savory notes.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01PFco2RzuH7MfAXupSmHDYa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.22},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.25}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01YCm4wJsfKNjv4rnTBVZHfh",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"soy protein isolate\",\"fraction\":0.2},{\"ingredient\":\"wheat gluten\",\"fraction\":0.12},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.15},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"canola oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.04},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"liquid smoke\",\"fraction\":0.03},{\"ingredient\":\"yeast extract\",\"fraction\":0.15}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01PFco2RzuH7MfAXupSmHDYa",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.20910747342099065, \"evaluations_remaining\": 18}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01YCm4wJsfKNjv4rnTBVZHfh",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.5761455451479534, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Interesting! Iteration 2 (0.209) is much better - replacing soy protein concentrate with pea protein and adding smoke helped. Iteration 3 (0.576) is worse - likely too much yeast extract and wheat gluten. Let me probe further around iteration 2.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01EfdTpSkN9HL1wSF3cQkLqg",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.25},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.2},{\"ingredient\":\"coconut oil\",\"fraction\":0.17},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.18}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01HpN82GcAAr2gYa7t18cGRz",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01EfdTpSkN9HL1wSF3cQkLqg",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.3835694900876009, \"evaluations_remaining\": 16}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01HpN82GcAAr2gYa7t18cGRz",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.1338097588645696, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Excellent! Iteration 5 (0.134) is a big improvement! Adding white pepper and keeping binding components high helped. Reducing binding components in iteration 4 hurt. Let me explore further.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01T54RGhxUo2znks78bZuwQk",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.18},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.16},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.03},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.32}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_012keez4aXmgf4EXoLcUJ9Qo",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.04},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.28}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01T54RGhxUo2znks78bZuwQk",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.4261393800706531, \"evaluations_remaining\": 14}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012keez4aXmgf4EXoLcUJ9Qo",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.23787566094695395, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Hmm, both worse than iter 5 (0.134). Results are noisy. Iter 6 pushed binding too high (0.32) \u2192 worse. Iter 7 was very close to iter 5 but got 0.238 vs 0.134 - this suggests noise is significant (~0.1 scale).\n\nLet me try to confirm iter 5 is really good and explore nearby variations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WqqPZ6XgoFVnhyah3QB63z",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\nfor d in data:\\n    print(d['iteration'], d['target_dissimilarity'])\\n    for r in d['recipe']:\\n        print(f\\\"  {r['ingredient']}: {r['fraction']}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WqqPZ6XgoFVnhyah3QB63z",
+"content": "1 0.3451860090469228\n  binding components: 0.25\n  soy protein concentrate: 0.22\n  textured vegetable protein: 0.18\n  coconut oil: 0.17\n  canola oil: 0.08\n  flavours: 0.04\n  methylcellulose: 0.03\n  yeast extract: 0.02\n  liquid smoke: 0.01\n2 0.20910747342099065\n  binding components: 0.25\n  pea protein: 0.22\n  textured vegetable protein: 0.18\n  coconut oil: 0.15\n  sunflower oil: 0.08\n  flavours: 0.05\n  methylcellulose: 0.03\n  yeast extract: 0.02\n  liquid smoke: 0.02\n3 0.5761455451479534\n  soy protein isolate: 0.2\n  coconut oil: 0.18\n  textured vegetable protein: 0.15\n  yeast extract: 0.15\n  wheat gluten: 0.12\n  canola oil: 0.08\n  flavours: 0.05\n  methylcellulose: 0.04\n  liquid smoke: 0.03\n4 0.3835694900876009\n  pea protein: 0.25\n  textured vegetable protein: 0.2\n  binding components: 0.18\n  coconut oil: 0.17\n  sunflower oil: 0.08\n  flavours: 0.05\n  methylcellulose: 0.03\n  yeast extract: 0.02\n  liquid smoke: 0.02\n5 0.1338097588645696\n  binding components: 0.27\n  pea protein: 0.2\n  textured vegetable protein: 0.18\n  coconut oil: 0.15\n  sunflower oil: 0.08\n  flavours: 0.05\n  methylcellulose: 0.03\n  white pepper: 0.02\n  liquid smoke: 0.02\n6 0.4261393800706531\n  binding components: 0.32\n  pea protein: 0.18\n  textured vegetable protein: 0.16\n  coconut oil: 0.14\n  sunflower oil: 0.07\n  flavours: 0.05\n  methylcellulose: 0.03\n  white pepper: 0.03\n  liquid smoke: 0.02\n7 0.23787566094695395\n  binding components: 0.28\n  pea protein: 0.2\n  textured vegetable protein: 0.18\n  coconut oil: 0.15\n  sunflower oil: 0.08\n  flavours: 0.04\n  methylcellulose: 0.03\n  white pepper: 0.02\n  liquid smoke: 0.02\n"
+},
+{
+"role": "assistant",
+"content": "Iter 7 is almost identical to iter 5 but with 0.04 vs 0.05 flavours and 0.28 vs 0.27 binding. Score noise is large. Let me try adding sage-like elements (we lack sage directly, but onion/garlic could help) and also explore slightly different oil ratios.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WC8pcrY434aaLgqS7LMrvC",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01GtaGRuPEDTnV9HLiRENMDG",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.17},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27},{\"ingredient\":\"onion\",\"fraction\":0.06}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WC8pcrY434aaLgqS7LMrvC",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.31447328882937564, \"evaluations_remaining\": 12}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01GtaGRuPEDTnV9HLiRENMDG",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.35914761934316863, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "Iter 8 is EXACTLY iter 5 but got 0.314 vs 0.134 - confirming massive noise (~0.2 scale). This is a difficult optimization with noisy evaluations.\n\nGiven the noise, I should focus on structural changes rather than fine-tuning. Let me think strategically:\n- Iter 5 score (0.134) might be lucky; true score likely ~0.25\n- But iter 5 recipe is solid: pea protein + TVP + coconut oil + binding + spices\n- Iter 3 (soy isolate + wheat gluten + high yeast extract) was consistently bad\n\nLet me try different structural changes: adding garlic/onion savory notes, trying different protein combos.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_011pYPir1raVZPD8BUuXifqx",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.18},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.07},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.3}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_015QePLvpoxAgkYcg88dttD1",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.015},{\"ingredient\":\"liquid smoke\",\"fraction\":0.015},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_011pYPir1raVZPD8BUuXifqx",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.4763023678114092, \"evaluations_remaining\": 10}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_015QePLvpoxAgkYcg88dttD1",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.19779856230022846, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Iter 11 (0.198) is very good! Iter 10 (0.476) is bad - possibly higher binding components (0.30) hurts.\n\nLet me analyze patterns. Average scores for similar recipes:\n- Iter 5, 7, 8 (binding ~0.27-0.28, flavours 0.04-0.05): 0.134, 0.238, 0.314 \u2192 avg 0.23\n- Iter 11 (coconut 0.14): 0.198\n\nThe core recipe is good. Let me try a few more variations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XE23KTvkUDaVWMTCjnPDFV",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\n\\n# sort by score\\ndata_sorted = sorted(data, key=lambda x: x['target_dissimilarity'])\\nfor d in data_sorted:\\n    print(f\\\"{d['iteration']}: {d['target_dissimilarity']:.3f}\\\")\\n    recipe_str = \\\", \\\".join(f\\\"{r['ingredient']}={r['fraction']}\\\" for r in d['recipe'])\\n    print(f\\\"   {recipe_str}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XE23KTvkUDaVWMTCjnPDFV",
+"content": "5: 0.134\n   binding components=0.27, pea protein=0.2, textured vegetable protein=0.18, coconut oil=0.15, sunflower oil=0.08, flavours=0.05, methylcellulose=0.03, white pepper=0.02, liquid smoke=0.02\n11: 0.198\n   binding components=0.2755102040816327, pea protein=0.20408163265306123, textured vegetable protein=0.1836734693877551, coconut oil=0.14285714285714288, sunflower oil=0.0816326530612245, flavours=0.05102040816326531, methylcellulose=0.030612244897959183, white pepper=0.015306122448979591, liquid smoke=0.015306122448979591\n2: 0.209\n   binding components=0.25, pea protein=0.22, textured vegetable protein=0.18, coconut oil=0.15, sunflower oil=0.08, flavours=0.05, methylcellulose=0.03, yeast extract=0.02, liquid smoke=0.02\n7: 0.238\n   binding components=0.28, pea protein=0.2, textured vegetable protein=0.18, coconut oil=0.15, sunflower oil=0.08, flavours=0.04, methylcellulose=0.03, white pepper=0.02, liquid smoke=0.02\n8: 0.314\n   binding components=0.27, pea protein=0.2, textured vegetable protein=0.18, coconut oil=0.15, sunflower oil=0.08, flavours=0.05, methylcellulose=0.03, white pepper=0.02, liquid smoke=0.02\n1: 0.345\n   binding components=0.25, soy protein concentrate=0.22, textured vegetable protein=0.18, coconut oil=0.17, canola oil=0.08, flavours=0.04, methylcellulose=0.03, yeast extract=0.02, liquid smoke=0.01\n9: 0.359\n   binding components=0.27, pea protein=0.2, textured vegetable protein=0.18, coconut oil=0.17, onion=0.06, flavours=0.05, methylcellulose=0.03, white pepper=0.02, liquid smoke=0.02\n4: 0.384\n   pea protein=0.25, textured vegetable protein=0.2, binding components=0.18, coconut oil=0.17, sunflower oil=0.08, flavours=0.05, methylcellulose=0.03, yeast extract=0.02, liquid smoke=0.02\n6: 0.426\n   binding components=0.32, pea protein=0.18, textured vegetable protein=0.16, coconut oil=0.14, sunflower oil=0.07, flavours=0.05, methylcellulose=0.03, white pepper=0.03, liquid smoke=0.02\n10: 0.476\n   binding components=0.3, pea protein=0.18, textured vegetable protein=0.18, coconut oil=0.15, sunflower oil=0.07, flavours=0.05, methylcellulose=0.03, white pepper=0.02, liquid smoke=0.02\n3: 0.576\n   soy protein isolate=0.2, coconut oil=0.18, textured vegetable protein=0.15, yeast extract=0.15, wheat gluten=0.12, canola oil=0.08, flavours=0.05, methylcellulose=0.04, liquid smoke=0.03\n"
+},
+{
+"role": "assistant",
+"content": "Patterns observed:\n- Core winning recipe: binding~0.25-0.28, pea protein ~0.20-0.22, TVP ~0.18, coconut oil ~0.14-0.15, sunflower oil ~0.08, methylcellulose 0.03, flavours 0.05, spices/smoke\n- Replacing white pepper with yeast extract still scored well (iter 2: 0.209)\n- Dropping sunflower oil and adding onion hurt (iter 9: 0.359)\n- High binding (0.30+) consistently hurts\n- Low binding (0.18) hurts\n- Soy proteins + wheat gluten + high yeast extract is bad\n\nLet me try adding both yeast extract AND white pepper for savory complexity, and try slight tweaks.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_016GfNiFa9VYPFyuH2XQ38Q6",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.15},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.015},{\"ingredient\":\"yeast extract\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.275}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01MyvTr5bfxo4bG3akzo4M7d",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.21},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_016GfNiFa9VYPFyuH2XQ38Q6",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.2692895969026729, \"evaluations_remaining\": 8}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MyvTr5bfxo4bG3akzo4M7d",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.20397187490555094, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Iter 13 (0.204) is good - essentially iter 5/11 structure confirmed. Replacing liquid smoke with yeast extract (iter 12: 0.269) was slightly worse but within noise.\n\nLet me try a bolder experiment - adding a small amount of something new that might help, or testing if we can improve by tweaking the fat ratio more.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Do9AbN8fnG7JunHPkZ9zS5",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.13},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01FbRVqCoePKDaN4tpnhJrT9",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.16},{\"ingredient\":\"sunflower oil\",\"fraction\":0.08},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.06},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.25}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Do9AbN8fnG7JunHPkZ9zS5",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.17352425485725254, \"evaluations_remaining\": 6}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01FbRVqCoePKDaN4tpnhJrT9",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.36544651015987245, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Iter 14 (0.174) is very strong - shifting coconut oil to sunflower oil (13/10 vs 15/8) helped. Iter 15 worse (binding 0.25 too low, coconut 0.16 too high). Let me push the sunflower oil direction more.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01MzC2BCNUoGkVNosHWzR6e8",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.12},{\"ingredient\":\"sunflower oil\",\"fraction\":0.11},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_012cgjefV192UwnfUQn81bVm",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.13},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01MzC2BCNUoGkVNosHWzR6e8",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.26433210283525377, \"evaluations_remaining\": 4}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_012cgjefV192UwnfUQn81bVm",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.2761621347956229, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Iter 17 is exact replica of iter 14 but scored 0.276 vs 0.174. Noise is huge. Iter 16 (12/11 oil split) scored 0.264. \n\nWith 3 evals left, let me pick the best-looking formulation and run slight variations. The iter 14 recipe looks like best candidate. Let me try two tweaks and one replicate of the best.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01SfbrZNUWqpKKuyY8FY16He",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    data = json.load(f)\\n\\n# Average scores for replicates of the \\\"core\\\" recipe\\n# The structure: pea protein ~0.20, TVP 0.18, binding ~0.27, methylcell 0.03, flavours 0.05, pepper+smoke 0.04\\n# Varying oil blend\\n\\nprint(\\\"All with binding~0.27, pep ~0.20, TVP 0.18:\\\")\\nfor d in data:\\n    r = {x['ingredient']: x['fraction'] for x in d['recipe']}\\n    if 0.26 <= r.get('binding components', 0) <= 0.28 and r.get('pea protein', 0) >= 0.19 and r.get('textured vegetable protein', 0) >= 0.17:\\n        co = r.get('coconut oil', 0)\\n        so = r.get('sunflower oil', 0)\\n        print(f\\\"  iter {d['iteration']}: score={d['target_dissimilarity']:.3f}, coconut={co}, sunflower={so}, total_oil={co+so:.3f}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01SfbrZNUWqpKKuyY8FY16He",
+"content": "All with binding~0.27, pep ~0.20, TVP 0.18:\n  iter 5: score=0.134, coconut=0.15, sunflower=0.08, total_oil=0.230\n  iter 7: score=0.238, coconut=0.15, sunflower=0.08, total_oil=0.230\n  iter 8: score=0.314, coconut=0.15, sunflower=0.08, total_oil=0.230\n  iter 9: score=0.359, coconut=0.17, sunflower=0, total_oil=0.170\n  iter 11: score=0.198, coconut=0.14285714285714288, sunflower=0.0816326530612245, total_oil=0.224\n  iter 12: score=0.269, coconut=0.15, sunflower=0.08, total_oil=0.230\n  iter 13: score=0.204, coconut=0.14, sunflower=0.08, total_oil=0.220\n  iter 14: score=0.174, coconut=0.13, sunflower=0.1, total_oil=0.230\n  iter 16: score=0.264, coconut=0.12, sunflower=0.11, total_oil=0.230\n  iter 17: score=0.276, coconut=0.13, sunflower=0.1, total_oil=0.230\n"
+},
+{
+"role": "assistant",
+"content": "The coconut/sunflower ratio doesn't show a clear best - noise dominates. Mean score for this core structure ~0.24 with std ~0.07. All my attempts are statistically similar.\n\nWith 3 evaluations left, let me try more differentiated bets:\n1. A pea protein concentrate variant (might capture something different)\n2. Add a small amount of soy protein for better texture complement\n3. A safe replicate of iter 14 config",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_018sNfFeLAARKjvpm3125NFJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.15},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.06},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"sunflower oil\",\"fraction\":0.09},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.28}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_018sNfFeLAARKjvpm3125NFJ",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.3123558856007117, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Iter 18 (0.312) - not better. Let me use my last 2 evals wisely. I'll try the iter 14 config once more and one variant pushing more aggressively on what seemed to help.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01BNwePGRqDYLJdoNbScDHtW",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.13},{\"ingredient\":\"sunflower oil\",\"fraction\":0.1},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+},
+{
+"type": "function",
+"index": 1,
+"id": "toolu_01QLcXUmWt9esdiwp9t2NwiZ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"pea protein\",\"fraction\":0.2},{\"ingredient\":\"textured vegetable protein\",\"fraction\":0.18},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"sunflower oil\",\"fraction\":0.09},{\"ingredient\":\"methylcellulose\",\"fraction\":0.03},{\"ingredient\":\"flavours\",\"fraction\":0.05},{\"ingredient\":\"white pepper\",\"fraction\":0.02},{\"ingredient\":\"liquid smoke\",\"fraction\":0.02},{\"ingredient\":\"binding components\",\"fraction\":0.27}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01BNwePGRqDYLJdoNbScDHtW",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.38388132968457855, \"evaluations_remaining\": 1}"
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01QLcXUmWt9esdiwp9t2NwiZ",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.19311208260909, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2354,
+"completion_tokens": 719,
+"cost": 0.029745
+},
+{
+"prompt_tokens": 3274,
+"completion_tokens": 657,
+"cost": 0.032795
+},
+{
+"prompt_tokens": 4080,
+"completion_tokens": 631,
+"cost": 0.036175
+},
+{
+"prompt_tokens": 4860,
+"completion_tokens": 278,
+"cost": 0.03125
+},
+{
+"prompt_tokens": 5993,
+"completion_tokens": 662,
+"cost": 0.046515
+},
+{
+"prompt_tokens": 6804,
+"completion_tokens": 796,
+"cost": 0.05392
+},
+{
+"prompt_tokens": 7749,
+"completion_tokens": 399,
+"cost": 0.04872
+},
+{
+"prompt_tokens": 9289,
+"completion_tokens": 819,
+"cost": 0.06692
+},
+{
+"prompt_tokens": 10257,
+"completion_tokens": 680,
+"cost": 0.068285
+},
+{
+"prompt_tokens": 11086,
+"completion_tokens": 655,
+"cost": 0.071805
+},
+{
+"prompt_tokens": 11890,
+"completion_tokens": 539,
+"cost": 0.072925
+},
+{
+"prompt_tokens": 12855,
+"completion_tokens": 436,
+"cost": 0.075175
+},
+{
+"prompt_tokens": 13345,
+"completion_tokens": 627,
+"cost": 0.0824
+},
+{
+"prompt_tokens": 14173,
+"completion_tokens": 6,
+"cost": 0.071015
+}
+]
+}

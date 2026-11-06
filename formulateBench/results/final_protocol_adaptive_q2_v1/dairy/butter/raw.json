@@ -1,0 +1,1003 @@
+{
+  "config": {
+    "category": "butter",
+    "domain": "dairy",
+    "n_ingredients": 90,
+    "budget": 20,
+    "bo_seeds": 10,
+    "n_init": 5,
+    "local_sigma": 0.35,
+    "expert_rounds": 2,
+    "expansion_after_evaluation": 10,
+    "max_additions": 2,
+    "bo_config": "matern52/default/default/qlognei/ard",
+    "llm_model": "anthropic/claude-opus-4.7",
+    "llm_temperature": 0.0,
+    "information_regime": "target product + ingredient names + evaluated recipes + scalar target-dissimilarity feedback",
+    "excluded_ingredients": [
+      "mozzarella"
+    ],
+    "shared_initial_loss": 0.6397242025173969,
+    "shared_initial_recipe": [
+      {
+        "ingredient": "coconut oil",
+        "fraction": 0.42
+      },
+      {
+        "ingredient": "sunflower oil",
+        "fraction": 0.21
+      },
+      {
+        "ingredient": "almond milk",
+        "fraction": 0.17
+      },
+      {
+        "ingredient": "palm oil",
+        "fraction": 0.1
+      },
+      {
+        "ingredient": "pea protein",
+        "fraction": 0.07
+      },
+      {
+        "ingredient": "fava bean protein",
+        "fraction": 0.019
+      },
+      {
+        "ingredient": "lemon juice",
+        "fraction": 0.005
+      },
+      {
+        "ingredient": "soy lecithin",
+        "fraction": 0.004
+      },
+      {
+        "ingredient": "citrus pectin",
+        "fraction": 0.002
+      }
+    ],
+    "shared_initial_support": [
+      "coconut oil",
+      "sunflower oil",
+      "almond milk",
+      "palm oil",
+      "pea protein",
+      "fava bean protein",
+      "lemon juice",
+      "soy lecithin",
+      "citrus pectin"
+    ],
+    "status": "complete"
+  },
+  "methods": {
+    "Adaptive semantic-only EGBO (Q=2)": [
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.617926011138896,
+          -0.617926011138896,
+          -0.617926011138896,
+          -0.617926011138896,
+          -0.617926011138896,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.6156990341761495,
+          -0.612567138483267,
+          -0.612567138483267,
+          -0.612567138483267
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.617926011138896,
+          -0.6798431316135961,
+          -0.625339675103989,
+          -0.7935376181234424,
+          -0.7501396440205111,
+          -0.6156990341761495,
+          -0.9609095652449897,
+          -0.6406804025613988,
+          -0.6279712291960584,
+          -0.6165694411837617,
+          -0.6931440257980335,
+          -0.6724196391750493,
+          -0.6465329492387796,
+          -0.620056230495008,
+          -0.6230178985522589,
+          -0.6393519317639155,
+          -0.612567138483267,
+          -0.6169201355811179,
+          -0.6288729333071814
+        ],
+        "final_best": -0.612567138483267,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"natural butter flavor\"]}\n\nWait, I need to check the catalog. \"natural butter flavor\" is not in the list. Let me reconsider.\n\n{\"additions\":[\"fully hydrogenated vegetable oils\",\"cocoa butter\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6311738548876774,
+          -0.6311738548876774,
+          -0.6311738548876774,
+          -0.6311738548876774,
+          -0.6311738548876774,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842,
+          -0.6101731419910842
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6757954456652107,
+          -0.6554015687782011,
+          -0.6311738548876774,
+          -0.7517647848339558,
+          -0.6564132377643747,
+          -2.273681354662222,
+          -0.7468407544058662,
+          -0.6101731419910842,
+          -0.6395405760301712,
+          -0.7128626908218018,
+          -0.6792668150322109,
+          -0.6612103802253937,
+          -0.6567981929074183,
+          -0.6148964135873577,
+          -0.6960722258872465,
+          -0.8301368420229535,
+          -0.6170376149652522,
+          -0.7802534867331061,
+          -0.6504409642060714
+        ],
+        "final_best": -0.6101731419910842,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6106574988897335,
+          -0.6106574988897335,
+          -0.6106574988897335,
+          -0.6106574988897335,
+          -0.6106574988897335,
+          -0.6089725560929667,
+          -0.6089725560929667,
+          -0.6089725560929667,
+          -0.6089725560929667,
+          -0.6089725560929667,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757,
+          -0.6084540404875757
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6106574988897335,
+          -0.935496362004971,
+          -0.6671666982100015,
+          -0.8170604816279122,
+          -0.764332843248287,
+          -0.6089725560929667,
+          -0.6125403976416938,
+          -0.8292175411512795,
+          -0.6595867578714094,
+          -0.6491153833909901,
+          -0.6084540404875757,
+          -0.7005333360639381,
+          -0.6103617104605117,
+          -0.6172317168675787,
+          -0.6113453352380183,
+          -0.6089784686333043,
+          -0.6098052319486761,
+          -0.6088179211527678,
+          -0.6085037181667304
+        ],
+        "final_best": -0.6084540404875757,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6127353713531007,
+          -0.6127353713531007,
+          -0.6127353713531007,
+          -0.6127353713531007,
+          -0.6127353713531007,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939,
+          -0.6119598875530939
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.648082439735708,
+          -0.7589439680627154,
+          -0.6413196366863464,
+          -0.6719129720128142,
+          -0.7684768638854065,
+          -0.6127353713531007,
+          -0.6553660875331881,
+          -0.7166113285044137,
+          -0.736193306221915,
+          -0.663161898806114,
+          -0.6119598875530939,
+          -0.6208561198437546,
+          -0.622508897834092,
+          -0.6462628541520433,
+          -0.6243128173936356,
+          -0.6572934023953705,
+          -0.6137902369890978,
+          -0.6186945214725472,
+          -0.6358807258228466
+        ],
+        "final_best": -0.6119598875530939,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "cocoa butter",
+              "fully hydrogenated vegetable oils"
+            ],
+            "additions": [
+              "cocoa butter",
+              "fully hydrogenated vegetable oils"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"cocoa butter\",\"fully hydrogenated vegetable oils\"]}",
+            "parsed_additions": [
+              "cocoa butter",
+              "fully hydrogenated vegetable oils"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6134127439317887,
+          -0.6093766217900561,
+          -0.6093766217900561,
+          -0.6085173398426288,
+          -0.6085173398426288,
+          -0.6085173398426288,
+          -0.6085173398426288,
+          -0.6085173398426288,
+          -0.6085173398426288
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6134127439317887,
+          -0.7678176684028503,
+          -0.6151259119013439,
+          -0.7884201827030574,
+          -0.6374534952422429,
+          -0.6189019149600733,
+          -0.6352368613540633,
+          -0.6206345518611435,
+          -0.6211999818817868,
+          -0.7818282094773286,
+          -0.6331038649264963,
+          -0.6093766217900561,
+          -0.6176769790765287,
+          -0.6085173398426288,
+          -0.6085496868948466,
+          -0.6527757765882491,
+          -0.6096837552255867,
+          -0.6086497421225544,
+          -0.6193795822035655
+        ],
+        "final_best": -0.6085173398426288,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6147457661217763,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6112572791186931,
+          -0.6088365633743911
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.7758239460825991,
+          -0.6512906432653726,
+          -0.7605526363717411,
+          -0.6460327643124711,
+          -1.8268377001582727,
+          -0.80301903719798,
+          -0.85907502657647,
+          -0.8314719437162695,
+          -0.6762734338541222,
+          -0.6147457661217763,
+          -0.6112572791186931,
+          -0.6168245390315581,
+          -0.6215065332158751,
+          -0.6237936237783015,
+          -0.6161786348256905,
+          -0.7119906713820048,
+          -0.6459175605849337,
+          -0.6506398243020393,
+          -0.6088365633743911
+        ],
+        "final_best": -0.6088365633743911,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.61123436665344,
+          -0.61123436665344,
+          -0.61123436665344,
+          -0.61123436665344,
+          -0.61123436665344,
+          -0.61123436665344,
+          -0.6103609037921424,
+          -0.6103609037921424,
+          -0.6103609037921424,
+          -0.6103609037921424,
+          -0.6103609037921424,
+          -0.6089565190050235,
+          -0.6080139447509743,
+          -0.6074055846210272,
+          -0.6074055846210272,
+          -0.6074055846210272,
+          -0.6074055846210272
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6760132719287044,
+          -0.8650073966534315,
+          -0.61123436665344,
+          -0.6167079005934013,
+          -0.7615712094976049,
+          -0.6236605941916065,
+          -1.0907176122544064,
+          -0.6783035153850264,
+          -0.6103609037921424,
+          -0.9368272982453729,
+          -0.626047169132586,
+          -0.6189800756662884,
+          -0.618285187822005,
+          -0.6089565190050235,
+          -0.6080139447509743,
+          -0.6074055846210272,
+          -0.6092113918926814,
+          -0.6089321664332907,
+          -0.6355472409034212
+        ],
+        "final_best": -0.6074055846210272,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6397242025173969,
+          -0.6165713436153277,
+          -0.6165713436153277,
+          -0.6165713436153277,
+          -0.6118853639753025,
+          -0.6118853639753025,
+          -0.6118853639753025,
+          -0.6118853639753025,
+          -0.6118853639753025,
+          -0.6118853639753025,
+          -0.6118853639753025,
+          -0.6076209719942987,
+          -0.6068586487031563,
+          -0.6068586487031563,
+          -0.6068586487031563,
+          -0.6068586487031563,
+          -0.6068586487031563,
+          -0.6068586487031563,
+          -0.6068586487031563
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6754518593211586,
+          -0.6165713436153277,
+          -0.704742698148142,
+          -0.964144311581497,
+          -0.6118853639753025,
+          -0.6212111878780547,
+          -0.6495019077212226,
+          -0.6228173813164668,
+          -0.6191984666750795,
+          -0.673817459542085,
+          -0.6728207362833986,
+          -0.6076209719942987,
+          -0.6068586487031563,
+          -0.6114102602780501,
+          -0.6176380928708486,
+          -0.6079164373819074,
+          -0.6079405975000066,
+          -0.6120685165910823,
+          -0.6151135542370203
+        ],
+        "final_best": -0.6068586487031563,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "cocoa butter"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "cocoa butter"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"cocoa butter\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "cocoa butter"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6210365912865664,
+          -0.6210365912865664,
+          -0.6210365912865664,
+          -0.6210365912865664,
+          -0.6210365912865664,
+          -0.6210365912865664,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399,
+          -0.6093255772739399
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6210365912865664,
+          -0.6565084691120889,
+          -0.7242239316714317,
+          -0.6294953095964751,
+          -0.6990591050932242,
+          -0.6786263602477924,
+          -0.6093255772739399,
+          -0.7284727910152656,
+          -0.6199329216479854,
+          -0.7280577139874042,
+          -0.6190064821265895,
+          -0.6104957516788717,
+          -0.6261376061057654,
+          -0.6432491321964163,
+          -0.6238958700570356,
+          -0.6590218119195773,
+          -0.6125475678698421,
+          -0.6166065985694813,
+          -0.6136581265797039
+        ],
+        "final_best": -0.6093255772739399,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      },
+      {
+        "best_values": [
+          -0.6397242025173969,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6106500786643899,
+          -0.6104634223614246,
+          -0.6104634223614246,
+          -0.6104634223614246,
+          -0.6104634223614246
+        ],
+        "all_y": [
+          -0.6397242025173969,
+          -0.6106500786643899,
+          -0.8842491173071654,
+          -0.7471208366778098,
+          -0.6249072472790854,
+          -0.853381267813889,
+          -0.6473688332079642,
+          -0.613131446412766,
+          -0.6637868476604822,
+          -0.6264633196305232,
+          -0.7337655786458676,
+          -0.6645846268313077,
+          -0.6894488020083214,
+          -0.6467917611793276,
+          -0.6205076851443895,
+          -0.6224299951161641,
+          -0.6104634223614246,
+          -0.6163757759775772,
+          -0.6112991286543683,
+          -0.6112067041386823
+        ],
+        "final_best": -0.6104634223614246,
+        "selection_history": [
+          {
+            "evaluation": 1,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin"
+            ]
+          },
+          {
+            "evaluation": 10,
+            "active_set": [
+              "coconut oil",
+              "sunflower oil",
+              "almond milk",
+              "palm oil",
+              "pea protein",
+              "fava bean protein",
+              "lemon juice",
+              "soy lecithin",
+              "citrus pectin",
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ],
+            "additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ],
+        "expert_responses": [
+          {
+            "after_evaluation": 10,
+            "response": "{\"additions\":[\"fully hydrogenated vegetable oils\",\"sunflower lecithin\"]}",
+            "parsed_additions": [
+              "fully hydrogenated vegetable oils",
+              "sunflower lecithin"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

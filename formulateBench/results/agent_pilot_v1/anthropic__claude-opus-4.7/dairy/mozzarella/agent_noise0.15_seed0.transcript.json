@@ -1,0 +1,602 @@
+{
+"messages": [
+{
+"role": "system",
+"content": "You are an expert plant-based food scientist."
+},
+{
+"role": "user",
+"content": "You are optimizing the overall similarity of a plant-based formulation to animal-based mozzarella. The evaluator is a black box.\n\nAvailable plant-based ingredients:\n- acacia gum\n- allulose\n- almond milk\n- almond oil\n- almonds\n- avocado oil\n- brown rice\n- calcium citrate\n- canola oil\n- carrageenan\n- cashew cream\n- cashew milk\n- cashews\n- cassava root syrup\n- chickpea flour\n- chicory root fiber\n- citrus fiber\n- citrus pectin\n- cocoa butter\n- coconut cream\n- coconut milk\n- coconut milk powder\n- coconut oil\n- coconut sugar\n- coconut syrup\n- coconut water\n- coconuts\n- corn fiber\n- corn maltodextrin\n- corn oil\n- corn starch\n- corn syrup\n- corn syrup solids\n- enzyme\n- fava bean protein\n- fermented tofu\n- flax oil\n- food starches\n- fully hydrogenated vegetable oils\n- gellan gum\n- glucono-delta-lactone\n- glucose syrup\n- guar gum\n- gum acacia\n- hemp protein\n- hemp seed\n- inulin\n- lemon juice\n- lentil protein\n- locust bean gum\n- macadamia milk\n- macadamia nut butter\n- mlct oil\n- modified food starch\n- mushroom extract\n- oat cream\n- oat fiber\n- oat flour\n- oat milk\n- olive oil\n- palm oil\n- pea milk\n- pea protein\n- pea starch\n- pectin\n- plant milk\n- potassium citrate\n- potassium phosphate\n- potato protein\n- potato starch\n- rice protein\n- ricemilk\n- rowanberry extract\n- safflower oil\n- soy lecithin\n- soy protein concentrate\n- soy protein isolate\n- soybean oil\n- soybeans\n- soymilk\n- sugarcane fiber\n- sunflower lecithin\n- sunflower oil\n- tapioca\n- tapioca starch\n- tapioca syrup\n- tofu\n- vanilla extract\n- vegetable fiber\n- xanthan gum\n\nPrevious evaluated formulations follow. Target dissimilarity is the evaluator's scalar output; lower is better. Use only these observations to propose the next formulation.\n[{\"iteration\":1,\"recipe\":[{\"ingredient\":\"cashew milk\",\"fraction\":0.42},{\"ingredient\":\"coconut oil\",\"fraction\":0.22},{\"ingredient\":\"tapioca starch\",\"fraction\":0.18},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.08},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"ingredient\":\"calcium citrate\",\"fraction\":0.005}],\"target_dissimilarity\":0.3500407121461552}]\n\nYou have 20 evaluations in total, of which 19 remain. Submit formulations to the evaluator with the evaluate tool, one formulation per call. Each formulation uses at most 9 available ingredients, nonnegative quantities, and no ingredient outside the catalog; fractions are normalized to sum to 1. You can also run Python code with the python tool (numpy, scipy, scikit-learn and pandas are installed; there is no internet access). The working directory contains evaluations.json, which always holds all evaluations so far in the format above; each python call runs in a fresh process, and files you write in the working directory persist. Continue until you have used all evaluations."
+},
+{
+"role": "assistant",
+"content": "I'll systematically explore the formulation space to optimize similarity to mozzarella. Let me start by analyzing what we know and trying some strategic variations.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_014XdWUThdQyKiaDSi1EeBNC",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\nimport json\\nwith open('evaluations.json') as f:\\n    evals = json.load(f)\\nfor e in evals:\\n    print(e['iteration'], e['target_dissimilarity'])\\n    for r in e['recipe']:\\n        print(f\\\"  {r['ingredient']}: {r['fraction']}\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_014XdWUThdQyKiaDSi1EeBNC",
+"content": "1 0.3500407121461552\n  cashew milk: 0.42\n  coconut oil: 0.22\n  tapioca starch: 0.18\n  soy protein isolate: 0.08\n  modified food starch: 0.04\n  lemon juice: 0.02\n  soy lecithin: 0.02\n  carrageenan: 0.015\n  calcium citrate: 0.005\n"
+},
+{
+"role": "assistant",
+"content": "Good baseline at 0.35. Mozzarella is typically ~45% water, ~22% fat, ~22% protein, ~3% carbs, plus salt/minerals. Let me try several variations in parallel to explore the space. Actually I can only submit one at a time. Let me think strategically.\n\nKey mozzarella traits: high moisture (water-dominant), milkfat, casein proteins, calcium, slight acidity. For plant-based: we need a liquid base (plant milk), fat (coconut oil for melt), starch (for stretch), protein, and acidulant.\n\nLet me try a formulation closer to real mozzarella proportions (more water/milk base, less starch):",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_017nD9DhHtv2vXrGAbZuZkc9",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.14},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.08},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_017nD9DhHtv2vXrGAbZuZkc9",
+"content": "{\"iteration\": 2, \"target_dissimilarity\": 0.24621966180355198, \"evaluations_remaining\": 18}"
+},
+{
+"role": "assistant",
+"content": "Big improvement from 0.35 \u2192 0.246. Coconut milk is better than cashew milk. Let me push further \u2014 maybe increase water-rich base, adjust starch levels.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XrnAj5aRxGJJiDsC4ZDTWT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.6},{\"ingredient\":\"coconut oil\",\"fraction\":0.16},{\"ingredient\":\"tapioca starch\",\"fraction\":0.1},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.07},{\"ingredient\":\"modified food starch\",\"fraction\":0.03},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.015},{\"ingredient\":\"soy lecithin\",\"fraction\":0.005},{\"ingredient\":\"calcium citrate\",\"fraction\":0.005}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XrnAj5aRxGJJiDsC4ZDTWT",
+"content": "{\"iteration\": 3, \"target_dissimilarity\": 0.503671980413885, \"evaluations_remaining\": 17}"
+},
+{
+"role": "assistant",
+"content": "Worse at 0.50. Too much milk, too little starch. The previous formula (iter 2) was closer to optimal. Let me go the other direction \u2014 slightly less milk, more structure.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01B841D73t9zGCU1tytHV18A",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.45},{\"ingredient\":\"coconut oil\",\"fraction\":0.2},{\"ingredient\":\"tapioca starch\",\"fraction\":0.16},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.08},{\"ingredient\":\"modified food starch\",\"fraction\":0.05},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.01},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01B841D73t9zGCU1tytHV18A",
+"content": "{\"iteration\": 4, \"target_dissimilarity\": 0.4118525811609879, \"evaluations_remaining\": 16}"
+},
+{
+"role": "assistant",
+"content": "Also worse. Iter 2 (0.50 milk, 0.14 tap, 0.18 oil) remains best. Interesting - moving in either direction increased error. Let me try smaller perturbations around iter 2's recipe, but also experiment with ingredient swaps (fermented tofu for mozzarella-like body, or different protein).",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XUS9wVNG6JYWjxZLGoXJGa",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XUS9wVNG6JYWjxZLGoXJGa",
+"content": "{\"iteration\": 5, \"target_dissimilarity\": 0.1371665190954507, \"evaluations_remaining\": 15}"
+},
+{
+"role": "assistant",
+"content": "Huge improvement! 0.246 \u2192 0.137 by adding fermented tofu (+ dropping lecithin). Fermented tofu is likely a great match for mozzarella flavor/texture. Let me push more fermented tofu.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013c35AkwmK3xTRgLorsMdCT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.42},{\"ingredient\":\"fermented tofu\",\"fraction\":0.15},{\"ingredient\":\"coconut oil\",\"fraction\":0.17},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013c35AkwmK3xTRgLorsMdCT",
+"content": "{\"iteration\": 6, \"target_dissimilarity\": 0.4552743441749778, \"evaluations_remaining\": 14}"
+},
+{
+"role": "assistant",
+"content": "Too much tofu made it worse. Iter 5 with 0.05 tofu is sweet spot. Let me try a slightly different direction \u2014 maybe reduce tofu a bit but keep structure.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_018ToaLBNMd8dMAgMUMiqcJh",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.13},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.04},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_018ToaLBNMd8dMAgMUMiqcJh",
+"content": "{\"iteration\": 7, \"target_dissimilarity\": 0.26085821151136046, \"evaluations_remaining\": 13}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5 was better. The 0.05 tofu + 0.12 tap + 0.06 SPI combo is good. Let me vary carefully and try adjusting carrageenan up (it helps with cheese stretch) or small tweaks.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01LrEkYHGeNUXZYa3dcGnwjY",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Iter 5 best: 0.137\\n# coconut milk 0.50, coconut oil 0.18, tapioca starch 0.12, soy protein isolate 0.06,\\n# fermented tofu 0.05, modified food starch 0.04, lemon juice 0.02, carrageenan 0.02, calcium citrate 0.01\\n# Iter 7 at same but tap 0.13, spi 0.06, tofu 0.04 \u2192 0.26 (worse)\\n# Iter 6 tofu 0.15 \u2192 0.45 worse\\n# So tofu is sensitive. Let me try tofu 0.06 or 0.07\\nprint(\\\"try small moves around iter 5\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LrEkYHGeNUXZYa3dcGnwjY",
+"content": "try small moves around iter 5\n"
+},
+{
+"role": "assistant",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_015BW2p3aeyJKmb4MBRBnk1c",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.49},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.06},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+],
+"content": ""
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_015BW2p3aeyJKmb4MBRBnk1c",
+"content": "{\"iteration\": 8, \"target_dissimilarity\": 0.33305844381315314, \"evaluations_remaining\": 12}"
+},
+{
+"role": "assistant",
+"content": "Worse. Looks like iter 5's composition is at a very sharp local optimum. Let me try different ingredient swap \u2014 maybe fermented tofu has strong signal, swap SPI for something else, or try adding another \"cheese\" character ingredient.",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01PAK2wvC4TicxA7ZNJ7wq4x",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"fava bean protein\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01PAK2wvC4TicxA7ZNJ7wq4x",
+"content": "{\"iteration\": 9, \"target_dissimilarity\": 0.4289586367363976, \"evaluations_remaining\": 11}"
+},
+{
+"role": "assistant",
+"content": "SPI is better than fava. Let me try swapping tapioca starch component, or try with tofu (regular) alongside fermented tofu:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01TDBewiXPCChCa78qTcQQ3Q",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"potato starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01TDBewiXPCChCa78qTcQQ3Q",
+"content": "{\"iteration\": 10, \"target_dissimilarity\": 0.5229931594172574, \"evaluations_remaining\": 10}"
+},
+{
+"role": "assistant",
+"content": "Modified food starch > potato starch. Let me revisit \u2014 iter 5 is clearly optimal structurally. Let me try replacing lemon juice with GDL (glucono-delta-lactone is used in mozzarella making):",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01WJQSzfoZxj345wK36ZYcjp",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"glucono-delta-lactone\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01WJQSzfoZxj345wK36ZYcjp",
+"content": "{\"iteration\": 11, \"target_dissimilarity\": 0.20982042508256735, \"evaluations_remaining\": 9}"
+},
+{
+"role": "assistant",
+"content": "Hmm, worse than iter 5 (0.137). Let me go back to lemon juice but try adding mushroom extract (umami) or swap carrageenan:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01D7ehq8GFAigx9ySGXgwU1m",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"kappa carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01D7ehq8GFAigx9ySGXgwU1m",
+"content": "{\"iteration\": 12, \"target_dissimilarity\": 0.2877457126429994, \"evaluations_remaining\": 8}"
+},
+{
+"role": "assistant",
+"content": "Wait - \"kappa carrageenan\" isn't in catalog, but it accepted it. Hmm this is odd. Let me check \u2014 it's probably being normalized or ignored. Regardless, worse. Let me now try replacing carrageenan with something else, or trying gellan gum, or small variation on tofu amount:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01ETfZUCmnYhikvaZzGQ5Vyc",
+"function": {
+"name": "python",
+"arguments": "{\"code\": \"\\n# Best is iter 5: 0.137\\n# All deviations have been worse. Let me think about replacing one ingredient at a time:\\n# - replace modified food starch with tapioca starch (just increase tapioca)\\n# - try adding soy lecithin back\\n# - try swapping coconut oil for cocoa butter\\n# Let me try removing modified food starch entirely, keeping just more tapioca\\nresults = {\\n    5: 0.137,  # best - current baseline\\n    2: 0.246,\\n    11: 0.210, # GDL instead of lemon juice\\n    7: 0.261,\\n    12: 0.288,\\n    8: 0.333,\\n    1: 0.350,\\n    4: 0.412,\\n    9: 0.429,\\n    6: 0.455,\\n    3: 0.504,\\n    10: 0.523,\\n}\\nprint(\\\"iter5 holds\\\")\\n\"}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01ETfZUCmnYhikvaZzGQ5Vyc",
+"content": "iter5 holds\n"
+},
+{
+"role": "assistant",
+"content": "Let me try a careful variation \u2014 maybe slight tweak to coconut oil fraction, and try coconut cream (richer) instead of coconut milk:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01LMPVUjzVr65WQQjmps28rn",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut cream\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01LMPVUjzVr65WQQjmps28rn",
+"content": "{\"iteration\": 13, \"target_dissimilarity\": 0.6649141070168925, \"evaluations_remaining\": 7}"
+},
+{
+"role": "assistant",
+"content": "Much worse. Coconut milk is important. Let me try some other promising swaps. Add soymilk as additional base, or try swapping soy protein isolate for soy protein concentrate:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01EZgMAr2bixCScW45zrF4WT",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein concentrate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01EZgMAr2bixCScW45zrF4WT",
+"content": "{\"iteration\": 14, \"target_dissimilarity\": 0.22374781787522197, \"evaluations_remaining\": 6}"
+},
+{
+"role": "assistant",
+"content": "Worse. Back to iter 5. Let me try very small perturbations \u2014 adjust lemon juice to 0.025 (iter 5 had 0.02), or bump calcium citrate:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01JizCfqV96vbryPnKcRBsYJ",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.015},{\"ingredient\":\"carrageenan\",\"fraction\":0.025},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01JizCfqV96vbryPnKcRBsYJ",
+"content": "{\"iteration\": 15, \"target_dissimilarity\": 0.3987994255777016, \"evaluations_remaining\": 5}"
+},
+{
+"role": "assistant",
+"content": "Sensitive. Iter 5 appears to be a sharp local minimum. Let me test a big different direction \u2014 swap modified food starch for something unique, or replace calcium citrate with potassium citrate:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01Y3ETb1ABKW9wREXShYsKxH",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"food starches\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01Y3ETb1ABKW9wREXShYsKxH",
+"content": "{\"iteration\": 16, \"target_dissimilarity\": 0.29324035325123793, \"evaluations_remaining\": 4}"
+},
+{
+"role": "assistant",
+"content": "Worse. Modified food starch is better. 4 evaluations left. Let me try changing fat \u2014 adding palm oil (common in vegan cheese for firmness):",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_013ofWgjGnR9LbVqLa31bxJz",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"palm oil\",\"fraction\":0.04},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_013ofWgjGnR9LbVqLa31bxJz",
+"content": "Invalid formulation (no evaluation used): recipe used 10 ingredients; maximum is 9"
+},
+{
+"role": "assistant",
+"content": "I need \u22649 ingredients. Let me try swap coconut oil entirely for palm oil, or drop calcium citrate:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01RQE5tTUauYezhaqu4wk3aM",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.14},{\"ingredient\":\"palm oil\",\"fraction\":0.05},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RQE5tTUauYezhaqu4wk3aM",
+"content": "{\"iteration\": 17, \"target_dissimilarity\": 0.30084074595218385, \"evaluations_remaining\": 3}"
+},
+{
+"role": "assistant",
+"content": "Worse. Calcium citrate helps. Only 3 left. Let me try one more promising variation \u2014 using inulin or enzyme (critical in cheesemaking):",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01FNxszCfVXriLN2jMX5EeoV",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"enzyme\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01FNxszCfVXriLN2jMX5EeoV",
+"content": "{\"iteration\": 18, \"target_dissimilarity\": 0.33592048278764425, \"evaluations_remaining\": 2}"
+},
+{
+"role": "assistant",
+"content": "Worse \u2014 carrageenan matters. Let me try one more variation with the exact iter 5 recipe but adding sunflower lecithin:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01XhL233wNhPTHwVDUqUTTNw",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.17},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"soy lecithin\",\"fraction\":0.02}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01XhL233wNhPTHwVDUqUTTNw",
+"content": "{\"iteration\": 19, \"target_dissimilarity\": 0.42390939113452275, \"evaluations_remaining\": 1}"
+},
+{
+"role": "assistant",
+"content": "Worse. Iter 5 remains best at 0.137. For the final evaluation, let me re-submit iter 5's exact recipe to confirm (or try one last careful tweak). Let me try tiny perturbation \u2014 swap small amount of coconut milk for soymilk (adds protein):\n\nActually, iter 5 at 0.137 is far better than anything else. Let me try one small final tweak \u2014 slight increase in tapioca since it might improve stretch. Actually all my tweaks have been worse. Let me stick with a very conservative tiny move: iter 5 but with 0.015 calcium citrate and 0.005 less coconut milk \u2014 no, too risky.\n\nLet me just try iter 5 with modified food starch slightly higher at 0.05 at the expense of coconut milk:",
+"tool_calls": [
+{
+"type": "function",
+"index": 0,
+"id": "toolu_01RwWtbRfX3skWApYge4tDK4",
+"function": {
+"name": "evaluate",
+"arguments": "{\"recipe\": [{\"ingredient\":\"coconut milk\",\"fraction\":0.5},{\"ingredient\":\"coconut oil\",\"fraction\":0.18},{\"ingredient\":\"tapioca starch\",\"fraction\":0.12},{\"ingredient\":\"soy protein isolate\",\"fraction\":0.06},{\"ingredient\":\"fermented tofu\",\"fraction\":0.05},{\"ingredient\":\"modified food starch\",\"fraction\":0.04},{\"ingredient\":\"lemon juice\",\"fraction\":0.02},{\"ingredient\":\"carrageenan\",\"fraction\":0.02},{\"ingredient\":\"calcium citrate\",\"fraction\":0.01}]}"
+}
+}
+]
+},
+{
+"role": "tool",
+"tool_call_id": "toolu_01RwWtbRfX3skWApYge4tDK4",
+"content": "{\"iteration\": 20, \"target_dissimilarity\": 0.20902034026220953, \"evaluations_remaining\": 0}"
+},
+{
+"role": "user",
+"content": "All 20 evaluations have been used. Which evaluated formulation do you recommend as the final formulation? Reply with only its iteration number."
+},
+{
+"role": "assistant",
+"content": "5"
+}
+],
+"calls": [
+{
+"prompt_tokens": 2215,
+"completion_tokens": 207,
+"cost": 0.01625
+},
+{
+"prompt_tokens": 2558,
+"completion_tokens": 516,
+"cost": 0.02569
+},
+{
+"prompt_tokens": 3128,
+"completion_tokens": 354,
+"cost": 0.02449
+},
+{
+"prompt_tokens": 3535,
+"completion_tokens": 356,
+"cost": 0.026575
+},
+{
+"prompt_tokens": 3945,
+"completion_tokens": 407,
+"cost": 0.0299
+},
+{
+"prompt_tokens": 4406,
+"completion_tokens": 373,
+"cost": 0.031355
+},
+{
+"prompt_tokens": 4833,
+"completion_tokens": 360,
+"cost": 0.033165
+},
+{
+"prompt_tokens": 5247,
+"completion_tokens": 366,
+"cost": 0.035385
+},
+{
+"prompt_tokens": 5635,
+"completion_tokens": 296,
+"cost": 0.035575
+},
+{
+"prompt_tokens": 5985,
+"completion_tokens": 375,
+"cost": 0.0393
+},
+{
+"prompt_tokens": 6414,
+"completion_tokens": 340,
+"cost": 0.04057
+},
+{
+"prompt_tokens": 6808,
+"completion_tokens": 374,
+"cost": 0.04339
+},
+{
+"prompt_tokens": 7236,
+"completion_tokens": 352,
+"cost": 0.04498
+},
+{
+"prompt_tokens": 7642,
+"completion_tokens": 433,
+"cost": 0.049035
+},
+{
+"prompt_tokens": 8094,
+"completion_tokens": 345,
+"cost": 0.049095
+},
+{
+"prompt_tokens": 8493,
+"completion_tokens": 357,
+"cost": 0.05139
+},
+{
+"prompt_tokens": 8904,
+"completion_tokens": 356,
+"cost": 0.05342
+},
+{
+"prompt_tokens": 9314,
+"completion_tokens": 359,
+"cost": 0.055545
+},
+{
+"prompt_tokens": 9727,
+"completion_tokens": 372,
+"cost": 0.057935
+},
+{
+"prompt_tokens": 10144,
+"completion_tokens": 337,
+"cost": 0.059145
+},
+{
+"prompt_tokens": 10535,
+"completion_tokens": 348,
+"cost": 0.061375
+},
+{
+"prompt_tokens": 10937,
+"completion_tokens": 341,
+"cost": 0.06321
+},
+{
+"prompt_tokens": 11332,
+"completion_tokens": 548,
+"cost": 0.07036
+},
+{
+"prompt_tokens": 11987,
+"completion_tokens": 6,
+"cost": 0.060085
+}
+]
+}
