@@ -9,7 +9,7 @@ This repository has two purposes:
 2. provide a small, stable interface for evaluating new methods on
    **FormulateBench**.
 
-No API key is needed for either the FormulateBench quickstart or exact paper
+No API key is necessary for either the FormulateBench quickstart or exact paper
 figure reproduction. The released LLM trajectories and initial recipes are
 frozen so that results do not depend on future model or API changes.
 
